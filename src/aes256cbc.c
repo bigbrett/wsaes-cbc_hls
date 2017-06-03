@@ -22,7 +22,8 @@ void aes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t
 
     switch( mode ) {
     case RESET:
-    	for(i=0;i<16;i++) { xorv[i] = iv[i]; }
+    	for(i=0;i<16;i++)
+    		xorv[i] = iv[i];
     	aes256_init(&ctx, key);
     	break;
     case ENCRYPT:
