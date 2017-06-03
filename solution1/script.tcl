@@ -1,7 +1,7 @@
 ############################################################
 ## This file is generated automatically by Vivado HLS.
 ## Please DO NOT edit it.
-## Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
+## Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project aes256cbc
 set_top aes256cbc
@@ -16,5 +16,5 @@ create_clock -period 8 -name default
 #source "./aes256cbc/solution1/directives.tcl"
 csim_design -ldflags {-lssl -lcrypto}
 csynth_design
-cosim_design -ldflags {-lssl -lcrypto}
+cosim_design
 export_design -format ip_catalog -description "AES 256 CBC" -vendor "websensing.com" -display_name "aes256cbc"

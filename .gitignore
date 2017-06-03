@@ -1,2 +1,6 @@
 .apc
 .vivado*
+.cproject
+.project
+.settings
+vivado_hls.app
