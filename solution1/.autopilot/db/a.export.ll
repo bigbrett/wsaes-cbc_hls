@@ -1,29 +1,19 @@
-; ModuleID = '/home/jd/workspace/aes256cbc/solution1/.autopilot/db/a.o.2.bc'
+; ModuleID = '/home/brett/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/a.o.2.bc'
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
 @xorv = internal unnamed_addr global [16 x i8] zeroinitializer, align 16
 @sboxinv = internal unnamed_addr constant [256 x i8] c"R\09j\D506\A58\BF@\A3\9E\81\F3\D7\FB|\E39\82\9B/\FF\874\8ECD\C4\DE\E9\CBT{\942\A6\C2#=\EEL\95\0BB\FA\C3N\08.\A1f(\D9$\B2v[\A2Im\8B\D1%r\F8\F6d\86h\98\16\D4\A4\5C\CC]e\B6\92lpHP\FD\ED\B9\DA^\15FW\A7\8D\9D\84\90\D8\AB\00\8C\BC\D3\0A\F7\E4X\05\B8\B3E\06\D0,\1E\8F\CA?\0F\02\C1\AF\BD\03\01\13\8Ak:\91\11AOg\DC\EA\97\F2\CF\CE\F0\B4\E6s\96\ACt\22\E7\AD5\85\E2\F97\E8\1Cu\DFnG\F1\1Aq\1D)\C5\89o\B7b\0E\AA\18\BE\1B\FCV>K\C6\D2y \9A\DB\C0\FEx\CDZ\F4\1F\DD\A83\88\07\C71\B1\12\10Y'\80\EC_`Q\7F\A9\19\B5J\0D-\E5z\9F\93\C9\9C\EF\A0\E0;M\AE*\F5\B0\C8\EB\BB<\83S\99a\17+\04~\BAw\D6&\E1i\14cU!\0C}", align 16
 @sbox = internal unnamed_addr constant [256 x i8] c"c|w{\F2ko\C50\01g+\FE\D7\ABv\CA\82\C9}\FAYG\F0\AD\D4\A2\AF\9C\A4r\C0\B7\FD\93&6?\F7\CC4\A5\E5\F1q\D81\15\04\C7#\C3\18\96\05\9A\07\12\80\E2\EB'\B2u\09\83,\1A\1BnZ\A0R;\D6\B3)\E3/\84S\D1\00\ED \FC\B1[j\CB\BE9JLX\CF\D0\EF\AA\FBCM3\85E\F9\02\7FP<\9F\A8Q\A3@\8F\92\9D8\F5\BC\B6\DA!\10\FF\F3\D2\CD\0C\13\EC_\97D\17\C4\A7~=d]\19s`\81O\DC\22*\90\88F\EE\B8\14\DE^\0B\DB\E02:\0AI\06$\5C\C2\D3\ACb\91\95\E4y\E7\C87m\8D\D5N\A9lV\F4\EAez\AE\08\BAx%.\1C\A6\B4\C6\E8\DDt\1FK\BD\8B\8Ap>\B5fH\03\F6\0Ea5W\B9\86\C1\1D\9E\E1\F8\98\11i\D9\8E\94\9B\1E\87\E9\CEU(\DF\8C\A1\89\0D\BF\E6BhA\99-\0F\B0T\BB\16", align 16
-@memcpy_OC_memptr_OC_s = internal unnamed_addr constant [15 x i8] c"memcpy.memptr.\00"
-@memcpy_OC_OC_memptr = internal unnamed_addr constant [15 x i8] c"memcpy..memptr\00"
 @lastbuf = internal unnamed_addr global [16 x i8] zeroinitializer, align 16
 @key = internal unnamed_addr global [32 x i8] zeroinitializer, align 16
 @iv = internal unnamed_addr global [16 x i8] zeroinitializer, align 16
 @ctx_key = internal global [32 x i8] zeroinitializer
 @ctx_enckey = internal unnamed_addr global [32 x i8] zeroinitializer
 @ctx_deckey = internal global [32 x i8] zeroinitializer
-@burstwrite_OC_region = internal unnamed_addr constant [18 x i8] c"burstwrite.region\00"
-@burstread_OC_region_s = internal unnamed_addr constant [17 x i8] c"burstread.region\00"
 @aes256cbc_str = internal unnamed_addr constant [10 x i8] c"aes256cbc\00"
-@p_str9 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str8 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str7 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str6 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str5 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str4 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str3 = private unnamed_addr constant [6 x i8] c"m_axi\00", align 1
-@p_str2 = private unnamed_addr constant [3 x i8] c"p0\00", align 1
+@RAM_1P_str = internal unnamed_addr constant [7 x i8] c"RAM_1P\00"
+@p_str3 = internal unnamed_addr constant [1 x i8] zeroinitializer
 @p_str1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @p_str = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1
 
@@ -514,8 +504,8 @@ define internal fastcc void @aes_addRoundKey([16 x i8]* nocapture %buf_r, [32 x 
   ret void
 }
 
-define void @aes256cbc(i8* %memptr, i3 zeroext %mode, i32 %inbuf_addr, i32 %outbuf_addr) nounwind uwtable {
-  call void (...)* @_ssdm_op_SpecBitsMap(i8* %memptr) nounwind, !map !39
+define void @aes256cbc([64 x i8]* %memptr, i3 zeroext %mode, i32 %inbuf_addr, i32 %outbuf_addr) nounwind uwtable {
+  call void (...)* @_ssdm_op_SpecBitsMap([64 x i8]* %memptr) nounwind, !map !39
   call void (...)* @_ssdm_op_SpecBitsMap(i3 %mode) nounwind, !map !45
   call void (...)* @_ssdm_op_SpecBitsMap(i32 %inbuf_addr) nounwind, !map !51
   call void (...)* @_ssdm_op_SpecBitsMap(i32 %outbuf_addr) nounwind, !map !55
@@ -524,330 +514,317 @@ define void @aes256cbc(i8* %memptr, i3 zeroext %mode, i32 %inbuf_addr, i32 %outb
   %inbuf_addr_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %inbuf_addr) nounwind
   %mode_read = call i3 @_ssdm_op_Read.s_axilite.i3(i3 %mode) nounwind
   %buf = alloca [16 x i8], align 16
-  call void (...)* @_ssdm_op_SpecInterface(i32 %outbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32 %inbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i8* %memptr, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 64, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i3 %mode, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 %outbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 %inbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %memptr, [1 x i8]* @p_str3, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str3, i32 -1, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+  call void (...)* @_ssdm_op_SpecInterface([64 x i8]* %memptr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 64, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i3 %mode, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
   call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  switch i3 %mode_read, label %._crit_edge [
-    i3 0, label %.preheader1.preheader
-    i3 1, label %4
-    i3 2, label %10
-    i3 3, label %17
-    i3 -4, label %18
+  switch i3 %mode_read, label %.loopexit [
+    i3 0, label %.preheader17.preheader
+    i3 1, label %.preheader16.preheader
+    i3 2, label %.preheader12.preheader
+    i3 3, label %.preheader6.preheader
+    i3 -4, label %.preheader.preheader
   ]
 
-.preheader1.preheader:                            ; preds = %0
-  br label %.preheader1
+.preheader17.preheader:                           ; preds = %0
+  br label %.preheader17
 
-.preheader1:                                      ; preds = %.preheader1.preheader, %1
-  %i = phi i5 [ %i_6, %1 ], [ 0, %.preheader1.preheader ]
-  %tmp_124 = icmp eq i5 %i, -16
-  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_6 = add i5 %i, 1
-  br i1 %tmp_124, label %.preheader20.preheader, label %1
+.preheader16.preheader:                           ; preds = %0
+  %tmp = trunc i32 %inbuf_addr_read to i8
+  br label %.preheader16
 
-.preheader20.preheader:                           ; preds = %.preheader1
-  br label %.preheader20
+.preheader12.preheader:                           ; preds = %0
+  %tmp_93 = trunc i32 %inbuf_addr_read to i8
+  br label %.preheader12
 
-; <label>:1                                       ; preds = %.preheader1
+.preheader6.preheader:                            ; preds = %0
+  %tmp_94 = trunc i32 %inbuf_addr_read to i8
+  br label %.preheader6
+
+.preheader.preheader:                             ; preds = %0
+  %tmp_95 = trunc i32 %inbuf_addr_read to i8
+  br label %.preheader
+
+.preheader17:                                     ; preds = %.preheader17.preheader, %1
+  %i = phi i5 [ %i_11, %1 ], [ 0, %.preheader17.preheader ]
+  %tmp_s = icmp eq i5 %i, -16
+  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_11 = add i5 %i, 1
+  br i1 %tmp_s, label %.preheader31.preheader, label %1
+
+.preheader31.preheader:                           ; preds = %.preheader17
+  br label %.preheader31
+
+; <label>:1                                       ; preds = %.preheader17
   %tmp_125 = zext i5 %i to i64
   %iv_addr = getelementptr inbounds [16 x i8]* @iv, i64 0, i64 %tmp_125
   %iv_load = load i8* %iv_addr, align 1
   %xorv_addr = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_125
   store i8 %iv_load, i8* %xorv_addr, align 1
-  br label %.preheader1
+  br label %.preheader17
 
-.preheader20:                                     ; preds = %.preheader20.preheader, %2
-  %i_i = phi i6 [ %i_7, %2 ], [ 0, %.preheader20.preheader ]
+.preheader31:                                     ; preds = %.preheader31.preheader, %2
+  %i_i = phi i6 [ %i_23, %2 ], [ 0, %.preheader31.preheader ]
   %tmp_i = icmp eq i6 %i_i, -32
-  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
-  %i_7 = add i6 %i_i, 1
+  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+  %i_23 = add i6 %i_i, 1
   br i1 %tmp_i, label %.preheader.i.preheader, label %2
 
-.preheader.i.preheader:                           ; preds = %.preheader20
+.preheader.i.preheader:                           ; preds = %.preheader31
   br label %.preheader.i
 
-; <label>:2                                       ; preds = %.preheader20
-  %tmp_i_8 = zext i6 %i_i to i64
-  %key_addr_1 = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_i_8
+; <label>:2                                       ; preds = %.preheader31
+  %tmp_i_9 = zext i6 %i_i to i64
+  %key_addr_1 = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_i_9
   %key_load = load i8* %key_addr_1, align 1
-  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_8
+  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_9
   store i8 %key_load, i8* %ctx_deckey_addr, align 1
-  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_8
+  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_9
   store i8 %key_load, i8* %ctx_enckey_addr, align 1
-  br label %.preheader20
+  br label %.preheader31
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %3
   %rcon_i = phi i8 [ %rcon, %3 ], [ 1, %.preheader.i.preheader ]
-  %i_10 = phi i3 [ %phitmp_i, %3 ], [ -1, %.preheader.i.preheader ]
-  %tmp_212_i = icmp eq i3 %i_10, 0
-  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
-  br i1 %tmp_212_i, label %._crit_edge.loopexit15, label %3
+  %i_24 = phi i3 [ %phitmp_i, %3 ], [ -1, %.preheader.i.preheader ]
+  %tmp_212_i = icmp eq i3 %i_24, 0
+  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
+  br i1 %tmp_212_i, label %.loopexit.loopexit19, label %3
 
 ; <label>:3                                       ; preds = %.preheader.i
   %rcon = call fastcc i8 @aes_expandEncKey([32 x i8]* @ctx_deckey, i8 %rcon_i) nounwind
-  %phitmp_i = add i3 %i_10, -1
+  %phitmp_i = add i3 %i_24, -1
   br label %.preheader.i
 
-; <label>:4                                       ; preds = %0
-  %tmp_s = zext i32 %inbuf_addr_read to i64
-  %memptr_addr = getelementptr inbounds i8* %memptr, i64 %tmp_s
-  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
-  br label %burst.rd.header
+.preheader16:                                     ; preds = %4, %.preheader16.preheader
+  %i_1 = phi i5 [ %i_12, %4 ], [ 0, %.preheader16.preheader ]
+  %tmp_121 = icmp eq i5 %i_1, -16
+  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_12 = add i5 %i_1, 1
+  br i1 %tmp_121, label %.preheader15.preheader, label %4
 
-burst.rd.header:                                  ; preds = %burst.rd.body, %4
-  %indvar = phi i5 [ 0, %4 ], [ %indvar_next, %burst.rd.body ]
-  %exitcond = icmp eq i5 %indvar, -16
-  %indvar_next = add i5 %indvar, 1
-  br i1 %exitcond, label %burst.rd.end.preheader, label %burst.rd.body
+.preheader15.preheader:                           ; preds = %.preheader16
+  br label %.preheader15
 
-burst.rd.end.preheader:                           ; preds = %burst.rd.header
-  br label %burst.rd.end
+; <label>:4                                       ; preds = %.preheader16
+  %tmp_126 = zext i5 %i_1 to i64
+  %tmp_153_cast = zext i5 %i_1 to i8
+  %sum = add i8 %tmp, %tmp_153_cast
+  %sum_cast = zext i8 %sum to i64
+  %memptr_addr = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum_cast
+  %memptr_load = load i8* %memptr_addr, align 1
+  %buf_addr = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_126
+  store i8 %memptr_load, i8* %buf_addr, align 1
+  br label %.preheader16
 
-burst.rd.body:                                    ; preds = %burst.rd.header
-  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %burstread_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-  %empty_11 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str4) nounwind
-  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-  %memptr_addr_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr) nounwind
-  %tmp_126 = zext i5 %indvar to i64
-  %buf_addr = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_126
-  store i8 %memptr_addr_read, i8* %buf_addr, align 1
-  %burstread_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin) nounwind
-  br label %burst.rd.header
-
-burst.rd.end:                                     ; preds = %burst.rd.end.preheader, %5
-  %i_1 = phi i5 [ %i_8, %5 ], [ 0, %burst.rd.end.preheader ]
-  %tmp_130 = icmp eq i5 %i_1, -16
-  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_8 = add i5 %i_1, 1
+.preheader15:                                     ; preds = %.preheader15.preheader, %5
+  %i_2 = phi i5 [ %i_16, %5 ], [ 0, %.preheader15.preheader ]
+  %tmp_130 = icmp eq i5 %i_2, -16
+  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_16 = add i5 %i_2, 1
   br i1 %tmp_130, label %6, label %5
 
-; <label>:5                                       ; preds = %burst.rd.end
-  %tmp_132 = zext i5 %i_1 to i64
+; <label>:5                                       ; preds = %.preheader15
+  %tmp_132 = zext i5 %i_2 to i64
   %buf_addr_5 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_132
   %buf_load = load i8* %buf_addr_5, align 1
   %xorv_addr_1 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_132
   %xorv_load = load i8* %xorv_addr_1, align 1
   %tmp_133 = xor i8 %xorv_load, %buf_load
   store i8 %tmp_133, i8* %buf_addr_5, align 1
-  br label %burst.rd.end
+  br label %.preheader15
 
-; <label>:6                                       ; preds = %burst.rd.end
+; <label>:6                                       ; preds = %.preheader15
   call fastcc void @aes256_encrypt_ecb([16 x i8]* %buf) nounwind
   br label %7
 
 ; <label>:7                                       ; preds = %8, %6
-  %i_2 = phi i5 [ 0, %6 ], [ %i_12, %8 ]
-  %tmp_135 = icmp eq i5 %i_2, -16
-  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_12 = add i5 %i_2, 1
-  br i1 %tmp_135, label %9, label %8
+  %i_3 = phi i5 [ 0, %6 ], [ %i_18, %8 ]
+  %tmp_135 = icmp eq i5 %i_3, -16
+  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_18 = add i5 %i_3, 1
+  br i1 %tmp_135, label %.preheader13.preheader, label %8
+
+.preheader13.preheader:                           ; preds = %7
+  %tmp_96 = trunc i32 %outbuf_addr_read to i8
+  br label %.preheader13
 
 ; <label>:8                                       ; preds = %7
-  %tmp_138 = zext i5 %i_2 to i64
-  %buf_addr_7 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_138
+  %tmp_137 = zext i5 %i_3 to i64
+  %buf_addr_7 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_137
   %buf_load_2 = load i8* %buf_addr_7, align 1
-  %xorv_addr_2 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_138
+  %xorv_addr_2 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_137
   store i8 %buf_load_2, i8* %xorv_addr_2, align 1
   br label %7
 
-; <label>:9                                       ; preds = %7
-  %tmp_137 = zext i32 %outbuf_addr_read to i64
-  %memptr_addr_4 = getelementptr inbounds i8* %memptr, i64 %tmp_137
-  %memptr_addr_9_wr_req = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %memptr_addr_4, i32 16) nounwind
-  br label %burst.wr.header
+.preheader13:                                     ; preds = %9, %.preheader13.preheader
+  %i_4 = phi i5 [ %i_20, %9 ], [ 0, %.preheader13.preheader ]
+  %tmp_140 = icmp eq i5 %i_4, -16
+  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_20 = add i5 %i_4, 1
+  br i1 %tmp_140, label %.loopexit.loopexit18, label %9
 
-burst.wr.header:                                  ; preds = %burst.wr.body, %9
-  %indvar7 = phi i5 [ 0, %9 ], [ %indvar_next8, %burst.wr.body ]
-  %exitcond9 = icmp eq i5 %indvar7, -16
-  %indvar_next8 = add i5 %indvar7, 1
-  br i1 %exitcond9, label %._crit_edge.loopexit7, label %burst.wr.body
-
-burst.wr.body:                                    ; preds = %burst.wr.header
-  %empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %burstwrite_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @burstwrite_OC_region) nounwind
-  %empty_16 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str5) nounwind
-  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_memptr_OC_s) nounwind
-  %tmp_142 = zext i5 %indvar7 to i64
-  %buf_addr_9 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_142
+; <label>:9                                       ; preds = %.preheader13
+  %tmp_142 = zext i5 %i_4 to i64
+  %tmp_170_cast = zext i5 %i_4 to i8
+  %buf_addr_9 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_142
   %buf_load_4 = load i8* %buf_addr_9, align 1
-  call void @_ssdm_op_Write.m_axi.i8P(i8* %memptr_addr_4, i8 %buf_load_4, i1 true) nounwind
-  %burstwrite_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @burstwrite_OC_region, i32 %burstwrite_rbegin) nounwind
-  br label %burst.wr.header
+  %sum2 = add i8 %tmp_96, %tmp_170_cast
+  %sum2_cast = zext i8 %sum2 to i64
+  %memptr_addr_4 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum2_cast
+  store i8 %buf_load_4, i8* %memptr_addr_4, align 1
+  br label %.preheader13
 
-; <label>:10                                      ; preds = %0
-  %tmp_121 = zext i32 %inbuf_addr_read to i64
-  %memptr_addr_1 = getelementptr inbounds i8* %memptr, i64 %tmp_121
-  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
-  br label %burst.rd.header19
+.preheader12:                                     ; preds = %10, %.preheader12.preheader
+  %i_5 = phi i5 [ %i_13, %10 ], [ 0, %.preheader12.preheader ]
+  %tmp_122 = icmp eq i5 %i_5, -16
+  %empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_13 = add i5 %i_5, 1
+  br i1 %tmp_122, label %.preheader11.preheader, label %10
 
-burst.rd.header19:                                ; preds = %burst.rd.body20, %10
-  %indvar1 = phi i5 [ 0, %10 ], [ %indvar_next1, %burst.rd.body20 ]
-  %exitcond1 = icmp eq i5 %indvar1, -16
-  %indvar_next1 = add i5 %indvar1, 1
-  br i1 %exitcond1, label %burst.rd.end18.preheader, label %burst.rd.body20
+.preheader11.preheader:                           ; preds = %.preheader12
+  br label %.preheader11
 
-burst.rd.end18.preheader:                         ; preds = %burst.rd.header19
-  br label %burst.rd.end18
+; <label>:10                                      ; preds = %.preheader12
+  %tmp_127 = zext i5 %i_5 to i64
+  %tmp_154_cast = zext i5 %i_5 to i8
+  %sum4 = add i8 %tmp_93, %tmp_154_cast
+  %sum4_cast = zext i8 %sum4 to i64
+  %memptr_addr_1 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum4_cast
+  %memptr_load_1 = load i8* %memptr_addr_1, align 1
+  %buf_addr_4 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_127
+  store i8 %memptr_load_1, i8* %buf_addr_4, align 1
+  br label %.preheader12
 
-burst.rd.body20:                                  ; preds = %burst.rd.header19
-  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %burstread_rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-  %empty_19 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
-  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-  %memptr_addr_1_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_1) nounwind
-  %tmp_127 = zext i5 %indvar1 to i64
-  %buf_addr_4 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_127
-  store i8 %memptr_addr_1_read, i8* %buf_addr_4, align 1
-  %burstread_rend32 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin1) nounwind
-  br label %burst.rd.header19
-
-burst.rd.end18:                                   ; preds = %burst.rd.end18.preheader, %11
-  %i_3 = phi i5 [ %i_9, %11 ], [ 0, %burst.rd.end18.preheader ]
-  %tmp_131 = icmp eq i5 %i_3, -16
-  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_9 = add i5 %i_3, 1
+.preheader11:                                     ; preds = %.preheader11.preheader, %11
+  %i_6 = phi i5 [ %i_17, %11 ], [ 0, %.preheader11.preheader ]
+  %tmp_131 = icmp eq i5 %i_6, -16
+  %empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_17 = add i5 %i_6, 1
   br i1 %tmp_131, label %12, label %11
 
-; <label>:11                                      ; preds = %burst.rd.end18
-  %tmp_134 = zext i5 %i_3 to i64
+; <label>:11                                      ; preds = %.preheader11
+  %tmp_134 = zext i5 %i_6 to i64
   %buf_addr_6 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_134
   %buf_load_1 = load i8* %buf_addr_6, align 1
   %lastbuf_addr = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_134
   store i8 %buf_load_1, i8* %lastbuf_addr, align 1
-  br label %burst.rd.end18
+  br label %.preheader11
 
-; <label>:12                                      ; preds = %burst.rd.end18
+; <label>:12                                      ; preds = %.preheader11
   call fastcc void @aes256_decrypt_ecb([16 x i8]* %buf) nounwind
   br label %13
 
 ; <label>:13                                      ; preds = %14, %12
-  %i_4 = phi i5 [ 0, %12 ], [ %i_11, %14 ]
-  %tmp_136 = icmp eq i5 %i_4, -16
-  %empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_11 = add i5 %i_4, 1
-  br i1 %tmp_136, label %.preheader.preheader, label %14
+  %i_7 = phi i5 [ 0, %12 ], [ %i_19, %14 ]
+  %tmp_136 = icmp eq i5 %i_7, -16
+  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_19 = add i5 %i_7, 1
+  br i1 %tmp_136, label %.preheader10.preheader, label %14
 
-.preheader.preheader:                             ; preds = %13
-  br label %.preheader
+.preheader10.preheader:                           ; preds = %13
+  br label %.preheader10
 
 ; <label>:14                                      ; preds = %13
-  %tmp_139 = zext i5 %i_4 to i64
-  %buf_addr_8 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_139
+  %tmp_138 = zext i5 %i_7 to i64
+  %buf_addr_8 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_138
   %buf_load_3 = load i8* %buf_addr_8, align 1
-  %xorv_addr_3 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_139
+  %xorv_addr_3 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_138
   %xorv_load_1 = load i8* %xorv_addr_3, align 1
-  %tmp_140 = xor i8 %xorv_load_1, %buf_load_3
-  store i8 %tmp_140, i8* %buf_addr_8, align 1
+  %tmp_139 = xor i8 %xorv_load_1, %buf_load_3
+  store i8 %tmp_139, i8* %buf_addr_8, align 1
   br label %13
 
-.preheader:                                       ; preds = %.preheader.preheader, %15
-  %i_5 = phi i5 [ %i_13, %15 ], [ 0, %.preheader.preheader ]
-  %tmp_141 = icmp eq i5 %i_5, -16
-  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %i_13 = add i5 %i_5, 1
-  br i1 %tmp_141, label %16, label %15
+.preheader10:                                     ; preds = %.preheader10.preheader, %15
+  %i_8 = phi i5 [ %i_21, %15 ], [ 0, %.preheader10.preheader ]
+  %tmp_141 = icmp eq i5 %i_8, -16
+  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_21 = add i5 %i_8, 1
+  br i1 %tmp_141, label %.preheader8.preheader, label %15
 
-; <label>:15                                      ; preds = %.preheader
-  %tmp_144 = zext i5 %i_5 to i64
-  %lastbuf_addr_1 = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_144
+.preheader8.preheader:                            ; preds = %.preheader10
+  %tmp_97 = trunc i32 %outbuf_addr_read to i8
+  br label %.preheader8
+
+; <label>:15                                      ; preds = %.preheader10
+  %tmp_143 = zext i5 %i_8 to i64
+  %lastbuf_addr_1 = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_143
   %lastbuf_load = load i8* %lastbuf_addr_1, align 1
-  %xorv_addr_4 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_144
+  %xorv_addr_4 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_143
   store i8 %lastbuf_load, i8* %xorv_addr_4, align 1
+  br label %.preheader10
+
+.preheader8:                                      ; preds = %16, %.preheader8.preheader
+  %i_9 = phi i5 [ %i_22, %16 ], [ 0, %.preheader8.preheader ]
+  %tmp_144 = icmp eq i5 %i_9, -16
+  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_22 = add i5 %i_9, 1
+  br i1 %tmp_144, label %.loopexit.loopexit17, label %16
+
+; <label>:16                                      ; preds = %.preheader8
+  %tmp_145 = zext i5 %i_9 to i64
+  %tmp_174_cast = zext i5 %i_9 to i8
+  %buf_addr_10 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_145
+  %buf_load_5 = load i8* %buf_addr_10, align 1
+  %sum6 = add i8 %tmp_97, %tmp_174_cast
+  %sum6_cast = zext i8 %sum6 to i64
+  %memptr_addr_5 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum6_cast
+  store i8 %buf_load_5, i8* %memptr_addr_5, align 1
+  br label %.preheader8
+
+.preheader6:                                      ; preds = %17, %.preheader6.preheader
+  %i_s = phi i5 [ %i_14, %17 ], [ 0, %.preheader6.preheader ]
+  %tmp_123 = icmp eq i5 %i_s, -16
+  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+  %i_14 = add i5 %i_s, 1
+  br i1 %tmp_123, label %.loopexit.loopexit16, label %17
+
+; <label>:17                                      ; preds = %.preheader6
+  %tmp_128 = zext i5 %i_s to i64
+  %tmp_155_cast = zext i5 %i_s to i8
+  %sum8 = add i8 %tmp_94, %tmp_155_cast
+  %sum8_cast = zext i8 %sum8 to i64
+  %memptr_addr_2 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum8_cast
+  %memptr_load_2 = load i8* %memptr_addr_2, align 1
+  %iv_addr_1 = getelementptr inbounds [16 x i8]* @iv, i64 0, i64 %tmp_128
+  store i8 %memptr_load_2, i8* %iv_addr_1, align 1
+  br label %.preheader6
+
+.preheader:                                       ; preds = %18, %.preheader.preheader
+  %i_10 = phi i6 [ %i_15, %18 ], [ 0, %.preheader.preheader ]
+  %tmp_124 = icmp eq i6 %i_10, -32
+  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+  %i_15 = add i6 %i_10, 1
+  br i1 %tmp_124, label %.loopexit.loopexit, label %18
+
+; <label>:18                                      ; preds = %.preheader
+  %tmp_129 = zext i6 %i_10 to i64
+  %tmp_156_cast = zext i6 %i_10 to i8
+  %sum1 = add i8 %tmp_95, %tmp_156_cast
+  %sum1_cast = zext i8 %sum1 to i64
+  %memptr_addr_3 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum1_cast
+  %memptr_load_3 = load i8* %memptr_addr_3, align 1
+  %key_addr = getelementptr inbounds [32 x i8]* @key, i64 0, i64 %tmp_129
+  store i8 %memptr_load_3, i8* %key_addr, align 1
   br label %.preheader
 
-; <label>:16                                      ; preds = %.preheader
-  %tmp_143 = zext i32 %outbuf_addr_read to i64
-  %memptr_addr_5 = getelementptr inbounds i8* %memptr, i64 %tmp_143
-  %memptr_addr_10_wr_re = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %memptr_addr_5, i32 16) nounwind
-  br label %burst.wr.header35
+.loopexit.loopexit:                               ; preds = %.preheader
+  br label %.loopexit
 
-burst.wr.header35:                                ; preds = %burst.wr.body36, %16
-  %indvar4 = phi i5 [ 0, %16 ], [ %indvar_next4, %burst.wr.body36 ]
-  %exitcond4 = icmp eq i5 %indvar4, -16
-  %indvar_next4 = add i5 %indvar4, 1
-  br i1 %exitcond4, label %._crit_edge.loopexit6, label %burst.wr.body36
+.loopexit.loopexit16:                             ; preds = %.preheader6
+  br label %.loopexit
 
-burst.wr.body36:                                  ; preds = %burst.wr.header35
-  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %burstwrite_rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @burstwrite_OC_region) nounwind
-  %empty_25 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str7) nounwind
-  %empty_26 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_memptr_OC_s) nounwind
-  %tmp_145 = zext i5 %indvar4 to i64
-  %buf_addr_10 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_145
-  %buf_load_5 = load i8* %buf_addr_10, align 1
-  call void @_ssdm_op_Write.m_axi.i8P(i8* %memptr_addr_5, i8 %buf_load_5, i1 true) nounwind
-  %burstwrite_rend48 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @burstwrite_OC_region, i32 %burstwrite_rbegin1) nounwind
-  br label %burst.wr.header35
+.loopexit.loopexit17:                             ; preds = %.preheader8
+  br label %.loopexit
 
-; <label>:17                                      ; preds = %0
-  %tmp_122 = zext i32 %inbuf_addr_read to i64
-  %memptr_addr_2 = getelementptr inbounds i8* %memptr, i64 %tmp_122
-  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
-  br label %burst.rd.header51
+.loopexit.loopexit18:                             ; preds = %.preheader13
+  br label %.loopexit
 
-burst.rd.header51:                                ; preds = %burst.rd.body52, %17
-  %indvar2 = phi i5 [ 0, %17 ], [ %indvar_next2, %burst.rd.body52 ]
-  %exitcond2 = icmp eq i5 %indvar2, -16
-  %indvar_next2 = add i5 %indvar2, 1
-  br i1 %exitcond2, label %._crit_edge.loopexit14, label %burst.rd.body52
+.loopexit.loopexit19:                             ; preds = %.preheader.i
+  br label %.loopexit
 
-burst.rd.body52:                                  ; preds = %burst.rd.header51
-  %empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-  %burstread_rbegin2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-  %empty_28 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str8) nounwind
-  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-  %memptr_addr_2_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_2) nounwind
-  %tmp_128 = zext i5 %indvar2 to i64
-  %iv_addr_1 = getelementptr [16 x i8]* @iv, i64 0, i64 %tmp_128
-  store i8 %memptr_addr_2_read, i8* %iv_addr_1, align 1
-  %burstread_rend63 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin2) nounwind
-  br label %burst.rd.header51
-
-; <label>:18                                      ; preds = %0
-  %tmp_123 = zext i32 %inbuf_addr_read to i64
-  %memptr_addr_3 = getelementptr inbounds i8* %memptr, i64 %tmp_123
-  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
-  br label %burst.rd.header66
-
-burst.rd.header66:                                ; preds = %burst.rd.body67, %18
-  %indvar3 = phi i6 [ 0, %18 ], [ %indvar_next3, %burst.rd.body67 ]
-  %exitcond3 = icmp eq i6 %indvar3, -32
-  %indvar_next3 = add i6 %indvar3, 1
-  br i1 %exitcond3, label %._crit_edge.loopexit, label %burst.rd.body67
-
-burst.rd.body67:                                  ; preds = %burst.rd.header66
-  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
-  %burstread_rbegin3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-  %empty_31 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str9) nounwind
-  %empty_32 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-  %memptr_addr_3_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_3) nounwind
-  %tmp_129 = zext i6 %indvar3 to i64
-  %key_addr = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_129
-  store i8 %memptr_addr_3_read, i8* %key_addr, align 1
-  %burstread_rend78 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin3) nounwind
-  br label %burst.rd.header66
-
-._crit_edge.loopexit6:                            ; preds = %burst.wr.header35
-  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
-  br label %._crit_edge
-
-._crit_edge.loopexit7:                            ; preds = %burst.wr.header
-  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
-  br label %._crit_edge
-
-._crit_edge.loopexit:                             ; preds = %burst.rd.header66
-  br label %._crit_edge
-
-._crit_edge.loopexit14:                           ; preds = %burst.rd.header51
-  br label %._crit_edge
-
-._crit_edge.loopexit15:                           ; preds = %.preheader.i
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit15, %._crit_edge.loopexit14, %._crit_edge.loopexit, %._crit_edge.loopexit7, %._crit_edge.loopexit6, %0
+.loopexit:                                        ; preds = %.loopexit.loopexit19, %.loopexit.loopexit18, %.loopexit.loopexit17, %.loopexit.loopexit16, %.loopexit.loopexit, %0
   ret void
 }
 
@@ -855,9 +832,9 @@ define internal fastcc void @aes256_encrypt_ecb([16 x i8]* nocapture %buf_r) {
   br label %1
 
 ; <label>:1                                       ; preds = %2, %0
-  %i_i = phi i5 [ -16, %0 ], [ %i_14, %2 ]
-  %i_14 = add i5 %i_i, -1
-  %i_15_cast = sext i5 %i_14 to i8
+  %i_i = phi i5 [ -16, %0 ], [ %i_25, %2 ]
+  %i_25 = add i5 %i_i, -1
+  %i_25_cast = sext i5 %i_25 to i8
   %tmp_i = icmp eq i5 %i_i, 0
   %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i, label %aes_addRoundKey_cpy.exit.preheader, label %2
@@ -880,12 +857,12 @@ aes_addRoundKey_cpy.exit.preheader:               ; preds = %1
   br label %aes_addRoundKey_cpy.exit
 
 ; <label>:2                                       ; preds = %1
-  %tmp_i_33 = zext i8 %i_15_cast to i64
-  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_33
+  %tmp_i_22 = zext i8 %i_25_cast to i64
+  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_22
   %ctx_enckey_load = load i8* %ctx_enckey_addr, align 1
-  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_33
+  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_22
   store i8 %ctx_enckey_load, i8* %ctx_key_addr, align 1
-  %buf_addr_22 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_33
+  %buf_addr_22 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_22
   %buf_load = load i8* %buf_addr_22, align 1
   %tmp_176_i = xor i8 %buf_load, %ctx_enckey_load
   store i8 %tmp_176_i, i8* %buf_addr_22, align 1
@@ -898,9 +875,9 @@ aes_addRoundKey_cpy.exit.preheader:               ; preds = %1
   br label %1
 
 aes_addRoundKey_cpy.exit:                         ; preds = %8, %aes_addRoundKey_cpy.exit.preheader
-  %i = phi i4 [ %i_22, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
+  %i = phi i4 [ %i_33, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
   %exitcond = icmp eq i4 %i, -2
-  %empty_34 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
   br i1 %exitcond, label %.preheader.preheader, label %.preheader49.preheader
 
 .preheader49.preheader:                           ; preds = %aes_addRoundKey_cpy.exit
@@ -910,15 +887,15 @@ aes_addRoundKey_cpy.exit:                         ; preds = %8, %aes_addRoundKey
   br label %.preheader
 
 .preheader49:                                     ; preds = %.preheader49.preheader, %3
-  %i_i4 = phi i5 [ %i_16, %3 ], [ -16, %.preheader49.preheader ]
-  %i_16 = add i5 %i_i4, -1
-  %i_17_cast = sext i5 %i_16 to i8
+  %i_i4 = phi i5 [ %i_27, %3 ], [ -16, %.preheader49.preheader ]
+  %i_27 = add i5 %i_i4, -1
+  %i_27_cast = sext i5 %i_27 to i8
   %tmp_i5 = icmp eq i5 %i_i4, 0
-  %empty_35 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i5, label %aes_subBytes.exit, label %3
 
 ; <label>:3                                       ; preds = %.preheader49
-  %tmp_5_i = zext i8 %i_17_cast to i64
+  %tmp_5_i = zext i8 %i_27_cast to i64
   %buf_addr_24 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_5_i
   %buf_load_31 = load i8* %buf_addr_24, align 1
   %tmp_6_i = zext i8 %buf_load_31 to i64
@@ -928,18 +905,18 @@ aes_addRoundKey_cpy.exit:                         ; preds = %8, %aes_addRoundKey
   br label %.preheader49
 
 aes_subBytes.exit:                                ; preds = %.preheader49
-  %i_19 = load i8* %buf_addr, align 1
+  %i_30 = load i8* %buf_addr, align 1
   %buf_load_20 = load i8* %buf_addr_11, align 1
   store i8 %buf_load_20, i8* %buf_addr, align 1
   %buf_load_21 = load i8* %buf_addr_12, align 1
   store i8 %buf_load_21, i8* %buf_addr_11, align 1
   %buf_load_22 = load i8* %buf_addr_13, align 1
   store i8 %buf_load_22, i8* %buf_addr_12, align 1
-  store i8 %i_19, i8* %buf_addr_13, align 1
-  %i_20 = load i8* %buf_addr_14, align 1
+  store i8 %i_30, i8* %buf_addr_13, align 1
+  %i_31 = load i8* %buf_addr_14, align 1
   %buf_load_24 = load i8* %buf_addr_15, align 1
   store i8 %buf_load_24, i8* %buf_addr_14, align 1
-  store i8 %i_20, i8* %buf_addr_15, align 1
+  store i8 %i_31, i8* %buf_addr_15, align 1
   %j_2 = load i8* %buf_addr_16, align 1
   %buf_load_26 = load i8* %buf_addr_17, align 1
   store i8 %buf_load_26, i8* %buf_addr_16, align 1
@@ -955,25 +932,25 @@ aes_subBytes.exit:                                ; preds = %.preheader49
   br label %4
 
 ; <label>:4                                       ; preds = %5, %aes_subBytes.exit
-  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_21, %5 ]
+  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_32, %5 ]
   %tmp = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %i_i2, i32 4)
-  %empty_36 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+  %empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
   br i1 %tmp, label %aes_mixColumns.exit, label %5
 
 ; <label>:5                                       ; preds = %4
   %tmp_i1 = zext i5 %i_i2 to i64
   %buf_addr_25 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i1
   %a = load i8* %buf_addr_25, align 1
-  %tmp_94 = trunc i5 %i_i2 to i4
-  %tmp_34_i = or i4 %tmp_94, 1
+  %tmp_99 = trunc i5 %i_i2 to i4
+  %tmp_34_i = or i4 %tmp_99, 1
   %tmp_35_i = zext i4 %tmp_34_i to i64
   %buf_addr_26 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_35_i
   %b = load i8* %buf_addr_26, align 1
-  %tmp_36_i = or i4 %tmp_94, 2
+  %tmp_36_i = or i4 %tmp_99, 2
   %tmp_37_i = zext i4 %tmp_36_i to i64
   %buf_addr_27 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_37_i
   %c = load i8* %buf_addr_27, align 1
-  %tmp_38_i = or i4 %tmp_94, 3
+  %tmp_38_i = or i4 %tmp_99, 3
   %tmp_39_i = zext i4 %tmp_38_i to i64
   %buf_addr_28 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_39_i
   %d = load i8* %buf_addr_28, align 1
@@ -981,41 +958,41 @@ aes_subBytes.exit:                                ; preds = %.preheader49
   %tmp_41_i = xor i8 %c, %x_assign
   %e = xor i8 %d, %tmp_41_i
   %y = shl i8 %x_assign, 1
-  %tmp_96 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign, i32 7)
+  %tmp_101 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign, i32 7)
   %tmp_1_i_i = xor i8 %y, 27
-  %y_21 = select i1 %tmp_96, i8 %tmp_1_i_i, i8 %y
+  %y_21 = select i1 %tmp_101, i8 %tmp_1_i_i, i8 %y
   %tmp1 = xor i8 %y_21, %e
   %tmp_44_i = xor i8 %tmp1, %a
   store i8 %tmp_44_i, i8* %buf_addr_25, align 1
   %x_assign_9 = xor i8 %c, %b
   %y_22 = shl i8 %x_assign_9, 1
-  %tmp_98 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_9, i32 7)
+  %tmp_103 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_9, i32 7)
   %tmp_1_i10_i = xor i8 %y_22, 27
-  %y_23 = select i1 %tmp_98, i8 %tmp_1_i10_i, i8 %y_22
+  %y_23 = select i1 %tmp_103, i8 %tmp_1_i10_i, i8 %y_22
   %tmp2 = xor i8 %y_23, %e
   %tmp_48_i = xor i8 %tmp2, %b
   store i8 %tmp_48_i, i8* %buf_addr_26, align 1
   %x_assign_s = xor i8 %d, %c
   %y_24 = shl i8 %x_assign_s, 1
-  %tmp_100 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_s, i32 7)
+  %tmp_105 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_s, i32 7)
   %tmp_1_i14_i = xor i8 %y_24, 27
-  %y_25 = select i1 %tmp_100, i8 %tmp_1_i14_i, i8 %y_24
+  %y_25 = select i1 %tmp_105, i8 %tmp_1_i14_i, i8 %y_24
   %tmp3 = xor i8 %y_25, %e
   %tmp_52_i = xor i8 %tmp3, %c
   store i8 %tmp_52_i, i8* %buf_addr_27, align 1
   %x_assign_1 = xor i8 %d, %a
   %y_26 = shl i8 %x_assign_1, 1
-  %tmp_102 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_1, i32 7)
+  %tmp_107 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_1, i32 7)
   %tmp_1_i18_i = xor i8 %y_26, 27
-  %y_27 = select i1 %tmp_102, i8 %tmp_1_i18_i, i8 %y_26
+  %y_27 = select i1 %tmp_107, i8 %tmp_1_i18_i, i8 %y_26
   %tmp_56_i = xor i8 %y_27, %tmp_41_i
   store i8 %tmp_56_i, i8* %buf_addr_28, align 1
-  %i_21 = add i5 4, %i_i2
+  %i_32 = add i5 4, %i_i2
   br label %4
 
 aes_mixColumns.exit:                              ; preds = %4
-  %tmp_93 = trunc i4 %i to i1
-  br i1 %tmp_93, label %6, label %7
+  %tmp_98 = trunc i4 %i to i1
+  br i1 %tmp_98, label %6, label %7
 
 ; <label>:6                                       ; preds = %aes_mixColumns.exit
   call fastcc void @aes_addRoundKey([16 x i8]* %buf_r, [32 x i8]* @ctx_key, i6 16)
@@ -1029,19 +1006,19 @@ aes_mixColumns.exit:                              ; preds = %4
   br label %8
 
 ; <label>:8                                       ; preds = %7, %6
-  %i_22 = add i4 %i, 1
+  %i_33 = add i4 %i, 1
   br label %aes_addRoundKey_cpy.exit
 
 .preheader:                                       ; preds = %.preheader.preheader, %9
-  %i_i1 = phi i5 [ %i_15, %9 ], [ -16, %.preheader.preheader ]
-  %i_15 = add i5 %i_i1, -1
-  %i_16_cast = sext i5 %i_15 to i8
+  %i_i1 = phi i5 [ %i_26, %9 ], [ -16, %.preheader.preheader ]
+  %i_26 = add i5 %i_i1, -1
+  %i_26_cast = sext i5 %i_26 to i8
   %tmp_i8 = icmp eq i5 %i_i1, 0
-  %empty_37 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+  %empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i8, label %aes_subBytes.exit24, label %9
 
 ; <label>:9                                       ; preds = %.preheader
-  %tmp_5_i1 = zext i8 %i_16_cast to i64
+  %tmp_5_i1 = zext i8 %i_26_cast to i64
   %buf_addr_23 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_5_i1
   %buf_load_18 = load i8* %buf_addr_23, align 1
   %tmp_6_i1 = zext i8 %buf_load_18 to i64
@@ -1052,18 +1029,18 @@ aes_mixColumns.exit:                              ; preds = %4
 
 aes_subBytes.exit24:                              ; preds = %.preheader
   %rcon_load = load i8* %rcon
-  %i_17 = load i8* %buf_addr, align 1
+  %i_28 = load i8* %buf_addr, align 1
   %buf_load_7 = load i8* %buf_addr_11, align 1
   store i8 %buf_load_7, i8* %buf_addr, align 1
   %buf_load_8 = load i8* %buf_addr_12, align 1
   store i8 %buf_load_8, i8* %buf_addr_11, align 1
   %buf_load_9 = load i8* %buf_addr_13, align 1
   store i8 %buf_load_9, i8* %buf_addr_12, align 1
-  store i8 %i_17, i8* %buf_addr_13, align 1
-  %i_18 = load i8* %buf_addr_14, align 1
+  store i8 %i_28, i8* %buf_addr_13, align 1
+  %i_29 = load i8* %buf_addr_14, align 1
   %buf_load_11 = load i8* %buf_addr_15, align 1
   store i8 %buf_load_11, i8* %buf_addr_14, align 1
-  store i8 %i_18, i8* %buf_addr_15, align 1
+  store i8 %i_29, i8* %buf_addr_15, align 1
   %j = load i8* %buf_addr_16, align 1
   %buf_load_13 = load i8* %buf_addr_17, align 1
   store i8 %buf_load_13, i8* %buf_addr_16, align 1
@@ -1085,20 +1062,20 @@ define internal fastcc void @aes256_decrypt_ecb([16 x i8]* nocapture %buf_r) {
   br label %1
 
 ; <label>:1                                       ; preds = %2, %0
-  %i_i = phi i5 [ -16, %0 ], [ %i_23, %2 ]
-  %i_23 = add i5 %i_i, -1
-  %i_25_cast = sext i5 %i_23 to i8
+  %i_i = phi i5 [ -16, %0 ], [ %i_34, %2 ]
+  %i_34 = add i5 %i_i, -1
+  %i_34_cast = sext i5 %i_34 to i8
   %tmp_i = icmp eq i5 %i_i, 0
   %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i, label %aes_addRoundKey_cpy.exit, label %2
 
 ; <label>:2                                       ; preds = %1
-  %tmp_i_38 = zext i8 %i_25_cast to i64
-  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_38
+  %tmp_i_27 = zext i8 %i_34_cast to i64
+  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_27
   %ctx_deckey_load = load i8* %ctx_deckey_addr, align 1
-  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_38
+  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_27
   store i8 %ctx_deckey_load, i8* %ctx_key_addr, align 1
-  %buf_addr_40 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_38
+  %buf_addr_40 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_27
   %buf_load_46 = load i8* %buf_addr_40, align 1
   %tmp_176_i = xor i8 %buf_load_46, %ctx_deckey_load
   store i8 %tmp_176_i, i8* %buf_addr_40, align 1
@@ -1112,7 +1089,7 @@ define internal fastcc void @aes256_decrypt_ecb([16 x i8]* nocapture %buf_r) {
 
 aes_addRoundKey_cpy.exit:                         ; preds = %1
   %buf_addr = getelementptr [16 x i8]* %buf_r, i64 0, i64 1
-  %i_24 = load i8* %buf_addr, align 1
+  %i_35 = load i8* %buf_addr, align 1
   %buf_addr_29 = getelementptr [16 x i8]* %buf_r, i64 0, i64 13
   %buf_load = load i8* %buf_addr_29, align 1
   store i8 %buf_load, i8* %buf_addr, align 1
@@ -1122,13 +1099,13 @@ aes_addRoundKey_cpy.exit:                         ; preds = %1
   %buf_addr_31 = getelementptr [16 x i8]* %buf_r, i64 0, i64 5
   %buf_load_37 = load i8* %buf_addr_31, align 1
   store i8 %buf_load_37, i8* %buf_addr_30, align 1
-  store i8 %i_24, i8* %buf_addr_31, align 1
+  store i8 %i_35, i8* %buf_addr_31, align 1
   %buf_addr_32 = getelementptr [16 x i8]* %buf_r, i64 0, i64 2
-  %i_25 = load i8* %buf_addr_32, align 1
+  %i_36 = load i8* %buf_addr_32, align 1
   %buf_addr_33 = getelementptr [16 x i8]* %buf_r, i64 0, i64 10
   %buf_load_39 = load i8* %buf_addr_33, align 1
   store i8 %buf_load_39, i8* %buf_addr_32, align 1
-  store i8 %i_25, i8* %buf_addr_33, align 1
+  store i8 %i_36, i8* %buf_addr_33, align 1
   %buf_addr_34 = getelementptr [16 x i8]* %buf_r, i64 0, i64 3
   %j = load i8* %buf_addr_34, align 1
   %buf_addr_35 = getelementptr [16 x i8]* %buf_r, i64 0, i64 7
@@ -1150,11 +1127,11 @@ aes_addRoundKey_cpy.exit:                         ; preds = %1
   br label %3
 
 ; <label>:3                                       ; preds = %4, %aes_addRoundKey_cpy.exit
-  %i_i5 = phi i5 [ -16, %aes_addRoundKey_cpy.exit ], [ %i_26, %4 ]
-  %i_26 = add i5 %i_i5, -1
-  %i_28_cast = sext i5 %i_26 to i8
+  %i_i5 = phi i5 [ -16, %aes_addRoundKey_cpy.exit ], [ %i_37, %4 ]
+  %i_37 = add i5 %i_i5, -1
+  %i_37_cast = sext i5 %i_37 to i8
   %tmp_i6 = icmp eq i5 %i_i5, 0
-  %empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+  %empty_28 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i6, label %aes_subBytes_inv.exit.preheader, label %4
 
 aes_subBytes_inv.exit.preheader:                  ; preds = %3
@@ -1163,7 +1140,7 @@ aes_subBytes_inv.exit.preheader:                  ; preds = %3
   br label %aes_subBytes_inv.exit
 
 ; <label>:4                                       ; preds = %3
-  %tmp_3_i = zext i8 %i_28_cast to i64
+  %tmp_3_i = zext i8 %i_37_cast to i64
   %buf_addr_41 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_3_i
   %buf_load_47 = load i8* %buf_addr_41, align 1
   %tmp_4_i = zext i8 %buf_load_47 to i64
@@ -1175,12 +1152,12 @@ aes_subBytes_inv.exit.preheader:                  ; preds = %3
 aes_subBytes_inv.exit:                            ; preds = %aes_subBytes_inv.exit.preheader, %aes_subBytes_inv.exit42
   %i = phi i4 [ %phitmp, %aes_subBytes_inv.exit42 ], [ -3, %aes_subBytes_inv.exit.preheader ]
   %tmp = icmp eq i4 %i, 0
-  %empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
   br i1 %tmp, label %11, label %5
 
 ; <label>:5                                       ; preds = %aes_subBytes_inv.exit
-  %tmp_103 = trunc i4 %i to i1
-  br i1 %tmp_103, label %6, label %7
+  %tmp_108 = trunc i4 %i to i1
+  br i1 %tmp_108, label %6, label %7
 
 ; <label>:6                                       ; preds = %5
   %rcon_load = load i8* %rcon
@@ -1195,18 +1172,18 @@ aes_subBytes_inv.exit:                            ; preds = %aes_subBytes_inv.ex
 
 ; <label>:8                                       ; preds = %7, %6
   call fastcc void @aes_mixColumns_inv([16 x i8]* %buf_r)
-  %i_27 = load i8* %buf_addr, align 1
+  %i_38 = load i8* %buf_addr, align 1
   %buf_load_49 = load i8* %buf_addr_29, align 1
   store i8 %buf_load_49, i8* %buf_addr, align 1
   %buf_load_50 = load i8* %buf_addr_30, align 1
   store i8 %buf_load_50, i8* %buf_addr_29, align 1
   %buf_load_51 = load i8* %buf_addr_31, align 1
   store i8 %buf_load_51, i8* %buf_addr_30, align 1
-  store i8 %i_27, i8* %buf_addr_31, align 1
-  %i_28 = load i8* %buf_addr_32, align 1
+  store i8 %i_38, i8* %buf_addr_31, align 1
+  %i_39 = load i8* %buf_addr_32, align 1
   %buf_load_53 = load i8* %buf_addr_33, align 1
   store i8 %buf_load_53, i8* %buf_addr_32, align 1
-  store i8 %i_28, i8* %buf_addr_33, align 1
+  store i8 %i_39, i8* %buf_addr_33, align 1
   %j_5 = load i8* %buf_addr_34, align 1
   %buf_load_55 = load i8* %buf_addr_35, align 1
   store i8 %buf_load_55, i8* %buf_addr_34, align 1
@@ -1222,15 +1199,15 @@ aes_subBytes_inv.exit:                            ; preds = %aes_subBytes_inv.ex
   br label %9
 
 ; <label>:9                                       ; preds = %10, %8
-  %i_i3 = phi i5 [ -16, %8 ], [ %i_29, %10 ]
-  %i_29 = add i5 %i_i3, -1
-  %i_31_cast = sext i5 %i_29 to i8
+  %i_i3 = phi i5 [ -16, %8 ], [ %i_40, %10 ]
+  %i_40 = add i5 %i_i3, -1
+  %i_40_cast = sext i5 %i_40 to i8
   %tmp_i1 = icmp eq i5 %i_i3, 0
-  %empty_41 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
   br i1 %tmp_i1, label %aes_subBytes_inv.exit42, label %10
 
 ; <label>:10                                      ; preds = %9
-  %tmp_3_i1 = zext i8 %i_31_cast to i64
+  %tmp_3_i1 = zext i8 %i_40_cast to i64
   %buf_addr_42 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_3_i1
   %buf_load_60 = load i8* %buf_addr_42, align 1
   %tmp_4_i1 = zext i8 %buf_load_60 to i64
@@ -1248,47 +1225,17 @@ aes_subBytes_inv.exit42:                          ; preds = %9
   ret void
 }
 
-define weak i1 @_ssdm_op_WriteResp.m_axi.i8P(i8*) {
-entry:
-  ret i1 true
-}
-
-define weak i1 @_ssdm_op_WriteReq.m_axi.i8P(i8*, i32) {
-entry:
-  ret i1 true
-}
-
-define weak void @_ssdm_op_Write.m_axi.i8P(i8*, i8, i1) {
-entry:
-  ret void
-}
-
 define weak void @_ssdm_op_SpecTopModule(...) {
 entry:
   ret void
 }
 
-define weak i32 @_ssdm_op_SpecRegionEnd(...) {
-entry:
-  ret i32 0
-}
-
-define weak i32 @_ssdm_op_SpecRegionBegin(...) {
-entry:
-  ret i32 0
-}
-
-define weak i32 @_ssdm_op_SpecPipeline(...) {
+define weak i32 @_ssdm_op_SpecMemCore(...) {
 entry:
   ret i32 0
 }
 
 define weak i32 @_ssdm_op_SpecLoopTripCount(...) {
-entry:
-  ret i32 0
-}
-
-define weak i32 @_ssdm_op_SpecLoopName(...) {
 entry:
   ret i32 0
 }
@@ -1303,11 +1250,6 @@ entry:
   ret void
 }
 
-define weak i1 @_ssdm_op_ReadReq.m_axi.i8P(i8*, i32) {
-entry:
-  ret i1 true
-}
-
 define weak i32 @_ssdm_op_Read.s_axilite.i32(i32) {
 entry:
   ret i32 %0
@@ -1316,12 +1258,6 @@ entry:
 define weak i3 @_ssdm_op_Read.s_axilite.i3(i3) {
 entry:
   ret i3 %0
-}
-
-define weak i8 @_ssdm_op_Read.m_axi.i8P(i8*) {
-entry:
-  %empty = load i8* %0
-  ret i8 %empty
 }
 
 define weak i8 @_ssdm_op_Read.ap_auto.i8(i8) {
@@ -1334,11 +1270,13 @@ entry:
   ret i6 %0
 }
 
+declare i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32, i32, i32) nounwind readnone
+
 define weak i7 @_ssdm_op_PartSelect.i7.i8.i32.i32(i8, i32, i32) nounwind readnone {
 entry:
   %empty = call i8 @llvm.part.select.i8(i8 %0, i32 %1, i32 %2)
-  %empty_42 = trunc i8 %empty to i7
-  ret i7 %empty_42
+  %empty_31 = trunc i8 %empty to i7
+  ret i7 %empty_31
 }
 
 declare i5 @_ssdm_op_PartSelect.i5.i6.i32.i32(i6, i32, i32) nounwind readnone
@@ -1352,75 +1290,75 @@ declare i1 @_ssdm_op_PartSelect.i1.i4.i32.i32(i4, i32, i32) nounwind readnone
 define weak i1 @_ssdm_op_BitSelect.i1.i8.i32(i8, i32) nounwind readnone {
 entry:
   %empty = trunc i32 %1 to i8
-  %empty_43 = shl i8 1, %empty
-  %empty_44 = and i8 %0, %empty_43
-  %empty_45 = icmp ne i8 %empty_44, 0
-  ret i1 %empty_45
+  %empty_32 = shl i8 1, %empty
+  %empty_33 = and i8 %0, %empty_32
+  %empty_34 = icmp ne i8 %empty_33, 0
+  ret i1 %empty_34
 }
 
 define weak i1 @_ssdm_op_BitSelect.i1.i6.i32(i6, i32) nounwind readnone {
 entry:
   %empty = trunc i32 %1 to i6
-  %empty_46 = shl i6 1, %empty
-  %empty_47 = and i6 %0, %empty_46
-  %empty_48 = icmp ne i6 %empty_47, 0
-  ret i1 %empty_48
+  %empty_35 = shl i6 1, %empty
+  %empty_36 = and i6 %0, %empty_35
+  %empty_37 = icmp ne i6 %empty_36, 0
+  ret i1 %empty_37
 }
 
 define weak i1 @_ssdm_op_BitSelect.i1.i5.i32(i5, i32) nounwind readnone {
 entry:
   %empty = trunc i32 %1 to i5
-  %empty_49 = shl i5 1, %empty
-  %empty_50 = and i5 %0, %empty_49
-  %empty_51 = icmp ne i5 %empty_50, 0
-  ret i1 %empty_51
+  %empty_38 = shl i5 1, %empty
+  %empty_39 = and i5 %0, %empty_38
+  %empty_40 = icmp ne i5 %empty_39, 0
+  ret i1 %empty_40
 }
 
 declare i8 @_ssdm_op_BitConcatenate.i8.i7.i1(i7, i1) nounwind readnone
 
-!opencl.kernels = !{!0, !7, !13, !13, !15, !18, !22, !15, !15, !25, !15, !15, !15, !27, !22, !33}
+!opencl.kernels = !{!0, !7, !13, !19, !19, !21, !24, !28, !21, !21, !31, !21, !21, !21, !33, !28}
 !hls.encrypted.func = !{}
 !llvm.map.gv = !{}
 
 !0 = metadata !{null, metadata !1, metadata !2, metadata !3, metadata !4, metadata !5, metadata !6}
-!1 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1}
-!2 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none"}
-!3 = metadata !{metadata !"kernel_arg_type", metadata !"aes256_context*", metadata !"uchar*"}
-!4 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !""}
-!5 = metadata !{metadata !"kernel_arg_name", metadata !"ctx", metadata !"k"}
+!1 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 0, i32 0, i32 0}
+!2 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none", metadata !"none"}
+!3 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"ciphermode_t", metadata !"uint32_t", metadata !"uint32_t"}
+!4 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !"", metadata !""}
+!5 = metadata !{metadata !"kernel_arg_name", metadata !"memptr", metadata !"mode", metadata !"inbuf_addr", metadata !"outbuf_addr"}
 !6 = metadata !{metadata !"reqd_work_group_size", i32 1, i32 1, i32 1}
 !7 = metadata !{null, metadata !8, metadata !9, metadata !10, metadata !11, metadata !12, metadata !6}
-!8 = metadata !{metadata !"kernel_arg_addr_space", i32 1}
-!9 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none"}
-!10 = metadata !{metadata !"kernel_arg_type", metadata !"aes256_context*"}
-!11 = metadata !{metadata !"kernel_arg_type_qual", metadata !""}
-!12 = metadata !{metadata !"kernel_arg_name", metadata !"ctx"}
-!13 = metadata !{null, metadata !1, metadata !2, metadata !3, metadata !4, metadata !14, metadata !6}
-!14 = metadata !{metadata !"kernel_arg_name", metadata !"ctx", metadata !"buf"}
-!15 = metadata !{null, metadata !8, metadata !9, metadata !16, metadata !11, metadata !17, metadata !6}
-!16 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*"}
-!17 = metadata !{metadata !"kernel_arg_name", metadata !"buf"}
-!18 = metadata !{null, metadata !19, metadata !9, metadata !20, metadata !11, metadata !21, metadata !6}
-!19 = metadata !{metadata !"kernel_arg_addr_space", i32 0}
-!20 = metadata !{metadata !"kernel_arg_type", metadata !"uchar"}
-!21 = metadata !{metadata !"kernel_arg_name", metadata !"x"}
-!22 = metadata !{null, metadata !1, metadata !2, metadata !23, metadata !4, metadata !24, metadata !6}
-!23 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"uchar*"}
-!24 = metadata !{metadata !"kernel_arg_name", metadata !"k", metadata !"rc"}
-!25 = metadata !{null, metadata !1, metadata !2, metadata !23, metadata !4, metadata !26, metadata !6}
-!26 = metadata !{metadata !"kernel_arg_name", metadata !"buf", metadata !"key"}
-!27 = metadata !{null, metadata !28, metadata !29, metadata !30, metadata !31, metadata !32, metadata !6}
-!28 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1, i32 1}
-!29 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none"}
-!30 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"uchar*", metadata !"uchar*"}
-!31 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !""}
-!32 = metadata !{metadata !"kernel_arg_name", metadata !"buf", metadata !"key", metadata !"cpk"}
-!33 = metadata !{void (i8*, i3, i32, i32)* @aes256cbc, metadata !34, metadata !35, metadata !36, metadata !37, metadata !38, metadata !6}
-!34 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 0, i32 0, i32 0}
-!35 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none", metadata !"none"}
-!36 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"ciphermode_t", metadata !"uint32_t", metadata !"uint32_t"}
-!37 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !"", metadata !""}
-!38 = metadata !{metadata !"kernel_arg_name", metadata !"memptr", metadata !"mode", metadata !"inbuf_addr", metadata !"outbuf_addr"}
+!8 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1}
+!9 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none"}
+!10 = metadata !{metadata !"kernel_arg_type", metadata !"aes256_context*", metadata !"uchar*"}
+!11 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !""}
+!12 = metadata !{metadata !"kernel_arg_name", metadata !"ctx", metadata !"k"}
+!13 = metadata !{null, metadata !14, metadata !15, metadata !16, metadata !17, metadata !18, metadata !6}
+!14 = metadata !{metadata !"kernel_arg_addr_space", i32 1}
+!15 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none"}
+!16 = metadata !{metadata !"kernel_arg_type", metadata !"aes256_context*"}
+!17 = metadata !{metadata !"kernel_arg_type_qual", metadata !""}
+!18 = metadata !{metadata !"kernel_arg_name", metadata !"ctx"}
+!19 = metadata !{null, metadata !8, metadata !9, metadata !10, metadata !11, metadata !20, metadata !6}
+!20 = metadata !{metadata !"kernel_arg_name", metadata !"ctx", metadata !"buf"}
+!21 = metadata !{null, metadata !14, metadata !15, metadata !22, metadata !17, metadata !23, metadata !6}
+!22 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*"}
+!23 = metadata !{metadata !"kernel_arg_name", metadata !"buf"}
+!24 = metadata !{null, metadata !25, metadata !15, metadata !26, metadata !17, metadata !27, metadata !6}
+!25 = metadata !{metadata !"kernel_arg_addr_space", i32 0}
+!26 = metadata !{metadata !"kernel_arg_type", metadata !"uchar"}
+!27 = metadata !{metadata !"kernel_arg_name", metadata !"x"}
+!28 = metadata !{null, metadata !8, metadata !9, metadata !29, metadata !11, metadata !30, metadata !6}
+!29 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"uchar*"}
+!30 = metadata !{metadata !"kernel_arg_name", metadata !"k", metadata !"rc"}
+!31 = metadata !{null, metadata !8, metadata !9, metadata !29, metadata !11, metadata !32, metadata !6}
+!32 = metadata !{metadata !"kernel_arg_name", metadata !"buf", metadata !"key"}
+!33 = metadata !{null, metadata !34, metadata !35, metadata !36, metadata !37, metadata !38, metadata !6}
+!34 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1, i32 1}
+!35 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none"}
+!36 = metadata !{metadata !"kernel_arg_type", metadata !"uchar*", metadata !"uchar*", metadata !"uchar*"}
+!37 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !""}
+!38 = metadata !{metadata !"kernel_arg_name", metadata !"buf", metadata !"key", metadata !"cpk"}
 !39 = metadata !{metadata !40}
 !40 = metadata !{i32 0, i32 7, metadata !41}
 !41 = metadata !{metadata !42}

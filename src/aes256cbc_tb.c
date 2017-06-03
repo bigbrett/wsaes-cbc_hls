@@ -8,12 +8,19 @@
 #include <openssl/evp.h>
 #include <openssl/err.h>
 
-#define OPENSSL_TRUTH
-//#undef  OPENSSL_TRUTH
+//#define OPENSSL_TRUTH
+#undef  OPENSSL_TRUTH
+
+// results caclulated using openSSL EVP
+#ifndef OPENSSL_TRUTH
+	char openSSL_result[32] = { 0xA8, 0x87, 0x01, 0xE4, 0x43, 0x4F, 0x59, 0x00, 0x9F, 0xF8, 0x9A, 0x40, 0x29, 0x98, 0x49, 0x57,
+								0x99, 0x29, 0x0C, 0x6C, 0xB1, 0xB1, 0x6D, 0x1A, 0x8B, 0x0A, 0xF7, 0xAF, 0x2D, 0x96, 0x7E, 0xF1};
+#else
+	char openSSL_result[32];
+#endif
 
 
 const char teststr[32] = "The Quick Brown Fox Jumped Over "; // string to encrypt
-char openSSL_result[32];
 
 static void dumpmsg( uint8_t *pbuf ) {
 	int index;
@@ -80,8 +87,7 @@ int main( int argc, char *argv[]) {
 	//		 	 	   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 	uint8_t vRAM[1024];
 
-	// zero out golden truth array
-	memset(openSSL_result, 0, 32);
+
 
 	// Text to encrypt/decrypt
 	// strncpy((char *)vRAM,(const char *)"Hello World!!!!!Hello World!!!!!",32);
@@ -90,8 +96,9 @@ int main( int argc, char *argv[]) {
 	dumpmsg(vRAM);
 	dumpmsg(&(vRAM[16]));
 
-
 #ifdef OPENSSL_TRUTH
+	// zero out golden truth array
+	memset(openSSL_result, 0, 32);
 	// Create truth
 	ERR_load_crypto_strings();
 	OpenSSL_add_all_algorithms();

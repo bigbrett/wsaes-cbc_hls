@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'aes256cbc'
 ================================================================
-* Date:           Tue Mar 14 13:06:41 2017
+* Date:           Sat Jun  3 11:51:51 2017
 
-* Version:        2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aes256cbc
 * Solution:       solution1
 * Product family: zynq
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |   8.00|      7.00|        1.00|
+    |ap_clk  |   8.00|      6.50|        1.00|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |   Latency  |  Interval  | Pipeline|
     | min |  max | min |  max |   Type  |
     +-----+------+-----+------+---------+
-    |    1|  2526|    2|  2527|   none  |
+    |    1|  2543|    2|  2544|   none  |
     +-----+------+-----+------+---------+
 
     + Detail: 
@@ -37,25 +37,25 @@
         N/A
 
         * Loop: 
-        +------------------+-----+-----+----------+-----------+-----------+------+----------+
-        |                  |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |     Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +------------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1          |   32|   32|         2|          -|          -|    16|    no    |
-        |- Loop 2          |   64|   64|         2|          -|          -|    32|    no    |
-        |- Loop 3          |  350|  350|        50|          -|          -|     7|    no    |
-        |- memcpy..memptr  |   17|   17|         3|          1|          1|    16|    yes   |
-        |- Loop 5          |   32|   32|         2|          -|          -|    16|    no    |
-        |- Loop 6          |   32|   32|         2|          -|          -|    16|    no    |
-        |- memcpy.memptr.  |   17|   17|         3|          1|          1|    16|    yes   |
-        |- memcpy..memptr  |   17|   17|         3|          1|          1|    16|    yes   |
-        |- Loop 9          |   32|   32|         2|          -|          -|    16|    no    |
-        |- Loop 10         |   32|   32|         2|          -|          -|    16|    no    |
-        |- Loop 11         |   32|   32|         2|          -|          -|    16|    no    |
-        |- memcpy.memptr.  |   17|   17|         3|          1|          1|    16|    yes   |
-        |- memcpy..memptr  |   17|   17|         3|          1|          1|    16|    yes   |
-        |- memcpy..memptr  |   33|   33|         3|          1|          1|    32|    yes   |
-        +------------------+-----+-----+----------+-----------+-----------+------+----------+
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
+        |           |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 2   |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 3   |  350|  350|        50|          -|          -|     7|    no    |
+        |- Loop 4   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 5   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 6   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 7   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 8   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 9   |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 10  |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 11  |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 12  |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 13  |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 14  |   64|   64|         2|          -|          -|    32|    no    |
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -79,179 +79,111 @@ IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
-+ Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 1, depth = 3
-  * Pipeline-1: initiation interval (II) = 1, depth = 3
-  * Pipeline-2: initiation interval (II) = 1, depth = 3
-  * Pipeline-3: initiation interval (II) = 1, depth = 3
-  * Pipeline-4: initiation interval (II) = 1, depth = 3
-  * Pipeline-5: initiation interval (II) = 1, depth = 3
-
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 58
-* Pipeline: 6
-  Pipeline-0: II = 1, D = 3, States = { 9 10 11 }
-  Pipeline-1: II = 1, D = 3, States = { 13 14 15 }
-  Pipeline-2: II = 1, D = 3, States = { 17 18 19 }
-  Pipeline-3: II = 1, D = 3, States = { 28 29 30 }
-  Pipeline-4: II = 1, D = 3, States = { 36 37 38 }
-  Pipeline-5: II = 1, D = 3, States = { 45 46 47 }
+* Number of FSM states: 31
+* Pipeline: 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
-	2  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
-	35  / (mode_read != 0 & mode_read != 1 & mode_read != 2 & mode_read != 3 & mode_read != 4)
-	53  / (mode_read == 0)
+	15  / (mode_read != 0 & mode_read != 1 & mode_read != 2 & mode_read != 3 & mode_read != 4)
+	2  / (mode_read == 4)
+	4  / (mode_read == 3)
+	6  / (mode_read == 2)
+	17  / (mode_read == 1)
+	26  / (mode_read == 0)
 2 --> 
-	3  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	3  / (!tmp_124)
+	15  / (tmp_124)
 3 --> 
-	4  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	2  / true
 4 --> 
-	5  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	5  / (!tmp_123)
+	15  / (tmp_123)
 5 --> 
-	6  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	4  / true
 6 --> 
-	7  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	7  / (!tmp_122)
+	8  / (tmp_122)
 7 --> 
-	8  / (mode_read == 1) | (mode_read == 2) | (mode_read == 3) | (mode_read == 4)
+	6  / true
 8 --> 
-	9  / (mode_read == 4)
-	13  / (mode_read == 3)
-	17  / (mode_read == 2)
-	36  / (mode_read == 1)
+	9  / (!tmp_131)
+	10  / (tmp_131)
 9 --> 
-	12  / (exitcond3)
-	10  / (!exitcond3)
+	8  / true
 10 --> 
 	11  / true
 11 --> 
-	9  / true
+	12  / (!tmp_136)
+	13  / (tmp_136)
 12 --> 
-	35  / true
+	11  / true
 13 --> 
-	16  / (exitcond2)
-	14  / (!exitcond2)
+	14  / (!tmp_141)
+	15  / (tmp_141)
 14 --> 
-	15  / true
-15 --> 
 	13  / true
+15 --> 
+	16  / (mode_read == 2 & !tmp_144)
 16 --> 
-	35  / true
+	15  / true
 17 --> 
-	20  / (exitcond1)
-	18  / (!exitcond1)
+	18  / (!tmp_121)
+	19  / (tmp_121)
 18 --> 
-	19  / true
-19 --> 
 	17  / true
+19 --> 
+	20  / (!tmp_130)
+	21  / (tmp_130)
 20 --> 
-	21  / true
+	19  / true
 21 --> 
-	22  / (!tmp_131)
-	23  / (tmp_131)
+	22  / true
 22 --> 
-	21  / true
+	23  / (!tmp_135)
+	24  / (tmp_135)
 23 --> 
-	24  / true
+	22  / true
 24 --> 
-	25  / (!tmp_136)
-	26  / (tmp_136)
+	25  / (!tmp_140)
+	15  / (tmp_140)
 25 --> 
 	24  / true
 26 --> 
-	27  / (!tmp_141)
-	28  / (tmp_141)
+	27  / (!tmp_s)
+	28  / (tmp_s)
 27 --> 
 	26  / true
 28 --> 
-	31  / (exitcond4)
-	29  / (!exitcond4)
+	29  / (!tmp_i)
+	30  / (tmp_i)
 29 --> 
-	30  / true
-30 --> 
 	28  / true
+30 --> 
+	31  / (!tmp_212_i)
+	15  / (tmp_212_i)
 31 --> 
-	32  / true
-32 --> 
-	33  / true
-33 --> 
-	34  / true
-34 --> 
-	35  / true
-35 --> 
-36 --> 
-	39  / (exitcond)
-	37  / (!exitcond)
-37 --> 
-	38  / true
-38 --> 
-	36  / true
-39 --> 
-	40  / true
-40 --> 
-	41  / (!tmp_130)
-	42  / (tmp_130)
-41 --> 
-	40  / true
-42 --> 
-	43  / true
-43 --> 
-	44  / (!tmp_135)
-	45  / (tmp_135)
-44 --> 
-	43  / true
-45 --> 
-	48  / (exitcond9)
-	46  / (!exitcond9)
-46 --> 
-	47  / true
-47 --> 
-	45  / true
-48 --> 
-	49  / true
-49 --> 
-	50  / true
-50 --> 
-	51  / true
-51 --> 
-	52  / true
-52 --> 
-	35  / true
-53 --> 
-	54  / (!tmp_124)
-	55  / (tmp_124)
-54 --> 
-	53  / true
-55 --> 
-	56  / (!tmp_i)
-	57  / (tmp_i)
-56 --> 
-	55  / true
-57 --> 
-	58  / (!tmp_212_i)
-	35  / (tmp_212_i)
-58 --> 
-	57  / true
+	30  / true
 * FSM state operations: 
 
  <State 1>: 2.88ns
-ST_1: StgValue_59 (14)  [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i8* %memptr) nounwind, !map !39
+ST_1: StgValue_32 (14)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap([64 x i8]* %memptr) nounwind, !map !39
 
-ST_1: StgValue_60 (15)  [1/1] 0.00ns
+ST_1: StgValue_33 (15)  [1/1] 0.00ns
 :1  call void (...)* @_ssdm_op_SpecBitsMap(i3 %mode) nounwind, !map !45
 
-ST_1: StgValue_61 (16)  [1/1] 0.00ns
+ST_1: StgValue_34 (16)  [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %inbuf_addr) nounwind, !map !51
 
-ST_1: StgValue_62 (17)  [1/1] 0.00ns
+ST_1: StgValue_35 (17)  [1/1] 0.00ns
 :3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %outbuf_addr) nounwind, !map !55
 
-ST_1: StgValue_63 (18)  [1/1] 0.00ns
+ST_1: StgValue_36 (18)  [1/1] 0.00ns
 :4  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @aes256cbc_str) nounwind
 
 ST_1: outbuf_addr_read (19)  [1/1] 1.00ns
@@ -266,931 +198,754 @@ ST_1: mode_read (21)  [1/1] 1.00ns
 ST_1: buf (22)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:15
 :8  %buf = alloca [16 x i8], align 16
 
-ST_1: StgValue_68 (23)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:9
-:9  call void (...)* @_ssdm_op_SpecInterface(i32 %outbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+ST_1: StgValue_41 (23)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:9
+:9  call void (...)* @_ssdm_op_SpecInterface(i32 %outbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
-ST_1: StgValue_69 (24)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:10
-:10  call void (...)* @_ssdm_op_SpecInterface(i32 %inbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+ST_1: StgValue_42 (24)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:10
+:10  call void (...)* @_ssdm_op_SpecInterface(i32 %inbuf_addr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
-ST_1: StgValue_70 (25)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:11
-:11  call void (...)* @_ssdm_op_SpecInterface(i8* %memptr, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 64, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+ST_1: empty (25)  [1/1] 0.00ns
+:11  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %memptr, [1 x i8]* @p_str3, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str3, i32 -1, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_71 (26)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:12
-:12  call void (...)* @_ssdm_op_SpecInterface(i3 %mode, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [3 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+ST_1: StgValue_44 (26)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecInterface([64 x i8]* %memptr, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 64, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
-ST_1: StgValue_72 (27)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:13
-:13  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+ST_1: StgValue_45 (27)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:12
+:13  call void (...)* @_ssdm_op_SpecInterface(i3 %mode, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
-ST_1: StgValue_73 (28)  [1/1] 1.88ns  loc: aes256cbc/src/aes256cbc.c:23
-:14  switch i3 %mode_read, label %._crit_edge [
-    i3 0, label %.preheader1.preheader
-    i3 1, label %4
-    i3 2, label %10
-    i3 3, label %17
-    i3 -4, label %18
+ST_1: StgValue_46 (28)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:13
+:14  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_47 (29)  [1/1] 1.88ns  loc: aes256cbc/src/aes256cbc.c:23
+:15  switch i3 %mode_read, label %.loopexit [
+    i3 0, label %.preheader17.preheader
+    i3 1, label %.preheader16.preheader
+    i3 2, label %.preheader12.preheader
+    i3 3, label %.preheader6.preheader
+    i3 -4, label %.preheader.preheader
   ]
 
-ST_1: StgValue_74 (247)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:25
-.preheader1.preheader:0  br label %.preheader1
+ST_1: tmp_95 (31)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:71
+.preheader.preheader:0  %tmp_95 = trunc i32 %inbuf_addr_read to i8
 
+ST_1: StgValue_49 (32)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:71
+.preheader.preheader:1  br label %.preheader
 
- <State 2>: 7.00ns
-ST_2: tmp_123 (30)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:0  %tmp_123 = zext i32 %inbuf_addr_read to i64
+ST_1: tmp_94 (52)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:65
+.preheader6.preheader:0  %tmp_94 = trunc i32 %inbuf_addr_read to i8
 
-ST_2: memptr_addr_3 (31)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:1  %memptr_addr_3 = getelementptr inbounds i8* %memptr, i64 %tmp_123
+ST_1: StgValue_51 (53)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:65
+.preheader6.preheader:1  br label %.preheader6
 
-ST_2: memptr_addr_4_rd_req (32)  [7/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_1: tmp_93 (73)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:47
+.preheader12.preheader:0  %tmp_93 = trunc i32 %inbuf_addr_read to i8
 
-ST_2: tmp_122 (53)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:0  %tmp_122 = zext i32 %inbuf_addr_read to i64
+ST_1: StgValue_53 (74)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:47
+.preheader12.preheader:1  br label %.preheader12
 
-ST_2: memptr_addr_2 (54)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:1  %memptr_addr_2 = getelementptr inbounds i8* %memptr, i64 %tmp_122
+ST_1: tmp (161)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
+.preheader16.preheader:0  %tmp = trunc i32 %inbuf_addr_read to i8
 
-ST_2: memptr_addr_3_rd_req (55)  [7/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_1: StgValue_55 (162)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:31
+.preheader16.preheader:1  br label %.preheader16
 
-ST_2: tmp_121 (76)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:0  %tmp_121 = zext i32 %inbuf_addr_read to i64
+ST_1: StgValue_56 (234)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:25
+.preheader17.preheader:0  br label %.preheader17
 
-ST_2: memptr_addr_1 (77)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:1  %memptr_addr_1 = getelementptr inbounds i8* %memptr, i64 %tmp_121
 
-ST_2: memptr_addr_2_rd_req (78)  [7/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ <State 2>: 4.11ns
+ST_2: i_10 (34)  [1/1] 0.00ns
+.preheader:0  %i_10 = phi i6 [ %i_15, %18 ], [ 0, %.preheader.preheader ]
 
-ST_2: tmp_s (169)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:0  %tmp_s = zext i32 %inbuf_addr_read to i64
+ST_2: tmp_124 (35)  [1/1] 1.94ns  loc: aes256cbc/src/aes256cbc.c:71
+.preheader:1  %tmp_124 = icmp eq i6 %i_10, -32
 
-ST_2: memptr_addr (170)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:1  %memptr_addr = getelementptr inbounds i8* %memptr, i64 %tmp_s
+ST_2: empty_21 (36)  [1/1] 0.00ns
+.preheader:2  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
 
-ST_2: memptr_addr_1_rd_req (171)  [7/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ST_2: i_15 (37)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:71
+.preheader:3  %i_15 = add i6 %i_10, 1
 
+ST_2: StgValue_61 (38)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:71
+.preheader:4  br i1 %tmp_124, label %.loopexit.loopexit, label %18
 
- <State 3>: 7.00ns
-ST_3: memptr_addr_4_rd_req (32)  [6/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_2: tmp_156_cast (41)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:71
+:1  %tmp_156_cast = zext i6 %i_10 to i8
 
-ST_3: memptr_addr_3_rd_req (55)  [6/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_2: sum1 (42)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:71
+:2  %sum1 = add i8 %tmp_95, %tmp_156_cast
 
-ST_3: memptr_addr_2_rd_req (78)  [6/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ST_2: sum1_cast (43)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:71
+:3  %sum1_cast = zext i8 %sum1 to i64
 
-ST_3: memptr_addr_1_rd_req (171)  [6/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ST_2: memptr_addr_3 (44)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:72
+:4  %memptr_addr_3 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum1_cast
 
+ST_2: memptr_load_3 (45)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:72
+:5  %memptr_load_3 = load i8* %memptr_addr_3, align 1
 
- <State 4>: 7.00ns
-ST_4: memptr_addr_4_rd_req (32)  [5/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_2: StgValue_67 (50)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
 
-ST_4: memptr_addr_3_rd_req (55)  [5/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
 
-ST_4: memptr_addr_2_rd_req (78)  [5/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ <State 3>: 4.78ns
+ST_3: tmp_129 (40)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:72
+:0  %tmp_129 = zext i6 %i_10 to i64
 
-ST_4: memptr_addr_1_rd_req (171)  [5/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ST_3: memptr_load_3 (45)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:72
+:5  %memptr_load_3 = load i8* %memptr_addr_3, align 1
 
+ST_3: key_addr (46)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:72
+:6  %key_addr = getelementptr inbounds [32 x i8]* @key, i64 0, i64 %tmp_129
 
- <State 5>: 7.00ns
-ST_5: memptr_addr_4_rd_req (32)  [4/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_3: StgValue_71 (47)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:72
+:7  store i8 %memptr_load_3, i8* %key_addr, align 1
 
-ST_5: memptr_addr_3_rd_req (55)  [4/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_3: StgValue_72 (48)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:71
+:8  br label %.preheader
 
-ST_5: memptr_addr_2_rd_req (78)  [4/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
 
-ST_5: memptr_addr_1_rd_req (171)  [4/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ <State 4>: 4.11ns
+ST_4: i_s (55)  [1/1] 0.00ns
+.preheader6:0  %i_s = phi i5 [ %i_14, %17 ], [ 0, %.preheader6.preheader ]
 
+ST_4: tmp_123 (56)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:65
+.preheader6:1  %tmp_123 = icmp eq i5 %i_s, -16
 
- <State 6>: 7.00ns
-ST_6: memptr_addr_4_rd_req (32)  [3/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_4: empty_20 (57)  [1/1] 0.00ns
+.preheader6:2  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_6: memptr_addr_3_rd_req (55)  [3/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_4: i_14 (58)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:65
+.preheader6:3  %i_14 = add i5 %i_s, 1
 
-ST_6: memptr_addr_2_rd_req (78)  [3/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ST_4: StgValue_77 (59)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:65
+.preheader6:4  br i1 %tmp_123, label %.loopexit.loopexit16, label %17
 
-ST_6: memptr_addr_1_rd_req (171)  [3/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ST_4: tmp_155_cast (62)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:65
+:1  %tmp_155_cast = zext i5 %i_s to i8
 
+ST_4: sum8 (63)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:65
+:2  %sum8 = add i8 %tmp_94, %tmp_155_cast
 
- <State 7>: 7.00ns
-ST_7: memptr_addr_4_rd_req (32)  [2/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ST_4: sum8_cast (64)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:65
+:3  %sum8_cast = zext i8 %sum8 to i64
 
-ST_7: memptr_addr_3_rd_req (55)  [2/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_4: memptr_addr_2 (65)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:66
+:4  %memptr_addr_2 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum8_cast
 
-ST_7: memptr_addr_2_rd_req (78)  [2/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ST_4: memptr_load_2 (66)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:66
+:5  %memptr_load_2 = load i8* %memptr_addr_2, align 1
 
-ST_7: memptr_addr_1_rd_req (171)  [2/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ST_4: StgValue_83 (71)  [1/1] 0.00ns
+.loopexit.loopexit16:0  br label %.loopexit
 
 
- <State 8>: 7.00ns
-ST_8: memptr_addr_4_rd_req (32)  [1/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-:2  %memptr_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_3, i32 32) nounwind
+ <State 5>: 4.78ns
+ST_5: tmp_128 (61)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:66
+:0  %tmp_128 = zext i5 %i_s to i64
 
-ST_8: StgValue_108 (33)  [1/1] 1.57ns
-:3  br label %burst.rd.header66
+ST_5: memptr_load_2 (66)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:66
+:5  %memptr_load_2 = load i8* %memptr_addr_2, align 1
 
-ST_8: memptr_addr_3_rd_req (55)  [1/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-:2  %memptr_addr_3_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_2, i32 16) nounwind
+ST_5: iv_addr_1 (67)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:66
+:6  %iv_addr_1 = getelementptr inbounds [16 x i8]* @iv, i64 0, i64 %tmp_128
 
-ST_8: StgValue_110 (56)  [1/1] 1.57ns
-:3  br label %burst.rd.header51
+ST_5: StgValue_87 (68)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:66
+:7  store i8 %memptr_load_2, i8* %iv_addr_1, align 1
 
-ST_8: memptr_addr_2_rd_req (78)  [1/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-:2  %memptr_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr_1, i32 16) nounwind
+ST_5: StgValue_88 (69)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:65
+:8  br label %.preheader6
 
-ST_8: StgValue_112 (79)  [1/1] 1.57ns
-:3  br label %burst.rd.header19
 
-ST_8: memptr_addr_1_rd_req (171)  [1/7] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-:2  %memptr_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %memptr_addr, i32 16) nounwind
+ <State 6>: 4.11ns
+ST_6: i_5 (76)  [1/1] 0.00ns
+.preheader12:0  %i_5 = phi i5 [ %i_13, %10 ], [ 0, %.preheader12.preheader ]
 
-ST_8: StgValue_114 (172)  [1/1] 1.57ns
-:3  br label %burst.rd.header
+ST_6: tmp_122 (77)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:47
+.preheader12:1  %tmp_122 = icmp eq i5 %i_5, -16
 
+ST_6: empty_15 (78)  [1/1] 0.00ns
+.preheader12:2  %empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
- <State 9>: 1.94ns
-ST_9: indvar3 (35)  [1/1] 0.00ns
-burst.rd.header66:0  %indvar3 = phi i6 [ 0, %18 ], [ %indvar_next3, %burst.rd.body67 ]
+ST_6: i_13 (79)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:47
+.preheader12:3  %i_13 = add i5 %i_5, 1
 
-ST_9: exitcond3 (36)  [1/1] 1.94ns
-burst.rd.header66:1  %exitcond3 = icmp eq i6 %indvar3, -32
+ST_6: StgValue_93 (80)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:47
+.preheader12:4  br i1 %tmp_122, label %.preheader11.preheader, label %10
 
-ST_9: indvar_next3 (37)  [1/1] 1.72ns
-burst.rd.header66:2  %indvar_next3 = add i6 %indvar3, 1
+ST_6: tmp_154_cast (83)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:47
+:1  %tmp_154_cast = zext i5 %i_5 to i8
 
-ST_9: StgValue_118 (38)  [1/1] 0.00ns
-burst.rd.header66:3  br i1 %exitcond3, label %._crit_edge.loopexit, label %burst.rd.body67
+ST_6: sum4 (84)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:47
+:2  %sum4 = add i8 %tmp_93, %tmp_154_cast
 
+ST_6: sum4_cast (85)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:47
+:3  %sum4_cast = zext i8 %sum4 to i64
 
- <State 10>: 7.00ns
-ST_10: memptr_addr_3_read (44)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:60
-burst.rd.body67:4  %memptr_addr_3_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_3) nounwind
+ST_6: memptr_addr_1 (86)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:48
+:4  %memptr_addr_1 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum4_cast
 
+ST_6: memptr_load_1 (87)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:48
+:5  %memptr_load_1 = load i8* %memptr_addr_1, align 1
 
- <State 11>: 2.39ns
-ST_11: empty_30 (40)  [1/1] 0.00ns
-burst.rd.body67:0  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+ST_6: StgValue_99 (92)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:50
+.preheader11.preheader:0  br label %.preheader11
 
-ST_11: burstread_rbegin3 (41)  [1/1] 0.00ns
-burst.rd.body67:1  %burstread_rbegin3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
 
-ST_11: empty_31 (42)  [1/1] 0.00ns
-burst.rd.body67:2  %empty_31 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str9) nounwind
+ <State 7>: 4.78ns
+ST_7: tmp_127 (82)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:48
+:0  %tmp_127 = zext i5 %i_5 to i64
 
-ST_11: empty_32 (43)  [1/1] 0.00ns
-burst.rd.body67:3  %empty_32 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
+ST_7: memptr_load_1 (87)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:48
+:5  %memptr_load_1 = load i8* %memptr_addr_1, align 1
 
-ST_11: tmp_129 (45)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
-burst.rd.body67:5  %tmp_129 = zext i6 %indvar3 to i64
+ST_7: buf_addr_4 (88)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:48
+:6  %buf_addr_4 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_127
 
-ST_11: key_addr (46)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
-burst.rd.body67:6  %key_addr = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_129
+ST_7: StgValue_103 (89)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:48
+:7  store i8 %memptr_load_1, i8* %buf_addr_4, align 1
 
-ST_11: StgValue_126 (47)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:60
-burst.rd.body67:7  store i8 %memptr_addr_3_read, i8* %key_addr, align 1
+ST_7: StgValue_104 (90)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:47
+:8  br label %.preheader12
 
-ST_11: burstread_rend78 (48)  [1/1] 0.00ns
-burst.rd.body67:8  %burstread_rend78 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin3) nounwind
 
-ST_11: StgValue_128 (49)  [1/1] 0.00ns
-burst.rd.body67:9  br label %burst.rd.header66
+ <State 8>: 2.39ns
+ST_8: i_6 (94)  [1/1] 0.00ns
+.preheader11:0  %i_6 = phi i5 [ %i_17, %11 ], [ 0, %.preheader11.preheader ]
 
+ST_8: tmp_131 (95)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:50
+.preheader11:1  %tmp_131 = icmp eq i5 %i_6, -16
 
- <State 12>: 0.00ns
-ST_12: StgValue_129 (51)  [1/1] 0.00ns
-._crit_edge.loopexit:0  br label %._crit_edge
+ST_8: empty_16 (96)  [1/1] 0.00ns
+.preheader11:2  %empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
+ST_8: i_17 (97)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:50
+.preheader11:3  %i_17 = add i5 %i_6, 1
 
- <State 13>: 1.91ns
-ST_13: indvar2 (58)  [1/1] 0.00ns
-burst.rd.header51:0  %indvar2 = phi i5 [ 0, %17 ], [ %indvar_next2, %burst.rd.body52 ]
+ST_8: StgValue_109 (98)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:50
+.preheader11:4  br i1 %tmp_131, label %12, label %11
 
-ST_13: exitcond2 (59)  [1/1] 1.91ns
-burst.rd.header51:1  %exitcond2 = icmp eq i5 %indvar2, -16
+ST_8: tmp_134 (100)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:50
+:0  %tmp_134 = zext i5 %i_6 to i64
 
-ST_13: indvar_next2 (60)  [1/1] 1.72ns
-burst.rd.header51:2  %indvar_next2 = add i5 %indvar2, 1
-
-ST_13: StgValue_133 (61)  [1/1] 0.00ns
-burst.rd.header51:3  br i1 %exitcond2, label %._crit_edge.loopexit14, label %burst.rd.body52
-
-
- <State 14>: 7.00ns
-ST_14: memptr_addr_2_read (67)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:57
-burst.rd.body52:4  %memptr_addr_2_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_2) nounwind
-
-
- <State 15>: 2.39ns
-ST_15: empty_27 (63)  [1/1] 0.00ns
-burst.rd.body52:0  %empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_15: burstread_rbegin2 (64)  [1/1] 0.00ns
-burst.rd.body52:1  %burstread_rbegin2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-
-ST_15: empty_28 (65)  [1/1] 0.00ns
-burst.rd.body52:2  %empty_28 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str8) nounwind
-
-ST_15: empty_29 (66)  [1/1] 0.00ns
-burst.rd.body52:3  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-
-ST_15: tmp_128 (68)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:57
-burst.rd.body52:5  %tmp_128 = zext i5 %indvar2 to i64
-
-ST_15: iv_addr_1 (69)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:57
-burst.rd.body52:6  %iv_addr_1 = getelementptr [16 x i8]* @iv, i64 0, i64 %tmp_128
-
-ST_15: StgValue_141 (70)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:57
-burst.rd.body52:7  store i8 %memptr_addr_2_read, i8* %iv_addr_1, align 1
-
-ST_15: burstread_rend63 (71)  [1/1] 0.00ns
-burst.rd.body52:8  %burstread_rend63 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin2) nounwind
-
-ST_15: StgValue_143 (72)  [1/1] 0.00ns
-burst.rd.body52:9  br label %burst.rd.header51
-
-
- <State 16>: 0.00ns
-ST_16: StgValue_144 (74)  [1/1] 0.00ns
-._crit_edge.loopexit14:0  br label %._crit_edge
-
-
- <State 17>: 1.91ns
-ST_17: indvar1 (81)  [1/1] 0.00ns
-burst.rd.header19:0  %indvar1 = phi i5 [ 0, %10 ], [ %indvar_next1, %burst.rd.body20 ]
-
-ST_17: exitcond1 (82)  [1/1] 1.91ns
-burst.rd.header19:1  %exitcond1 = icmp eq i5 %indvar1, -16
-
-ST_17: indvar_next1 (83)  [1/1] 1.72ns
-burst.rd.header19:2  %indvar_next1 = add i5 %indvar1, 1
-
-ST_17: StgValue_148 (84)  [1/1] 0.00ns
-burst.rd.header19:3  br i1 %exitcond1, label %burst.rd.end18.preheader, label %burst.rd.body20
-
-
- <State 18>: 7.00ns
-ST_18: memptr_addr_1_read (90)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:42
-burst.rd.body20:4  %memptr_addr_1_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr_1) nounwind
-
-
- <State 19>: 2.39ns
-ST_19: empty_18 (86)  [1/1] 0.00ns
-burst.rd.body20:0  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_19: burstread_rbegin1 (87)  [1/1] 0.00ns
-burst.rd.body20:1  %burstread_rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-
-ST_19: empty_19 (88)  [1/1] 0.00ns
-burst.rd.body20:2  %empty_19 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
-
-ST_19: empty_20 (89)  [1/1] 0.00ns
-burst.rd.body20:3  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-
-ST_19: tmp_127 (91)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
-burst.rd.body20:5  %tmp_127 = zext i5 %indvar1 to i64
-
-ST_19: buf_addr_4 (92)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
-burst.rd.body20:6  %buf_addr_4 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_127
-
-ST_19: StgValue_156 (93)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:42
-burst.rd.body20:7  store i8 %memptr_addr_1_read, i8* %buf_addr_4, align 1
-
-ST_19: burstread_rend32 (94)  [1/1] 0.00ns
-burst.rd.body20:8  %burstread_rend32 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin1) nounwind
-
-ST_19: StgValue_158 (95)  [1/1] 0.00ns
-burst.rd.body20:9  br label %burst.rd.header19
-
-
- <State 20>: 1.57ns
-ST_20: StgValue_159 (97)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:44
-burst.rd.end18.preheader:0  br label %burst.rd.end18
-
-
- <State 21>: 3.28ns
-ST_21: i_3 (99)  [1/1] 0.00ns
-burst.rd.end18:0  %i_3 = phi i5 [ %i_9, %11 ], [ 0, %burst.rd.end18.preheader ]
-
-ST_21: tmp_131 (100)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:44
-burst.rd.end18:1  %tmp_131 = icmp eq i5 %i_3, -16
-
-ST_21: empty_21 (101)  [1/1] 0.00ns
-burst.rd.end18:2  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_21: i_9 (102)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:44
-burst.rd.end18:3  %i_9 = add i5 %i_3, 1
-
-ST_21: StgValue_164 (103)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:44
-burst.rd.end18:4  br i1 %tmp_131, label %12, label %11
-
-ST_21: tmp_134 (105)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:44
-:0  %tmp_134 = zext i5 %i_3 to i64
-
-ST_21: buf_addr_6 (106)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:44
+ST_8: buf_addr_6 (101)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:50
 :1  %buf_addr_6 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_134
 
-ST_21: buf_load_1 (107)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:44
+ST_8: buf_load_1 (102)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:50
 :2  %buf_load_1 = load i8* %buf_addr_6, align 1
 
-ST_21: StgValue_168 (112)  [2/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:46
+ST_8: StgValue_113 (107)  [2/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
 :0  call fastcc void @aes256_decrypt_ecb([16 x i8]* %buf) nounwind
 
 
- <State 22>: 4.78ns
-ST_22: buf_load_1 (107)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:44
+ <State 9>: 4.78ns
+ST_9: buf_load_1 (102)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:50
 :2  %buf_load_1 = load i8* %buf_addr_6, align 1
 
-ST_22: lastbuf_addr (108)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:44
+ST_9: lastbuf_addr (103)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:50
 :3  %lastbuf_addr = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_134
 
-ST_22: StgValue_171 (109)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:44
+ST_9: StgValue_116 (104)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:50
 :4  store i8 %buf_load_1, i8* %lastbuf_addr, align 1
 
-ST_22: StgValue_172 (110)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:44
-:5  br label %burst.rd.end18
+ST_9: StgValue_117 (105)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:50
+:5  br label %.preheader11
 
 
- <State 23>: 1.57ns
-ST_23: StgValue_173 (112)  [1/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:46
+ <State 10>: 1.57ns
+ST_10: StgValue_118 (107)  [1/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
 :0  call fastcc void @aes256_decrypt_ecb([16 x i8]* %buf) nounwind
 
-ST_23: StgValue_174 (113)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:48
+ST_10: StgValue_119 (108)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:54
 :1  br label %13
 
 
- <State 24>: 3.28ns
-ST_24: i_4 (115)  [1/1] 0.00ns
-:0  %i_4 = phi i5 [ 0, %12 ], [ %i_11, %14 ]
+ <State 11>: 2.39ns
+ST_11: i_7 (110)  [1/1] 0.00ns
+:0  %i_7 = phi i5 [ 0, %12 ], [ %i_19, %14 ]
 
-ST_24: tmp_136 (116)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:48
-:1  %tmp_136 = icmp eq i5 %i_4, -16
+ST_11: tmp_136 (111)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:54
+:1  %tmp_136 = icmp eq i5 %i_7, -16
 
-ST_24: empty_22 (117)  [1/1] 0.00ns
-:2  %empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+ST_11: empty_17 (112)  [1/1] 0.00ns
+:2  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_24: i_11 (118)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:48
-:3  %i_11 = add i5 %i_4, 1
+ST_11: i_19 (113)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:54
+:3  %i_19 = add i5 %i_7, 1
 
-ST_24: StgValue_179 (119)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:48
-:4  br i1 %tmp_136, label %.preheader.preheader, label %14
+ST_11: StgValue_124 (114)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
+:4  br i1 %tmp_136, label %.preheader10.preheader, label %14
 
-ST_24: tmp_139 (121)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:49
-:0  %tmp_139 = zext i5 %i_4 to i64
+ST_11: tmp_138 (116)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
+:0  %tmp_138 = zext i5 %i_7 to i64
 
-ST_24: buf_addr_8 (122)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:49
-:1  %buf_addr_8 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_139
+ST_11: buf_addr_8 (117)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
+:1  %buf_addr_8 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_138
 
-ST_24: buf_load_3 (123)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:49
+ST_11: buf_load_3 (118)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
 :2  %buf_load_3 = load i8* %buf_addr_8, align 1
 
-ST_24: xorv_addr_3 (124)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:49
-:3  %xorv_addr_3 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_139
+ST_11: xorv_addr_3 (119)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
+:3  %xorv_addr_3 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_138
 
-ST_24: xorv_load_1 (125)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:49
+ST_11: xorv_load_1 (120)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
 :4  %xorv_load_1 = load i8* %xorv_addr_3, align 1
 
-ST_24: StgValue_185 (130)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:52
-.preheader.preheader:0  br label %.preheader
+ST_11: StgValue_130 (125)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:56
+.preheader10.preheader:0  br label %.preheader10
 
 
- <State 25>: 6.15ns
-ST_25: buf_load_3 (123)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:49
+ <State 12>: 6.15ns
+ST_12: buf_load_3 (118)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
 :2  %buf_load_3 = load i8* %buf_addr_8, align 1
 
-ST_25: xorv_load_1 (125)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:49
+ST_12: xorv_load_1 (120)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
 :4  %xorv_load_1 = load i8* %xorv_addr_3, align 1
 
-ST_25: tmp_140 (126)  [1/1] 1.37ns  loc: aes256cbc/src/aes256cbc.c:49
-:5  %tmp_140 = xor i8 %xorv_load_1, %buf_load_3
+ST_12: tmp_139 (121)  [1/1] 1.37ns  loc: aes256cbc/src/aes256cbc.c:54
+:5  %tmp_139 = xor i8 %xorv_load_1, %buf_load_3
 
-ST_25: StgValue_189 (127)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:49
-:6  store i8 %tmp_140, i8* %buf_addr_8, align 1
+ST_12: StgValue_134 (122)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
+:6  store i8 %tmp_139, i8* %buf_addr_8, align 1
 
-ST_25: StgValue_190 (128)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:48
+ST_12: StgValue_135 (123)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
 :7  br label %13
 
 
- <State 26>: 7.00ns
-ST_26: i_5 (132)  [1/1] 0.00ns
-.preheader:0  %i_5 = phi i5 [ %i_13, %15 ], [ 0, %.preheader.preheader ]
+ <State 13>: 2.39ns
+ST_13: i_8 (127)  [1/1] 0.00ns
+.preheader10:0  %i_8 = phi i5 [ %i_21, %15 ], [ 0, %.preheader10.preheader ]
 
-ST_26: tmp_141 (133)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:52
-.preheader:1  %tmp_141 = icmp eq i5 %i_5, -16
+ST_13: tmp_141 (128)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:56
+.preheader10:1  %tmp_141 = icmp eq i5 %i_8, -16
 
-ST_26: empty_23 (134)  [1/1] 0.00ns
-.preheader:2  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+ST_13: empty_18 (129)  [1/1] 0.00ns
+.preheader10:2  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_26: i_13 (135)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:52
-.preheader:3  %i_13 = add i5 %i_5, 1
+ST_13: i_21 (130)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:56
+.preheader10:3  %i_21 = add i5 %i_8, 1
 
-ST_26: StgValue_195 (136)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
-.preheader:4  br i1 %tmp_141, label %16, label %15
+ST_13: StgValue_140 (131)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:56
+.preheader10:4  br i1 %tmp_141, label %.preheader8.preheader, label %15
 
-ST_26: tmp_144 (138)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
-:0  %tmp_144 = zext i5 %i_5 to i64
+ST_13: tmp_143 (133)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:56
+:0  %tmp_143 = zext i5 %i_8 to i64
 
-ST_26: lastbuf_addr_1 (139)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
-:1  %lastbuf_addr_1 = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_144
+ST_13: lastbuf_addr_1 (134)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:56
+:1  %lastbuf_addr_1 = getelementptr inbounds [16 x i8]* @lastbuf, i64 0, i64 %tmp_143
 
-ST_26: lastbuf_load (140)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:52
+ST_13: lastbuf_load (135)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:56
 :2  %lastbuf_load = load i8* %lastbuf_addr_1, align 1
 
-ST_26: tmp_143 (145)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
-:0  %tmp_143 = zext i32 %outbuf_addr_read to i64
+ST_13: tmp_97 (140)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:59
+.preheader8.preheader:0  %tmp_97 = trunc i32 %outbuf_addr_read to i8
 
-ST_26: memptr_addr_5 (146)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
-:1  %memptr_addr_5 = getelementptr inbounds i8* %memptr, i64 %tmp_143
-
-ST_26: memptr_addr_10_wr_re (147)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-:2  %memptr_addr_10_wr_re = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %memptr_addr_5, i32 16) nounwind
-
-ST_26: StgValue_202 (148)  [1/1] 1.57ns
-:3  br label %burst.wr.header35
+ST_13: StgValue_145 (141)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:59
+.preheader8.preheader:1  br label %.preheader8
 
 
- <State 27>: 4.78ns
-ST_27: lastbuf_load (140)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:52
+ <State 14>: 4.78ns
+ST_14: lastbuf_load (135)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:56
 :2  %lastbuf_load = load i8* %lastbuf_addr_1, align 1
 
-ST_27: xorv_addr_4 (141)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
-:3  %xorv_addr_4 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_144
+ST_14: xorv_addr_4 (136)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:56
+:3  %xorv_addr_4 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_143
 
-ST_27: StgValue_205 (142)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:52
+ST_14: StgValue_148 (137)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:56
 :4  store i8 %lastbuf_load, i8* %xorv_addr_4, align 1
 
-ST_27: StgValue_206 (143)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:52
-:5  br label %.preheader
+ST_14: StgValue_149 (138)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:56
+:5  br label %.preheader10
 
 
- <State 28>: 3.28ns
-ST_28: indvar4 (150)  [1/1] 0.00ns
-burst.wr.header35:0  %indvar4 = phi i5 [ 0, %16 ], [ %indvar_next4, %burst.wr.body36 ]
+ <State 15>: 2.39ns
+ST_15: i_9 (143)  [1/1] 0.00ns
+.preheader8:0  %i_9 = phi i5 [ %i_22, %16 ], [ 0, %.preheader8.preheader ]
 
-ST_28: exitcond4 (151)  [1/1] 1.91ns
-burst.wr.header35:1  %exitcond4 = icmp eq i5 %indvar4, -16
+ST_15: tmp_144 (144)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:59
+.preheader8:1  %tmp_144 = icmp eq i5 %i_9, -16
 
-ST_28: indvar_next4 (152)  [1/1] 1.72ns
-burst.wr.header35:2  %indvar_next4 = add i5 %indvar4, 1
+ST_15: empty_19 (145)  [1/1] 0.00ns
+.preheader8:2  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_28: StgValue_210 (153)  [1/1] 0.00ns
-burst.wr.header35:3  br i1 %exitcond4, label %._crit_edge.loopexit6, label %burst.wr.body36
+ST_15: i_22 (146)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:59
+.preheader8:3  %i_22 = add i5 %i_9, 1
 
-ST_28: tmp_145 (159)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
-burst.wr.body36:4  %tmp_145 = zext i5 %indvar4 to i64
+ST_15: StgValue_154 (147)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:59
+.preheader8:4  br i1 %tmp_144, label %.loopexit.loopexit17, label %16
 
-ST_28: buf_addr_10 (160)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:54
-burst.wr.body36:5  %buf_addr_10 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_145
+ST_15: tmp_145 (149)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
+:0  %tmp_145 = zext i5 %i_9 to i64
 
-ST_28: buf_load_5 (161)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
-burst.wr.body36:6  %buf_load_5 = load i8* %buf_addr_10, align 1
+ST_15: tmp_174_cast (150)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
+:1  %tmp_174_cast = zext i5 %i_9 to i8
 
+ST_15: buf_addr_10 (151)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
+:2  %buf_addr_10 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_145
 
- <State 29>: 2.39ns
-ST_29: buf_load_5 (161)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:54
-burst.wr.body36:6  %buf_load_5 = load i8* %buf_addr_10, align 1
+ST_15: buf_load_5 (152)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:60
+:3  %buf_load_5 = load i8* %buf_addr_10, align 1
 
+ST_15: sum6 (153)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:59
+:4  %sum6 = add i8 %tmp_97, %tmp_174_cast
 
- <State 30>: 7.00ns
-ST_30: empty_24 (155)  [1/1] 0.00ns
-burst.wr.body36:0  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+ST_15: StgValue_160 (159)  [1/1] 0.00ns
+.loopexit.loopexit17:0  br label %.loopexit
 
-ST_30: burstwrite_rbegin1 (156)  [1/1] 0.00ns
-burst.wr.body36:1  %burstwrite_rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @burstwrite_OC_region) nounwind
-
-ST_30: empty_25 (157)  [1/1] 0.00ns
-burst.wr.body36:2  %empty_25 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str7) nounwind
-
-ST_30: empty_26 (158)  [1/1] 0.00ns
-burst.wr.body36:3  %empty_26 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_memptr_OC_s) nounwind
-
-ST_30: StgValue_219 (162)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-burst.wr.body36:7  call void @_ssdm_op_Write.m_axi.i8P(i8* %memptr_addr_5, i8 %buf_load_5, i1 true) nounwind
-
-ST_30: burstwrite_rend48 (163)  [1/1] 0.00ns
-burst.wr.body36:8  %burstwrite_rend48 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @burstwrite_OC_region, i32 %burstwrite_rbegin1) nounwind
-
-ST_30: StgValue_221 (164)  [1/1] 0.00ns
-burst.wr.body36:9  br label %burst.wr.header35
+ST_15: StgValue_161 (280)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:75
+.loopexit:0  ret void
 
 
- <State 31>: 7.00ns
-ST_31: memptr_addr_10_wr_re_1 (166)  [5/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-._crit_edge.loopexit6:0  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
+ <State 16>: 4.78ns
+ST_16: buf_load_5 (152)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:60
+:3  %buf_load_5 = load i8* %buf_addr_10, align 1
+
+ST_16: sum6_cast (154)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:59
+:5  %sum6_cast = zext i8 %sum6 to i64
+
+ST_16: memptr_addr_5 (155)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:60
+:6  %memptr_addr_5 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum6_cast
+
+ST_16: StgValue_165 (156)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:60
+:7  store i8 %buf_load_5, i8* %memptr_addr_5, align 1
+
+ST_16: StgValue_166 (157)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:59
+:8  br label %.preheader8
 
 
- <State 32>: 7.00ns
-ST_32: memptr_addr_10_wr_re_1 (166)  [4/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-._crit_edge.loopexit6:0  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
+ <State 17>: 4.11ns
+ST_17: i_1 (164)  [1/1] 0.00ns
+.preheader16:0  %i_1 = phi i5 [ %i_12, %4 ], [ 0, %.preheader16.preheader ]
+
+ST_17: tmp_121 (165)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:31
+.preheader16:1  %tmp_121 = icmp eq i5 %i_1, -16
+
+ST_17: empty_11 (166)  [1/1] 0.00ns
+.preheader16:2  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+
+ST_17: i_12 (167)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:31
+.preheader16:3  %i_12 = add i5 %i_1, 1
+
+ST_17: StgValue_171 (168)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
+.preheader16:4  br i1 %tmp_121, label %.preheader15.preheader, label %4
+
+ST_17: tmp_153_cast (171)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
+:1  %tmp_153_cast = zext i5 %i_1 to i8
+
+ST_17: sum (172)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:31
+:2  %sum = add i8 %tmp, %tmp_153_cast
+
+ST_17: sum_cast (173)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
+:3  %sum_cast = zext i8 %sum to i64
+
+ST_17: memptr_addr (174)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
+:4  %memptr_addr = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum_cast
+
+ST_17: memptr_load (175)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+:5  %memptr_load = load i8* %memptr_addr, align 1
+
+ST_17: StgValue_177 (180)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:34
+.preheader15.preheader:0  br label %.preheader15
 
 
- <State 33>: 7.00ns
-ST_33: memptr_addr_10_wr_re_1 (166)  [3/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-._crit_edge.loopexit6:0  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
+ <State 18>: 4.78ns
+ST_18: tmp_126 (170)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
+:0  %tmp_126 = zext i5 %i_1 to i64
+
+ST_18: memptr_load (175)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+:5  %memptr_load = load i8* %memptr_addr, align 1
+
+ST_18: buf_addr (176)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
+:6  %buf_addr = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_126
+
+ST_18: StgValue_181 (177)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+:7  store i8 %memptr_load, i8* %buf_addr, align 1
+
+ST_18: StgValue_182 (178)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
+:8  br label %.preheader16
 
 
- <State 34>: 7.00ns
-ST_34: memptr_addr_10_wr_re_1 (166)  [2/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-._crit_edge.loopexit6:0  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
+ <State 19>: 2.39ns
+ST_19: i_2 (182)  [1/1] 0.00ns
+.preheader15:0  %i_2 = phi i5 [ %i_16, %5 ], [ 0, %.preheader15.preheader ]
 
+ST_19: tmp_130 (183)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:34
+.preheader15:1  %tmp_130 = icmp eq i5 %i_2, -16
 
- <State 35>: 7.00ns
-ST_35: memptr_addr_10_wr_re_1 (166)  [1/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:54
-._crit_edge.loopexit6:0  %memptr_addr_10_wr_re_1 = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_5) nounwind
+ST_19: empty_12 (184)  [1/1] 0.00ns
+.preheader15:2  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_35: StgValue_227 (167)  [1/1] 0.00ns
-._crit_edge.loopexit6:1  br label %._crit_edge
+ST_19: i_16 (185)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:34
+.preheader15:3  %i_16 = add i5 %i_2, 1
 
-ST_35: StgValue_228 (293)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:63
-._crit_edge:0  ret void
+ST_19: StgValue_187 (186)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:34
+.preheader15:4  br i1 %tmp_130, label %6, label %5
 
+ST_19: tmp_132 (188)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:34
+:0  %tmp_132 = zext i5 %i_2 to i64
 
- <State 36>: 1.91ns
-ST_36: indvar (174)  [1/1] 0.00ns
-burst.rd.header:0  %indvar = phi i5 [ 0, %4 ], [ %indvar_next, %burst.rd.body ]
-
-ST_36: exitcond (175)  [1/1] 1.91ns
-burst.rd.header:1  %exitcond = icmp eq i5 %indvar, -16
-
-ST_36: indvar_next (176)  [1/1] 1.72ns
-burst.rd.header:2  %indvar_next = add i5 %indvar, 1
-
-ST_36: StgValue_232 (177)  [1/1] 0.00ns
-burst.rd.header:3  br i1 %exitcond, label %burst.rd.end.preheader, label %burst.rd.body
-
-
- <State 37>: 7.00ns
-ST_37: memptr_addr_read (183)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:29
-burst.rd.body:4  %memptr_addr_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %memptr_addr) nounwind
-
-
- <State 38>: 2.39ns
-ST_38: empty_10 (179)  [1/1] 0.00ns
-burst.rd.body:0  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_38: burstread_rbegin (180)  [1/1] 0.00ns
-burst.rd.body:1  %burstread_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s) nounwind
-
-ST_38: empty_11 (181)  [1/1] 0.00ns
-burst.rd.body:2  %empty_11 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str4) nounwind
-
-ST_38: empty_12 (182)  [1/1] 0.00ns
-burst.rd.body:3  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_OC_memptr) nounwind
-
-ST_38: tmp_126 (184)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:29
-burst.rd.body:5  %tmp_126 = zext i5 %indvar to i64
-
-ST_38: buf_addr (185)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:29
-burst.rd.body:6  %buf_addr = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_126
-
-ST_38: StgValue_240 (186)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:29
-burst.rd.body:7  store i8 %memptr_addr_read, i8* %buf_addr, align 1
-
-ST_38: burstread_rend (187)  [1/1] 0.00ns
-burst.rd.body:8  %burstread_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin) nounwind
-
-ST_38: StgValue_242 (188)  [1/1] 0.00ns
-burst.rd.body:9  br label %burst.rd.header
-
-
- <State 39>: 1.57ns
-ST_39: StgValue_243 (190)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:31
-burst.rd.end.preheader:0  br label %burst.rd.end
-
-
- <State 40>: 3.28ns
-ST_40: i_1 (192)  [1/1] 0.00ns
-burst.rd.end:0  %i_1 = phi i5 [ %i_8, %5 ], [ 0, %burst.rd.end.preheader ]
-
-ST_40: tmp_130 (193)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:31
-burst.rd.end:1  %tmp_130 = icmp eq i5 %i_1, -16
-
-ST_40: empty_13 (194)  [1/1] 0.00ns
-burst.rd.end:2  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_40: i_8 (195)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:31
-burst.rd.end:3  %i_8 = add i5 %i_1, 1
-
-ST_40: StgValue_248 (196)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
-burst.rd.end:4  br i1 %tmp_130, label %6, label %5
-
-ST_40: tmp_132 (198)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
-:0  %tmp_132 = zext i5 %i_1 to i64
-
-ST_40: buf_addr_5 (199)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_19: buf_addr_5 (189)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:34
 :1  %buf_addr_5 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_132
 
-ST_40: buf_load (200)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_19: buf_load (190)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:34
 :2  %buf_load = load i8* %buf_addr_5, align 1
 
-ST_40: xorv_addr_1 (201)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_19: xorv_addr_1 (191)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:34
 :3  %xorv_addr_1 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_132
 
-ST_40: xorv_load (202)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_19: xorv_load (192)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:34
 :4  %xorv_load = load i8* %xorv_addr_1, align 1
 
-ST_40: StgValue_254 (207)  [2/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:35
+ST_19: StgValue_193 (197)  [2/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:36
 :0  call fastcc void @aes256_encrypt_ecb([16 x i8]* %buf) nounwind
 
 
- <State 41>: 6.15ns
-ST_41: buf_load (200)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+ <State 20>: 6.15ns
+ST_20: buf_load (190)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:34
 :2  %buf_load = load i8* %buf_addr_5, align 1
 
-ST_41: xorv_load (202)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_20: xorv_load (192)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:34
 :4  %xorv_load = load i8* %xorv_addr_1, align 1
 
-ST_41: tmp_133 (203)  [1/1] 1.37ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_20: tmp_133 (193)  [1/1] 1.37ns  loc: aes256cbc/src/aes256cbc.c:34
 :5  %tmp_133 = xor i8 %xorv_load, %buf_load
 
-ST_41: StgValue_258 (204)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:32
+ST_20: StgValue_197 (194)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:34
 :6  store i8 %tmp_133, i8* %buf_addr_5, align 1
 
-ST_41: StgValue_259 (205)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:31
-:7  br label %burst.rd.end
+ST_20: StgValue_198 (195)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:34
+:7  br label %.preheader15
 
 
- <State 42>: 1.57ns
-ST_42: StgValue_260 (207)  [1/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:35
+ <State 21>: 1.57ns
+ST_21: StgValue_199 (197)  [1/2] 0.00ns  loc: aes256cbc/src/aes256cbc.c:36
 :0  call fastcc void @aes256_encrypt_ecb([16 x i8]* %buf) nounwind
 
-ST_42: StgValue_261 (208)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:37
+ST_21: StgValue_200 (198)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:38
 :1  br label %7
 
 
- <State 43>: 7.00ns
-ST_43: i_2 (210)  [1/1] 0.00ns
-:0  %i_2 = phi i5 [ 0, %6 ], [ %i_12, %8 ]
+ <State 22>: 2.39ns
+ST_22: i_3 (200)  [1/1] 0.00ns
+:0  %i_3 = phi i5 [ 0, %6 ], [ %i_18, %8 ]
 
-ST_43: tmp_135 (211)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:37
-:1  %tmp_135 = icmp eq i5 %i_2, -16
+ST_22: tmp_135 (201)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:38
+:1  %tmp_135 = icmp eq i5 %i_3, -16
 
-ST_43: empty_14 (212)  [1/1] 0.00ns
-:2  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+ST_22: empty_13 (202)  [1/1] 0.00ns
+:2  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_43: i_12 (213)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:37
-:3  %i_12 = add i5 %i_2, 1
+ST_22: i_18 (203)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:38
+:3  %i_18 = add i5 %i_3, 1
 
-ST_43: StgValue_266 (214)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:37
-:4  br i1 %tmp_135, label %9, label %8
+ST_22: StgValue_205 (204)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:38
+:4  br i1 %tmp_135, label %.preheader13.preheader, label %8
 
-ST_43: tmp_138 (216)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:37
-:0  %tmp_138 = zext i5 %i_2 to i64
+ST_22: tmp_137 (206)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:38
+:0  %tmp_137 = zext i5 %i_3 to i64
 
-ST_43: buf_addr_7 (217)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:37
-:1  %buf_addr_7 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_138
+ST_22: buf_addr_7 (207)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:38
+:1  %buf_addr_7 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_137
 
-ST_43: buf_load_2 (218)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:37
+ST_22: buf_load_2 (208)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:38
 :2  %buf_load_2 = load i8* %buf_addr_7, align 1
 
-ST_43: tmp_137 (223)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:39
-:0  %tmp_137 = zext i32 %outbuf_addr_read to i64
+ST_22: tmp_96 (213)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:41
+.preheader13.preheader:0  %tmp_96 = trunc i32 %outbuf_addr_read to i8
 
-ST_43: memptr_addr_4 (224)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:39
-:1  %memptr_addr_4 = getelementptr inbounds i8* %memptr, i64 %tmp_137
-
-ST_43: memptr_addr_9_wr_req (225)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-:2  %memptr_addr_9_wr_req = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %memptr_addr_4, i32 16) nounwind
-
-ST_43: StgValue_273 (226)  [1/1] 1.57ns
-:3  br label %burst.wr.header
+ST_22: StgValue_210 (214)  [1/1] 1.57ns  loc: aes256cbc/src/aes256cbc.c:41
+.preheader13.preheader:1  br label %.preheader13
 
 
- <State 44>: 4.78ns
-ST_44: buf_load_2 (218)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:37
+ <State 23>: 4.78ns
+ST_23: buf_load_2 (208)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:38
 :2  %buf_load_2 = load i8* %buf_addr_7, align 1
 
-ST_44: xorv_addr_2 (219)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:37
-:3  %xorv_addr_2 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_138
+ST_23: xorv_addr_2 (209)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:38
+:3  %xorv_addr_2 = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_137
 
-ST_44: StgValue_276 (220)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:37
+ST_23: StgValue_213 (210)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:38
 :4  store i8 %buf_load_2, i8* %xorv_addr_2, align 1
 
-ST_44: StgValue_277 (221)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:37
+ST_23: StgValue_214 (211)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:38
 :5  br label %7
 
 
- <State 45>: 3.28ns
-ST_45: indvar7 (228)  [1/1] 0.00ns
-burst.wr.header:0  %indvar7 = phi i5 [ 0, %9 ], [ %indvar_next8, %burst.wr.body ]
+ <State 24>: 2.39ns
+ST_24: i_4 (216)  [1/1] 0.00ns
+.preheader13:0  %i_4 = phi i5 [ %i_20, %9 ], [ 0, %.preheader13.preheader ]
 
-ST_45: exitcond9 (229)  [1/1] 1.91ns
-burst.wr.header:1  %exitcond9 = icmp eq i5 %indvar7, -16
+ST_24: tmp_140 (217)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:41
+.preheader13:1  %tmp_140 = icmp eq i5 %i_4, -16
 
-ST_45: indvar_next8 (230)  [1/1] 1.72ns
-burst.wr.header:2  %indvar_next8 = add i5 %indvar7, 1
+ST_24: empty_14 (218)  [1/1] 0.00ns
+.preheader13:2  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
-ST_45: StgValue_281 (231)  [1/1] 0.00ns
-burst.wr.header:3  br i1 %exitcond9, label %._crit_edge.loopexit7, label %burst.wr.body
+ST_24: i_20 (219)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:41
+.preheader13:3  %i_20 = add i5 %i_4, 1
 
-ST_45: tmp_142 (237)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:39
-burst.wr.body:4  %tmp_142 = zext i5 %indvar7 to i64
+ST_24: StgValue_219 (220)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:41
+.preheader13:4  br i1 %tmp_140, label %.loopexit.loopexit18, label %9
 
-ST_45: buf_addr_9 (238)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:39
-burst.wr.body:5  %buf_addr_9 = getelementptr [16 x i8]* %buf, i64 0, i64 %tmp_142
+ST_24: tmp_142 (222)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
+:0  %tmp_142 = zext i5 %i_4 to i64
 
-ST_45: buf_load_4 (239)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:39
-burst.wr.body:6  %buf_load_4 = load i8* %buf_addr_9, align 1
+ST_24: tmp_170_cast (223)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
+:1  %tmp_170_cast = zext i5 %i_4 to i8
 
+ST_24: buf_addr_9 (224)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
+:2  %buf_addr_9 = getelementptr inbounds [16 x i8]* %buf, i64 0, i64 %tmp_142
 
- <State 46>: 2.39ns
-ST_46: buf_load_4 (239)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:39
-burst.wr.body:6  %buf_load_4 = load i8* %buf_addr_9, align 1
+ST_24: buf_load_4 (225)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:42
+:3  %buf_load_4 = load i8* %buf_addr_9, align 1
 
+ST_24: sum2 (226)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:41
+:4  %sum2 = add i8 %tmp_96, %tmp_170_cast
 
- <State 47>: 7.00ns
-ST_47: empty_15 (233)  [1/1] 0.00ns
-burst.wr.body:0  %empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_47: burstwrite_rbegin (234)  [1/1] 0.00ns
-burst.wr.body:1  %burstwrite_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @burstwrite_OC_region) nounwind
-
-ST_47: empty_16 (235)  [1/1] 0.00ns
-burst.wr.body:2  %empty_16 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str5) nounwind
-
-ST_47: empty_17 (236)  [1/1] 0.00ns
-burst.wr.body:3  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopName([15 x i8]* @memcpy_OC_memptr_OC_s) nounwind
-
-ST_47: StgValue_290 (240)  [1/1] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-burst.wr.body:7  call void @_ssdm_op_Write.m_axi.i8P(i8* %memptr_addr_4, i8 %buf_load_4, i1 true) nounwind
-
-ST_47: burstwrite_rend (241)  [1/1] 0.00ns
-burst.wr.body:8  %burstwrite_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @burstwrite_OC_region, i32 %burstwrite_rbegin) nounwind
-
-ST_47: StgValue_292 (242)  [1/1] 0.00ns
-burst.wr.body:9  br label %burst.wr.header
+ST_24: StgValue_225 (232)  [1/1] 0.00ns
+.loopexit.loopexit18:0  br label %.loopexit
 
 
- <State 48>: 7.00ns
-ST_48: memptr_addr_9_wr_res (244)  [5/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-._crit_edge.loopexit7:0  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
+ <State 25>: 4.78ns
+ST_25: buf_load_4 (225)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:42
+:3  %buf_load_4 = load i8* %buf_addr_9, align 1
+
+ST_25: sum2_cast (227)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:41
+:5  %sum2_cast = zext i8 %sum2 to i64
+
+ST_25: memptr_addr_4 (228)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:42
+:6  %memptr_addr_4 = getelementptr [64 x i8]* %memptr, i64 0, i64 %sum2_cast
+
+ST_25: StgValue_229 (229)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:42
+:7  store i8 %buf_load_4, i8* %memptr_addr_4, align 1
+
+ST_25: StgValue_230 (230)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:41
+:8  br label %.preheader13
 
 
- <State 49>: 7.00ns
-ST_49: memptr_addr_9_wr_res (244)  [4/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-._crit_edge.loopexit7:0  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
+ <State 26>: 2.39ns
+ST_26: i (236)  [1/1] 0.00ns
+.preheader17:0  %i = phi i5 [ %i_11, %1 ], [ 0, %.preheader17.preheader ]
 
+ST_26: tmp_s (237)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:25
+.preheader17:1  %tmp_s = icmp eq i5 %i, -16
 
- <State 50>: 7.00ns
-ST_50: memptr_addr_9_wr_res (244)  [3/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-._crit_edge.loopexit7:0  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
+ST_26: empty_7 (238)  [1/1] 0.00ns
+.preheader17:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
 
+ST_26: i_11 (239)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:25
+.preheader17:3  %i_11 = add i5 %i, 1
 
- <State 51>: 7.00ns
-ST_51: memptr_addr_9_wr_res (244)  [2/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-._crit_edge.loopexit7:0  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
+ST_26: StgValue_235 (240)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
+.preheader17:4  br i1 %tmp_s, label %.preheader31.preheader, label %1
 
-
- <State 52>: 7.00ns
-ST_52: memptr_addr_9_wr_res (244)  [1/5] 7.00ns  loc: aes256cbc/src/aes256cbc.c:39
-._crit_edge.loopexit7:0  %memptr_addr_9_wr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %memptr_addr_4) nounwind
-
-ST_52: StgValue_298 (245)  [1/1] 0.00ns
-._crit_edge.loopexit7:1  br label %._crit_edge
-
-
- <State 53>: 3.28ns
-ST_53: i (249)  [1/1] 0.00ns
-.preheader1:0  %i = phi i5 [ %i_6, %1 ], [ 0, %.preheader1.preheader ]
-
-ST_53: tmp_124 (250)  [1/1] 1.91ns  loc: aes256cbc/src/aes256cbc.c:25
-.preheader1:1  %tmp_124 = icmp eq i5 %i, -16
-
-ST_53: empty (251)  [1/1] 0.00ns
-.preheader1:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
-
-ST_53: i_6 (252)  [1/1] 1.72ns  loc: aes256cbc/src/aes256cbc.c:25
-.preheader1:3  %i_6 = add i5 %i, 1
-
-ST_53: StgValue_303 (253)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
-.preheader1:4  br i1 %tmp_124, label %.preheader20.preheader, label %1
-
-ST_53: tmp_125 (255)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
+ST_26: tmp_125 (242)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
 :0  %tmp_125 = zext i5 %i to i64
 
-ST_53: iv_addr (256)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
+ST_26: iv_addr (243)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
 :1  %iv_addr = getelementptr inbounds [16 x i8]* @iv, i64 0, i64 %tmp_125
 
-ST_53: iv_load (257)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
+ST_26: iv_load (244)  [2/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
 :2  %iv_load = load i8* %iv_addr, align 1
 
-ST_53: StgValue_307 (262)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-.preheader20.preheader:0  br label %.preheader20
+ST_26: StgValue_239 (249)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+.preheader31.preheader:0  br label %.preheader31
 
 
- <State 54>: 4.78ns
-ST_54: iv_load (257)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
+ <State 27>: 4.78ns
+ST_27: iv_load (244)  [1/2] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
 :2  %iv_load = load i8* %iv_addr, align 1
 
-ST_54: xorv_addr (258)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
+ST_27: xorv_addr (245)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
 :3  %xorv_addr = getelementptr inbounds [16 x i8]* @xorv, i64 0, i64 %tmp_125
 
-ST_54: StgValue_310 (259)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
+ST_27: StgValue_242 (246)  [1/1] 2.39ns  loc: aes256cbc/src/aes256cbc.c:25
 :4  store i8 %iv_load, i8* %xorv_addr, align 1
 
-ST_54: StgValue_311 (260)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
-:5  br label %.preheader1
+ST_27: StgValue_243 (247)  [1/1] 0.00ns  loc: aes256cbc/src/aes256cbc.c:25
+:5  br label %.preheader17
 
 
- <State 55>: 3.31ns
-ST_55: i_i (264)  [1/1] 0.00ns
-.preheader20:0  %i_i = phi i6 [ %i_7, %2 ], [ 0, %.preheader20.preheader ]
+ <State 28>: 2.39ns
+ST_28: i_i (251)  [1/1] 0.00ns
+.preheader31:0  %i_i = phi i6 [ %i_23, %2 ], [ 0, %.preheader31.preheader ]
 
-ST_55: tmp_i (265)  [1/1] 1.94ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-.preheader20:1  %tmp_i = icmp eq i6 %i_i, -32
+ST_28: tmp_i (252)  [1/1] 1.94ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+.preheader31:1  %tmp_i = icmp eq i6 %i_i, -32
 
-ST_55: empty_7 (266)  [1/1] 0.00ns
-.preheader20:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+ST_28: empty_8 (253)  [1/1] 0.00ns
+.preheader31:2  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
 
-ST_55: i_7 (267)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-.preheader20:3  %i_7 = add i6 %i_i, 1
+ST_28: i_23 (254)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+.preheader31:3  %i_23 = add i6 %i_i, 1
 
-ST_55: StgValue_316 (268)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-.preheader20:4  br i1 %tmp_i, label %.preheader.i.preheader, label %2
+ST_28: StgValue_248 (255)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+.preheader31:4  br i1 %tmp_i, label %.preheader.i.preheader, label %2
 
-ST_55: tmp_i_8 (270)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-:0  %tmp_i_8 = zext i6 %i_i to i64
+ST_28: tmp_i_9 (257)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+:0  %tmp_i_9 = zext i6 %i_i to i64
 
-ST_55: key_addr_1 (271)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-:1  %key_addr_1 = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_i_8
+ST_28: key_addr_1 (258)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+:1  %key_addr_1 = getelementptr [32 x i8]* @key, i64 0, i64 %tmp_i_9
 
-ST_55: key_load (272)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+ST_28: key_load (259)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
 :2  %key_load = load i8* %key_addr_1, align 1
 
-ST_55: StgValue_320 (279)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+ST_28: StgValue_252 (266)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
 .preheader.i.preheader:0  br label %.preheader.i
 
 
- <State 56>: 4.78ns
-ST_56: key_load (272)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+ <State 29>: 4.78ns
+ST_29: key_load (259)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
 :2  %key_load = load i8* %key_addr_1, align 1
 
-ST_56: ctx_deckey_addr (273)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-:3  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_8
+ST_29: ctx_deckey_addr (260)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+:3  %ctx_deckey_addr = getelementptr [32 x i8]* @ctx_deckey, i64 0, i64 %tmp_i_9
 
-ST_56: StgValue_323 (274)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+ST_29: StgValue_255 (261)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
 :4  store i8 %key_load, i8* %ctx_deckey_addr, align 1
 
-ST_56: ctx_enckey_addr (275)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-:5  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_8
+ST_29: ctx_enckey_addr (262)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+:5  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_9
 
-ST_56: StgValue_325 (276)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+ST_29: StgValue_257 (263)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
 :6  store i8 %key_load, i8* %ctx_enckey_addr, align 1
 
-ST_56: StgValue_326 (277)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
-:7  br label %.preheader20
+ST_29: StgValue_258 (264)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26
+:7  br label %.preheader31
 
 
- <State 57>: 3.76ns
-ST_57: rcon_i (281)  [1/1] 0.00ns
+ <State 30>: 3.76ns
+ST_30: rcon_i (268)  [1/1] 0.00ns
 .preheader.i:0  %rcon_i = phi i8 [ %rcon, %3 ], [ 1, %.preheader.i.preheader ]
 
-ST_57: i_10 (282)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
-.preheader.i:1  %i_10 = phi i3 [ %phitmp_i, %3 ], [ -1, %.preheader.i.preheader ]
+ST_30: i_24 (269)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+.preheader.i:1  %i_24 = phi i3 [ %phitmp_i, %3 ], [ -1, %.preheader.i.preheader ]
 
-ST_57: tmp_212_i (283)  [1/1] 1.62ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
-.preheader.i:2  %tmp_212_i = icmp eq i3 %i_10, 0
+ST_30: tmp_212_i (270)  [1/1] 1.62ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+.preheader.i:2  %tmp_212_i = icmp eq i3 %i_24, 0
 
-ST_57: empty_9 (284)  [1/1] 0.00ns
-.preheader.i:3  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
+ST_30: empty_10 (271)  [1/1] 0.00ns
+.preheader.i:3  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
 
-ST_57: StgValue_331 (285)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
-.preheader.i:4  br i1 %tmp_212_i, label %._crit_edge.loopexit15, label %3
+ST_30: StgValue_263 (272)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+.preheader.i:4  br i1 %tmp_212_i, label %.loopexit.loopexit19, label %3
 
-ST_57: rcon (287)  [2/2] 3.76ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+ST_30: rcon (274)  [2/2] 3.76ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
 :0  %rcon = call fastcc i8 @aes_expandEncKey([32 x i8]* @ctx_deckey, i8 %rcon_i) nounwind
 
-ST_57: phitmp_i (288)  [1/1] 0.80ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
-:1  %phitmp_i = add i3 %i_10, -1
+ST_30: phitmp_i (275)  [1/1] 0.80ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+:1  %phitmp_i = add i3 %i_24, -1
 
-ST_57: StgValue_334 (291)  [1/1] 0.00ns
-._crit_edge.loopexit15:0  br label %._crit_edge
+ST_30: StgValue_266 (278)  [1/1] 0.00ns
+.loopexit.loopexit19:0  br label %.loopexit
 
 
- <State 58>: 0.00ns
-ST_58: rcon (287)  [1/2] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+ <State 31>: 0.00ns
+ST_31: rcon (274)  [1/2] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
 :0  %rcon = call fastcc i8 @aes_expandEncKey([32 x i8]* @ctx_deckey, i8 %rcon_i) nounwind
 
-ST_58: StgValue_336 (289)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
+ST_31: StgValue_268 (276)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26
 :2  br label %.preheader.i
 
 
@@ -1204,257 +959,169 @@ Target clock period: 8ns, clock uncertainty: 1ns.
 The critical path consists of the following:
 	s_axi read on port 'mode' [21]  (1 ns)
 
- <State 2>: 7ns
+ <State 2>: 4.11ns
 The critical path consists of the following:
-	'getelementptr' operation ('memptr_addr_3', aes256cbc/src/aes256cbc.c:60) [31]  (0 ns)
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:71) [34]  (0 ns)
+	'add' operation ('sum1', aes256cbc/src/aes256cbc.c:71) [42]  (1.72 ns)
+	'getelementptr' operation ('memptr_addr_3', aes256cbc/src/aes256cbc.c:72) [44]  (0 ns)
+	'load' operation ('memptr_load_3', aes256cbc/src/aes256cbc.c:72) on array 'memptr' [45]  (2.39 ns)
 
- <State 3>: 7ns
+ <State 3>: 4.78ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'load' operation ('memptr_load_3', aes256cbc/src/aes256cbc.c:72) on array 'memptr' [45]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:72) of variable 'memptr_load_3', aes256cbc/src/aes256cbc.c:72 on array 'key' [47]  (2.39 ns)
 
- <State 4>: 7ns
+ <State 4>: 4.11ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:65) [55]  (0 ns)
+	'add' operation ('sum8', aes256cbc/src/aes256cbc.c:65) [63]  (1.72 ns)
+	'getelementptr' operation ('memptr_addr_2', aes256cbc/src/aes256cbc.c:66) [65]  (0 ns)
+	'load' operation ('memptr_load_2', aes256cbc/src/aes256cbc.c:66) on array 'memptr' [66]  (2.39 ns)
 
- <State 5>: 7ns
+ <State 5>: 4.78ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'load' operation ('memptr_load_2', aes256cbc/src/aes256cbc.c:66) on array 'memptr' [66]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:66) of variable 'memptr_load_2', aes256cbc/src/aes256cbc.c:66 on array 'iv' [68]  (2.39 ns)
 
- <State 6>: 7ns
+ <State 6>: 4.11ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:47) [76]  (0 ns)
+	'add' operation ('sum4', aes256cbc/src/aes256cbc.c:47) [84]  (1.72 ns)
+	'getelementptr' operation ('memptr_addr_1', aes256cbc/src/aes256cbc.c:48) [86]  (0 ns)
+	'load' operation ('memptr_load_1', aes256cbc/src/aes256cbc.c:48) on array 'memptr' [87]  (2.39 ns)
 
- <State 7>: 7ns
+ <State 7>: 4.78ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'load' operation ('memptr_load_1', aes256cbc/src/aes256cbc.c:48) on array 'memptr' [87]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:48) of variable 'memptr_load_1', aes256cbc/src/aes256cbc.c:48 on array 'buf', aes256cbc/src/aes256cbc.c:15 [89]  (2.39 ns)
 
- <State 8>: 7ns
+ <State 8>: 2.39ns
 The critical path consists of the following:
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [32]  (7 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:50) [94]  (0 ns)
+	'getelementptr' operation ('buf_addr_6', aes256cbc/src/aes256cbc.c:50) [101]  (0 ns)
+	'load' operation ('buf_load_1', aes256cbc/src/aes256cbc.c:50) on array 'buf', aes256cbc/src/aes256cbc.c:15 [102]  (2.39 ns)
 
- <State 9>: 1.94ns
+ <State 9>: 4.78ns
 The critical path consists of the following:
-	'phi' operation ('indvar3') with incoming values : ('indvar_next3') [35]  (0 ns)
-	'icmp' operation ('exitcond3') [36]  (1.94 ns)
+	'load' operation ('buf_load_1', aes256cbc/src/aes256cbc.c:50) on array 'buf', aes256cbc/src/aes256cbc.c:15 [102]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:50) of variable 'buf_load_1', aes256cbc/src/aes256cbc.c:50 on array 'lastbuf' [104]  (2.39 ns)
 
- <State 10>: 7ns
+ <State 10>: 1.57ns
 The critical path consists of the following:
-	bus read on port 'memptr' (aes256cbc/src/aes256cbc.c:60) [44]  (7 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:54) [110]  (1.57 ns)
 
  <State 11>: 2.39ns
 The critical path consists of the following:
-	'getelementptr' operation ('key_addr', aes256cbc/src/aes256cbc.c:60) [46]  (0 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:60) of variable 'memptr_addr_3_read', aes256cbc/src/aes256cbc.c:60 on array 'key' [47]  (2.39 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:54) [110]  (0 ns)
+	'getelementptr' operation ('buf_addr_8', aes256cbc/src/aes256cbc.c:54) [117]  (0 ns)
+	'load' operation ('buf_load_3', aes256cbc/src/aes256cbc.c:54) on array 'buf', aes256cbc/src/aes256cbc.c:15 [118]  (2.39 ns)
 
- <State 12>: 0ns
+ <State 12>: 6.15ns
 The critical path consists of the following:
+	'load' operation ('buf_load_3', aes256cbc/src/aes256cbc.c:54) on array 'buf', aes256cbc/src/aes256cbc.c:15 [118]  (2.39 ns)
+	'xor' operation ('tmp_139', aes256cbc/src/aes256cbc.c:54) [121]  (1.37 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:54) of variable 'tmp_139', aes256cbc/src/aes256cbc.c:54 on array 'buf', aes256cbc/src/aes256cbc.c:15 [122]  (2.39 ns)
 
- <State 13>: 1.91ns
+ <State 13>: 2.39ns
 The critical path consists of the following:
-	'phi' operation ('indvar2') with incoming values : ('indvar_next2') [58]  (0 ns)
-	'icmp' operation ('exitcond2') [59]  (1.91 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:56) [127]  (0 ns)
+	'getelementptr' operation ('lastbuf_addr_1', aes256cbc/src/aes256cbc.c:56) [134]  (0 ns)
+	'load' operation ('lastbuf_load', aes256cbc/src/aes256cbc.c:56) on array 'lastbuf' [135]  (2.39 ns)
 
- <State 14>: 7ns
+ <State 14>: 4.78ns
 The critical path consists of the following:
-	bus read on port 'memptr' (aes256cbc/src/aes256cbc.c:57) [67]  (7 ns)
+	'load' operation ('lastbuf_load', aes256cbc/src/aes256cbc.c:56) on array 'lastbuf' [135]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:56) of variable 'lastbuf_load', aes256cbc/src/aes256cbc.c:56 on array 'xorv' [137]  (2.39 ns)
 
  <State 15>: 2.39ns
 The critical path consists of the following:
-	'getelementptr' operation ('iv_addr_1', aes256cbc/src/aes256cbc.c:57) [69]  (0 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:57) of variable 'memptr_addr_2_read', aes256cbc/src/aes256cbc.c:57 on array 'iv' [70]  (2.39 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:59) [143]  (0 ns)
+	'getelementptr' operation ('buf_addr_10', aes256cbc/src/aes256cbc.c:60) [151]  (0 ns)
+	'load' operation ('buf_load_5', aes256cbc/src/aes256cbc.c:60) on array 'buf', aes256cbc/src/aes256cbc.c:15 [152]  (2.39 ns)
 
- <State 16>: 0ns
+ <State 16>: 4.78ns
 The critical path consists of the following:
+	'load' operation ('buf_load_5', aes256cbc/src/aes256cbc.c:60) on array 'buf', aes256cbc/src/aes256cbc.c:15 [152]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:60) of variable 'buf_load_5', aes256cbc/src/aes256cbc.c:60 on array 'memptr' [156]  (2.39 ns)
 
- <State 17>: 1.91ns
+ <State 17>: 4.11ns
 The critical path consists of the following:
-	'phi' operation ('indvar1') with incoming values : ('indvar_next1') [81]  (0 ns)
-	'icmp' operation ('exitcond1') [82]  (1.91 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:31) [164]  (0 ns)
+	'add' operation ('sum', aes256cbc/src/aes256cbc.c:31) [172]  (1.72 ns)
+	'getelementptr' operation ('memptr_addr', aes256cbc/src/aes256cbc.c:32) [174]  (0 ns)
+	'load' operation ('memptr_load', aes256cbc/src/aes256cbc.c:32) on array 'memptr' [175]  (2.39 ns)
 
- <State 18>: 7ns
+ <State 18>: 4.78ns
 The critical path consists of the following:
-	bus read on port 'memptr' (aes256cbc/src/aes256cbc.c:42) [90]  (7 ns)
+	'load' operation ('memptr_load', aes256cbc/src/aes256cbc.c:32) on array 'memptr' [175]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:32) of variable 'memptr_load', aes256cbc/src/aes256cbc.c:32 on array 'buf', aes256cbc/src/aes256cbc.c:15 [177]  (2.39 ns)
 
  <State 19>: 2.39ns
 The critical path consists of the following:
-	'getelementptr' operation ('buf_addr_4', aes256cbc/src/aes256cbc.c:42) [92]  (0 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:42) of variable 'memptr_addr_1_read', aes256cbc/src/aes256cbc.c:42 on array 'buf', aes256cbc/src/aes256cbc.c:15 [93]  (2.39 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:34) [182]  (0 ns)
+	'getelementptr' operation ('buf_addr_5', aes256cbc/src/aes256cbc.c:34) [189]  (0 ns)
+	'load' operation ('buf_load', aes256cbc/src/aes256cbc.c:34) on array 'buf', aes256cbc/src/aes256cbc.c:15 [190]  (2.39 ns)
 
- <State 20>: 1.57ns
+ <State 20>: 6.15ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:44) [99]  (1.57 ns)
+	'load' operation ('buf_load', aes256cbc/src/aes256cbc.c:34) on array 'buf', aes256cbc/src/aes256cbc.c:15 [190]  (2.39 ns)
+	'xor' operation ('tmp_133', aes256cbc/src/aes256cbc.c:34) [193]  (1.37 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:34) of variable 'tmp_133', aes256cbc/src/aes256cbc.c:34 on array 'buf', aes256cbc/src/aes256cbc.c:15 [194]  (2.39 ns)
 
- <State 21>: 3.28ns
+ <State 21>: 1.57ns
 The critical path consists of the following:
-	'icmp' operation ('tmp_131', aes256cbc/src/aes256cbc.c:44) [100]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:38) [200]  (1.57 ns)
 
- <State 22>: 4.78ns
+ <State 22>: 2.39ns
 The critical path consists of the following:
-	'load' operation ('buf_load_1', aes256cbc/src/aes256cbc.c:44) on array 'buf', aes256cbc/src/aes256cbc.c:15 [107]  (2.39 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:44) of variable 'buf_load_1', aes256cbc/src/aes256cbc.c:44 on array 'lastbuf' [109]  (2.39 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:38) [200]  (0 ns)
+	'getelementptr' operation ('buf_addr_7', aes256cbc/src/aes256cbc.c:38) [207]  (0 ns)
+	'load' operation ('buf_load_2', aes256cbc/src/aes256cbc.c:38) on array 'buf', aes256cbc/src/aes256cbc.c:15 [208]  (2.39 ns)
 
- <State 23>: 1.57ns
+ <State 23>: 4.78ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:48) [115]  (1.57 ns)
+	'load' operation ('buf_load_2', aes256cbc/src/aes256cbc.c:38) on array 'buf', aes256cbc/src/aes256cbc.c:15 [208]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:38) of variable 'buf_load_2', aes256cbc/src/aes256cbc.c:38 on array 'xorv' [210]  (2.39 ns)
 
- <State 24>: 3.28ns
+ <State 24>: 2.39ns
 The critical path consists of the following:
-	'icmp' operation ('tmp_136', aes256cbc/src/aes256cbc.c:48) [116]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:41) [216]  (0 ns)
+	'getelementptr' operation ('buf_addr_9', aes256cbc/src/aes256cbc.c:42) [224]  (0 ns)
+	'load' operation ('buf_load_4', aes256cbc/src/aes256cbc.c:42) on array 'buf', aes256cbc/src/aes256cbc.c:15 [225]  (2.39 ns)
 
- <State 25>: 6.15ns
+ <State 25>: 4.78ns
 The critical path consists of the following:
-	'load' operation ('buf_load_3', aes256cbc/src/aes256cbc.c:49) on array 'buf', aes256cbc/src/aes256cbc.c:15 [123]  (2.39 ns)
-	'xor' operation ('tmp_140', aes256cbc/src/aes256cbc.c:49) [126]  (1.37 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:49) of variable 'tmp_140', aes256cbc/src/aes256cbc.c:49 on array 'buf', aes256cbc/src/aes256cbc.c:15 [127]  (2.39 ns)
+	'load' operation ('buf_load_4', aes256cbc/src/aes256cbc.c:42) on array 'buf', aes256cbc/src/aes256cbc.c:15 [225]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:42) of variable 'buf_load_4', aes256cbc/src/aes256cbc.c:42 on array 'memptr' [229]  (2.39 ns)
 
- <State 26>: 7ns
+ <State 26>: 2.39ns
 The critical path consists of the following:
-	'getelementptr' operation ('memptr_addr_5', aes256cbc/src/aes256cbc.c:54) [146]  (0 ns)
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [147]  (7 ns)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:25) [236]  (0 ns)
+	'getelementptr' operation ('iv_addr', aes256cbc/src/aes256cbc.c:25) [243]  (0 ns)
+	'load' operation ('iv_load', aes256cbc/src/aes256cbc.c:25) on array 'iv' [244]  (2.39 ns)
 
  <State 27>: 4.78ns
 The critical path consists of the following:
-	'load' operation ('lastbuf_load', aes256cbc/src/aes256cbc.c:52) on array 'lastbuf' [140]  (2.39 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:52) of variable 'lastbuf_load', aes256cbc/src/aes256cbc.c:52 on array 'xorv' [142]  (2.39 ns)
+	'load' operation ('iv_load', aes256cbc/src/aes256cbc.c:25) on array 'iv' [244]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256cbc.c:25) of variable 'iv_load', aes256cbc/src/aes256cbc.c:25 on array 'xorv' [246]  (2.39 ns)
 
- <State 28>: 3.28ns
+ <State 28>: 2.39ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond4') [151]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) [251]  (0 ns)
+	'getelementptr' operation ('key_addr_1', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) [258]  (0 ns)
+	'load' operation ('key_load', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) on array 'key' [259]  (2.39 ns)
 
- <State 29>: 2.39ns
+ <State 29>: 4.78ns
 The critical path consists of the following:
-	'load' operation ('buf_load_5', aes256cbc/src/aes256cbc.c:54) on array 'buf', aes256cbc/src/aes256cbc.c:15 [161]  (2.39 ns)
+	'load' operation ('key_load', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) on array 'key' [259]  (2.39 ns)
+	'store' operation (aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) of variable 'key_load', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26 on array 'ctx_deckey' [261]  (2.39 ns)
 
- <State 30>: 7ns
+ <State 30>: 3.76ns
 The critical path consists of the following:
-	bus write on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [162]  (7 ns)
+	'phi' operation ('rcon') with incoming values : ('rcon', aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26) [268]  (0 ns)
+	'call' operation ('rcon', aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26) to 'aes_expandEncKey' [274]  (3.76 ns)
 
- <State 31>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [166]  (7 ns)
-
- <State 32>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [166]  (7 ns)
-
- <State 33>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [166]  (7 ns)
-
- <State 34>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [166]  (7 ns)
-
- <State 35>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:54) [166]  (7 ns)
-
- <State 36>: 1.91ns
-The critical path consists of the following:
-	'phi' operation ('indvar') with incoming values : ('indvar_next') [174]  (0 ns)
-	'icmp' operation ('exitcond') [175]  (1.91 ns)
-
- <State 37>: 7ns
-The critical path consists of the following:
-	bus read on port 'memptr' (aes256cbc/src/aes256cbc.c:29) [183]  (7 ns)
-
- <State 38>: 2.39ns
-The critical path consists of the following:
-	'getelementptr' operation ('buf_addr', aes256cbc/src/aes256cbc.c:29) [185]  (0 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:29) of variable 'memptr_addr_read', aes256cbc/src/aes256cbc.c:29 on array 'buf', aes256cbc/src/aes256cbc.c:15 [186]  (2.39 ns)
-
- <State 39>: 1.57ns
-The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:31) [192]  (1.57 ns)
-
- <State 40>: 3.28ns
-The critical path consists of the following:
-	'icmp' operation ('tmp_130', aes256cbc/src/aes256cbc.c:31) [193]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 41>: 6.15ns
-The critical path consists of the following:
-	'load' operation ('buf_load', aes256cbc/src/aes256cbc.c:32) on array 'buf', aes256cbc/src/aes256cbc.c:15 [200]  (2.39 ns)
-	'xor' operation ('tmp_133', aes256cbc/src/aes256cbc.c:32) [203]  (1.37 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:32) of variable 'tmp_133', aes256cbc/src/aes256cbc.c:32 on array 'buf', aes256cbc/src/aes256cbc.c:15 [204]  (2.39 ns)
-
- <State 42>: 1.57ns
-The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256cbc.c:37) [210]  (1.57 ns)
-
- <State 43>: 7ns
-The critical path consists of the following:
-	'getelementptr' operation ('memptr_addr_4', aes256cbc/src/aes256cbc.c:39) [224]  (0 ns)
-	bus request on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [225]  (7 ns)
-
- <State 44>: 4.78ns
-The critical path consists of the following:
-	'load' operation ('buf_load_2', aes256cbc/src/aes256cbc.c:37) on array 'buf', aes256cbc/src/aes256cbc.c:15 [218]  (2.39 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:37) of variable 'buf_load_2', aes256cbc/src/aes256cbc.c:37 on array 'xorv' [220]  (2.39 ns)
-
- <State 45>: 3.28ns
-The critical path consists of the following:
-	'icmp' operation ('exitcond9') [229]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 46>: 2.39ns
-The critical path consists of the following:
-	'load' operation ('buf_load_4', aes256cbc/src/aes256cbc.c:39) on array 'buf', aes256cbc/src/aes256cbc.c:15 [239]  (2.39 ns)
-
- <State 47>: 7ns
-The critical path consists of the following:
-	bus write on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [240]  (7 ns)
-
- <State 48>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [244]  (7 ns)
-
- <State 49>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [244]  (7 ns)
-
- <State 50>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [244]  (7 ns)
-
- <State 51>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [244]  (7 ns)
-
- <State 52>: 7ns
-The critical path consists of the following:
-	bus access on port 'memptr' (aes256cbc/src/aes256cbc.c:39) [244]  (7 ns)
-
- <State 53>: 3.28ns
-The critical path consists of the following:
-	'icmp' operation ('tmp_124', aes256cbc/src/aes256cbc.c:25) [250]  (1.91 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 54>: 4.78ns
-The critical path consists of the following:
-	'load' operation ('iv_load', aes256cbc/src/aes256cbc.c:25) on array 'iv' [257]  (2.39 ns)
-	'store' operation (aes256cbc/src/aes256cbc.c:25) of variable 'iv_load', aes256cbc/src/aes256cbc.c:25 on array 'xorv' [259]  (2.39 ns)
-
- <State 55>: 3.31ns
-The critical path consists of the following:
-	'icmp' operation ('tmp_i', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) [265]  (1.94 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 56>: 4.78ns
-The critical path consists of the following:
-	'load' operation ('key_load', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) on array 'key' [272]  (2.39 ns)
-	'store' operation (aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26) of variable 'key_load', aes256cbc/src/aes256ecb.c:344->aes256cbc/src/aes256cbc.c:26 on array 'ctx_deckey' [274]  (2.39 ns)
-
- <State 57>: 3.76ns
-The critical path consists of the following:
-	'phi' operation ('rcon') with incoming values : ('rcon', aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26) [281]  (0 ns)
-	'call' operation ('rcon', aes256cbc/src/aes256ecb.c:345->aes256cbc/src/aes256cbc.c:26) to 'aes_expandEncKey' [287]  (3.76 ns)
-
- <State 58>: 0ns
+ <State 31>: 0ns
 The critical path consists of the following:
 
 
@@ -1497,33 +1164,6 @@ N/A
 	State 29
 	State 30
 	State 31
-	State 32
-	State 33
-	State 34
-	State 35
-	State 36
-	State 37
-	State 38
-	State 39
-	State 40
-	State 41
-	State 42
-	State 43
-	State 44
-	State 45
-	State 46
-	State 47
-	State 48
-	State 49
-	State 50
-	State 51
-	State 52
-	State 53
-	State 54
-	State 55
-	State 56
-	State 57
-	State 58
 
 
 ============================================================

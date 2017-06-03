@@ -231,7 +231,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/stdint.h" 1 3 4
-/* Copyright (C) 1997-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1997-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -257,7 +257,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/features.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -296,8 +296,6 @@
    _LARGEFILE_SOURCE	Some more functions for correct standard I/O.
    _LARGEFILE64_SOURCE	Additional functionality from LFS for large files.
    _FILE_OFFSET_BITS=N	Select default filesystem interface.
-   _BSD_SOURCE		ISO C, POSIX, and 4.3BSD things.
-   _SVID_SOURCE		ISO C, POSIX, and SVID things.
    _ATFILE_SOURCE	Additional *at interfaces.
    _GNU_SOURCE		All of the above, plus GNU extensions.
    _DEFAULT_SOURCE	The default set of features (taking precedence over
@@ -310,11 +308,11 @@
    The `-ansi' switch to the GNU C compiler, and standards conformance
    options such as `-std=c99', define __STRICT_ANSI__.  If none of
    these are defined, or if _DEFAULT_SOURCE is defined, the default is
-   to have _SVID_SOURCE, _BSD_SOURCE, and _POSIX_SOURCE set to one and
-   _POSIX_C_SOURCE set to 200809L.  If more than one of these are
-   defined, they accumulate.  For example __STRICT_ANSI__,
-   _POSIX_SOURCE and _POSIX_C_SOURCE together give you ISO C, 1003.1,
-   and 1003.2, but nothing else.
+   to have _POSIX_SOURCE set to one and _POSIX_C_SOURCE set to
+   200809L, as well as enabling miscellaneous functions from BSD and
+   SVID.  If more than one of these are defined, they accumulate.  For
+   example __STRICT_ANSI__, _POSIX_SOURCE and _POSIX_C_SOURCE together
+   give you ISO C, 1003.1, and 1003.2, but nothing else.
 #pragma empty_line
    These are defined by this file and are used by the
    header files to decide what to declare or define:
@@ -336,9 +334,7 @@
    __USE_LARGEFILE	Define correct standard I/O things.
    __USE_LARGEFILE64	Define LFS things with separate names.
    __USE_FILE_OFFSET64	Define 64bit interface as default.
-   __USE_BSD		Define 4.3BSD things.
-   __USE_SVID		Define SVID things.
-   __USE_MISC		Define things common to BSD and System V Unix.
+   __USE_MISC		Define things from 4.3BSD or System V Unix.
    __USE_ATFILE		Define *at interfaces and AT_* constants for them.
    __USE_GNU		Define GNU extensions.
    __USE_REENTRANT	Define reentrant/thread-safe *_r functions.
@@ -357,7 +353,7 @@
 #pragma empty_line
 #pragma empty_line
 /* Undefine everything, so we get a clean slate.  */
-#pragma line 128 "/usr/include/features.h" 3 4
+#pragma line 122 "/usr/include/features.h" 3 4
 /* Suppress kernel-name space pollution unless user expressedly asks
    for it.  */
 #pragma empty_line
@@ -371,12 +367,23 @@
    #endif
    Note - they won't work for gcc1 or glibc1, since the _MINOR macros
    were not defined then.  */
-#pragma line 149 "/usr/include/features.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+/* _BSD_SOURCE and _SVID_SOURCE are deprecated aliases for
+   _DEFAULT_SOURCE.  If _DEFAULT_SOURCE is present we do not
+   issue a warning; the expectation is that the source is being
+   transitioned to use the new macro.  */
+#pragma line 156 "/usr/include/features.h" 3 4
 /* If _GNU_SOURCE was defined by the user, turn on all the other features.  */
-#pragma line 177 "/usr/include/features.h" 3 4
+#pragma line 180 "/usr/include/features.h" 3 4
 /* If nothing (other than _GNU_SOURCE and _DEFAULT_SOURCE) is defined,
-   define _DEFAULT_SOURCE, _BSD_SOURCE and _SVID_SOURCE.  */
-#pragma line 193 "/usr/include/features.h" 3 4
+   define _DEFAULT_SOURCE.  */
+#pragma line 191 "/usr/include/features.h" 3 4
 /* This is to enable the ISO C11 extension.  */
 #pragma empty_line
 #pragma empty_line
@@ -407,12 +414,12 @@
 /* If none of the ANSI/POSIX macros are defined, or if _DEFAULT_SOURCE
    is defined, use POSIX.1-2008 (or another version depending on
    _XOPEN_SOURCE).  */
-#pragma line 350 "/usr/include/features.h" 3 4
+#pragma line 343 "/usr/include/features.h" 3 4
 /* Get definitions of __STDC_* predefined macros, if the compiler has
    not preincluded this header automatically.  */
 #pragma empty_line
 #pragma line 1 "/usr/include/stdc-predef.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -447,12 +454,13 @@
    presume an older compiler has intent to support these features and
    define these macros by default.  */
 #pragma line 52 "/usr/include/stdc-predef.h" 3 4
-/* wchar_t uses ISO/IEC 10646 (2nd ed., published 2011-03-15) /
-   Unicode 6.0.  */
+/* wchar_t uses Unicode 8.0.0.  Version 8.0 of the Unicode Standard is
+   synchronized with ISO/IEC 10646:2014, plus Amendment 1 (published
+   2015-05-15).  */
 #pragma empty_line
 #pragma empty_line
 /* We do not support C11 <threads.h>.  */
-#pragma line 353 "/usr/include/features.h" 2 3 4
+#pragma line 346 "/usr/include/features.h" 2 3 4
 #pragma empty_line
 /* This macro indicates that the installed library is the GNU C Library.
    For historic reasons the value now is 6 and this will stay from now
@@ -476,7 +484,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
-/* Copyright (C) 1992-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1992-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -552,11 +560,11 @@
    old code expects.  */
 #pragma line 131 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* Fortify support.  */
-#pragma line 148 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 147 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* Support for flexible arrays.  */
 #pragma empty_line
 /* GCC 2.97 supports C99 flexible array members.  */
-#pragma line 166 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 165 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* __asm__ ("xyz") is used throughout the headers to rename functions
    at the assembly language level.  This is wrapped by the __REDIRECT
    macro, in order to support compilers that can do this some other
@@ -566,7 +574,7 @@
 #pragma empty_line
    Example:
    int __REDIRECT(setpgrp, (__pid_t pid, __pid_t pgrp), setpgid); */
-#pragma line 193 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 192 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /*
 #elif __SOME_OTHER_COMPILER__
 #pragma empty_line
@@ -619,7 +627,7 @@
 /* At some point during the gcc 3.1 development the `used' attribute
    for functions was introduced.  We don't want to use it unconditionally
    (although this would be possible) since it generates warnings.  */
-#pragma line 253 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 252 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* gcc allows marking deprecated functions.  */
 #pragma empty_line
 #pragma empty_line
@@ -660,7 +668,7 @@
 #pragma empty_line
 /* If fortification mode, we warn about unused results of certain
    function calls which can lead to problems.  */
-#pragma line 306 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 305 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* Forces a function to be always inlined.  */
 #pragma empty_line
 #pragma empty_line
@@ -676,12 +684,16 @@
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+/* GCC 4.3 and above with -std=c99 or -std=gnu99 implements ISO C99
+   inline semantics, unless -fgnu89-inline is used.  Using __GNUC_STDC_INLINE__
+   or __GNUC_GNU_INLINE is not a good enough check for gcc because gcc versions
+   older than 4.3 may define these macros and still not guarantee GNU inlining
+   semantics.
 #pragma empty_line
-/* One of these will be defined if the __gnu_inline__ attribute is
-   available.  In C++, __GNUC_GNU_INLINE__ will be defined even though
-   __inline does not use the GNU inlining rules.  If neither macro is
-   defined, this version of GCC only supports GNU inline semantics. */
-#pragma line 339 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+   clang++ identifies itself as gcc-4.2, but has support for GNU inlining
+   semantics, that can be checked fot by using the __GNUC_STDC_INLINE_ and
+   __GNUC_GNU_INLINE__ macro definitions.  */
+#pragma line 346 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 /* GCC 4.3 and above allow passing all anonymous arguments of an
    __extern_always_inline function to some other vararg function.  */
 #pragma empty_line
@@ -705,13 +717,13 @@
 /* ISO C99 also allows to declare arrays as non-overlapping.  The syntax is
      array_name[restrict]
    GCC 3.1 supports this.  */
-#pragma line 385 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 410 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
 /* Determine the wordsize from the preprocessor defines.  */
 #pragma line 11 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 3 4
 /* Both x86-64 and x32 use the 64-bit system call interface.  */
-#pragma line 386 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
-#pragma line 375 "/usr/include/features.h" 2 3 4
+#pragma line 411 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+#pragma line 368 "/usr/include/features.h" 2 3 4
 #pragma empty_line
 #pragma empty_line
 /* If we don't have __REDIRECT, prototypes will be missing if
@@ -753,11 +765,11 @@
    in the C library which is a stub, meaning it will fail
    every time called, usually setting errno to ENOSYS.  */
 #pragma line 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
-#pragma line 399 "/usr/include/features.h" 2 3 4
+#pragma line 392 "/usr/include/features.h" 2 3 4
 #pragma line 26 "/usr/include/stdint.h" 2 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
 /* wchar_t type related definitions.
-   Copyright (C) 2000-2014 Free Software Foundation, Inc.
+   Copyright (C) 2000-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -951,12 +963,7 @@ typedef unsigned long int uintmax_t;
 #pragma empty_line
 #pragma empty_line
 /* Limit of `size_t' type.  */
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
+#pragma line 270 "/usr/include/stdint.h" 3 4
 /* Limits of `wchar_t'.  */
 #pragma empty_line
 /* These constants might also be defined in <wchar.h>.  */
@@ -969,16 +976,18 @@ typedef unsigned long int uintmax_t;
 #pragma empty_line
 #pragma empty_line
 /* Signed.  */
-#pragma line 287 "/usr/include/stdint.h" 3 4
+#pragma line 291 "/usr/include/stdint.h" 3 4
 /* Unsigned.  */
-#pragma line 297 "/usr/include/stdint.h" 3 4
+#pragma line 301 "/usr/include/stdint.h" 3 4
 /* Maximal type.  */
 #pragma line 34 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3
 #pragma line 4 "aes256cbc/src/aes256cbc.h" 2
 #pragma empty_line
+#pragma empty_line
+#pragma empty_line
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 #pragma empty_line
-void wsaes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
+void wsaes256cbc(uint8_t memptr[64], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
 #pragma line 2 "aes256cbc/src/aes256cbc.c" 2
 #pragma line 1 "aes256cbc/src/aes256ecb.h" 1
 /*  
@@ -1015,7 +1024,7 @@ void wsaes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32
 #pragma line 3 "aes256cbc/src/aes256cbc.c" 2
 #pragma empty_line
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1103,7 +1112,7 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 1 3 4
 /* Definitions of flag bits for `waitpid' et al.
-   Copyright (C) 1992-2014 Free Software Foundation, Inc.
+   Copyright (C) 1992-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1151,7 +1160,7 @@ typedef enum
 #pragma line 42 "/usr/include/stdlib.h" 2 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/waitstatus.h" 1 3 4
 /* Definitions of status bits for `wait' et al.
-   Copyright (C) 1992-2014 Free Software Foundation, Inc.
+   Copyright (C) 1992-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1207,7 +1216,7 @@ typedef enum
 /* Macros for constructing status values.  */
 #pragma line 64 "/usr/include/x86_64-linux-gnu/bits/waitstatus.h" 3 4
 #pragma line 1 "/usr/include/endian.h" 1 3 4
-/* Copyright (C) 1992-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1992-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1254,7 +1263,7 @@ typedef enum
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 1 3 4
 /* Macros to swap the order of bytes in integer values.
-   Copyright (C) 1997-2014 Free Software Foundation, Inc.
+   Copyright (C) 1997-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1273,7 +1282,7 @@ typedef enum
 #pragma line 27 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
 /* bits/types.h -- definitions of __*_t types underlying *_t types.
-   Copyright (C) 2002-2014 Free Software Foundation, Inc.
+   Copyright (C) 2002-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1373,7 +1382,7 @@ typedef unsigned long int __u_quad_t;
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
 /* bits/typesizes.h -- underlying types for *_t.  Linux/x86-64 version.
-   Copyright (C) 2012-2014 Free Software Foundation, Inc.
+   Copyright (C) 2012-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1394,7 +1403,7 @@ typedef unsigned long int __u_quad_t;
    that <bits/types.h> need not vary across different GNU platforms.  */
 #pragma empty_line
 /* X32 kernel interface is 64-bit.  */
-#pragma line 76 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 3 4
+#pragma line 77 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 3 4
 /* Tell the libc code that off_t and off64_t are actually the same type
    for all ABI purposes, even if possibly expressed as different base types
    for C type-checking purposes.  */
@@ -1489,7 +1498,7 @@ typedef unsigned int __socklen_t;
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/byteswap-16.h" 1 3 4
 /* Macros to swap the order of bytes in 16-bit integer values.
-   Copyright (C) 2012-2014 Free Software Foundation, Inc.
+   Copyright (C) 2012-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1709,7 +1718,7 @@ extern long int a64l (const char *__s)
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/types.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1802,7 +1811,7 @@ typedef __caddr_t caddr_t;
 typedef __key_t key_t;
 #pragma line 132 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
 #pragma line 1 "/usr/include/time.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1899,7 +1908,7 @@ typedef int register_t __attribute__ ((__mode__ (__word__)));
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/select.h" 1 3 4
 /* `fd_set' type and related macros, and `select'/`pselect' declarations.
-   Copyright (C) 1996-2014 Free Software Foundation, Inc.
+   Copyright (C) 1996-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1929,7 +1938,7 @@ typedef int register_t __attribute__ ((__mode__ (__word__)));
 /* Get __FD_* definitions.  */
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/select.h" 1 3 4
-/* Copyright (C) 1997-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1997-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -1962,7 +1971,7 @@ typedef int register_t __attribute__ ((__mode__ (__word__)));
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/sigset.h" 1 3 4
 /* __sig_atomic_t, __sigset_t, and related definitions.  Linux version.
-   Copyright (C) 1991-2014 Free Software Foundation, Inc.
+   Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2012,7 +2021,7 @@ typedef __sigset_t sigset_t;
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/time.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2044,7 +2053,7 @@ struct timespec
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
 /* System-dependent timing definitions.  Linux version.
-   Copyright (C) 1996-2014 Free Software Foundation, Inc.
+   Copyright (C) 1996-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2158,7 +2167,7 @@ extern int pselect (int __nfds, fd_set *__restrict __readfds,
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/sysmacros.h" 1 3 4
 /* Definitions of macros to access `dev_t' values.
-   Copyright (C) 1996-2014 Free Software Foundation, Inc.
+   Copyright (C) 1996-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2214,7 +2223,7 @@ typedef __fsfilcnt_t fsfilcnt_t; /* Type to count file system inodes.  */
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 1 3 4
-/* Copyright (C) 2002-2014 Free Software Foundation, Inc.
+/* Copyright (C) 2002-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2283,7 +2292,9 @@ typedef union
     short __spins;
     short __elision;
     __pthread_list_t __list;
-#pragma line 124 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma empty_line
+/* Mutex __spins initializer used by PTHREAD_MUTEX_INITIALIZER.  */
+#pragma line 125 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   } __data;
   char __size[40];
   long int __align;
@@ -2346,14 +2357,21 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+    unsigned char __pad1[7];
+#pragma empty_line
+#pragma empty_line
     unsigned long int __pad2;
     /* FLAGS must stay at this position in the structure to maintain
        binary compatibility.  */
     unsigned int __flags;
 #pragma empty_line
   } __data;
-#pragma line 211 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma line 220 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   char __size[56];
   long int __align;
 } pthread_rwlock_t;
@@ -2558,7 +2576,7 @@ extern void cfree (void *__ptr) __attribute__ ((__nothrow__ ));
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/alloca.h" 1 3 4
-/* Copyright (C) 1992-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1992-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2698,7 +2716,6 @@ extern char *mktemp (char *__template) __attribute__ ((__nothrow__ )) __attribut
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma empty_line
 /* Generate a unique temporary file name from TEMPLATE.
    The last six characters of TEMPLATE must be "XXXXXX";
    they are replaced with a string that makes the filename unique.
@@ -2709,7 +2726,7 @@ extern char *mktemp (char *__template) __attribute__ ((__nothrow__ )) __attribut
    marked with __THROW.  */
 #pragma empty_line
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) /* Ignore */;
-#pragma line 635 "/usr/include/stdlib.h" 3 4
+#pragma line 634 "/usr/include/stdlib.h" 3 4
 /* Similar to mkstemp, but the template can have a suffix after the
    XXXXXX.  The length of the suffix is specified in the second
    parameter.
@@ -2718,20 +2735,20 @@ extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) /* Ignor
    marked with __THROW.  */
 #pragma empty_line
 extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) /* Ignore */;
-#pragma line 658 "/usr/include/stdlib.h" 3 4
+#pragma line 657 "/usr/include/stdlib.h" 3 4
 /* Create a unique temporary directory from TEMPLATE.
    The last six characters of TEMPLATE must be "XXXXXX";
    they are replaced with a string that makes the directory name unique.
    Returns TEMPLATE, or a null pointer if it cannot get a unique name.
    The directory is created mode 700.  */
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1))) /* Ignore */;
-#pragma line 713 "/usr/include/stdlib.h" 3 4
+#pragma line 712 "/usr/include/stdlib.h" 3 4
 /* Execute the given line as a shell command.
 #pragma empty_line
    This function is a cancellation point and therefore not marked with
    __THROW.  */
 extern int system (const char *__command) /* Ignore */;
-#pragma line 729 "/usr/include/stdlib.h" 3 4
+#pragma line 728 "/usr/include/stdlib.h" 3 4
 /* Return the canonical absolute name of file NAME.  If RESOLVED is
    null, the result is malloc'd; otherwise, if the canonical name is
    PATH_MAX chars or more, returns null with `errno' set to
@@ -2746,7 +2763,7 @@ extern char *realpath (const char *__restrict __name,
 #pragma empty_line
 #pragma empty_line
 typedef int (*__compar_fn_t) (const void *, const void *);
-#pragma line 753 "/usr/include/stdlib.h" 3 4
+#pragma line 752 "/usr/include/stdlib.h" 3 4
 /* Do a binary search for KEY in BASE, which consists of NMEMB elements
    of SIZE bytes each, using COMPAR to perform the comparisons.  */
 extern void *bsearch (const void *__key, const void *__base,
@@ -2897,9 +2914,9 @@ extern int getsubopt (char **__restrict __optionp,
         char *const *__restrict __tokens,
         char **__restrict __valuep)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1, 2, 3))) /* Ignore */;
-#pragma line 912 "/usr/include/stdlib.h" 3 4
+#pragma line 911 "/usr/include/stdlib.h" 3 4
 /* X/Open pseudo terminal handling.  */
-#pragma line 948 "/usr/include/stdlib.h" 3 4
+#pragma line 947 "/usr/include/stdlib.h" 3 4
 /* Put the 1 minute, 5 minute and 15 minute load averages into the first
    NELEM elements of LOADAVG.  Return the number written (never more than
    three, but may be less than NELEM), or -1 if an error occurred.  */
@@ -2910,7 +2927,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
 /* Floating-point inline functions for stdlib.h.
-   Copyright (C) 2012-2014 Free Software Foundation, Inc.
+   Copyright (C) 2012-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2926,13 +2943,13 @@ extern int getloadavg (double __loadavg[], int __nelem)
    You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <http://www.gnu.org/licenses/>.  */
-#pragma line 956 "/usr/include/stdlib.h" 2 3 4
+#pragma line 955 "/usr/include/stdlib.h" 2 3 4
 #pragma empty_line
 /* Define some macros helping to catch buffer overflows.  */
 #pragma line 5 "aes256cbc/src/aes256cbc.c" 2
 #pragma line 1 "/usr/include/stdio.h" 1 3 4
 /* Define ISO C stdio on top of C++ iostreams.
-   Copyright (C) 1991-2014 Free Software Foundation, Inc.
+   Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -2994,7 +3011,7 @@ typedef struct _IO_FILE FILE;
 typedef struct _IO_FILE __FILE;
 #pragma line 74 "/usr/include/stdio.h" 3 4
 #pragma line 1 "/usr/include/libio.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
    Written by Per Bothner <bothner@cygnus.com>.
 #pragma empty_line
@@ -3075,7 +3092,7 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/wchar.h" 1 3 4
-/* Copyright (C) 1995-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1995-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -3117,7 +3134,7 @@ typedef struct
 #pragma empty_line
 /* The rest of the file is only used if used if __need_mbstate_t is not
    defined.  */
-#pragma line 897 "/usr/include/wchar.h" 3 4
+#pragma line 900 "/usr/include/wchar.h" 3 4
 /* Undefine all __need_* constants in case we are included to get those
    constants but the whole file was already read.  */
 #pragma line 21 "/usr/include/_G_config.h" 2 3 4
@@ -3212,10 +3229,6 @@ struct _IO_jump_t; struct _IO_FILE;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
 typedef void _IO_lock_t;
 #pragma empty_line
 #pragma empty_line
@@ -3229,7 +3242,7 @@ struct _IO_marker {
  it points to _buf->Gbase()+_pos. FIXME comment */
   /* if _pos < 0, it points to _buf->eBptr()+_pos. FIXME comment */
   int _pos;
-#pragma line 177 "/usr/include/libio.h" 3 4
+#pragma line 173 "/usr/include/libio.h" 3 4
 };
 #pragma empty_line
 /* This is the structure from the libstdc++ codecvt class.  */
@@ -3240,7 +3253,7 @@ enum __codecvt_result
   __codecvt_error,
   __codecvt_noconv
 };
-#pragma line 245 "/usr/include/libio.h" 3 4
+#pragma line 241 "/usr/include/libio.h" 3 4
 struct _IO_FILE {
   int _flags; /* High-order word is _IO_MAGIC; rest is flags. */
 #pragma empty_line
@@ -3281,15 +3294,21 @@ struct _IO_FILE {
   /*  char* _save_gptr;  char* _save_egptr; */
 #pragma empty_line
   _IO_lock_t *_lock;
-#pragma line 293 "/usr/include/libio.h" 3 4
+#pragma line 289 "/usr/include/libio.h" 3 4
   __off64_t _offset;
-#pragma line 302 "/usr/include/libio.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
   void *__pad1;
   void *__pad2;
   void *__pad3;
   void *__pad4;
-  size_t __pad5;
 #pragma empty_line
+  size_t __pad5;
   int _mode;
   /* Make sure we don't get into trouble again.  */
   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
@@ -3305,7 +3324,7 @@ struct _IO_FILE_plus;
 extern struct _IO_FILE_plus _IO_2_1_stdin_;
 extern struct _IO_FILE_plus _IO_2_1_stdout_;
 extern struct _IO_FILE_plus _IO_2_1_stderr_;
-#pragma line 334 "/usr/include/libio.h" 3 4
+#pragma line 329 "/usr/include/libio.h" 3 4
 /* Functions to do I/O and file management for a stream.  */
 #pragma empty_line
 /* Read NBYTES bytes from COOKIE into a buffer pointed to by BUF.
@@ -3331,11 +3350,11 @@ typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
 #pragma empty_line
 /* Close COOKIE.  */
 typedef int __io_close_fn (void *__cookie);
-#pragma line 390 "/usr/include/libio.h" 3 4
+#pragma line 385 "/usr/include/libio.h" 3 4
 extern int __underflow (_IO_FILE *);
 extern int __uflow (_IO_FILE *);
 extern int __overflow (_IO_FILE *, int);
-#pragma line 434 "/usr/include/libio.h" 3 4
+#pragma line 429 "/usr/include/libio.h" 3 4
 extern int _IO_getc (_IO_FILE *__fp);
 extern int _IO_putc (int __c, _IO_FILE *__fp);
 extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ ));
@@ -3350,7 +3369,7 @@ extern int _IO_peekc_locked (_IO_FILE *__fp);
 extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ ));
 extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ ));
 extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ ));
-#pragma line 464 "/usr/include/libio.h" 3 4
+#pragma line 459 "/usr/include/libio.h" 3 4
 extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
    __gnuc_va_list, int *__restrict);
 extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
@@ -3412,7 +3431,7 @@ typedef _G_fpos_t fpos_t;
    FILENAME_MAX	Maximum length of a filename.  */
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h" 1 3 4
-/* Copyright (C) 1994-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1994-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -3947,7 +3966,7 @@ extern void perror (const char *__s);
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h" 1 3 4
 /* Declare sys_errlist and sys_nerr, or don't.  Compatibility (do) version.
-   Copyright (C) 2002-2014 Free Software Foundation, Inc.
+   Copyright (C) 2002-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -3988,7 +4007,6 @@ extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ )) /* Ig
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma empty_line
 /* Create a new stream connected to a pipe running the given command.
 #pragma empty_line
    This function is a possible cancellation point and therefore not
@@ -4006,7 +4024,7 @@ extern int pclose (FILE *__stream);
 #pragma empty_line
 /* Return the name of the controlling terminal.  */
 extern char *ctermid (char *__s) __attribute__ ((__nothrow__ ));
-#pragma line 910 "/usr/include/stdio.h" 3 4
+#pragma line 909 "/usr/include/stdio.h" 3 4
 /* These are defined in POSIX.1:1996.  */
 #pragma empty_line
 /* Acquire ownership of STREAM.  */
@@ -4018,12 +4036,12 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ )) /* Ignor
 #pragma empty_line
 /* Relinquish the ownership granted for STREAM.  */
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
-#pragma line 931 "/usr/include/stdio.h" 3 4
+#pragma line 930 "/usr/include/stdio.h" 3 4
 /* If we are compiling with optimizing read this file.  It contains
    several optimizing inline functions and macros.  */
 #pragma line 6 "aes256cbc/src/aes256cbc.c" 2
 #pragma line 1 "/usr/include/string.h" 1 3 4
-/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 #pragma empty_line
    The GNU C Library is free software; you can redistribute it and/or
@@ -4078,11 +4096,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 33 "/usr/include/string.h" 2 3 4
 #pragma empty_line
-/* Provide correct C++ prototypes, and indicate this to the caller.  This
-   requires a compatible C++ standard library.  As a heuristic, we provide
-   these when the compiler indicates full conformance with C++98 or later,
-   and for older GCC versions that are known to provide a compatible
-   libstdc++.  */
+/* Tell the caller that we provide correct C++ prototypes.  */
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -4117,10 +4131,10 @@ extern int memcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
 /* Search N bytes of S for C.  */
-#pragma line 96 "/usr/include/string.h" 3 4
+#pragma line 92 "/usr/include/string.h" 3 4
 extern void *memchr (const void *__s, int __c, size_t __n)
       __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 128 "/usr/include/string.h" 3 4
+#pragma line 124 "/usr/include/string.h" 3 4
 /* Copy SRC to DEST.  */
 extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1, 2)));
@@ -4159,7 +4173,7 @@ extern size_t strxfrm (char *__restrict __dest,
 #pragma empty_line
 #pragma line 1 "/usr/include/xlocale.h" 1 3 4
 /* Definition of locale datatype.
-   Copyright (C) 1997-2014 Free Software Foundation, Inc.
+   Copyright (C) 1997-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
    Contributed by Ulrich Drepper <drepper@cygnus.com>, 1997.
 #pragma empty_line
@@ -4200,7 +4214,7 @@ typedef struct __locale_struct
 #pragma empty_line
 /* POSIX 2008 makes locale_t official.  */
 typedef __locale_t locale_t;
-#pragma line 164 "/usr/include/string.h" 2 3 4
+#pragma line 160 "/usr/include/string.h" 2 3 4
 #pragma empty_line
 /* Compare the collated forms of S1 and S2 using rules from L.  */
 extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
@@ -4208,7 +4222,6 @@ extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
 /* Put a transformation of SRC into no more than N bytes of DEST.  */
 extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
     __locale_t __l) __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (2, 4)));
-#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -4223,17 +4236,17 @@ extern char *strdup (const char *__s)
 #pragma empty_line
 extern char *strndup (const char *__string, size_t __n)
      __attribute__ ((__nothrow__ )) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 212 "/usr/include/string.h" 3 4
+#pragma line 207 "/usr/include/string.h" 3 4
 /* Find the first occurrence of C in S.  */
-#pragma line 236 "/usr/include/string.h" 3 4
+#pragma line 231 "/usr/include/string.h" 3 4
 extern char *strchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 /* Find the last occurrence of C in S.  */
-#pragma line 263 "/usr/include/string.h" 3 4
+#pragma line 258 "/usr/include/string.h" 3 4
 extern char *strrchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 283 "/usr/include/string.h" 3 4
+#pragma line 278 "/usr/include/string.h" 3 4
 /* Return the length of the initial segment of S which
    consists entirely of characters not in REJECT.  */
 extern size_t strcspn (const char *__s, const char *__reject)
@@ -4243,12 +4256,12 @@ extern size_t strcspn (const char *__s, const char *__reject)
 extern size_t strspn (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 /* Find the first occurrence in S of any character in ACCEPT.  */
-#pragma line 315 "/usr/include/string.h" 3 4
+#pragma line 310 "/usr/include/string.h" 3 4
 extern char *strpbrk (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
 /* Find the first occurrence of NEEDLE in HAYSTACK.  */
-#pragma line 342 "/usr/include/string.h" 3 4
+#pragma line 337 "/usr/include/string.h" 3 4
 extern char *strstr (const char *__haystack, const char *__needle)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
@@ -4269,7 +4282,7 @@ extern char *__strtok_r (char *__restrict __s,
 extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
          char **__restrict __save_ptr)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (2, 3)));
-#pragma line 398 "/usr/include/string.h" 3 4
+#pragma line 393 "/usr/include/string.h" 3 4
 /* Return the length of S.  */
 extern size_t strlen (const char *__s)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
@@ -4300,7 +4313,7 @@ extern char *strerror (int __errnum) __attribute__ ((__nothrow__ ));
    ERRNUM.  */
 #pragma empty_line
 extern int strerror_r (int __errnum, char *__buf, size_t __buflen) __asm__ ("" "__xpg_strerror_r") __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (2)));
-#pragma line 444 "/usr/include/string.h" 3 4
+#pragma line 439 "/usr/include/string.h" 3 4
 /* Translate error number to string according to the locale L.  */
 extern char *strerror_l (int __errnum, __locale_t __l) __attribute__ ((__nothrow__ ));
 #pragma empty_line
@@ -4323,13 +4336,13 @@ extern int bcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
 /* Find the first occurrence of C in S (same as strchr).  */
-#pragma line 489 "/usr/include/string.h" 3 4
+#pragma line 484 "/usr/include/string.h" 3 4
 extern char *index (const char *__s, int __c)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
 /* Find the last occurrence of C in S (same as strrchr).  */
-#pragma line 517 "/usr/include/string.h" 3 4
+#pragma line 512 "/usr/include/string.h" 3 4
 extern char *rindex (const char *__s, int __c)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
@@ -4353,7 +4366,7 @@ extern int strcasecmp (const char *__s1, const char *__s2)
 /* Compare no more than N chars of S1 and S2, ignoring case.  */
 extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
      __attribute__ ((__nothrow__ )) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 555 "/usr/include/string.h" 3 4
+#pragma line 550 "/usr/include/string.h" 3 4
 /* Return the next DELIM-delimited token from *STRINGP,
    terminating it with a '\0', and update *STRINGP to point past it.  */
 extern char *strsep (char **__restrict __stringp,
@@ -4381,11 +4394,11 @@ extern char *stpncpy (char *__restrict __dest,
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1, 2)));
 #pragma line 7 "aes256cbc/src/aes256cbc.c" 2
 #pragma empty_line
-void aes256cbc(unsigned char *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr) {
-#pragma HLS INTERFACE s_axilite port=outbuf_addr bundle=p0
-#pragma HLS INTERFACE s_axilite port=inbuf_addr bundle=p0
-#pragma HLS INTERFACE m_axi depth=64 port=memptr
-#pragma HLS INTERFACE s_axilite port=mode bundle=p0
+void aes256cbc(unsigned char memptr[64], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr) {
+#pragma HLS INTERFACE s_axilite port=outbuf_addr /*bundle=p0*/
+#pragma HLS INTERFACE s_axilite port=inbuf_addr /*bundle=p0*/
+#pragma HLS INTERFACE s_axilite port=memptr depth=64
+#pragma HLS INTERFACE s_axilite port=mode /*bundle=p0*/
 #pragma HLS INTERFACE s_axilite port=return
 #pragma empty_line
  unsigned char buf[16]; // FPGA copy of crypto data from/to interface args
@@ -4398,42 +4411,54 @@ void aes256cbc(unsigned char *memptr, ciphermode_t mode, uint32_t inbuf_addr, ui
 #pragma empty_line
     switch( mode ) {
     case RESET:
-     for(i=0;i<16;i++) { xorv[i] = iv[i]; }
+     for(i=0; i<16; i++) {xorv[i] = iv[i];}
      aes256_init(&ctx, key);
      break;
+#pragma empty_line
     case ENCRYPT:
-     memcpy(buf, memptr+inbuf_addr, 16);
+     //memcpy(buf, memptr+inbuf_addr, 16);
+     for(i=0; i<16; i++)
+      buf[i] = *(memptr + inbuf_addr + i);
      // scramble the input based on the iv/last cipher output block
-     for(i=0; i<16; i++) {
-      buf[i] = buf[i]^xorv[i];
-     }
+     for(i=0; i<16; i++) { buf[i] = buf[i]^xorv[i]; }
      // apply the ECB encryption algorithm
      aes256_encrypt_ecb(&ctx, buf);
      // copy the output to xorv for the next operation
-     for(i=0;i<16;i++) { xorv[i] = buf[i]; }
+     for(i=0; i<16; i++) { xorv[i] = buf[i]; }
      // copy the output to the destination region in memory
-     memcpy(memptr+outbuf_addr, buf, 16);
+     //memcpy(memptr+outbuf_addr, buf, 16);
+     for(i=0; i<16; i++)
+      *(memptr + outbuf_addr + i) = buf[i];
      break;
+#pragma empty_line
     case DECRYPT:
-     memcpy(buf, memptr+inbuf_addr, 16);
+     // memcpy(buf, memptr+inbuf_addr, 16);
+     for(i=0; i<16; i++)
+      buf[i] = *(memptr + inbuf_addr + i);
      // retain cipher block for next cycle's xorv[]
-     for(i=0;i<16;i++) { lastbuf[i] = buf[i]; }
+     for(i=0; i<16; i++) { lastbuf[i] = buf[i]; }
      // apply the ECB decryption algorithm
      aes256_decrypt_ecb(&ctx, buf);
      // unscramble the results based on the iv/last cipher block output
-     for(i=0; i<16; i++) {
-      buf[i] = buf[i]^xorv[i];
-     }
+     for(i=0; i<16; i++) { buf[i] = buf[i]^xorv[i]; }
      // set up xorv for the next cycle
-     for(i=0;i<16;i++) { xorv[i] = lastbuf[i]; }
+     for(i=0; i<16; i++) { xorv[i] = lastbuf[i]; }
      // copy the output to the destination region in memory
-     memcpy((char *)(memptr+outbuf_addr), (const char *)buf, 16);
+     //memcpy((char *)(memptr+outbuf_addr), (const char *)buf, 16);
+     for(i=0; i<16; i++)
+      *(memptr + outbuf_addr + i) = buf[i];
      break;
+#pragma empty_line
     case SET_IV:
-     memcpy(iv, memptr+inbuf_addr, 16);
+     //memcpy(iv, memptr+inbuf_addr, 16);
+     for(i=0; i<16; i++)
+      iv[i] = *(memptr + inbuf_addr + i);
      break;
+#pragma empty_line
     case SET_KEY:
-     memcpy(key, memptr+inbuf_addr, 32);
+     //memcpy(key, memptr+inbuf_addr, 32);
+     for(i=0; i<32; i++)
+      key[i] = *(memptr + inbuf_addr + i);
      break;
     }
 }

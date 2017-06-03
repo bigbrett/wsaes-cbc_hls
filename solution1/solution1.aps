@@ -1,15 +1,9 @@
 <solution AutoPilot="com.autoesl.autopilot.solution">
-    <downStreamTool>
-        <DownStreamTool name="vivado"/>
-    </downStreamTool>
-    <clockList>
-        <clock name="default" period="8"/>
-    </clockList>
     <config>
         <schedule model="aes256cbc"/>
     </config>
     <UIConfigurations>
-        <UIAutosynConf boardInfo="ZedBoard Zynq Evaluation and Development Kit (xc7z020clg484-1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
+        <UIAutosynConf boardInfo="ZedBoard Zynq Evaluation and Development Kit (xc7z020clg484-1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/zynq/zynq</Platform>
             <Platform>xilinx/zynq/zynq_fpv6</Platform>
             <customLibs/>
@@ -40,20 +34,26 @@
             </RTLs>
         </UIAutoSimConf>
     </UIConfigurations>
-    <ExportDesign askAgain="true" evaluate="false" formatName="ip_catalog" rtl="verilog">
-        <Format description="AES 256 CBC" display_name="aes256cbc" formatName="ip_catalog" vendor="websensing.com" library="" version="1.0" driver_input_dir="" taxonomy=""/>
+    <ExportDesign askAgain="true" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" rtl="verilog" rtlButton="false" rtlCombo="verilog">
+        <Format description="AES 256 CBC" display_name="aes256cbc" formatName="ip_catalog" vendor="websensing.com"/>
         <Format formatName="sysgen"/>
         <Format formatName="sysgen_ise"/>
         <Format formatName="syn_dcp"/>
         <Format formatName="pcore" use_netlist="none"/>
     </ExportDesign>
-    <Simulation>
-        <SimFlow askAgain="true" dumpTrace="none" name="cosim" optimizeCompile="false" reduce_diskspace="false" setup="false" toolName="Auto">
+    <Simulation argv="">
+        <SimFlow askAgain="false" dumpTrace="none" name="cosim" optimizeCompile="false" reduce_diskspace="false" setup="false" toolName="auto" ldflags="" mflags="" compiledLibrary="">
             <Rtl active="false" name="systemc"/>
             <Rtl active="true" name="verilog"/>
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
+    <downStreamTool>
+        <DownStreamTool name="vivado"/>
+    </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="8"/>
+    </clockList>
     <name>
         <value string="solution1"/>
     </name>

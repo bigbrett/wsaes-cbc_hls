@@ -1,8 +1,8 @@
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c"
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c"
 #pragma line 1 "<built-in>"
 #pragma line 1 "<command-line>"
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c"
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc.h" 1
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c"
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.h" 1
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stdint.h" 1 3 4
@@ -13,9 +13,9 @@
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 1 3 4
 #pragma line 339 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
-#pragma line 385 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 410 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-#pragma line 386 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+#pragma line 411 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
 #pragma line 340 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 2 3 4
 #pragma line 362 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
@@ -87,12 +87,14 @@ typedef unsigned long int uintptr_t;
 typedef long int intmax_t;
 typedef unsigned long int uintmax_t;
 #pragma line 4 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stdint.h" 2 3 4
-#pragma line 4 "/home/jd/workspace/aes256cbc/src/aes256cbc.h" 2
+#pragma line 4 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.h" 2
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 #pragma empty_line
-void wsaes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
-#pragma line 2 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+void wsaes256cbc(uint8_t memptr[64], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
+#pragma line 2 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma line 1 "/usr/include/stdio.h" 1 3 4
 #pragma line 29 "/usr/include/stdio.h" 3 4
 #pragma empty_line
@@ -265,7 +267,11 @@ typedef __builtin_va_list __gnuc_va_list;
 #pragma line 50 "/usr/include/libio.h" 2 3 4
 #pragma line 144 "/usr/include/libio.h" 3 4
 struct _IO_jump_t; struct _IO_FILE;
-#pragma line 154 "/usr/include/libio.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
 typedef void _IO_lock_t;
 #pragma empty_line
 #pragma empty_line
@@ -279,7 +285,7 @@ struct _IO_marker {
 #pragma empty_line
 #pragma empty_line
   int _pos;
-#pragma line 177 "/usr/include/libio.h" 3 4
+#pragma line 173 "/usr/include/libio.h" 3 4
 };
 #pragma empty_line
 #pragma empty_line
@@ -290,7 +296,7 @@ enum __codecvt_result
   __codecvt_error,
   __codecvt_noconv
 };
-#pragma line 245 "/usr/include/libio.h" 3 4
+#pragma line 241 "/usr/include/libio.h" 3 4
 struct _IO_FILE {
   int _flags;
 #pragma empty_line
@@ -331,15 +337,21 @@ struct _IO_FILE {
 #pragma empty_line
 #pragma empty_line
   _IO_lock_t *_lock;
-#pragma line 293 "/usr/include/libio.h" 3 4
+#pragma line 289 "/usr/include/libio.h" 3 4
   __off64_t _offset;
-#pragma line 302 "/usr/include/libio.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
   void *__pad1;
   void *__pad2;
   void *__pad3;
   void *__pad4;
-  size_t __pad5;
 #pragma empty_line
+  size_t __pad5;
   int _mode;
 #pragma empty_line
   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
@@ -355,7 +367,7 @@ struct _IO_FILE_plus;
 extern struct _IO_FILE_plus _IO_2_1_stdin_;
 extern struct _IO_FILE_plus _IO_2_1_stdout_;
 extern struct _IO_FILE_plus _IO_2_1_stderr_;
-#pragma line 338 "/usr/include/libio.h" 3 4
+#pragma line 333 "/usr/include/libio.h" 3 4
 typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
 #pragma empty_line
 #pragma empty_line
@@ -377,11 +389,11 @@ typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
 #pragma empty_line
 #pragma empty_line
 typedef int __io_close_fn (void *__cookie);
-#pragma line 390 "/usr/include/libio.h" 3 4
+#pragma line 385 "/usr/include/libio.h" 3 4
 extern int __underflow (_IO_FILE *);
 extern int __uflow (_IO_FILE *);
 extern int __overflow (_IO_FILE *, int);
-#pragma line 434 "/usr/include/libio.h" 3 4
+#pragma line 429 "/usr/include/libio.h" 3 4
 extern int _IO_getc (_IO_FILE *__fp);
 extern int _IO_putc (int __c, _IO_FILE *__fp);
 extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
@@ -396,7 +408,7 @@ extern int _IO_peekc_locked (_IO_FILE *__fp);
 extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
 extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
 extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 464 "/usr/include/libio.h" 3 4
+#pragma line 459 "/usr/include/libio.h" 3 4
 extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
    __gnuc_va_list, int *__restrict);
 extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
@@ -575,18 +587,6 @@ extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
 #pragma empty_line
 extern int vsprintf (char *__restrict __s, const char *__restrict __format,
        __gnuc_va_list __arg) __attribute__ ((__nothrow__));
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-extern int snprintf (char *__restrict __s, size_t __maxlen,
-       const char *__restrict __format, ...)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
-#pragma empty_line
-extern int vsnprintf (char *__restrict __s, size_t __maxlen,
-        const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
 #pragma empty_line
 #pragma line 412 "/usr/include/stdio.h" 3 4
 extern int vdprintf (int __fd, const char *__restrict __fmt,
@@ -835,7 +835,7 @@ extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
 #pragma empty_line
 extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-#pragma line 873 "/usr/include/stdio.h" 3 4
+#pragma line 872 "/usr/include/stdio.h" 3 4
 extern FILE *popen (const char *__command, const char *__modes) ;
 #pragma empty_line
 #pragma empty_line
@@ -849,7 +849,7 @@ extern int pclose (FILE *__stream);
 #pragma empty_line
 #pragma empty_line
 extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 913 "/usr/include/stdio.h" 3 4
+#pragma line 912 "/usr/include/stdio.h" 3 4
 extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
 #pragma empty_line
@@ -858,9 +858,9 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 #pragma empty_line
 #pragma empty_line
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 943 "/usr/include/stdio.h" 3 4
+#pragma line 942 "/usr/include/stdio.h" 3 4
 #pragma empty_line
-#pragma line 3 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 3 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma empty_line
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4
 #pragma line 32 "/usr/include/stdlib.h" 3 4
@@ -992,15 +992,7 @@ extern int atoi (const char *__nptr)
 extern long int atol (const char *__nptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
 #pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-__extension__ extern long long int atoll (const char *__nptr)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
+#pragma line 162 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern double strtod (const char *__restrict __nptr,
@@ -1030,21 +1022,6 @@ __extension__
 extern unsigned long long int strtouq (const char *__restrict __nptr,
            char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-__extension__
-extern long long int strtoll (const char *__restrict __nptr,
-         char **__restrict __endptr, int __base)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
-__extension__
-extern unsigned long long int strtoull (const char *__restrict __nptr,
-     char **__restrict __endptr, int __base)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
 #pragma line 305 "/usr/include/stdlib.h" 3 4
 extern char *l64a (long int __n) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
@@ -1332,7 +1309,7 @@ typedef union
     short __spins;
     short __elision;
     __pthread_list_t __list;
-#pragma line 124 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma line 125 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   } __data;
   char __size[40];
   long int __align;
@@ -1395,14 +1372,21 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+    unsigned char __pad1[7];
+#pragma empty_line
+#pragma empty_line
     unsigned long int __pad2;
 #pragma empty_line
 #pragma empty_line
     unsigned int __flags;
 #pragma empty_line
   } __data;
-#pragma line 211 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma line 220 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   char __size[56];
   long int __align;
 } pthread_rwlock_t;
@@ -1703,13 +1687,13 @@ extern int unsetenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)
 extern int clearenv (void) __attribute__ ((__nothrow__ , __leaf__));
 #pragma line 606 "/usr/include/stdlib.h" 3 4
 extern char *mktemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 620 "/usr/include/stdlib.h" 3 4
+#pragma line 619 "/usr/include/stdlib.h" 3 4
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 642 "/usr/include/stdlib.h" 3 4
+#pragma line 641 "/usr/include/stdlib.h" 3 4
 extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 663 "/usr/include/stdlib.h" 3 4
+#pragma line 662 "/usr/include/stdlib.h" 3 4
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 712 "/usr/include/stdlib.h" 3 4
+#pragma line 711 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1717,7 +1701,7 @@ extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__))
 #pragma empty_line
 extern int system (const char *__command) ;
 #pragma empty_line
-#pragma line 734 "/usr/include/stdlib.h" 3 4
+#pragma line 733 "/usr/include/stdlib.h" 3 4
 extern char *realpath (const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
@@ -1727,7 +1711,7 @@ extern char *realpath (const char *__restrict __name,
 #pragma empty_line
 #pragma empty_line
 typedef int (*__compar_fn_t) (const void *, const void *);
-#pragma line 752 "/usr/include/stdlib.h" 3 4
+#pragma line 751 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1743,7 +1727,7 @@ extern void *bsearch (const void *__key, const void *__base,
 #pragma empty_line
 extern void qsort (void *__base, size_t __nmemb, size_t __size,
      __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
-#pragma line 775 "/usr/include/stdlib.h" 3 4
+#pragma line 774 "/usr/include/stdlib.h" 3 4
 extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 #pragma empty_line
@@ -1763,7 +1747,7 @@ extern div_t div (int __numer, int __denom)
 extern ldiv_t ldiv (long int __numer, long int __denom)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 #pragma empty_line
-#pragma line 812 "/usr/include/stdlib.h" 3 4
+#pragma line 811 "/usr/include/stdlib.h" 3 4
 extern char *ecvt (double __value, int __ndigit, int *__restrict __decpt,
      int *__restrict __sign) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) ;
 #pragma empty_line
@@ -1841,21 +1825,21 @@ extern size_t wcstombs (char *__restrict __s,
 #pragma empty_line
 #pragma empty_line
 extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 899 "/usr/include/stdlib.h" 3 4
+#pragma line 898 "/usr/include/stdlib.h" 3 4
 extern int getsubopt (char **__restrict __optionp,
         char *const *__restrict __tokens,
         char **__restrict __valuep)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) ;
-#pragma line 951 "/usr/include/stdlib.h" 3 4
+#pragma line 950 "/usr/include/stdlib.h" 3 4
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
-#pragma line 956 "/usr/include/stdlib.h" 2 3 4
-#pragma line 968 "/usr/include/stdlib.h" 3 4
+#pragma line 955 "/usr/include/stdlib.h" 2 3 4
+#pragma line 967 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
-#pragma line 5 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 5 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma line 1 "/usr/include/string.h" 1 3 4
 #pragma line 27 "/usr/include/string.h" 3 4
 #pragma empty_line
@@ -1865,7 +1849,13 @@ extern int getloadavg (double __loadavg[], int __nelem)
 #pragma empty_line
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stddef.h" 1 3 4
 #pragma line 33 "/usr/include/string.h" 2 3 4
-#pragma line 44 "/usr/include/string.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
@@ -1893,12 +1883,12 @@ extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__
 #pragma empty_line
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 96 "/usr/include/string.h" 3 4
+#pragma line 92 "/usr/include/string.h" 3 4
 extern void *memchr (const void *__s, int __c, size_t __n)
       __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
-#pragma line 127 "/usr/include/string.h" 3 4
+#pragma line 123 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
@@ -1953,7 +1943,7 @@ typedef struct __locale_struct
 #pragma empty_line
 #pragma empty_line
 typedef __locale_t locale_t;
-#pragma line 164 "/usr/include/string.h" 2 3 4
+#pragma line 160 "/usr/include/string.h" 2 3 4
 #pragma empty_line
 #pragma empty_line
 extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
@@ -1961,7 +1951,6 @@ extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
 #pragma empty_line
 extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
     __locale_t __l) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1976,17 +1965,17 @@ extern char *strdup (const char *__s)
 #pragma empty_line
 extern char *strndup (const char *__string, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 211 "/usr/include/string.h" 3 4
+#pragma line 206 "/usr/include/string.h" 3 4
 #pragma empty_line
-#pragma line 236 "/usr/include/string.h" 3 4
+#pragma line 231 "/usr/include/string.h" 3 4
 extern char *strchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 263 "/usr/include/string.h" 3 4
+#pragma line 258 "/usr/include/string.h" 3 4
 extern char *strrchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
-#pragma line 282 "/usr/include/string.h" 3 4
+#pragma line 277 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1996,10 +1985,10 @@ extern size_t strcspn (const char *__s, const char *__reject)
 #pragma empty_line
 extern size_t strspn (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 315 "/usr/include/string.h" 3 4
+#pragma line 310 "/usr/include/string.h" 3 4
 extern char *strpbrk (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 342 "/usr/include/string.h" 3 4
+#pragma line 337 "/usr/include/string.h" 3 4
 extern char *strstr (const char *__haystack, const char *__needle)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
@@ -2020,7 +2009,7 @@ extern char *__strtok_r (char *__restrict __s,
 extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
          char **__restrict __save_ptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-#pragma line 397 "/usr/include/string.h" 3 4
+#pragma line 392 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern size_t strlen (const char *__s)
@@ -2039,11 +2028,11 @@ extern size_t strnlen (const char *__string, size_t __maxlen)
 #pragma empty_line
 extern char *strerror (int __errnum) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
-#pragma line 427 "/usr/include/string.h" 3 4
+#pragma line 422 "/usr/include/string.h" 3 4
 extern int strerror_r (int __errnum, char *__buf, size_t __buflen) __asm__ ("" "__xpg_strerror_r") __attribute__ ((__nothrow__ , __leaf__))
 #pragma empty_line
                         __attribute__ ((__nonnull__ (2)));
-#pragma line 445 "/usr/include/string.h" 3 4
+#pragma line 440 "/usr/include/string.h" 3 4
 extern char *strerror_l (int __errnum, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
 #pragma empty_line
@@ -2063,10 +2052,10 @@ extern void bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__
 #pragma empty_line
 extern int bcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 489 "/usr/include/string.h" 3 4
+#pragma line 484 "/usr/include/string.h" 3 4
 extern char *index (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 517 "/usr/include/string.h" 3 4
+#pragma line 512 "/usr/include/string.h" 3 4
 extern char *rindex (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
@@ -2074,14 +2063,14 @@ extern char *rindex (const char *__s, int __c)
 #pragma empty_line
 #pragma empty_line
 extern int ffs (int __i) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-#pragma line 534 "/usr/include/string.h" 3 4
+#pragma line 529 "/usr/include/string.h" 3 4
 extern int strcasecmp (const char *__s1, const char *__s2)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
 #pragma empty_line
 extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 557 "/usr/include/string.h" 3 4
+#pragma line 552 "/usr/include/string.h" 3 4
 extern char *strsep (char **__restrict __stringp,
        const char *__restrict __delim)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
@@ -2105,9 +2094,9 @@ extern char *__stpncpy (char *__restrict __dest,
 extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 644 "/usr/include/string.h" 3 4
+#pragma line 658 "/usr/include/string.h" 3 4
 #pragma empty_line
-#pragma line 6 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 6 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma empty_line
 #pragma line 1 "/usr/include/openssl/conf.h" 1 3 4
 #pragma line 62 "/usr/include/openssl/conf.h" 3 4
@@ -2139,15 +2128,13 @@ extern char *stpncpy (char *__restrict __dest,
 #pragma empty_line
 #pragma line 1 "/usr/include/openssl/stack.h" 1 3 4
 #pragma line 66 "/usr/include/openssl/stack.h" 3 4
-typedef struct stack_st
- {
- int num;
- char **data;
- int sorted;
-#pragma empty_line
- int num_alloc;
- int (*comp)(const void *, const void *);
- } _STACK;
+typedef struct stack_st {
+    int num;
+    char **data;
+    int sorted;
+    int num_alloc;
+    int (*comp) (const void *, const void *);
+} _STACK;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -2157,10 +2144,11 @@ void *sk_value(const _STACK *, int);
 #pragma empty_line
 void *sk_set(_STACK *, int, void *);
 #pragma empty_line
-_STACK *sk_new(int (*cmp)(const void *, const void *));
+_STACK *sk_new(int (*cmp) (const void *, const void *));
 _STACK *sk_new_null(void);
 void sk_free(_STACK *);
-void sk_pop_free(_STACK *st, void (*func)(void *));
+void sk_pop_free(_STACK *st, void (*func) (void *));
+_STACK *sk_deep_copy(_STACK *, void *(*)(void *), void (*)(void *));
 int sk_insert(_STACK *sk, void *data, int where);
 void *sk_delete(_STACK *st, int loc);
 void *sk_delete_ptr(_STACK *st, void *p);
@@ -2171,18 +2159,18 @@ int sk_unshift(_STACK *st, void *data);
 void *sk_shift(_STACK *st);
 void *sk_pop(_STACK *st);
 void sk_zero(_STACK *st);
-int (*sk_set_cmp_func(_STACK *sk, int (*c)(const void *, const void *)))
+int (*sk_set_cmp_func(_STACK *sk, int (*c) (const void *, const void *)))
  (const void *, const void *);
 _STACK *sk_dup(_STACK *st);
 void sk_sort(_STACK *st);
 int sk_is_sorted(const _STACK *st);
 #pragma line 129 "/usr/include/openssl/crypto.h" 2 3 4
 #pragma line 1 "/usr/include/openssl/safestack.h" 1 3 4
-#pragma line 113 "/usr/include/openssl/safestack.h" 3 4
+#pragma line 119 "/usr/include/openssl/safestack.h" 3 4
 typedef char *OPENSSL_STRING;
 #pragma empty_line
 typedef const char *OPENSSL_CSTRING;
-#pragma line 125 "/usr/include/openssl/safestack.h" 3 4
+#pragma line 131 "/usr/include/openssl/safestack.h" 3 4
 struct stack_st_OPENSSL_STRING { _STACK stack; };
 #pragma empty_line
 #pragma empty_line
@@ -2195,13 +2183,13 @@ struct stack_st_OPENSSL_BLOCK { _STACK stack; };
 #pragma line 1 "/usr/include/openssl/opensslv.h" 1 3 4
 #pragma line 131 "/usr/include/openssl/crypto.h" 2 3 4
 #pragma line 1 "/usr/include/openssl/ossl_typ.h" 1 3 4
-#pragma line 58 "/usr/include/openssl/ossl_typ.h" 3 4
+#pragma line 62 "/usr/include/openssl/ossl_typ.h" 3 4
 #pragma line 1 "/usr/include/openssl/e_os2.h" 1 3 4
 #pragma line 56 "/usr/include/openssl/e_os2.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/openssl/opensslconf.h" 1 3 4
 #pragma line 57 "/usr/include/openssl/e_os2.h" 2 3 4
-#pragma line 59 "/usr/include/openssl/ossl_typ.h" 2 3 4
-#pragma line 79 "/usr/include/openssl/ossl_typ.h" 3 4
+#pragma line 63 "/usr/include/openssl/ossl_typ.h" 2 3 4
+#pragma line 83 "/usr/include/openssl/ossl_typ.h" 3 4
 typedef struct asn1_string_st ASN1_INTEGER;
 typedef struct asn1_string_st ASN1_ENUMERATED;
 typedef struct asn1_string_st ASN1_BIT_STRING;
@@ -2222,9 +2210,11 @@ typedef int ASN1_BOOLEAN;
 typedef int ASN1_NULL;
 #pragma empty_line
 #pragma empty_line
+typedef struct asn1_object_st ASN1_OBJECT;
+#pragma empty_line
 typedef struct ASN1_ITEM_st ASN1_ITEM;
 typedef struct asn1_pctx_st ASN1_PCTX;
-#pragma line 114 "/usr/include/openssl/ossl_typ.h" 3 4
+#pragma line 120 "/usr/include/openssl/ossl_typ.h" 3 4
 typedef struct bignum_st BIGNUM;
 typedef struct bignum_ctx BN_CTX;
 typedef struct bn_blinding_st BN_BLINDING;
@@ -2302,24 +2292,18 @@ typedef struct NAME_CONSTRAINTS_st NAME_CONSTRAINTS;
 #pragma empty_line
 typedef struct crypto_ex_data_st CRYPTO_EX_DATA;
 #pragma empty_line
-typedef int CRYPTO_EX_new(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-     int idx, long argl, void *argp);
-typedef void CRYPTO_EX_free(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-     int idx, long argl, void *argp);
-typedef int CRYPTO_EX_dup(CRYPTO_EX_DATA *to, CRYPTO_EX_DATA *from, void *from_d,
-     int idx, long argl, void *argp);
+typedef int CRYPTO_EX_new (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
+                           int idx, long argl, void *argp);
+typedef void CRYPTO_EX_free (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
+                             int idx, long argl, void *argp);
+typedef int CRYPTO_EX_dup (CRYPTO_EX_DATA *to, CRYPTO_EX_DATA *from,
+                           void *from_d, int idx, long argl, void *argp);
 #pragma empty_line
 typedef struct ocsp_req_ctx_st OCSP_REQ_CTX;
 typedef struct ocsp_response_st OCSP_RESPONSE;
 typedef struct ocsp_responder_id_st OCSP_RESPID;
 #pragma line 132 "/usr/include/openssl/crypto.h" 2 3 4
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
+#pragma line 141 "/usr/include/openssl/crypto.h" 3 4
 #pragma line 1 "/usr/include/openssl/symhacks.h" 1 3 4
 #pragma line 58 "/usr/include/openssl/symhacks.h" 3 4
 #pragma line 1 "/usr/include/openssl/e_os2.h" 1 3 4
@@ -2327,48 +2311,48 @@ typedef struct ocsp_responder_id_st OCSP_RESPID;
 #pragma line 1 "/usr/include/x86_64-linux-gnu/openssl/opensslconf.h" 1 3 4
 #pragma line 57 "/usr/include/openssl/e_os2.h" 2 3 4
 #pragma line 59 "/usr/include/openssl/symhacks.h" 2 3 4
-#pragma line 140 "/usr/include/openssl/crypto.h" 2 3 4
-#pragma line 171 "/usr/include/openssl/crypto.h" 3 4
-typedef struct openssl_item_st
- {
- int code;
- void *value;
- size_t value_size;
- size_t *value_length;
- } OPENSSL_ITEM;
-#pragma line 256 "/usr/include/openssl/crypto.h" 3 4
-typedef struct
- {
- int references;
- struct CRYPTO_dynlock_value *data;
- } CRYPTO_dynlock;
-#pragma line 283 "/usr/include/openssl/crypto.h" 3 4
+#pragma line 142 "/usr/include/openssl/crypto.h" 2 3 4
+#pragma line 175 "/usr/include/openssl/crypto.h" 3 4
+typedef struct openssl_item_st {
+    int code;
+    void *value;
+    size_t value_size;
+#pragma empty_line
+    size_t *value_length;
+} OPENSSL_ITEM;
+#pragma line 262 "/usr/include/openssl/crypto.h" 3 4
+typedef struct {
+    int references;
+    struct CRYPTO_dynlock_value *data;
+} CRYPTO_dynlock;
+#pragma line 290 "/usr/include/openssl/crypto.h" 3 4
 typedef struct bio_st BIO_dummy;
 #pragma empty_line
-struct crypto_ex_data_st
- {
- struct stack_st_void *sk;
- int dummy;
- };
+struct crypto_ex_data_st {
+    struct stack_st_void *sk;
+#pragma empty_line
+    int dummy;
+};
 struct stack_st_void { _STACK stack; };
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-typedef struct crypto_ex_data_func_st
- {
- long argl;
- void *argp;
- CRYPTO_EX_new *new_func;
- CRYPTO_EX_free *free_func;
- CRYPTO_EX_dup *dup_func;
- } CRYPTO_EX_DATA_FUNCS;
+#pragma empty_line
+#pragma empty_line
+typedef struct crypto_ex_data_func_st {
+    long argl;
+    void *argp;
+    CRYPTO_EX_new *new_func;
+    CRYPTO_EX_free *free_func;
+    CRYPTO_EX_dup *dup_func;
+} CRYPTO_EX_DATA_FUNCS;
 #pragma empty_line
 struct stack_st_CRYPTO_EX_DATA_FUNCS { _STACK stack; };
-#pragma line 356 "/usr/include/openssl/crypto.h" 3 4
+#pragma line 369 "/usr/include/openssl/crypto.h" 3 4
 int CRYPTO_mem_ctrl(int mode);
 int CRYPTO_is_mem_check_on(void);
-#pragma line 384 "/usr/include/openssl/crypto.h" 3 4
+#pragma line 396 "/usr/include/openssl/crypto.h" 3 4
 const char *SSLeay_version(int type);
 unsigned long SSLeay(void);
 #pragma empty_line
@@ -2384,18 +2368,24 @@ int CRYPTO_set_ex_data_implementation(const CRYPTO_EX_DATA_IMPL *i);
 int CRYPTO_ex_data_new_class(void);
 #pragma empty_line
 int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp,
-  CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
-  CRYPTO_EX_free *free_func);
+                            CRYPTO_EX_new *new_func, CRYPTO_EX_dup *dup_func,
+                            CRYPTO_EX_free *free_func);
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 int CRYPTO_new_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 int CRYPTO_dup_ex_data(int class_index, CRYPTO_EX_DATA *to,
-  CRYPTO_EX_DATA *from);
+                       CRYPTO_EX_DATA *from);
 void CRYPTO_free_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
+#pragma empty_line
 int CRYPTO_set_ex_data(CRYPTO_EX_DATA *ad, int idx, void *val);
-void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad,int idx);
+void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx);
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 void CRYPTO_cleanup_all_ex_data(void);
@@ -2403,87 +2393,111 @@ void CRYPTO_cleanup_all_ex_data(void);
 int CRYPTO_get_new_lockid(char *name);
 #pragma empty_line
 int CRYPTO_num_locks(void);
-void CRYPTO_lock(int mode, int type,const char *file,int line);
-void CRYPTO_set_locking_callback(void (*func)(int mode,int type,
-           const char *file,int line));
-void (*CRYPTO_get_locking_callback(void))(int mode,int type,const char *file,
-  int line);
-void CRYPTO_set_add_lock_callback(int (*func)(int *num,int mount,int type,
-           const char *file, int line));
-int (*CRYPTO_get_add_lock_callback(void))(int *num,int mount,int type,
-       const char *file,int line);
+void CRYPTO_lock(int mode, int type, const char *file, int line);
+void CRYPTO_set_locking_callback(void (*func) (int mode, int type,
+                                               const char *file, int line));
+void (*CRYPTO_get_locking_callback(void)) (int mode, int type,
+                                           const char *file, int line);
+void CRYPTO_set_add_lock_callback(int (*func)
+                                   (int *num, int mount, int type,
+                                    const char *file, int line));
+int (*CRYPTO_get_add_lock_callback(void)) (int *num, int mount, int type,
+                                           const char *file, int line);
 #pragma empty_line
 #pragma empty_line
-typedef struct crypto_threadid_st
- {
- void *ptr;
- unsigned long val;
- } CRYPTO_THREADID;
+typedef struct crypto_threadid_st {
+    void *ptr;
+    unsigned long val;
+} CRYPTO_THREADID;
 #pragma empty_line
 void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID *id, unsigned long val);
 void CRYPTO_THREADID_set_pointer(CRYPTO_THREADID *id, void *ptr);
-int CRYPTO_THREADID_set_callback(void (*threadid_func)(CRYPTO_THREADID *));
-void (*CRYPTO_THREADID_get_callback(void))(CRYPTO_THREADID *);
+int CRYPTO_THREADID_set_callback(void (*threadid_func) (CRYPTO_THREADID *));
+void (*CRYPTO_THREADID_get_callback(void)) (CRYPTO_THREADID *);
 void CRYPTO_THREADID_current(CRYPTO_THREADID *id);
 int CRYPTO_THREADID_cmp(const CRYPTO_THREADID *a, const CRYPTO_THREADID *b);
 void CRYPTO_THREADID_cpy(CRYPTO_THREADID *dest, const CRYPTO_THREADID *src);
 unsigned long CRYPTO_THREADID_hash(const CRYPTO_THREADID *id);
 #pragma empty_line
-void CRYPTO_set_id_callback(unsigned long (*func)(void));
-unsigned long (*CRYPTO_get_id_callback(void))(void);
+void CRYPTO_set_id_callback(unsigned long (*func) (void));
+unsigned long (*CRYPTO_get_id_callback(void)) (void);
 unsigned long CRYPTO_thread_id(void);
 #pragma empty_line
 #pragma empty_line
 const char *CRYPTO_get_lock_name(int type);
-int CRYPTO_add_lock(int *pointer,int amount,int type, const char *file,
-      int line);
+int CRYPTO_add_lock(int *pointer, int amount, int type, const char *file,
+                    int line);
 #pragma empty_line
 int CRYPTO_get_new_dynlockid(void);
 void CRYPTO_destroy_dynlockid(int i);
 struct CRYPTO_dynlock_value *CRYPTO_get_dynlock_value(int i);
-void CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*dyn_create_function)(const char *file, int line));
-void CRYPTO_set_dynlock_lock_callback(void (*dyn_lock_function)(int mode, struct CRYPTO_dynlock_value *l, const char *file, int line));
-void CRYPTO_set_dynlock_destroy_callback(void (*dyn_destroy_function)(struct CRYPTO_dynlock_value *l, const char *file, int line));
-struct CRYPTO_dynlock_value *(*CRYPTO_get_dynlock_create_callback(void))(const char *file,int line);
-void (*CRYPTO_get_dynlock_lock_callback(void))(int mode, struct CRYPTO_dynlock_value *l, const char *file,int line);
-void (*CRYPTO_get_dynlock_destroy_callback(void))(struct CRYPTO_dynlock_value *l, const char *file,int line);
+void CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value
+                                        *(*dyn_create_function) (const char
+                                                                 *file,
+                                                                 int line));
+void CRYPTO_set_dynlock_lock_callback(void (*dyn_lock_function)
+                                       (int mode,
+                                        struct CRYPTO_dynlock_value *l,
+                                        const char *file, int line));
+void CRYPTO_set_dynlock_destroy_callback(void (*dyn_destroy_function)
+                                          (struct CRYPTO_dynlock_value *l,
+                                           const char *file, int line));
+struct CRYPTO_dynlock_value
+*(*CRYPTO_get_dynlock_create_callback(void)) (const char *file, int line);
+void (*CRYPTO_get_dynlock_lock_callback(void)) (int mode,
+                                                struct CRYPTO_dynlock_value
+                                                *l, const char *file,
+                                                int line);
+void (*CRYPTO_get_dynlock_destroy_callback(void)) (struct CRYPTO_dynlock_value
+                                                   *l, const char *file,
+                                                   int line);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-int CRYPTO_set_mem_functions(void *(*m)(size_t),void *(*r)(void *,size_t), void (*f)(void *));
-int CRYPTO_set_locked_mem_functions(void *(*m)(size_t), void (*free_func)(void *));
-int CRYPTO_set_mem_ex_functions(void *(*m)(size_t,const char *,int),
-                                void *(*r)(void *,size_t,const char *,int),
-                                void (*f)(void *));
-int CRYPTO_set_locked_mem_ex_functions(void *(*m)(size_t,const char *,int),
-                                       void (*free_func)(void *));
-int CRYPTO_set_mem_debug_functions(void (*m)(void *,int,const char *,int,int),
-       void (*r)(void *,void *,int,const char *,int,int),
-       void (*f)(void *,int),
-       void (*so)(long),
-       long (*go)(void));
-void CRYPTO_get_mem_functions(void *(**m)(size_t),void *(**r)(void *, size_t), void (**f)(void *));
-void CRYPTO_get_locked_mem_functions(void *(**m)(size_t), void (**f)(void *));
-void CRYPTO_get_mem_ex_functions(void *(**m)(size_t,const char *,int),
-                                 void *(**r)(void *, size_t,const char *,int),
-                                 void (**f)(void *));
-void CRYPTO_get_locked_mem_ex_functions(void *(**m)(size_t,const char *,int),
-                                        void (**f)(void *));
-void CRYPTO_get_mem_debug_functions(void (**m)(void *,int,const char *,int,int),
-        void (**r)(void *,void *,int,const char *,int,int),
-        void (**f)(void *,int),
-        void (**so)(long),
-        long (**go)(void));
+#pragma empty_line
+#pragma empty_line
+int CRYPTO_set_mem_functions(void *(*m) (size_t), void *(*r) (void *, size_t),
+                             void (*f) (void *));
+int CRYPTO_set_locked_mem_functions(void *(*m) (size_t),
+                                    void (*free_func) (void *));
+int CRYPTO_set_mem_ex_functions(void *(*m) (size_t, const char *, int),
+                                void *(*r) (void *, size_t, const char *,
+                                            int), void (*f) (void *));
+int CRYPTO_set_locked_mem_ex_functions(void *(*m) (size_t, const char *, int),
+                                       void (*free_func) (void *));
+int CRYPTO_set_mem_debug_functions(void (*m)
+                                    (void *, int, const char *, int, int),
+                                   void (*r) (void *, void *, int,
+                                              const char *, int, int),
+                                   void (*f) (void *, int), void (*so) (long),
+                                   long (*go) (void));
+void CRYPTO_get_mem_functions(void *(**m) (size_t),
+                              void *(**r) (void *, size_t),
+                              void (**f) (void *));
+void CRYPTO_get_locked_mem_functions(void *(**m) (size_t),
+                                     void (**f) (void *));
+void CRYPTO_get_mem_ex_functions(void *(**m) (size_t, const char *, int),
+                                 void *(**r) (void *, size_t, const char *,
+                                              int), void (**f) (void *));
+void CRYPTO_get_locked_mem_ex_functions(void
+                                        *(**m) (size_t, const char *, int),
+                                        void (**f) (void *));
+void CRYPTO_get_mem_debug_functions(void (**m)
+                                     (void *, int, const char *, int, int),
+                                    void (**r) (void *, void *, int,
+                                                const char *, int, int),
+                                    void (**f) (void *, int),
+                                    void (**so) (long), long (**go) (void));
 #pragma empty_line
 void *CRYPTO_malloc_locked(int num, const char *file, int line);
 void CRYPTO_free_locked(void *ptr);
 void *CRYPTO_malloc(int num, const char *file, int line);
 char *CRYPTO_strdup(const char *str, const char *file, int line);
 void CRYPTO_free(void *ptr);
-void *CRYPTO_realloc(void *addr,int num, const char *file, int line);
-void *CRYPTO_realloc_clean(void *addr,int old_num,int num,const char *file,
-      int line);
-void *CRYPTO_remalloc(void *addr,int num, const char *file, int line);
+void *CRYPTO_realloc(void *addr, int num, const char *file, int line);
+void *CRYPTO_realloc_clean(void *addr, int old_num, int num, const char *file,
+                           int line);
+void *CRYPTO_remalloc(void *addr, int num, const char *file, int line);
 #pragma empty_line
 void OPENSSL_cleanse(void *ptr, size_t len);
 #pragma empty_line
@@ -2495,25 +2509,27 @@ long CRYPTO_get_mem_debug_options(void);
 int CRYPTO_push_info_(const char *info, const char *file, int line);
 int CRYPTO_pop_info(void);
 int CRYPTO_remove_all_info(void);
-#pragma line 519 "/usr/include/openssl/crypto.h" 3 4
-void CRYPTO_dbg_malloc(void *addr,int num,const char *file,int line,int before_p);
-void CRYPTO_dbg_realloc(void *addr1,void *addr2,int num,const char *file,int line,int before_p);
-void CRYPTO_dbg_free(void *addr,int before_p);
-#pragma line 530 "/usr/include/openssl/crypto.h" 3 4
+#pragma line 563 "/usr/include/openssl/crypto.h" 3 4
+void CRYPTO_dbg_malloc(void *addr, int num, const char *file, int line,
+                       int before_p);
+void CRYPTO_dbg_realloc(void *addr1, void *addr2, int num, const char *file,
+                        int line, int before_p);
+void CRYPTO_dbg_free(void *addr, int before_p);
+#pragma line 577 "/usr/include/openssl/crypto.h" 3 4
 void CRYPTO_dbg_set_options(long bits);
 long CRYPTO_dbg_get_options(void);
-#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 void CRYPTO_mem_leaks_fp(FILE *);
 #pragma empty_line
 void CRYPTO_mem_leaks(struct bio_st *bio);
 #pragma empty_line
-typedef void *CRYPTO_MEM_LEAK_CB(unsigned long, const char *, int, int, void *);
+typedef void *CRYPTO_MEM_LEAK_CB (unsigned long, const char *, int, int,
+                                  void *);
 void CRYPTO_mem_leaks_cb(CRYPTO_MEM_LEAK_CB *cb);
 #pragma empty_line
 #pragma empty_line
-void OpenSSLDie(const char *file,int line,const char *assertion);
+void OpenSSLDie(const char *file, int line, const char *assertion);
 #pragma empty_line
 #pragma empty_line
 unsigned long *OPENSSL_ia32cap_loc(void);
@@ -2524,8 +2540,9 @@ int FIPS_mode(void);
 int FIPS_mode_set(int r);
 #pragma empty_line
 void OPENSSL_init(void);
-#pragma line 582 "/usr/include/openssl/crypto.h" 3 4
-int CRYPTO_memcmp(const void *a, const void *b, size_t len);
+#pragma line 631 "/usr/include/openssl/crypto.h" 3 4
+int CRYPTO_memcmp(const volatile void *a, const volatile void *b, size_t len);
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -2533,142 +2550,141 @@ int CRYPTO_memcmp(const void *a, const void *b, size_t len);
 #pragma empty_line
 void ERR_load_CRYPTO_strings(void);
 #pragma line 70 "/usr/include/openssl/bio.h" 2 3 4
-#pragma line 231 "/usr/include/openssl/bio.h" 3 4
+#pragma line 238 "/usr/include/openssl/bio.h" 3 4
 typedef struct bio_st BIO;
 #pragma empty_line
 void BIO_set_flags(BIO *b, int flags);
 int BIO_test_flags(const BIO *b, int flags);
 void BIO_clear_flags(BIO *b, int flags);
-#pragma line 285 "/usr/include/openssl/bio.h" 3 4
-long (*BIO_get_callback(const BIO *b)) (struct bio_st *,int,const char *,int, long,long);
+#pragma line 298 "/usr/include/openssl/bio.h" 3 4
+long (*BIO_get_callback(const BIO *b)) (struct bio_st *, int, const char *,
+                                        int, long, long);
 void BIO_set_callback(BIO *b,
- long (*callback)(struct bio_st *,int,const char *,int, long,long));
+                      long (*callback) (struct bio_st *, int, const char *,
+                                        int, long, long));
 char *BIO_get_callback_arg(const BIO *b);
 void BIO_set_callback_arg(BIO *b, char *arg);
 #pragma empty_line
-const char * BIO_method_name(const BIO *b);
+const char *BIO_method_name(const BIO *b);
 int BIO_method_type(const BIO *b);
 #pragma empty_line
-typedef void bio_info_cb(struct bio_st *, int, const char *, int, long, long);
+typedef void bio_info_cb (struct bio_st *, int, const char *, int, long,
+                          long);
 #pragma empty_line
-typedef struct bio_method_st
- {
- int type;
- const char *name;
- int (*bwrite)(BIO *, const char *, int);
- int (*bread)(BIO *, char *, int);
- int (*bputs)(BIO *, const char *);
- int (*bgets)(BIO *, char *, int);
- long (*ctrl)(BIO *, int, long, void *);
- int (*create)(BIO *);
- int (*destroy)(BIO *);
-        long (*callback_ctrl)(BIO *, int, bio_info_cb *);
- } BIO_METHOD;
+typedef struct bio_method_st {
+    int type;
+    const char *name;
+    int (*bwrite) (BIO *, const char *, int);
+    int (*bread) (BIO *, char *, int);
+    int (*bputs) (BIO *, const char *);
+    int (*bgets) (BIO *, char *, int);
+    long (*ctrl) (BIO *, int, long, void *);
+    int (*create) (BIO *);
+    int (*destroy) (BIO *);
+    long (*callback_ctrl) (BIO *, int, bio_info_cb *);
+} BIO_METHOD;
 #pragma empty_line
-struct bio_st
- {
- BIO_METHOD *method;
+struct bio_st {
+    BIO_METHOD *method;
 #pragma empty_line
- long (*callback)(struct bio_st *,int,const char *,int, long,long);
- char *cb_arg;
-#pragma empty_line
- int init;
- int shutdown;
- int flags;
- int retry_reason;
- int num;
- void *ptr;
- struct bio_st *next_bio;
- struct bio_st *prev_bio;
- int references;
- unsigned long num_read;
- unsigned long num_write;
-#pragma empty_line
- CRYPTO_EX_DATA ex_data;
- };
+    long (*callback) (struct bio_st *, int, const char *, int, long, long);
+    char *cb_arg;
+    int init;
+    int shutdown;
+    int flags;
+    int retry_reason;
+    int num;
+    void *ptr;
+    struct bio_st *next_bio;
+    struct bio_st *prev_bio;
+    int references;
+    unsigned long num_read;
+    unsigned long num_write;
+    CRYPTO_EX_DATA ex_data;
+};
 #pragma empty_line
 struct stack_st_BIO { _STACK stack; };
 #pragma empty_line
-typedef struct bio_f_buffer_ctx_struct
- {
-#pragma line 346 "/usr/include/openssl/bio.h" 3 4
- int ibuf_size;
- int obuf_size;
-#pragma empty_line
- char *ibuf;
- int ibuf_len;
- int ibuf_off;
-#pragma empty_line
- char *obuf;
- int obuf_len;
- int obuf_off;
- } BIO_F_BUFFER_CTX;
+typedef struct bio_f_buffer_ctx_struct {
+#pragma line 359 "/usr/include/openssl/bio.h" 3 4
+    int ibuf_size;
+    int obuf_size;
+    char *ibuf;
+    int ibuf_len;
+    int ibuf_off;
+    char *obuf;
+    int obuf_len;
+    int obuf_off;
+} BIO_F_BUFFER_CTX;
 #pragma empty_line
 #pragma empty_line
-typedef int asn1_ps_func(BIO *b, unsigned char **pbuf, int *plen, void *parg);
-#pragma line 574 "/usr/include/openssl/bio.h" 3 4
+typedef int asn1_ps_func (BIO *b, unsigned char **pbuf, int *plen,
+                          void *parg);
+#pragma line 594 "/usr/include/openssl/bio.h" 3 4
 size_t BIO_ctrl_pending(BIO *b);
 size_t BIO_ctrl_wpending(BIO *b);
-#pragma line 593 "/usr/include/openssl/bio.h" 3 4
+#pragma line 613 "/usr/include/openssl/bio.h" 3 4
 size_t BIO_ctrl_get_write_guarantee(BIO *b);
 size_t BIO_ctrl_get_read_request(BIO *b);
 int BIO_ctrl_reset_read_request(BIO *b);
-#pragma line 614 "/usr/include/openssl/bio.h" 3 4
-int BIO_set_ex_data(BIO *bio,int idx,void *data);
-void *BIO_get_ex_data(BIO *bio,int idx);
+#pragma line 636 "/usr/include/openssl/bio.h" 3 4
+int BIO_set_ex_data(BIO *bio, int idx, void *data);
+void *BIO_get_ex_data(BIO *bio, int idx);
 int BIO_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
- CRYPTO_EX_dup *dup_func, CRYPTO_EX_free *free_func);
+                         CRYPTO_EX_dup *dup_func, CRYPTO_EX_free *free_func);
 unsigned long BIO_number_read(BIO *bio);
 unsigned long BIO_number_written(BIO *bio);
 #pragma empty_line
 #pragma empty_line
 int BIO_asn1_set_prefix(BIO *b, asn1_ps_func *prefix,
-     asn1_ps_func *prefix_free);
+                        asn1_ps_func *prefix_free);
 int BIO_asn1_get_prefix(BIO *b, asn1_ps_func **pprefix,
-     asn1_ps_func **pprefix_free);
+                        asn1_ps_func **pprefix_free);
 int BIO_asn1_set_suffix(BIO *b, asn1_ps_func *suffix,
-     asn1_ps_func *suffix_free);
+                        asn1_ps_func *suffix_free);
 int BIO_asn1_get_suffix(BIO *b, asn1_ps_func **psuffix,
-     asn1_ps_func **psuffix_free);
+                        asn1_ps_func **psuffix_free);
 #pragma empty_line
 #pragma empty_line
-BIO_METHOD *BIO_s_file(void );
+BIO_METHOD *BIO_s_file(void);
 BIO *BIO_new_file(const char *filename, const char *mode);
 BIO *BIO_new_fp(FILE *stream, int close_flag);
 #pragma empty_line
 #pragma empty_line
-BIO * BIO_new(BIO_METHOD *type);
-int BIO_set(BIO *a,BIO_METHOD *type);
+BIO *BIO_new(BIO_METHOD *type);
+int BIO_set(BIO *a, BIO_METHOD *type);
 int BIO_free(BIO *a);
 void BIO_vfree(BIO *a);
 int BIO_read(BIO *b, void *data, int len);
-int BIO_gets(BIO *bp,char *buf, int size);
+int BIO_gets(BIO *bp, char *buf, int size);
 int BIO_write(BIO *b, const void *data, int len);
-int BIO_puts(BIO *bp,const char *buf);
-int BIO_indent(BIO *b,int indent,int max);
-long BIO_ctrl(BIO *bp,int cmd,long larg,void *parg);
-long BIO_callback_ctrl(BIO *b, int cmd, void (*fp)(struct bio_st *, int, const char *, int, long, long));
-char * BIO_ptr_ctrl(BIO *bp,int cmd,long larg);
-long BIO_int_ctrl(BIO *bp,int cmd,long larg,int iarg);
-BIO * BIO_push(BIO *b,BIO *append);
-BIO * BIO_pop(BIO *b);
+int BIO_puts(BIO *bp, const char *buf);
+int BIO_indent(BIO *b, int indent, int max);
+long BIO_ctrl(BIO *bp, int cmd, long larg, void *parg);
+long BIO_callback_ctrl(BIO *b, int cmd,
+                       void (*fp) (struct bio_st *, int, const char *, int,
+                                   long, long));
+char *BIO_ptr_ctrl(BIO *bp, int cmd, long larg);
+long BIO_int_ctrl(BIO *bp, int cmd, long larg, int iarg);
+BIO *BIO_push(BIO *b, BIO *append);
+BIO *BIO_pop(BIO *b);
 void BIO_free_all(BIO *a);
-BIO * BIO_find_type(BIO *b,int bio_type);
-BIO * BIO_next(BIO *b);
-BIO * BIO_get_retry_BIO(BIO *bio, int *reason);
+BIO *BIO_find_type(BIO *b, int bio_type);
+BIO *BIO_next(BIO *b);
+BIO *BIO_get_retry_BIO(BIO *bio, int *reason);
 int BIO_get_retry_reason(BIO *bio);
-BIO * BIO_dup_chain(BIO *in);
+BIO *BIO_dup_chain(BIO *in);
 #pragma empty_line
 int BIO_nread0(BIO *bio, char **buf);
 int BIO_nread(BIO *bio, char **buf, int num);
 int BIO_nwrite0(BIO *bio, char **buf);
 int BIO_nwrite(BIO *bio, char **buf, int num);
 #pragma empty_line
-long BIO_debug_callback(BIO *bio,int cmd,const char *argp,int argi,
- long argl,long ret);
+long BIO_debug_callback(BIO *bio, int cmd, const char *argp, int argi,
+                        long argl, long ret);
 #pragma empty_line
 BIO_METHOD *BIO_s_mem(void);
-BIO *BIO_new_mem_buf(void *buf, int len);
+BIO *BIO_new_mem_buf(const void *buf, int len);
 BIO_METHOD *BIO_s_socket(void);
 BIO_METHOD *BIO_s_connect(void);
 BIO_METHOD *BIO_s_accept(void);
@@ -2699,53 +2715,58 @@ int BIO_dgram_non_fatal_error(int error);
 #pragma empty_line
 int BIO_fd_should_retry(int i);
 int BIO_fd_non_fatal_error(int error);
-int BIO_dump_cb(int (*cb)(const void *data, size_t len, void *u),
-  void *u, const char *s, int len);
-int BIO_dump_indent_cb(int (*cb)(const void *data, size_t len, void *u),
-         void *u, const char *s, int len, int indent);
-int BIO_dump(BIO *b,const char *bytes,int len);
-int BIO_dump_indent(BIO *b,const char *bytes,int len,int indent);
+int BIO_dump_cb(int (*cb) (const void *data, size_t len, void *u),
+                void *u, const char *s, int len);
+int BIO_dump_indent_cb(int (*cb) (const void *data, size_t len, void *u),
+                       void *u, const char *s, int len, int indent);
+int BIO_dump(BIO *b, const char *bytes, int len);
+int BIO_dump_indent(BIO *b, const char *bytes, int len, int indent);
 #pragma empty_line
 int BIO_dump_fp(FILE *fp, const char *s, int len);
 int BIO_dump_indent_fp(FILE *fp, const char *s, int len, int indent);
 #pragma empty_line
+int BIO_hex_string(BIO *out, int indent, int width, unsigned char *data,
+                   int datalen);
+#pragma empty_line
 struct hostent *BIO_gethostbyname(const char *name);
-#pragma line 718 "/usr/include/openssl/bio.h" 3 4
+#pragma line 746 "/usr/include/openssl/bio.h" 3 4
 int BIO_sock_error(int sock);
 int BIO_socket_ioctl(int fd, long type, void *arg);
-int BIO_socket_nbio(int fd,int mode);
+int BIO_socket_nbio(int fd, int mode);
 int BIO_get_port(const char *str, unsigned short *port_ptr);
 int BIO_get_host_ip(const char *str, unsigned char *ip);
-int BIO_get_accept_socket(char *host_port,int mode);
-int BIO_accept(int sock,char **ip_port);
-int BIO_sock_init(void );
+int BIO_get_accept_socket(char *host_port, int mode);
+int BIO_accept(int sock, char **ip_port);
+int BIO_sock_init(void);
 void BIO_sock_cleanup(void);
-int BIO_set_tcp_ndelay(int sock,int turn_on);
+int BIO_set_tcp_ndelay(int sock, int turn_on);
 #pragma empty_line
 BIO *BIO_new_socket(int sock, int close_flag);
 BIO *BIO_new_dgram(int fd, int close_flag);
-#pragma line 740 "/usr/include/openssl/bio.h" 3 4
+#pragma line 771 "/usr/include/openssl/bio.h" 3 4
 BIO *BIO_new_fd(int fd, int close_flag);
-BIO *BIO_new_connect(char *host_port);
-BIO *BIO_new_accept(char *host_port);
+BIO *BIO_new_connect(const char *host_port);
+BIO *BIO_new_accept(const char *host_port);
 #pragma empty_line
 int BIO_new_bio_pair(BIO **bio1, size_t writebuf1,
- BIO **bio2, size_t writebuf2);
+                     BIO **bio2, size_t writebuf2);
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 void BIO_copy_next_retry(BIO *b);
-#pragma line 760 "/usr/include/openssl/bio.h" 3 4
+#pragma line 794 "/usr/include/openssl/bio.h" 3 4
 int BIO_printf(BIO *bio, const char *format, ...)
- __attribute__((__format__(__printf__,2,3)));
+__attribute__((__format__(__printf__, 2, 3)));
 int BIO_vprintf(BIO *bio, const char *format, va_list args)
- __attribute__((__format__(__printf__,2,0)));
+__attribute__((__format__(__printf__, 2, 0)));
 int BIO_snprintf(char *buf, size_t n, const char *format, ...)
- __attribute__((__format__(__printf__,3,4)));
+__attribute__((__format__(__printf__, 3, 4)));
 int BIO_vsnprintf(char *buf, size_t n, const char *format, va_list args)
- __attribute__((__format__(__printf__,3,0)));
+__attribute__((__format__(__printf__, 3, 0)));
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -2762,49 +2783,45 @@ void ERR_load_BIO_strings(void);
 #pragma line 57 "/usr/include/openssl/e_os2.h" 2 3 4
 #pragma line 67 "/usr/include/openssl/lhash.h" 2 3 4
 #pragma line 79 "/usr/include/openssl/lhash.h" 3 4
-typedef struct lhash_node_st
- {
- void *data;
- struct lhash_node_st *next;
+typedef struct lhash_node_st {
+    void *data;
+    struct lhash_node_st *next;
 #pragma empty_line
- unsigned long hash;
+    unsigned long hash;
 #pragma empty_line
- } LHASH_NODE;
+} LHASH_NODE;
 #pragma empty_line
-typedef int (*LHASH_COMP_FN_TYPE)(const void *, const void *);
-typedef unsigned long (*LHASH_HASH_FN_TYPE)(const void *);
-typedef void (*LHASH_DOALL_FN_TYPE)(void *);
-typedef void (*LHASH_DOALL_ARG_FN_TYPE)(void *, void *);
-#pragma line 138 "/usr/include/openssl/lhash.h" 3 4
-typedef struct lhash_st
- {
- LHASH_NODE **b;
- LHASH_COMP_FN_TYPE comp;
- LHASH_HASH_FN_TYPE hash;
- unsigned int num_nodes;
- unsigned int num_alloc_nodes;
- unsigned int p;
- unsigned int pmax;
- unsigned long up_load;
- unsigned long down_load;
- unsigned long num_items;
-#pragma empty_line
- unsigned long num_expands;
- unsigned long num_expand_reallocs;
- unsigned long num_contracts;
- unsigned long num_contract_reallocs;
- unsigned long num_hash_calls;
- unsigned long num_comp_calls;
- unsigned long num_insert;
- unsigned long num_replace;
- unsigned long num_delete;
- unsigned long num_no_delete;
- unsigned long num_retrieve;
- unsigned long num_retrieve_miss;
- unsigned long num_hash_comps;
-#pragma empty_line
- int error;
- } _LHASH;
+typedef int (*LHASH_COMP_FN_TYPE) (const void *, const void *);
+typedef unsigned long (*LHASH_HASH_FN_TYPE) (const void *);
+typedef void (*LHASH_DOALL_FN_TYPE) (void *);
+typedef void (*LHASH_DOALL_ARG_FN_TYPE) (void *, void *);
+#pragma line 139 "/usr/include/openssl/lhash.h" 3 4
+typedef struct lhash_st {
+    LHASH_NODE **b;
+    LHASH_COMP_FN_TYPE comp;
+    LHASH_HASH_FN_TYPE hash;
+    unsigned int num_nodes;
+    unsigned int num_alloc_nodes;
+    unsigned int p;
+    unsigned int pmax;
+    unsigned long up_load;
+    unsigned long down_load;
+    unsigned long num_items;
+    unsigned long num_expands;
+    unsigned long num_expand_reallocs;
+    unsigned long num_contracts;
+    unsigned long num_contract_reallocs;
+    unsigned long num_hash_calls;
+    unsigned long num_comp_calls;
+    unsigned long num_insert;
+    unsigned long num_replace;
+    unsigned long num_delete;
+    unsigned long num_no_delete;
+    unsigned long num_retrieve;
+    unsigned long num_retrieve_miss;
+    unsigned long num_hash_comps;
+    int error;
+} _LHASH;
 #pragma line 175 "/usr/include/openssl/lhash.h" 3 4
 _LHASH *lh_new(LHASH_HASH_FN_TYPE h, LHASH_COMP_FN_TYPE c);
 void lh_free(_LHASH *lh);
@@ -2844,12 +2861,11 @@ struct lhash_st_OPENSSL_CSTRING { int dummy; };
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-typedef struct
- {
- char *section;
- char *name;
- char *value;
- } CONF_VALUE;
+typedef struct {
+    char *section;
+    char *name;
+    char *value;
+} CONF_VALUE;
 #pragma empty_line
 struct stack_st_CONF_VALUE { _STACK stack; };
 struct lhash_st_CONF_VALUE { int dummy; };
@@ -2858,19 +2874,18 @@ struct conf_st;
 struct conf_method_st;
 typedef struct conf_method_st CONF_METHOD;
 #pragma empty_line
-struct conf_method_st
- {
- const char *name;
- CONF *(*create)(CONF_METHOD *meth);
- int (*init)(CONF *conf);
- int (*destroy)(CONF *conf);
- int (*destroy_data)(CONF *conf);
- int (*load_bio)(CONF *conf, BIO *bp, long *eline);
- int (*dump)(const CONF *conf, BIO *bp);
- int (*is_number)(const CONF *conf, char c);
- int (*to_int)(const CONF *conf, char c);
- int (*load)(CONF *conf, const char *name, long *eline);
- };
+struct conf_method_st {
+    const char *name;
+    CONF *(*create) (CONF_METHOD *meth);
+    int (*init) (CONF *conf);
+    int (*destroy) (CONF *conf);
+    int (*destroy_data) (CONF *conf);
+    int (*load_bio) (CONF *conf, BIO *bp, long *eline);
+    int (*dump) (const CONF *conf, BIO *bp);
+    int (*is_number) (const CONF *conf, char c);
+    int (*to_int) (const CONF *conf, char c);
+    int (*load) (CONF *conf, const char *name, long *eline);
+};
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -2881,24 +2896,25 @@ struct stack_st_CONF_MODULE { _STACK stack; };
 struct stack_st_CONF_IMODULE { _STACK stack; };
 #pragma empty_line
 #pragma empty_line
-typedef int conf_init_func(CONF_IMODULE *md, const CONF *cnf);
-typedef void conf_finish_func(CONF_IMODULE *md);
-#pragma line 121 "/usr/include/openssl/conf.h" 3 4
+typedef int conf_init_func (CONF_IMODULE *md, const CONF *cnf);
+typedef void conf_finish_func (CONF_IMODULE *md);
+#pragma line 119 "/usr/include/openssl/conf.h" 3 4
 int CONF_set_default_method(CONF_METHOD *meth);
-void CONF_set_nconf(CONF *conf,struct lhash_st_CONF_VALUE *hash);
-struct lhash_st_CONF_VALUE *CONF_load(struct lhash_st_CONF_VALUE *conf,const char *file,
-    long *eline);
+void CONF_set_nconf(CONF *conf, struct lhash_st_CONF_VALUE *hash);
+struct lhash_st_CONF_VALUE *CONF_load(struct lhash_st_CONF_VALUE *conf, const char *file,
+                                long *eline);
 #pragma empty_line
 struct lhash_st_CONF_VALUE *CONF_load_fp(struct lhash_st_CONF_VALUE *conf, FILE *fp,
-       long *eline);
+                                   long *eline);
 #pragma empty_line
-struct lhash_st_CONF_VALUE *CONF_load_bio(struct lhash_st_CONF_VALUE *conf, BIO *bp,long *eline);
+struct lhash_st_CONF_VALUE *CONF_load_bio(struct lhash_st_CONF_VALUE *conf, BIO *bp,
+                                    long *eline);
 struct stack_st_CONF_VALUE *CONF_get_section(struct lhash_st_CONF_VALUE *conf,
-           const char *section);
-char *CONF_get_string(struct lhash_st_CONF_VALUE *conf,const char *group,
-        const char *name);
-long CONF_get_number(struct lhash_st_CONF_VALUE *conf,const char *group,
-       const char *name);
+                                       const char *section);
+char *CONF_get_string(struct lhash_st_CONF_VALUE *conf, const char *group,
+                      const char *name);
+long CONF_get_number(struct lhash_st_CONF_VALUE *conf, const char *group,
+                     const char *name);
 void CONF_free(struct lhash_st_CONF_VALUE *conf);
 int CONF_dump_fp(struct lhash_st_CONF_VALUE *conf, FILE *out);
 int CONF_dump_bio(struct lhash_st_CONF_VALUE *conf, BIO *out);
@@ -2909,12 +2925,13 @@ void OPENSSL_no_config(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-struct conf_st
- {
- CONF_METHOD *meth;
- void *meth_data;
- struct lhash_st_CONF_VALUE *data;
- };
+#pragma empty_line
+#pragma empty_line
+struct conf_st {
+    CONF_METHOD *meth;
+    void *meth_data;
+    struct lhash_st_CONF_VALUE *data;
+};
 #pragma empty_line
 CONF *NCONF_new(CONF_METHOD *meth);
 CONF_METHOD *NCONF_default(void);
@@ -2922,30 +2939,32 @@ CONF_METHOD *NCONF_WIN32(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 void NCONF_free(CONF *conf);
 void NCONF_free_data(CONF *conf);
 #pragma empty_line
-int NCONF_load(CONF *conf,const char *file,long *eline);
+int NCONF_load(CONF *conf, const char *file, long *eline);
 #pragma empty_line
-int NCONF_load_fp(CONF *conf, FILE *fp,long *eline);
+int NCONF_load_fp(CONF *conf, FILE *fp, long *eline);
 #pragma empty_line
-int NCONF_load_bio(CONF *conf, BIO *bp,long *eline);
-struct stack_st_CONF_VALUE *NCONF_get_section(const CONF *conf,const char *section);
-char *NCONF_get_string(const CONF *conf,const char *group,const char *name);
-int NCONF_get_number_e(const CONF *conf,const char *group,const char *name,
-         long *result);
+int NCONF_load_bio(CONF *conf, BIO *bp, long *eline);
+struct stack_st_CONF_VALUE *NCONF_get_section(const CONF *conf,
+                                        const char *section);
+char *NCONF_get_string(const CONF *conf, const char *group, const char *name);
+int NCONF_get_number_e(const CONF *conf, const char *group, const char *name,
+                       long *result);
 int NCONF_dump_fp(const CONF *conf, FILE *out);
 int NCONF_dump_bio(const CONF *conf, BIO *out);
-#pragma line 183 "/usr/include/openssl/conf.h" 3 4
+#pragma line 185 "/usr/include/openssl/conf.h" 3 4
 int CONF_modules_load(const CONF *cnf, const char *appname,
-        unsigned long flags);
+                      unsigned long flags);
 int CONF_modules_load_file(const char *filename, const char *appname,
-      unsigned long flags);
+                           unsigned long flags);
 void CONF_modules_unload(int all);
 void CONF_modules_finish(void);
 void CONF_modules_free(void);
 int CONF_module_add(const char *name, conf_init_func *ifunc,
-      conf_finish_func *ffunc);
+                    conf_finish_func *ffunc);
 #pragma empty_line
 const char *CONF_imodule_get_name(const CONF_IMODULE *md);
 const char *CONF_imodule_get_value(const CONF_IMODULE *md);
@@ -2960,7 +2979,8 @@ void CONF_module_set_usr_data(CONF_MODULE *pmod, void *usr_data);
 char *CONF_get1_default_config_file(void);
 #pragma empty_line
 int CONF_parse_list(const char *list, int sep, int nospc,
- int (*list_cb)(const char *elem, int len, void *usr), void *arg);
+                    int (*list_cb) (const char *elem, int len, void *usr),
+                    void *arg);
 #pragma empty_line
 void OPENSSL_load_builtin_modules(void);
 #pragma empty_line
@@ -2968,8 +2988,9 @@ void OPENSSL_load_builtin_modules(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 void ERR_load_CONF_strings(void);
-#pragma line 8 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 8 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma line 1 "/usr/include/openssl/evp.h" 1 3 4
 #pragma line 66 "/usr/include/openssl/evp.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/openssl/opensslconf.h" 1 3 4
@@ -2979,7 +3000,7 @@ void ERR_load_CONF_strings(void);
 #pragma line 65 "/usr/include/openssl/objects.h" 3 4
 #pragma line 1 "/usr/include/openssl/obj_mac.h" 1 3 4
 #pragma line 66 "/usr/include/openssl/objects.h" 2 3 4
-#pragma line 960 "/usr/include/openssl/objects.h" 3 4
+#pragma line 965 "/usr/include/openssl/objects.h" 3 4
 #pragma line 1 "/usr/include/openssl/asn1.h" 1 3 4
 #pragma line 62 "/usr/include/openssl/asn1.h" 3 4
 #pragma line 1 "/usr/include/time.h" 1 3 4
@@ -3558,132 +3579,126 @@ int BN_bntest_rand(BIGNUM *rnd, int bits, int top,int bottom);
 #pragma empty_line
 void ERR_load_BN_strings(void);
 #pragma line 75 "/usr/include/openssl/asn1.h" 2 3 4
-#pragma line 165 "/usr/include/openssl/asn1.h" 3 4
-struct X509_algor_st;
+#pragma line 169 "/usr/include/openssl/asn1.h" 3 4
+    struct X509_algor_st;
 struct stack_st_X509_ALGOR { _STACK stack; };
-#pragma line 175 "/usr/include/openssl/asn1.h" 3 4
-typedef struct asn1_ctx_st
- {
- unsigned char *p;
- int eos;
- int error;
- int inf;
- int tag;
- int xclass;
- long slen;
- unsigned char *max;
- unsigned char *q;
- unsigned char **pp;
- int line;
- } ASN1_CTX;
+#pragma line 180 "/usr/include/openssl/asn1.h" 3 4
+typedef struct asn1_ctx_st {
+    unsigned char *p;
+    int eos;
 #pragma empty_line
-typedef struct asn1_const_ctx_st
- {
- const unsigned char *p;
- int eos;
- int error;
- int inf;
- int tag;
- int xclass;
- long slen;
- const unsigned char *max;
- const unsigned char *q;
- const unsigned char **pp;
- int line;
- } ASN1_const_CTX;
+    int error;
+    int inf;
+    int tag;
+    int xclass;
+    long slen;
+    unsigned char *max;
+    unsigned char *q;
+    unsigned char **pp;
+    int line;
+} ASN1_CTX;
 #pragma empty_line
+typedef struct asn1_const_ctx_st {
+    const unsigned char *p;
+    int eos;
 #pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-typedef struct asn1_object_st
- {
- const char *sn,*ln;
- int nid;
- int length;
- const unsigned char *data;
- int flags;
- } ASN1_OBJECT;
-#pragma line 238 "/usr/include/openssl/asn1.h" 3 4
-struct asn1_string_st
- {
- int length;
- int type;
- unsigned char *data;
+    int error;
+    int inf;
+    int tag;
+    int xclass;
+    long slen;
+    const unsigned char *max;
+    const unsigned char *q;
+    const unsigned char **pp;
+    int line;
+} ASN1_const_CTX;
+#pragma line 218 "/usr/include/openssl/asn1.h" 3 4
+struct asn1_object_st {
+    const char *sn, *ln;
+    int nid;
+    int length;
+    const unsigned char *data;
+    int flags;
+};
+#pragma line 247 "/usr/include/openssl/asn1.h" 3 4
+struct asn1_string_st {
+    int length;
+    int type;
+    unsigned char *data;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
- long flags;
- };
+#pragma empty_line
+    long flags;
+};
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-typedef struct ASN1_ENCODING_st
- {
- unsigned char *enc;
- long len;
- int modified;
- } ASN1_ENCODING;
-#pragma line 271 "/usr/include/openssl/asn1.h" 3 4
+#pragma empty_line
+typedef struct ASN1_ENCODING_st {
+    unsigned char *enc;
+    long len;
+    int modified;
+} ASN1_ENCODING;
+#pragma line 280 "/usr/include/openssl/asn1.h" 3 4
 typedef struct asn1_string_table_st {
- int nid;
- long minsize;
- long maxsize;
- unsigned long mask;
- unsigned long flags;
+    int nid;
+    long minsize;
+    long maxsize;
+    unsigned long mask;
+    unsigned long flags;
 } ASN1_STRING_TABLE;
 #pragma empty_line
 struct stack_st_ASN1_STRING_TABLE { _STACK stack; };
-#pragma line 295 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 304 "/usr/include/openssl/asn1.h" 3 4
 typedef struct ASN1_TEMPLATE_st ASN1_TEMPLATE;
 typedef struct ASN1_TLC_st ASN1_TLC;
 #pragma empty_line
 typedef struct ASN1_VALUE_st ASN1_VALUE;
-#pragma line 362 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 371 "/usr/include/openssl/asn1.h" 3 4
 typedef void *d2i_of_void(void **,const unsigned char **,long); typedef int i2d_of_void(void *,unsigned char **);
-#pragma line 402 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 412 "/usr/include/openssl/asn1.h" 3 4
 typedef const ASN1_ITEM ASN1_ITEM_EXP;
-#pragma line 516 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 527 "/usr/include/openssl/asn1.h" 3 4
 struct stack_st_ASN1_INTEGER { _STACK stack; };
 #pragma empty_line
 #pragma empty_line
 struct stack_st_ASN1_GENERALSTRING { _STACK stack; };
 #pragma empty_line
-typedef struct asn1_type_st
- {
- int type;
- union {
-  char *ptr;
-  ASN1_BOOLEAN boolean;
-  ASN1_STRING * asn1_string;
-  ASN1_OBJECT * object;
-  ASN1_INTEGER * integer;
-  ASN1_ENUMERATED * enumerated;
-  ASN1_BIT_STRING * bit_string;
-  ASN1_OCTET_STRING * octet_string;
-  ASN1_PRINTABLESTRING * printablestring;
-  ASN1_T61STRING * t61string;
-  ASN1_IA5STRING * ia5string;
-  ASN1_GENERALSTRING * generalstring;
-  ASN1_BMPSTRING * bmpstring;
-  ASN1_UNIVERSALSTRING * universalstring;
-  ASN1_UTCTIME * utctime;
-  ASN1_GENERALIZEDTIME * generalizedtime;
-  ASN1_VISIBLESTRING * visiblestring;
-  ASN1_UTF8STRING * utf8string;
+typedef struct asn1_type_st {
+    int type;
+    union {
+        char *ptr;
+        ASN1_BOOLEAN boolean;
+        ASN1_STRING *asn1_string;
+        ASN1_OBJECT *object;
+        ASN1_INTEGER *integer;
+        ASN1_ENUMERATED *enumerated;
+        ASN1_BIT_STRING *bit_string;
+        ASN1_OCTET_STRING *octet_string;
+        ASN1_PRINTABLESTRING *printablestring;
+        ASN1_T61STRING *t61string;
+        ASN1_IA5STRING *ia5string;
+        ASN1_GENERALSTRING *generalstring;
+        ASN1_BMPSTRING *bmpstring;
+        ASN1_UNIVERSALSTRING *universalstring;
+        ASN1_UTCTIME *utctime;
+        ASN1_GENERALIZEDTIME *generalizedtime;
+        ASN1_VISIBLESTRING *visiblestring;
+        ASN1_UTF8STRING *utf8string;
 #pragma empty_line
 #pragma empty_line
-  ASN1_STRING * set;
-  ASN1_STRING * sequence;
-  ASN1_VALUE * asn1_value;
-  } value;
- } ASN1_TYPE;
+#pragma empty_line
+#pragma empty_line
+        ASN1_STRING *set;
+        ASN1_STRING *sequence;
+        ASN1_VALUE *asn1_value;
+    } value;
+} ASN1_TYPE;
 #pragma empty_line
 struct stack_st_ASN1_TYPE { _STACK stack; };
 #pragma empty_line
@@ -3693,19 +3708,18 @@ typedef struct stack_st_ASN1_TYPE ASN1_SEQUENCE_ANY;
 ASN1_SEQUENCE_ANY *d2i_ASN1_SEQUENCE_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len); int i2d_ASN1_SEQUENCE_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out); extern const ASN1_ITEM ASN1_SEQUENCE_ANY_it;
 ASN1_SEQUENCE_ANY *d2i_ASN1_SET_ANY(ASN1_SEQUENCE_ANY **a, const unsigned char **in, long len); int i2d_ASN1_SET_ANY(const ASN1_SEQUENCE_ANY *a, unsigned char **out); extern const ASN1_ITEM ASN1_SET_ANY_it;
 #pragma empty_line
-typedef struct NETSCAPE_X509_st
- {
- ASN1_OCTET_STRING *header;
- X509 *cert;
- } NETSCAPE_X509;
+typedef struct NETSCAPE_X509_st {
+    ASN1_OCTET_STRING *header;
+    X509 *cert;
+} NETSCAPE_X509;
 #pragma empty_line
 #pragma empty_line
 typedef struct BIT_STRING_BITNAME_st {
- int bitnum;
- const char *lname;
- const char *sname;
+    int bitnum;
+    const char *lname;
+    const char *sname;
 } BIT_STRING_BITNAME;
-#pragma line 774 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 784 "/usr/include/openssl/asn1.h" 3 4
 ASN1_TYPE *ASN1_TYPE_new(void); void ASN1_TYPE_free(ASN1_TYPE *a); ASN1_TYPE *d2i_ASN1_TYPE(ASN1_TYPE **a, const unsigned char **in, long len); int i2d_ASN1_TYPE(ASN1_TYPE *a, unsigned char **out); extern const ASN1_ITEM ASN1_ANY_it;
 #pragma empty_line
 int ASN1_TYPE_get(ASN1_TYPE *a);
@@ -3713,25 +3727,28 @@ void ASN1_TYPE_set(ASN1_TYPE *a, int type, void *value);
 int ASN1_TYPE_set1(ASN1_TYPE *a, int type, const void *value);
 int ASN1_TYPE_cmp(const ASN1_TYPE *a, const ASN1_TYPE *b);
 #pragma empty_line
-ASN1_OBJECT * ASN1_OBJECT_new(void );
+ASN1_OBJECT *ASN1_OBJECT_new(void);
 void ASN1_OBJECT_free(ASN1_OBJECT *a);
-int i2d_ASN1_OBJECT(ASN1_OBJECT *a,unsigned char **pp);
-ASN1_OBJECT * c2i_ASN1_OBJECT(ASN1_OBJECT **a,const unsigned char **pp,
-   long length);
-ASN1_OBJECT * d2i_ASN1_OBJECT(ASN1_OBJECT **a,const unsigned char **pp,
-   long length);
+int i2d_ASN1_OBJECT(ASN1_OBJECT *a, unsigned char **pp);
+ASN1_OBJECT *c2i_ASN1_OBJECT(ASN1_OBJECT **a, const unsigned char **pp,
+                             long length);
+ASN1_OBJECT *d2i_ASN1_OBJECT(ASN1_OBJECT **a, const unsigned char **pp,
+                             long length);
 #pragma empty_line
 extern const ASN1_ITEM ASN1_OBJECT_it;
 #pragma empty_line
 struct stack_st_ASN1_OBJECT { _STACK stack; };
 #pragma empty_line
 #pragma empty_line
-ASN1_STRING * ASN1_STRING_new(void);
+ASN1_STRING *ASN1_STRING_new(void);
 void ASN1_STRING_free(ASN1_STRING *a);
+void ASN1_STRING_clear_free(ASN1_STRING *a);
 int ASN1_STRING_copy(ASN1_STRING *dst, const ASN1_STRING *str);
-ASN1_STRING * ASN1_STRING_dup(const ASN1_STRING *a);
-ASN1_STRING * ASN1_STRING_type_new(int type );
+ASN1_STRING *ASN1_STRING_dup(const ASN1_STRING *a);
+ASN1_STRING *ASN1_STRING_type_new(int type);
 int ASN1_STRING_cmp(const ASN1_STRING *a, const ASN1_STRING *b);
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 int ASN1_STRING_set(ASN1_STRING *str, const void *data, int len);
@@ -3739,61 +3756,66 @@ void ASN1_STRING_set0(ASN1_STRING *str, void *data, int len);
 int ASN1_STRING_length(const ASN1_STRING *x);
 void ASN1_STRING_length_set(ASN1_STRING *x, int n);
 int ASN1_STRING_type(ASN1_STRING *x);
-unsigned char * ASN1_STRING_data(ASN1_STRING *x);
+unsigned char *ASN1_STRING_data(ASN1_STRING *x);
 #pragma empty_line
 ASN1_BIT_STRING *ASN1_BIT_STRING_new(void); void ASN1_BIT_STRING_free(ASN1_BIT_STRING *a); ASN1_BIT_STRING *d2i_ASN1_BIT_STRING(ASN1_BIT_STRING **a, const unsigned char **in, long len); int i2d_ASN1_BIT_STRING(ASN1_BIT_STRING *a, unsigned char **out); extern const ASN1_ITEM ASN1_BIT_STRING_it;
-int i2c_ASN1_BIT_STRING(ASN1_BIT_STRING *a,unsigned char **pp);
-ASN1_BIT_STRING *c2i_ASN1_BIT_STRING(ASN1_BIT_STRING **a,const unsigned char **pp,
-   long length);
-int ASN1_BIT_STRING_set(ASN1_BIT_STRING *a, unsigned char *d,
-   int length );
+int i2c_ASN1_BIT_STRING(ASN1_BIT_STRING *a, unsigned char **pp);
+ASN1_BIT_STRING *c2i_ASN1_BIT_STRING(ASN1_BIT_STRING **a,
+                                     const unsigned char **pp, long length);
+int ASN1_BIT_STRING_set(ASN1_BIT_STRING *a, unsigned char *d, int length);
 int ASN1_BIT_STRING_set_bit(ASN1_BIT_STRING *a, int n, int value);
 int ASN1_BIT_STRING_get_bit(ASN1_BIT_STRING *a, int n);
 int ASN1_BIT_STRING_check(ASN1_BIT_STRING *a,
-                                     unsigned char *flags, int flags_len);
+                          unsigned char *flags, int flags_len);
 #pragma empty_line
 #pragma empty_line
 int ASN1_BIT_STRING_name_print(BIO *out, ASN1_BIT_STRING *bs,
-    BIT_STRING_BITNAME *tbl, int indent);
+                               BIT_STRING_BITNAME *tbl, int indent);
 #pragma empty_line
 int ASN1_BIT_STRING_num_asc(char *name, BIT_STRING_BITNAME *tbl);
 int ASN1_BIT_STRING_set_asc(ASN1_BIT_STRING *bs, char *name, int value,
-    BIT_STRING_BITNAME *tbl);
+                            BIT_STRING_BITNAME *tbl);
 #pragma empty_line
-int i2d_ASN1_BOOLEAN(int a,unsigned char **pp);
-int d2i_ASN1_BOOLEAN(int *a,const unsigned char **pp,long length);
+int i2d_ASN1_BOOLEAN(int a, unsigned char **pp);
+int d2i_ASN1_BOOLEAN(int *a, const unsigned char **pp, long length);
 #pragma empty_line
 ASN1_INTEGER *ASN1_INTEGER_new(void); void ASN1_INTEGER_free(ASN1_INTEGER *a); ASN1_INTEGER *d2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **in, long len); int i2d_ASN1_INTEGER(ASN1_INTEGER *a, unsigned char **out); extern const ASN1_ITEM ASN1_INTEGER_it;
-int i2c_ASN1_INTEGER(ASN1_INTEGER *a,unsigned char **pp);
-ASN1_INTEGER *c2i_ASN1_INTEGER(ASN1_INTEGER **a,const unsigned char **pp,
-   long length);
-ASN1_INTEGER *d2i_ASN1_UINTEGER(ASN1_INTEGER **a,const unsigned char **pp,
-   long length);
-ASN1_INTEGER * ASN1_INTEGER_dup(const ASN1_INTEGER *x);
+int i2c_ASN1_INTEGER(ASN1_INTEGER *a, unsigned char **pp);
+ASN1_INTEGER *c2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **pp,
+                               long length);
+ASN1_INTEGER *d2i_ASN1_UINTEGER(ASN1_INTEGER **a, const unsigned char **pp,
+                                long length);
+ASN1_INTEGER *ASN1_INTEGER_dup(const ASN1_INTEGER *x);
 int ASN1_INTEGER_cmp(const ASN1_INTEGER *x, const ASN1_INTEGER *y);
 #pragma empty_line
 ASN1_ENUMERATED *ASN1_ENUMERATED_new(void); void ASN1_ENUMERATED_free(ASN1_ENUMERATED *a); ASN1_ENUMERATED *d2i_ASN1_ENUMERATED(ASN1_ENUMERATED **a, const unsigned char **in, long len); int i2d_ASN1_ENUMERATED(ASN1_ENUMERATED *a, unsigned char **out); extern const ASN1_ITEM ASN1_ENUMERATED_it;
 #pragma empty_line
-int ASN1_UTCTIME_check(ASN1_UTCTIME *a);
-ASN1_UTCTIME *ASN1_UTCTIME_set(ASN1_UTCTIME *s,time_t t);
+int ASN1_UTCTIME_check(const ASN1_UTCTIME *a);
+ASN1_UTCTIME *ASN1_UTCTIME_set(ASN1_UTCTIME *s, time_t t);
 ASN1_UTCTIME *ASN1_UTCTIME_adj(ASN1_UTCTIME *s, time_t t,
-    int offset_day, long offset_sec);
+                               int offset_day, long offset_sec);
 int ASN1_UTCTIME_set_string(ASN1_UTCTIME *s, const char *str);
 int ASN1_UTCTIME_cmp_time_t(const ASN1_UTCTIME *s, time_t t);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-int ASN1_GENERALIZEDTIME_check(ASN1_GENERALIZEDTIME *a);
-ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_set(ASN1_GENERALIZEDTIME *s,time_t t);
+int ASN1_GENERALIZEDTIME_check(const ASN1_GENERALIZEDTIME *a);
+ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_set(ASN1_GENERALIZEDTIME *s,
+                                               time_t t);
 ASN1_GENERALIZEDTIME *ASN1_GENERALIZEDTIME_adj(ASN1_GENERALIZEDTIME *s,
-      time_t t, int offset_day, long offset_sec);
+                                               time_t t, int offset_day,
+                                               long offset_sec);
 int ASN1_GENERALIZEDTIME_set_string(ASN1_GENERALIZEDTIME *s, const char *str);
+int ASN1_TIME_diff(int *pday, int *psec,
+                   const ASN1_TIME *from, const ASN1_TIME *to);
 #pragma empty_line
 ASN1_OCTET_STRING *ASN1_OCTET_STRING_new(void); void ASN1_OCTET_STRING_free(ASN1_OCTET_STRING *a); ASN1_OCTET_STRING *d2i_ASN1_OCTET_STRING(ASN1_OCTET_STRING **a, const unsigned char **in, long len); int i2d_ASN1_OCTET_STRING(ASN1_OCTET_STRING *a, unsigned char **out); extern const ASN1_ITEM ASN1_OCTET_STRING_it;
-ASN1_OCTET_STRING * ASN1_OCTET_STRING_dup(const ASN1_OCTET_STRING *a);
-int ASN1_OCTET_STRING_cmp(const ASN1_OCTET_STRING *a, const ASN1_OCTET_STRING *b);
-int ASN1_OCTET_STRING_set(ASN1_OCTET_STRING *str, const unsigned char *data, int len);
+ASN1_OCTET_STRING *ASN1_OCTET_STRING_dup(const ASN1_OCTET_STRING *a);
+int ASN1_OCTET_STRING_cmp(const ASN1_OCTET_STRING *a,
+                          const ASN1_OCTET_STRING *b);
+int ASN1_OCTET_STRING_set(ASN1_OCTET_STRING *str, const unsigned char *data,
+                          int len);
 #pragma empty_line
 ASN1_VISIBLESTRING *ASN1_VISIBLESTRING_new(void); void ASN1_VISIBLESTRING_free(ASN1_VISIBLESTRING *a); ASN1_VISIBLESTRING *d2i_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING **a, const unsigned char **in, long len); int i2d_ASN1_VISIBLESTRING(ASN1_VISIBLESTRING *a, unsigned char **out); extern const ASN1_ITEM ASN1_VISIBLESTRING_it;
 ASN1_UNIVERSALSTRING *ASN1_UNIVERSALSTRING_new(void); void ASN1_UNIVERSALSTRING_free(ASN1_UNIVERSALSTRING *a); ASN1_UNIVERSALSTRING *d2i_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING **a, const unsigned char **in, long len); int i2d_ASN1_UNIVERSALSTRING(ASN1_UNIVERSALSTRING *a, unsigned char **out); extern const ASN1_ITEM ASN1_UNIVERSALSTRING_it;
@@ -3818,46 +3840,46 @@ ASN1_TIME *ASN1_TIME_new(void); void ASN1_TIME_free(ASN1_TIME *a); ASN1_TIME *d2
 #pragma empty_line
 extern const ASN1_ITEM ASN1_OCTET_STRING_NDEF_it;
 #pragma empty_line
-ASN1_TIME *ASN1_TIME_set(ASN1_TIME *s,time_t t);
-ASN1_TIME *ASN1_TIME_adj(ASN1_TIME *s,time_t t,
-    int offset_day, long offset_sec);
+ASN1_TIME *ASN1_TIME_set(ASN1_TIME *s, time_t t);
+ASN1_TIME *ASN1_TIME_adj(ASN1_TIME *s, time_t t,
+                         int offset_day, long offset_sec);
 int ASN1_TIME_check(ASN1_TIME *t);
-ASN1_GENERALIZEDTIME *ASN1_TIME_to_generalizedtime(ASN1_TIME *t, ASN1_GENERALIZEDTIME **out);
+ASN1_GENERALIZEDTIME *ASN1_TIME_to_generalizedtime(ASN1_TIME *t, ASN1_GENERALIZEDTIME
+                                                   **out);
 int ASN1_TIME_set_string(ASN1_TIME *s, const char *str);
 #pragma empty_line
 int i2d_ASN1_SET(struct stack_st_OPENSSL_BLOCK *a, unsigned char **pp,
-   i2d_of_void *i2d, int ex_tag, int ex_class,
-   int is_set);
+                 i2d_of_void *i2d, int ex_tag, int ex_class, int is_set);
 struct stack_st_OPENSSL_BLOCK *d2i_ASN1_SET(struct stack_st_OPENSSL_BLOCK **a,
-         const unsigned char **pp,
-         long length, d2i_of_void *d2i,
-         void (*free_func)(OPENSSL_BLOCK), int ex_tag,
-         int ex_class);
+                                      const unsigned char **pp,
+                                      long length, d2i_of_void *d2i,
+                                      void (*free_func) (OPENSSL_BLOCK),
+                                      int ex_tag, int ex_class);
 #pragma empty_line
 #pragma empty_line
 int i2a_ASN1_INTEGER(BIO *bp, ASN1_INTEGER *a);
-int a2i_ASN1_INTEGER(BIO *bp,ASN1_INTEGER *bs,char *buf,int size);
+int a2i_ASN1_INTEGER(BIO *bp, ASN1_INTEGER *bs, char *buf, int size);
 int i2a_ASN1_ENUMERATED(BIO *bp, ASN1_ENUMERATED *a);
-int a2i_ASN1_ENUMERATED(BIO *bp,ASN1_ENUMERATED *bs,char *buf,int size);
-int i2a_ASN1_OBJECT(BIO *bp,ASN1_OBJECT *a);
-int a2i_ASN1_STRING(BIO *bp,ASN1_STRING *bs,char *buf,int size);
+int a2i_ASN1_ENUMERATED(BIO *bp, ASN1_ENUMERATED *bs, char *buf, int size);
+int i2a_ASN1_OBJECT(BIO *bp, ASN1_OBJECT *a);
+int a2i_ASN1_STRING(BIO *bp, ASN1_STRING *bs, char *buf, int size);
 int i2a_ASN1_STRING(BIO *bp, ASN1_STRING *a, int type);
 #pragma empty_line
-int i2t_ASN1_OBJECT(char *buf,int buf_len,ASN1_OBJECT *a);
+int i2t_ASN1_OBJECT(char *buf, int buf_len, ASN1_OBJECT *a);
 #pragma empty_line
-int a2d_ASN1_OBJECT(unsigned char *out,int olen, const char *buf, int num);
-ASN1_OBJECT *ASN1_OBJECT_create(int nid, unsigned char *data,int len,
- const char *sn, const char *ln);
+int a2d_ASN1_OBJECT(unsigned char *out, int olen, const char *buf, int num);
+ASN1_OBJECT *ASN1_OBJECT_create(int nid, unsigned char *data, int len,
+                                const char *sn, const char *ln);
 #pragma empty_line
 int ASN1_INTEGER_set(ASN1_INTEGER *a, long v);
 long ASN1_INTEGER_get(const ASN1_INTEGER *a);
 ASN1_INTEGER *BN_to_ASN1_INTEGER(const BIGNUM *bn, ASN1_INTEGER *ai);
-BIGNUM *ASN1_INTEGER_to_BN(const ASN1_INTEGER *ai,BIGNUM *bn);
+BIGNUM *ASN1_INTEGER_to_BN(const ASN1_INTEGER *ai, BIGNUM *bn);
 #pragma empty_line
 int ASN1_ENUMERATED_set(ASN1_ENUMERATED *a, long v);
 long ASN1_ENUMERATED_get(ASN1_ENUMERATED *a);
 ASN1_ENUMERATED *BN_to_ASN1_ENUMERATED(BIGNUM *bn, ASN1_ENUMERATED *ai);
-BIGNUM *ASN1_ENUMERATED_to_BN(ASN1_ENUMERATED *ai,BIGNUM *bn);
+BIGNUM *ASN1_ENUMERATED_to_BN(ASN1_ENUMERATED *ai, BIGNUM *bn);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -3865,11 +3887,11 @@ int ASN1_PRINTABLE_type(const unsigned char *s, int max);
 #pragma empty_line
 int i2d_ASN1_bytes(ASN1_STRING *a, unsigned char **pp, int tag, int xclass);
 ASN1_STRING *d2i_ASN1_bytes(ASN1_STRING **a, const unsigned char **pp,
- long length, int Ptag, int Pclass);
+                            long length, int Ptag, int Pclass);
 unsigned long ASN1_tag2bit(int tag);
 #pragma empty_line
-ASN1_STRING *d2i_ASN1_type_bytes(ASN1_STRING **a,const unsigned char **pp,
-  long length,int type);
+ASN1_STRING *d2i_ASN1_type_bytes(ASN1_STRING **a, const unsigned char **pp,
+                                 long length, int type);
 #pragma empty_line
 #pragma empty_line
 int asn1_Finish(ASN1_CTX *c);
@@ -3877,20 +3899,20 @@ int asn1_const_Finish(ASN1_const_CTX *c);
 #pragma empty_line
 #pragma empty_line
 int ASN1_get_object(const unsigned char **pp, long *plength, int *ptag,
- int *pclass, long omax);
-int ASN1_check_infinite_end(unsigned char **p,long len);
-int ASN1_const_check_infinite_end(const unsigned char **p,long len);
+                    int *pclass, long omax);
+int ASN1_check_infinite_end(unsigned char **p, long len);
+int ASN1_const_check_infinite_end(const unsigned char **p, long len);
 void ASN1_put_object(unsigned char **pp, int constructed, int length,
- int tag, int xclass);
+                     int tag, int xclass);
 int ASN1_put_eoc(unsigned char **pp);
 int ASN1_object_size(int constructed, int length, int tag);
 #pragma empty_line
 #pragma empty_line
 void *ASN1_dup(i2d_of_void *i2d, d2i_of_void *d2i, void *x);
-#pragma line 966 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 984 "/usr/include/openssl/asn1.h" 3 4
 void *ASN1_item_dup(const ASN1_ITEM *it, void *x);
-#pragma line 975 "/usr/include/openssl/asn1.h" 3 4
-void *ASN1_d2i_fp(void *(*xnew)(void), d2i_of_void *d2i, FILE *in, void **x);
+#pragma line 993 "/usr/include/openssl/asn1.h" 3 4
+void *ASN1_d2i_fp(void *(*xnew) (void), d2i_of_void *d2i, FILE *in, void **x);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -3899,8 +3921,8 @@ void *ASN1_d2i_fp(void *(*xnew)(void), d2i_of_void *d2i, FILE *in, void **x);
 #pragma empty_line
 #pragma empty_line
 void *ASN1_item_d2i_fp(const ASN1_ITEM *it, FILE *in, void *x);
-int ASN1_i2d_fp(i2d_of_void *i2d,FILE *out,void *x);
-#pragma line 996 "/usr/include/openssl/asn1.h" 3 4
+int ASN1_i2d_fp(i2d_of_void *i2d, FILE *out, void *x);
+#pragma line 1014 "/usr/include/openssl/asn1.h" 3 4
 int ASN1_item_i2d_fp(const ASN1_ITEM *it, FILE *out, void *x);
 int ASN1_STRING_print_ex_fp(FILE *fp, ASN1_STRING *str, unsigned long flags);
 #pragma empty_line
@@ -3908,7 +3930,7 @@ int ASN1_STRING_print_ex_fp(FILE *fp, ASN1_STRING *str, unsigned long flags);
 int ASN1_STRING_to_UTF8(unsigned char **out, ASN1_STRING *in);
 #pragma empty_line
 #pragma empty_line
-void *ASN1_d2i_bio(void *(*xnew)(void), d2i_of_void *d2i, BIO *in, void **x);
+void *ASN1_d2i_bio(void *(*xnew) (void), d2i_of_void *d2i, BIO *in, void **x);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -3917,8 +3939,8 @@ void *ASN1_d2i_bio(void *(*xnew)(void), d2i_of_void *d2i, BIO *in, void **x);
 #pragma empty_line
 #pragma empty_line
 void *ASN1_item_d2i_bio(const ASN1_ITEM *it, BIO *in, void *x);
-int ASN1_i2d_bio(i2d_of_void *i2d,BIO *out, unsigned char *x);
-#pragma line 1024 "/usr/include/openssl/asn1.h" 3 4
+int ASN1_i2d_bio(i2d_of_void *i2d, BIO *out, unsigned char *x);
+#pragma line 1042 "/usr/include/openssl/asn1.h" 3 4
 int ASN1_item_i2d_bio(const ASN1_ITEM *it, BIO *out, void *x);
 int ASN1_UTCTIME_print(BIO *fp, const ASN1_UTCTIME *a);
 int ASN1_GENERALIZEDTIME_print(BIO *fp, const ASN1_GENERALIZEDTIME *a);
@@ -3926,9 +3948,10 @@ int ASN1_TIME_print(BIO *fp, const ASN1_TIME *a);
 int ASN1_STRING_print(BIO *bp, const ASN1_STRING *v);
 int ASN1_STRING_print_ex(BIO *out, ASN1_STRING *str, unsigned long flags);
 int ASN1_bn_print(BIO *bp, const char *number, const BIGNUM *num,
-    unsigned char *buf, int off);
-int ASN1_parse(BIO *bp,const unsigned char *pp,long len,int indent);
-int ASN1_parse_dump(BIO *bp,const unsigned char *pp,long len,int indent,int dump);
+                  unsigned char *buf, int off);
+int ASN1_parse(BIO *bp, const unsigned char *pp, long len, int indent);
+int ASN1_parse_dump(BIO *bp, const unsigned char *pp, long len, int indent,
+                    int dump);
 #pragma empty_line
 const char *ASN1_tag2str(int tag);
 #pragma empty_line
@@ -3938,42 +3961,43 @@ NETSCAPE_X509 *NETSCAPE_X509_new(void); void NETSCAPE_X509_free(NETSCAPE_X509 *a
 #pragma empty_line
 int ASN1_UNIVERSALSTRING_to_string(ASN1_UNIVERSALSTRING *s);
 #pragma empty_line
-int ASN1_TYPE_set_octetstring(ASN1_TYPE *a,
- unsigned char *data, int len);
-int ASN1_TYPE_get_octetstring(ASN1_TYPE *a,
- unsigned char *data, int max_len);
+int ASN1_TYPE_set_octetstring(ASN1_TYPE *a, unsigned char *data, int len);
+int ASN1_TYPE_get_octetstring(ASN1_TYPE *a, unsigned char *data, int max_len);
 int ASN1_TYPE_set_int_octetstring(ASN1_TYPE *a, long num,
- unsigned char *data, int len);
-int ASN1_TYPE_get_int_octetstring(ASN1_TYPE *a,long *num,
- unsigned char *data, int max_len);
+                                  unsigned char *data, int len);
+int ASN1_TYPE_get_int_octetstring(ASN1_TYPE *a, long *num,
+                                  unsigned char *data, int max_len);
 #pragma empty_line
 struct stack_st_OPENSSL_BLOCK *ASN1_seq_unpack(const unsigned char *buf, int len,
-     d2i_of_void *d2i, void (*free_func)(OPENSSL_BLOCK));
+                                         d2i_of_void *d2i,
+                                         void (*free_func) (OPENSSL_BLOCK));
 unsigned char *ASN1_seq_pack(struct stack_st_OPENSSL_BLOCK *safes, i2d_of_void *i2d,
-        unsigned char **buf, int *len );
+                             unsigned char **buf, int *len);
 void *ASN1_unpack_string(ASN1_STRING *oct, d2i_of_void *d2i);
 void *ASN1_item_unpack(ASN1_STRING *oct, const ASN1_ITEM *it);
 ASN1_STRING *ASN1_pack_string(void *obj, i2d_of_void *i2d,
-         ASN1_OCTET_STRING **oct);
+                              ASN1_OCTET_STRING **oct);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-ASN1_STRING *ASN1_item_pack(void *obj, const ASN1_ITEM *it, ASN1_OCTET_STRING **oct);
+ASN1_STRING *ASN1_item_pack(void *obj, const ASN1_ITEM *it,
+                            ASN1_OCTET_STRING **oct);
 #pragma empty_line
 void ASN1_STRING_set_default_mask(unsigned long mask);
 int ASN1_STRING_set_default_mask_asc(const char *p);
 unsigned long ASN1_STRING_get_default_mask(void);
 int ASN1_mbstring_copy(ASN1_STRING **out, const unsigned char *in, int len,
-     int inform, unsigned long mask);
+                       int inform, unsigned long mask);
 int ASN1_mbstring_ncopy(ASN1_STRING **out, const unsigned char *in, int len,
-     int inform, unsigned long mask,
-     long minsize, long maxsize);
+                        int inform, unsigned long mask,
+                        long minsize, long maxsize);
 #pragma empty_line
 ASN1_STRING *ASN1_STRING_set_by_NID(ASN1_STRING **out,
-  const unsigned char *in, int inlen, int inform, int nid);
+                                    const unsigned char *in, int inlen,
+                                    int inform, int nid);
 ASN1_STRING_TABLE *ASN1_STRING_TABLE_get(int nid);
 int ASN1_STRING_TABLE_add(int, long, long, unsigned long, unsigned long);
 void ASN1_STRING_TABLE_cleanup(void);
@@ -3983,17 +4007,19 @@ void ASN1_STRING_TABLE_cleanup(void);
 #pragma empty_line
 ASN1_VALUE *ASN1_item_new(const ASN1_ITEM *it);
 void ASN1_item_free(ASN1_VALUE *val, const ASN1_ITEM *it);
-ASN1_VALUE * ASN1_item_d2i(ASN1_VALUE **val, const unsigned char **in, long len, const ASN1_ITEM *it);
+ASN1_VALUE *ASN1_item_d2i(ASN1_VALUE **val, const unsigned char **in,
+                          long len, const ASN1_ITEM *it);
 int ASN1_item_i2d(ASN1_VALUE *val, unsigned char **out, const ASN1_ITEM *it);
-int ASN1_item_ndef_i2d(ASN1_VALUE *val, unsigned char **out, const ASN1_ITEM *it);
+int ASN1_item_ndef_i2d(ASN1_VALUE *val, unsigned char **out,
+                       const ASN1_ITEM *it);
 #pragma empty_line
 void ASN1_add_oid_module(void);
 #pragma empty_line
 ASN1_TYPE *ASN1_generate_nconf(char *str, CONF *nconf);
 ASN1_TYPE *ASN1_generate_v3(char *str, X509V3_CTX *cnf);
-#pragma line 1118 "/usr/include/openssl/asn1.h" 3 4
+#pragma line 1140 "/usr/include/openssl/asn1.h" 3 4
 int ASN1_item_print(BIO *out, ASN1_VALUE *ifld, int indent,
-    const ASN1_ITEM *it, const ASN1_PCTX *pctx);
+                    const ASN1_ITEM *it, const ASN1_PCTX *pctx);
 ASN1_PCTX *ASN1_PCTX_new(void);
 void ASN1_PCTX_free(ASN1_PCTX *p);
 unsigned long ASN1_PCTX_get_flags(ASN1_PCTX *p);
@@ -4012,14 +4038,12 @@ BIO_METHOD *BIO_f_asn1(void);
 BIO *BIO_new_NDEF(BIO *out, ASN1_VALUE *val, const ASN1_ITEM *it);
 #pragma empty_line
 int i2d_ASN1_bio_stream(BIO *out, ASN1_VALUE *val, BIO *in, int flags,
-    const ASN1_ITEM *it);
+                        const ASN1_ITEM *it);
 int PEM_write_bio_ASN1_stream(BIO *out, ASN1_VALUE *val, BIO *in, int flags,
-    const char *hdr,
-    const ASN1_ITEM *it);
+                              const char *hdr, const ASN1_ITEM *it);
 int SMIME_write_ASN1(BIO *bio, ASN1_VALUE *val, BIO *data, int flags,
-    int ctype_nid, int econt_nid,
-    struct stack_st_X509_ALGOR *mdalgs,
-    const ASN1_ITEM *it);
+                     int ctype_nid, int econt_nid,
+                     struct stack_st_X509_ALGOR *mdalgs, const ASN1_ITEM *it);
 ASN1_VALUE *SMIME_read_ASN1(BIO *bio, BIO **bcont, const ASN1_ITEM *it);
 int SMIME_crlf_copy(BIO *in, BIO *out, int flags);
 int SMIME_text(BIO *in, BIO *out);
@@ -4028,55 +4052,55 @@ int SMIME_text(BIO *in, BIO *out);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-void ERR_load_ASN1_strings(void);
-#pragma line 961 "/usr/include/openssl/objects.h" 2 3 4
-#pragma line 979 "/usr/include/openssl/objects.h" 3 4
-typedef struct obj_name_st
- {
- int type;
- int alias;
- const char *name;
- const char *data;
- } OBJ_NAME;
 #pragma empty_line
+void ERR_load_ASN1_strings(void);
+#pragma line 966 "/usr/include/openssl/objects.h" 2 3 4
+#pragma line 984 "/usr/include/openssl/objects.h" 3 4
+typedef struct obj_name_st {
+    int type;
+    int alias;
+    const char *name;
+    const char *data;
+} OBJ_NAME;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 int OBJ_NAME_init(void);
-int OBJ_NAME_new_index(unsigned long (*hash_func)(const char *),
-         int (*cmp_func)(const char *, const char *),
-         void (*free_func)(const char *, int, const char *));
-const char *OBJ_NAME_get(const char *name,int type);
-int OBJ_NAME_add(const char *name,int type,const char *data);
-int OBJ_NAME_remove(const char *name,int type);
+int OBJ_NAME_new_index(unsigned long (*hash_func) (const char *),
+                       int (*cmp_func) (const char *, const char *),
+                       void (*free_func) (const char *, int, const char *));
+const char *OBJ_NAME_get(const char *name, int type);
+int OBJ_NAME_add(const char *name, int type, const char *data);
+int OBJ_NAME_remove(const char *name, int type);
 void OBJ_NAME_cleanup(int type);
-void OBJ_NAME_do_all(int type,void (*fn)(const OBJ_NAME *,void *arg),
-       void *arg);
-void OBJ_NAME_do_all_sorted(int type,void (*fn)(const OBJ_NAME *,void *arg),
-       void *arg);
+void OBJ_NAME_do_all(int type, void (*fn) (const OBJ_NAME *, void *arg),
+                     void *arg);
+void OBJ_NAME_do_all_sorted(int type,
+                            void (*fn) (const OBJ_NAME *, void *arg),
+                            void *arg);
 #pragma empty_line
-ASN1_OBJECT * OBJ_dup(const ASN1_OBJECT *o);
-ASN1_OBJECT * OBJ_nid2obj(int n);
-const char * OBJ_nid2ln(int n);
-const char * OBJ_nid2sn(int n);
+ASN1_OBJECT *OBJ_dup(const ASN1_OBJECT *o);
+ASN1_OBJECT *OBJ_nid2obj(int n);
+const char *OBJ_nid2ln(int n);
+const char *OBJ_nid2sn(int n);
 int OBJ_obj2nid(const ASN1_OBJECT *o);
-ASN1_OBJECT * OBJ_txt2obj(const char *s, int no_name);
+ASN1_OBJECT *OBJ_txt2obj(const char *s, int no_name);
 int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name);
 int OBJ_txt2nid(const char *s);
 int OBJ_ln2nid(const char *s);
 int OBJ_sn2nid(const char *s);
-int OBJ_cmp(const ASN1_OBJECT *a,const ASN1_OBJECT *b);
-const void * OBJ_bsearch_(const void *key,const void *base,int num,int size,
-        int (*cmp)(const void *, const void *));
-const void * OBJ_bsearch_ex_(const void *key,const void *base,int num,
-    int size,
-    int (*cmp)(const void *, const void *),
-    int flags);
-#pragma line 1100 "/usr/include/openssl/objects.h" 3 4
+int OBJ_cmp(const ASN1_OBJECT *a, const ASN1_OBJECT *b);
+const void *OBJ_bsearch_(const void *key, const void *base, int num, int size,
+                         int (*cmp) (const void *, const void *));
+const void *OBJ_bsearch_ex_(const void *key, const void *base, int num,
+                            int size,
+                            int (*cmp) (const void *, const void *),
+                            int flags);
+#pragma line 1104 "/usr/include/openssl/objects.h" 3 4
 int OBJ_new_nid(int num);
 int OBJ_add_object(const ASN1_OBJECT *obj);
-int OBJ_create(const char *oid,const char *sn,const char *ln);
-void OBJ_cleanup(void );
+int OBJ_create(const char *oid, const char *sn, const char *ln);
+void OBJ_cleanup(void);
 int OBJ_create_objects(BIO *in);
 #pragma empty_line
 int OBJ_find_sigid_algs(int signid, int *pdig_nid, int *ppkey_nid);
@@ -4091,149 +4115,165 @@ void check_defer(int nid);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 void ERR_load_OBJ_strings(void);
 #pragma line 95 "/usr/include/openssl/evp.h" 2 3 4
-#pragma line 128 "/usr/include/openssl/evp.h" 3 4
-struct evp_pkey_st
- {
- int type;
- int save_type;
- int references;
- const EVP_PKEY_ASN1_METHOD *ameth;
- ENGINE *engine;
- union {
-  char *ptr;
+#pragma line 129 "/usr/include/openssl/evp.h" 3 4
+struct evp_pkey_st {
+    int type;
+    int save_type;
+    int references;
+    const EVP_PKEY_ASN1_METHOD *ameth;
+    ENGINE *engine;
+    union {
+        char *ptr;
 #pragma empty_line
-  struct rsa_st *rsa;
-#pragma empty_line
-#pragma empty_line
-  struct dsa_st *dsa;
+        struct rsa_st *rsa;
 #pragma empty_line
 #pragma empty_line
-  struct dh_st *dh;
+        struct dsa_st *dsa;
 #pragma empty_line
 #pragma empty_line
-  struct ec_key_st *ec;
+        struct dh_st *dh;
 #pragma empty_line
-  } pkey;
- int save_parameters;
- struct stack_st_X509_ATTRIBUTE *attributes;
- } ;
 #pragma empty_line
+        struct ec_key_st *ec;
+#pragma empty_line
+    } pkey;
+    int save_parameters;
+    struct stack_st_X509_ATTRIBUTE *attributes;
+} ;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-struct env_md_st
- {
- int type;
- int pkey_type;
- int md_size;
- unsigned long flags;
- int (*init)(EVP_MD_CTX *ctx);
- int (*update)(EVP_MD_CTX *ctx,const void *data,size_t count);
- int (*final)(EVP_MD_CTX *ctx,unsigned char *md);
- int (*copy)(EVP_MD_CTX *to,const EVP_MD_CTX *from);
- int (*cleanup)(EVP_MD_CTX *ctx);
+#pragma empty_line
+struct env_md_st {
+    int type;
+    int pkey_type;
+    int md_size;
+    unsigned long flags;
+    int (*init) (EVP_MD_CTX *ctx);
+    int (*update) (EVP_MD_CTX *ctx, const void *data, size_t count);
+    int (*final) (EVP_MD_CTX *ctx, unsigned char *md);
+    int (*copy) (EVP_MD_CTX *to, const EVP_MD_CTX *from);
+    int (*cleanup) (EVP_MD_CTX *ctx);
+#pragma empty_line
+    int (*sign) (int type, const unsigned char *m, unsigned int m_length,
+                 unsigned char *sigret, unsigned int *siglen, void *key);
+    int (*verify) (int type, const unsigned char *m, unsigned int m_length,
+                   const unsigned char *sigbuf, unsigned int siglen,
+                   void *key);
+    int required_pkey_type[5];
+    int block_size;
+    int ctx_size;
+#pragma empty_line
+    int (*md_ctrl) (EVP_MD_CTX *ctx, int cmd, int p1, void *p2);
+} ;
+#pragma empty_line
+typedef int evp_sign_method(int type, const unsigned char *m,
+                            unsigned int m_length, unsigned char *sigret,
+                            unsigned int *siglen, void *key);
+typedef int evp_verify_method(int type, const unsigned char *m,
+                              unsigned int m_length,
+                              const unsigned char *sigbuf,
+                              unsigned int siglen, void *key);
+#pragma line 268 "/usr/include/openssl/evp.h" 3 4
+struct env_md_ctx_st {
+    const EVP_MD *digest;
+    ENGINE *engine;
+#pragma empty_line
+    unsigned long flags;
+    void *md_data;
+#pragma empty_line
+    EVP_PKEY_CTX *pctx;
+#pragma empty_line
+    int (*update) (EVP_MD_CTX *ctx, const void *data, size_t count);
+} ;
+#pragma line 308 "/usr/include/openssl/evp.h" 3 4
+struct evp_cipher_st {
+    int nid;
+    int block_size;
+#pragma empty_line
+    int key_len;
+    int iv_len;
+#pragma empty_line
+    unsigned long flags;
+#pragma empty_line
+    int (*init) (EVP_CIPHER_CTX *ctx, const unsigned char *key,
+                 const unsigned char *iv, int enc);
+#pragma empty_line
+    int (*do_cipher) (EVP_CIPHER_CTX *ctx, unsigned char *out,
+                      const unsigned char *in, size_t inl);
+#pragma empty_line
+    int (*cleanup) (EVP_CIPHER_CTX *);
+#pragma empty_line
+    int ctx_size;
+#pragma empty_line
+    int (*set_asn1_parameters) (EVP_CIPHER_CTX *, ASN1_TYPE *);
+#pragma empty_line
+    int (*get_asn1_parameters) (EVP_CIPHER_CTX *, ASN1_TYPE *);
+#pragma empty_line
+    int (*ctrl) (EVP_CIPHER_CTX *, int type, int arg, void *ptr);
+#pragma empty_line
+    void *app_data;
+} ;
+#pragma line 429 "/usr/include/openssl/evp.h" 3 4
+typedef struct {
+    unsigned char *out;
+    const unsigned char *inp;
+    size_t len;
+    unsigned int interleave;
+} EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM;
+#pragma line 444 "/usr/include/openssl/evp.h" 3 4
+typedef struct evp_cipher_info_st {
+    const EVP_CIPHER *cipher;
+    unsigned char iv[16];
+} EVP_CIPHER_INFO;
+#pragma empty_line
+struct evp_cipher_ctx_st {
+    const EVP_CIPHER *cipher;
+    ENGINE *engine;
+#pragma empty_line
+    int encrypt;
+    int buf_len;
+    unsigned char oiv[16];
+    unsigned char iv[16];
+    unsigned char buf[32];
+    int num;
+    void *app_data;
+    int key_len;
+    unsigned long flags;
+    void *cipher_data;
+    int final_used;
+    int block_mask;
+    unsigned char final[32];
+} ;
+#pragma empty_line
+typedef struct evp_Encode_Ctx_st {
+#pragma empty_line
+    int num;
 #pragma empty_line
 #pragma empty_line
- int (*sign)(int type, const unsigned char *m, unsigned int m_length,
-      unsigned char *sigret, unsigned int *siglen, void *key);
- int (*verify)(int type, const unsigned char *m, unsigned int m_length,
-        const unsigned char *sigbuf, unsigned int siglen,
-        void *key);
- int required_pkey_type[5];
- int block_size;
- int ctx_size;
-#pragma empty_line
- int (*md_ctrl)(EVP_MD_CTX *ctx, int cmd, int p1, void *p2);
- } ;
-#pragma empty_line
-typedef int evp_sign_method(int type,const unsigned char *m,
-       unsigned int m_length,unsigned char *sigret,
-       unsigned int *siglen, void *key);
-typedef int evp_verify_method(int type,const unsigned char *m,
-       unsigned int m_length,const unsigned char *sigbuf,
-       unsigned int siglen, void *key);
-#pragma line 265 "/usr/include/openssl/evp.h" 3 4
-struct env_md_ctx_st
- {
- const EVP_MD *digest;
- ENGINE *engine;
- unsigned long flags;
- void *md_data;
-#pragma empty_line
- EVP_PKEY_CTX *pctx;
-#pragma empty_line
- int (*update)(EVP_MD_CTX *ctx,const void *data,size_t count);
- } ;
-#pragma line 303 "/usr/include/openssl/evp.h" 3 4
-struct evp_cipher_st
- {
- int nid;
- int block_size;
- int key_len;
- int iv_len;
- unsigned long flags;
- int (*init)(EVP_CIPHER_CTX *ctx, const unsigned char *key,
-      const unsigned char *iv, int enc);
- int (*do_cipher)(EVP_CIPHER_CTX *ctx, unsigned char *out,
-    const unsigned char *in, size_t inl);
- int (*cleanup)(EVP_CIPHER_CTX *);
- int ctx_size;
- int (*set_asn1_parameters)(EVP_CIPHER_CTX *, ASN1_TYPE *);
- int (*get_asn1_parameters)(EVP_CIPHER_CTX *, ASN1_TYPE *);
- int (*ctrl)(EVP_CIPHER_CTX *, int type, int arg, void *ptr);
- void *app_data;
- } ;
-#pragma line 405 "/usr/include/openssl/evp.h" 3 4
-typedef struct evp_cipher_info_st
- {
- const EVP_CIPHER *cipher;
- unsigned char iv[16];
- } EVP_CIPHER_INFO;
-#pragma empty_line
-struct evp_cipher_ctx_st
- {
- const EVP_CIPHER *cipher;
- ENGINE *engine;
- int encrypt;
- int buf_len;
-#pragma empty_line
- unsigned char oiv[16];
- unsigned char iv[16];
- unsigned char buf[32];
- int num;
-#pragma empty_line
- void *app_data;
- int key_len;
- unsigned long flags;
- void *cipher_data;
- int final_used;
- int block_mask;
- unsigned char final[32];
- } ;
-#pragma empty_line
-typedef struct evp_Encode_Ctx_st
- {
- int num;
- int length;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+    int length;
 #pragma empty_line
- unsigned char enc_data[80];
- int line_num;
- int expect_nl;
- } EVP_ENCODE_CTX;
+    unsigned char enc_data[80];
+#pragma empty_line
+    int line_num;
+    int expect_nl;
+} EVP_ENCODE_CTX;
 #pragma empty_line
 #pragma empty_line
-typedef int (EVP_PBE_KEYGEN)(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
-  ASN1_TYPE *param, const EVP_CIPHER *cipher,
-                const EVP_MD *md, int en_de);
-#pragma line 476 "/usr/include/openssl/evp.h" 3 4
+typedef int (EVP_PBE_KEYGEN) (EVP_CIPHER_CTX *ctx, const char *pass,
+                              int passlen, ASN1_TYPE *param,
+                              const EVP_CIPHER *cipher, const EVP_MD *md,
+                              int en_de);
+#pragma line 516 "/usr/include/openssl/evp.h" 3 4
 int EVP_MD_type(const EVP_MD *md);
 #pragma empty_line
 #pragma empty_line
@@ -4255,120 +4295,122 @@ int EVP_CIPHER_iv_length(const EVP_CIPHER *cipher);
 unsigned long EVP_CIPHER_flags(const EVP_CIPHER *cipher);
 #pragma empty_line
 #pragma empty_line
-const EVP_CIPHER * EVP_CIPHER_CTX_cipher(const EVP_CIPHER_CTX *ctx);
+const EVP_CIPHER *EVP_CIPHER_CTX_cipher(const EVP_CIPHER_CTX *ctx);
 int EVP_CIPHER_CTX_nid(const EVP_CIPHER_CTX *ctx);
 int EVP_CIPHER_CTX_block_size(const EVP_CIPHER_CTX *ctx);
 int EVP_CIPHER_CTX_key_length(const EVP_CIPHER_CTX *ctx);
 int EVP_CIPHER_CTX_iv_length(const EVP_CIPHER_CTX *ctx);
 int EVP_CIPHER_CTX_copy(EVP_CIPHER_CTX *out, const EVP_CIPHER_CTX *in);
-void * EVP_CIPHER_CTX_get_app_data(const EVP_CIPHER_CTX *ctx);
+void *EVP_CIPHER_CTX_get_app_data(const EVP_CIPHER_CTX *ctx);
 void EVP_CIPHER_CTX_set_app_data(EVP_CIPHER_CTX *ctx, void *data);
 #pragma empty_line
 unsigned long EVP_CIPHER_CTX_flags(const EVP_CIPHER_CTX *ctx);
-#pragma line 534 "/usr/include/openssl/evp.h" 3 4
+#pragma line 574 "/usr/include/openssl/evp.h" 3 4
 int EVP_Cipher(EVP_CIPHER_CTX *c,
-  unsigned char *out,
-  const unsigned char *in,
-  unsigned int inl);
-#pragma line 548 "/usr/include/openssl/evp.h" 3 4
+               unsigned char *out, const unsigned char *in, unsigned int inl);
+#pragma line 586 "/usr/include/openssl/evp.h" 3 4
 void EVP_MD_CTX_init(EVP_MD_CTX *ctx);
 int EVP_MD_CTX_cleanup(EVP_MD_CTX *ctx);
 EVP_MD_CTX *EVP_MD_CTX_create(void);
 void EVP_MD_CTX_destroy(EVP_MD_CTX *ctx);
-int EVP_MD_CTX_copy_ex(EVP_MD_CTX *out,const EVP_MD_CTX *in);
+int EVP_MD_CTX_copy_ex(EVP_MD_CTX *out, const EVP_MD_CTX *in);
 void EVP_MD_CTX_set_flags(EVP_MD_CTX *ctx, int flags);
 void EVP_MD_CTX_clear_flags(EVP_MD_CTX *ctx, int flags);
-int EVP_MD_CTX_test_flags(const EVP_MD_CTX *ctx,int flags);
+int EVP_MD_CTX_test_flags(const EVP_MD_CTX *ctx, int flags);
 int EVP_DigestInit_ex(EVP_MD_CTX *ctx, const EVP_MD *type, ENGINE *impl);
-int EVP_DigestUpdate(EVP_MD_CTX *ctx,const void *d,
-    size_t cnt);
-int EVP_DigestFinal_ex(EVP_MD_CTX *ctx,unsigned char *md,unsigned int *s);
+int EVP_DigestUpdate(EVP_MD_CTX *ctx, const void *d, size_t cnt);
+int EVP_DigestFinal_ex(EVP_MD_CTX *ctx, unsigned char *md, unsigned int *s);
 int EVP_Digest(const void *data, size_t count,
-  unsigned char *md, unsigned int *size, const EVP_MD *type, ENGINE *impl);
+               unsigned char *md, unsigned int *size, const EVP_MD *type,
+               ENGINE *impl);
 #pragma empty_line
-int EVP_MD_CTX_copy(EVP_MD_CTX *out,const EVP_MD_CTX *in);
+int EVP_MD_CTX_copy(EVP_MD_CTX *out, const EVP_MD_CTX *in);
 int EVP_DigestInit(EVP_MD_CTX *ctx, const EVP_MD *type);
-int EVP_DigestFinal(EVP_MD_CTX *ctx,unsigned char *md,unsigned int *s);
+int EVP_DigestFinal(EVP_MD_CTX *ctx, unsigned char *md, unsigned int *s);
 #pragma empty_line
-int EVP_read_pw_string(char *buf,int length,const char *prompt,int verify);
-int EVP_read_pw_string_min(char *buf,int minlen,int maxlen,const char *prompt,int verify);
+int EVP_read_pw_string(char *buf, int length, const char *prompt, int verify);
+int EVP_read_pw_string_min(char *buf, int minlen, int maxlen,
+                           const char *prompt, int verify);
 void EVP_set_pw_prompt(const char *prompt);
-char * EVP_get_pw_prompt(void);
+char *EVP_get_pw_prompt(void);
 #pragma empty_line
-int EVP_BytesToKey(const EVP_CIPHER *type,const EVP_MD *md,
-  const unsigned char *salt, const unsigned char *data,
-  int datal, int count, unsigned char *key,unsigned char *iv);
+int EVP_BytesToKey(const EVP_CIPHER *type, const EVP_MD *md,
+                   const unsigned char *salt, const unsigned char *data,
+                   int datal, int count, unsigned char *key,
+                   unsigned char *iv);
 #pragma empty_line
 void EVP_CIPHER_CTX_set_flags(EVP_CIPHER_CTX *ctx, int flags);
 void EVP_CIPHER_CTX_clear_flags(EVP_CIPHER_CTX *ctx, int flags);
-int EVP_CIPHER_CTX_test_flags(const EVP_CIPHER_CTX *ctx,int flags);
+int EVP_CIPHER_CTX_test_flags(const EVP_CIPHER_CTX *ctx, int flags);
 #pragma empty_line
-int EVP_EncryptInit(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher,
-  const unsigned char *key, const unsigned char *iv);
-int EVP_EncryptInit_ex(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher, ENGINE *impl,
-  const unsigned char *key, const unsigned char *iv);
-int EVP_EncryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-  int *outl, const unsigned char *in, int inl);
+int EVP_EncryptInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                    const unsigned char *key, const unsigned char *iv);
+int EVP_EncryptInit_ex(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                       ENGINE *impl, const unsigned char *key,
+                       const unsigned char *iv);
+int EVP_EncryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl,
+                      const unsigned char *in, int inl);
 int EVP_EncryptFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 int EVP_EncryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 #pragma empty_line
-int EVP_DecryptInit(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher,
-  const unsigned char *key, const unsigned char *iv);
-int EVP_DecryptInit_ex(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher, ENGINE *impl,
-  const unsigned char *key, const unsigned char *iv);
-int EVP_DecryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-  int *outl, const unsigned char *in, int inl);
+int EVP_DecryptInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                    const unsigned char *key, const unsigned char *iv);
+int EVP_DecryptInit_ex(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                       ENGINE *impl, const unsigned char *key,
+                       const unsigned char *iv);
+int EVP_DecryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl,
+                      const unsigned char *in, int inl);
 int EVP_DecryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *outm, int *outl);
 int EVP_DecryptFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *outm, int *outl);
 #pragma empty_line
-int EVP_CipherInit(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher,
-         const unsigned char *key,const unsigned char *iv,
-         int enc);
-int EVP_CipherInit_ex(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *cipher, ENGINE *impl,
-         const unsigned char *key,const unsigned char *iv,
-         int enc);
-int EVP_CipherUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out,
-  int *outl, const unsigned char *in, int inl);
+int EVP_CipherInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                   const unsigned char *key, const unsigned char *iv,
+                   int enc);
+int EVP_CipherInit_ex(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *cipher,
+                      ENGINE *impl, const unsigned char *key,
+                      const unsigned char *iv, int enc);
+int EVP_CipherUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl,
+                     const unsigned char *in, int inl);
 int EVP_CipherFinal(EVP_CIPHER_CTX *ctx, unsigned char *outm, int *outl);
 int EVP_CipherFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *outm, int *outl);
 #pragma empty_line
-int EVP_SignFinal(EVP_MD_CTX *ctx,unsigned char *md,unsigned int *s,
-  EVP_PKEY *pkey);
+int EVP_SignFinal(EVP_MD_CTX *ctx, unsigned char *md, unsigned int *s,
+                  EVP_PKEY *pkey);
 #pragma empty_line
-int EVP_VerifyFinal(EVP_MD_CTX *ctx,const unsigned char *sigbuf,
-  unsigned int siglen,EVP_PKEY *pkey);
+int EVP_VerifyFinal(EVP_MD_CTX *ctx, const unsigned char *sigbuf,
+                    unsigned int siglen, EVP_PKEY *pkey);
 #pragma empty_line
 int EVP_DigestSignInit(EVP_MD_CTX *ctx, EVP_PKEY_CTX **pctx,
-   const EVP_MD *type, ENGINE *e, EVP_PKEY *pkey);
+                       const EVP_MD *type, ENGINE *e, EVP_PKEY *pkey);
 int EVP_DigestSignFinal(EVP_MD_CTX *ctx,
-   unsigned char *sigret, size_t *siglen);
+                        unsigned char *sigret, size_t *siglen);
 #pragma empty_line
 int EVP_DigestVerifyInit(EVP_MD_CTX *ctx, EVP_PKEY_CTX **pctx,
-   const EVP_MD *type, ENGINE *e, EVP_PKEY *pkey);
+                         const EVP_MD *type, ENGINE *e, EVP_PKEY *pkey);
 int EVP_DigestVerifyFinal(EVP_MD_CTX *ctx,
-   unsigned char *sig, size_t siglen);
+                          const unsigned char *sig, size_t siglen);
 #pragma empty_line
-int EVP_OpenInit(EVP_CIPHER_CTX *ctx,const EVP_CIPHER *type,
-  const unsigned char *ek, int ekl, const unsigned char *iv,
-  EVP_PKEY *priv);
+int EVP_OpenInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type,
+                 const unsigned char *ek, int ekl, const unsigned char *iv,
+                 EVP_PKEY *priv);
 int EVP_OpenFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 #pragma empty_line
 int EVP_SealInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type,
-   unsigned char **ek, int *ekl, unsigned char *iv,
-  EVP_PKEY **pubk, int npubk);
-int EVP_SealFinal(EVP_CIPHER_CTX *ctx,unsigned char *out,int *outl);
+                 unsigned char **ek, int *ekl, unsigned char *iv,
+                 EVP_PKEY **pubk, int npubk);
+int EVP_SealFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl);
 #pragma empty_line
 void EVP_EncodeInit(EVP_ENCODE_CTX *ctx);
-void EVP_EncodeUpdate(EVP_ENCODE_CTX *ctx,unsigned char *out,int *outl,
-  const unsigned char *in,int inl);
-void EVP_EncodeFinal(EVP_ENCODE_CTX *ctx,unsigned char *out,int *outl);
+void EVP_EncodeUpdate(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl,
+                      const unsigned char *in, int inl);
+void EVP_EncodeFinal(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl);
 int EVP_EncodeBlock(unsigned char *t, const unsigned char *f, int n);
 #pragma empty_line
 void EVP_DecodeInit(EVP_ENCODE_CTX *ctx);
-int EVP_DecodeUpdate(EVP_ENCODE_CTX *ctx,unsigned char *out,int *outl,
-  const unsigned char *in, int inl);
+int EVP_DecodeUpdate(EVP_ENCODE_CTX *ctx, unsigned char *out, int *outl,
+                     const unsigned char *in, int inl);
 int EVP_DecodeFinal(EVP_ENCODE_CTX *ctx, unsigned
-  char *out, int *outl);
+                    char *out, int *outl);
 int EVP_DecodeBlock(unsigned char *t, const unsigned char *f, int n);
 #pragma empty_line
 void EVP_CIPHER_CTX_init(EVP_CIPHER_CTX *a);
@@ -4385,8 +4427,8 @@ BIO_METHOD *BIO_f_md(void);
 BIO_METHOD *BIO_f_base64(void);
 BIO_METHOD *BIO_f_cipher(void);
 BIO_METHOD *BIO_f_reliable(void);
-void BIO_set_cipher(BIO *b,const EVP_CIPHER *c,const unsigned char *k,
-  const unsigned char *i, int enc);
+void BIO_set_cipher(BIO *b, const EVP_CIPHER *c, const unsigned char *k,
+                    const unsigned char *i, int enc);
 #pragma empty_line
 #pragma empty_line
 const EVP_MD *EVP_md_null(void);
@@ -4451,12 +4493,13 @@ const EVP_CIPHER *EVP_des_cbc(void);
 const EVP_CIPHER *EVP_des_ede_cbc(void);
 const EVP_CIPHER *EVP_des_ede3_cbc(void);
 const EVP_CIPHER *EVP_desx_cbc(void);
-#pragma line 739 "/usr/include/openssl/evp.h" 3 4
+const EVP_CIPHER *EVP_des_ede3_wrap(void);
+#pragma line 785 "/usr/include/openssl/evp.h" 3 4
 const EVP_CIPHER *EVP_rc4(void);
 const EVP_CIPHER *EVP_rc4_40(void);
 #pragma empty_line
 const EVP_CIPHER *EVP_rc4_hmac_md5(void);
-#pragma line 753 "/usr/include/openssl/evp.h" 3 4
+#pragma line 799 "/usr/include/openssl/evp.h" 3 4
 const EVP_CIPHER *EVP_rc2_ecb(void);
 const EVP_CIPHER *EVP_rc2_cbc(void);
 const EVP_CIPHER *EVP_rc2_40_cbc(void);
@@ -4478,7 +4521,7 @@ const EVP_CIPHER *EVP_cast5_cbc(void);
 const EVP_CIPHER *EVP_cast5_cfb64(void);
 #pragma empty_line
 const EVP_CIPHER *EVP_cast5_ofb(void);
-#pragma line 783 "/usr/include/openssl/evp.h" 3 4
+#pragma line 829 "/usr/include/openssl/evp.h" 3 4
 const EVP_CIPHER *EVP_aes_128_ecb(void);
 const EVP_CIPHER *EVP_aes_128_cbc(void);
 const EVP_CIPHER *EVP_aes_128_cfb1(void);
@@ -4490,6 +4533,7 @@ const EVP_CIPHER *EVP_aes_128_ctr(void);
 const EVP_CIPHER *EVP_aes_128_ccm(void);
 const EVP_CIPHER *EVP_aes_128_gcm(void);
 const EVP_CIPHER *EVP_aes_128_xts(void);
+const EVP_CIPHER *EVP_aes_128_wrap(void);
 const EVP_CIPHER *EVP_aes_192_ecb(void);
 const EVP_CIPHER *EVP_aes_192_cbc(void);
 const EVP_CIPHER *EVP_aes_192_cfb1(void);
@@ -4500,6 +4544,7 @@ const EVP_CIPHER *EVP_aes_192_ofb(void);
 const EVP_CIPHER *EVP_aes_192_ctr(void);
 const EVP_CIPHER *EVP_aes_192_ccm(void);
 const EVP_CIPHER *EVP_aes_192_gcm(void);
+const EVP_CIPHER *EVP_aes_192_wrap(void);
 const EVP_CIPHER *EVP_aes_256_ecb(void);
 const EVP_CIPHER *EVP_aes_256_cbc(void);
 const EVP_CIPHER *EVP_aes_256_cfb1(void);
@@ -4511,9 +4556,14 @@ const EVP_CIPHER *EVP_aes_256_ctr(void);
 const EVP_CIPHER *EVP_aes_256_ccm(void);
 const EVP_CIPHER *EVP_aes_256_gcm(void);
 const EVP_CIPHER *EVP_aes_256_xts(void);
+const EVP_CIPHER *EVP_aes_256_wrap(void);
 #pragma empty_line
 const EVP_CIPHER *EVP_aes_128_cbc_hmac_sha1(void);
 const EVP_CIPHER *EVP_aes_256_cbc_hmac_sha1(void);
+#pragma empty_line
+#pragma empty_line
+const EVP_CIPHER *EVP_aes_128_cbc_hmac_sha256(void);
+const EVP_CIPHER *EVP_aes_256_cbc_hmac_sha256(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -4550,7 +4600,7 @@ const EVP_CIPHER *EVP_seed_ofb(void);
 #pragma empty_line
 void OPENSSL_add_all_algorithms_noconf(void);
 void OPENSSL_add_all_algorithms_conf(void);
-#pragma line 863 "/usr/include/openssl/evp.h" 3 4
+#pragma line 916 "/usr/include/openssl/evp.h" 3 4
 void OpenSSL_add_all_ciphers(void);
 void OpenSSL_add_all_digests(void);
 #pragma empty_line
@@ -4564,79 +4614,83 @@ const EVP_CIPHER *EVP_get_cipherbyname(const char *name);
 const EVP_MD *EVP_get_digestbyname(const char *name);
 void EVP_cleanup(void);
 #pragma empty_line
-void EVP_CIPHER_do_all(void (*fn)(const EVP_CIPHER *ciph,
-  const char *from, const char *to, void *x), void *arg);
-void EVP_CIPHER_do_all_sorted(void (*fn)(const EVP_CIPHER *ciph,
-  const char *from, const char *to, void *x), void *arg);
+void EVP_CIPHER_do_all(void (*fn) (const EVP_CIPHER *ciph,
+                                   const char *from, const char *to, void *x),
+                       void *arg);
+void EVP_CIPHER_do_all_sorted(void (*fn)
+                               (const EVP_CIPHER *ciph, const char *from,
+                                const char *to, void *x), void *arg);
 #pragma empty_line
-void EVP_MD_do_all(void (*fn)(const EVP_MD *ciph,
-  const char *from, const char *to, void *x), void *arg);
-void EVP_MD_do_all_sorted(void (*fn)(const EVP_MD *ciph,
-  const char *from, const char *to, void *x), void *arg);
+void EVP_MD_do_all(void (*fn) (const EVP_MD *ciph,
+                               const char *from, const char *to, void *x),
+                   void *arg);
+void EVP_MD_do_all_sorted(void (*fn)
+                           (const EVP_MD *ciph, const char *from,
+                            const char *to, void *x), void *arg);
 #pragma empty_line
 int EVP_PKEY_decrypt_old(unsigned char *dec_key,
-   const unsigned char *enc_key,int enc_key_len,
-   EVP_PKEY *private_key);
+                         const unsigned char *enc_key, int enc_key_len,
+                         EVP_PKEY *private_key);
 int EVP_PKEY_encrypt_old(unsigned char *enc_key,
-   const unsigned char *key,int key_len,
-   EVP_PKEY *pub_key);
+                         const unsigned char *key, int key_len,
+                         EVP_PKEY *pub_key);
 int EVP_PKEY_type(int type);
 int EVP_PKEY_id(const EVP_PKEY *pkey);
 int EVP_PKEY_base_id(const EVP_PKEY *pkey);
 int EVP_PKEY_bits(EVP_PKEY *pkey);
 int EVP_PKEY_size(EVP_PKEY *pkey);
-int EVP_PKEY_set_type(EVP_PKEY *pkey,int type);
+int EVP_PKEY_set_type(EVP_PKEY *pkey, int type);
 int EVP_PKEY_set_type_str(EVP_PKEY *pkey, const char *str, int len);
-int EVP_PKEY_assign(EVP_PKEY *pkey,int type,void *key);
-void * EVP_PKEY_get0(EVP_PKEY *pkey);
+int EVP_PKEY_assign(EVP_PKEY *pkey, int type, void *key);
+void *EVP_PKEY_get0(EVP_PKEY *pkey);
 #pragma empty_line
 #pragma empty_line
 struct rsa_st;
-int EVP_PKEY_set1_RSA(EVP_PKEY *pkey,struct rsa_st *key);
+int EVP_PKEY_set1_RSA(EVP_PKEY *pkey, struct rsa_st *key);
 struct rsa_st *EVP_PKEY_get1_RSA(EVP_PKEY *pkey);
 #pragma empty_line
 #pragma empty_line
 struct dsa_st;
-int EVP_PKEY_set1_DSA(EVP_PKEY *pkey,struct dsa_st *key);
+int EVP_PKEY_set1_DSA(EVP_PKEY *pkey, struct dsa_st *key);
 struct dsa_st *EVP_PKEY_get1_DSA(EVP_PKEY *pkey);
 #pragma empty_line
 #pragma empty_line
 struct dh_st;
-int EVP_PKEY_set1_DH(EVP_PKEY *pkey,struct dh_st *key);
+int EVP_PKEY_set1_DH(EVP_PKEY *pkey, struct dh_st *key);
 struct dh_st *EVP_PKEY_get1_DH(EVP_PKEY *pkey);
 #pragma empty_line
 #pragma empty_line
 struct ec_key_st;
-int EVP_PKEY_set1_EC_KEY(EVP_PKEY *pkey,struct ec_key_st *key);
+int EVP_PKEY_set1_EC_KEY(EVP_PKEY *pkey, struct ec_key_st *key);
 struct ec_key_st *EVP_PKEY_get1_EC_KEY(EVP_PKEY *pkey);
 #pragma empty_line
 #pragma empty_line
-EVP_PKEY * EVP_PKEY_new(void);
+EVP_PKEY *EVP_PKEY_new(void);
 void EVP_PKEY_free(EVP_PKEY *pkey);
 #pragma empty_line
-EVP_PKEY * d2i_PublicKey(int type,EVP_PKEY **a, const unsigned char **pp,
-   long length);
+EVP_PKEY *d2i_PublicKey(int type, EVP_PKEY **a, const unsigned char **pp,
+                        long length);
 int i2d_PublicKey(EVP_PKEY *a, unsigned char **pp);
 #pragma empty_line
-EVP_PKEY * d2i_PrivateKey(int type,EVP_PKEY **a, const unsigned char **pp,
-   long length);
-EVP_PKEY * d2i_AutoPrivateKey(EVP_PKEY **a, const unsigned char **pp,
-   long length);
+EVP_PKEY *d2i_PrivateKey(int type, EVP_PKEY **a, const unsigned char **pp,
+                         long length);
+EVP_PKEY *d2i_AutoPrivateKey(EVP_PKEY **a, const unsigned char **pp,
+                             long length);
 int i2d_PrivateKey(EVP_PKEY *a, unsigned char **pp);
 #pragma empty_line
 int EVP_PKEY_copy_parameters(EVP_PKEY *to, const EVP_PKEY *from);
 int EVP_PKEY_missing_parameters(const EVP_PKEY *pkey);
-int EVP_PKEY_save_parameters(EVP_PKEY *pkey,int mode);
+int EVP_PKEY_save_parameters(EVP_PKEY *pkey, int mode);
 int EVP_PKEY_cmp_parameters(const EVP_PKEY *a, const EVP_PKEY *b);
 #pragma empty_line
 int EVP_PKEY_cmp(const EVP_PKEY *a, const EVP_PKEY *b);
 #pragma empty_line
 int EVP_PKEY_print_public(BIO *out, const EVP_PKEY *pkey,
-    int indent, ASN1_PCTX *pctx);
+                          int indent, ASN1_PCTX *pctx);
 int EVP_PKEY_print_private(BIO *out, const EVP_PKEY *pkey,
-    int indent, ASN1_PCTX *pctx);
+                           int indent, ASN1_PCTX *pctx);
 int EVP_PKEY_print_params(BIO *out, const EVP_PKEY *pkey,
-    int indent, ASN1_PCTX *pctx);
+                          int indent, ASN1_PCTX *pctx);
 #pragma empty_line
 int EVP_PKEY_get_default_digest_nid(EVP_PKEY *pkey, int *pnid);
 #pragma empty_line
@@ -4647,87 +4701,116 @@ int EVP_CIPHER_param_to_asn1(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 int EVP_CIPHER_asn1_to_param(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 #pragma empty_line
 #pragma empty_line
-int EVP_CIPHER_set_asn1_iv(EVP_CIPHER_CTX *c,ASN1_TYPE *type);
-int EVP_CIPHER_get_asn1_iv(EVP_CIPHER_CTX *c,ASN1_TYPE *type);
+int EVP_CIPHER_set_asn1_iv(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
+int EVP_CIPHER_get_asn1_iv(EVP_CIPHER_CTX *c, ASN1_TYPE *type);
 #pragma empty_line
 #pragma empty_line
 int PKCS5_PBE_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
-    ASN1_TYPE *param, const EVP_CIPHER *cipher, const EVP_MD *md,
-    int en_de);
+                       ASN1_TYPE *param, const EVP_CIPHER *cipher,
+                       const EVP_MD *md, int en_de);
 int PKCS5_PBKDF2_HMAC_SHA1(const char *pass, int passlen,
-      const unsigned char *salt, int saltlen, int iter,
-      int keylen, unsigned char *out);
+                           const unsigned char *salt, int saltlen, int iter,
+                           int keylen, unsigned char *out);
 int PKCS5_PBKDF2_HMAC(const char *pass, int passlen,
-      const unsigned char *salt, int saltlen, int iter,
-      const EVP_MD *digest,
-        int keylen, unsigned char *out);
+                      const unsigned char *salt, int saltlen, int iter,
+                      const EVP_MD *digest, int keylen, unsigned char *out);
 int PKCS5_v2_PBE_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
-    ASN1_TYPE *param, const EVP_CIPHER *cipher, const EVP_MD *md,
-    int en_de);
+                          ASN1_TYPE *param, const EVP_CIPHER *cipher,
+                          const EVP_MD *md, int en_de);
 #pragma empty_line
 void PKCS5_PBE_add(void);
 #pragma empty_line
-int EVP_PBE_CipherInit (ASN1_OBJECT *pbe_obj, const char *pass, int passlen,
-      ASN1_TYPE *param, EVP_CIPHER_CTX *ctx, int en_de);
-#pragma line 989 "/usr/include/openssl/evp.h" 3 4
-int EVP_PBE_alg_add_type(int pbe_type, int pbe_nid, int cipher_nid, int md_nid,
-      EVP_PBE_KEYGEN *keygen);
+int EVP_PBE_CipherInit(ASN1_OBJECT *pbe_obj, const char *pass, int passlen,
+                       ASN1_TYPE *param, EVP_CIPHER_CTX *ctx, int en_de);
+#pragma line 1045 "/usr/include/openssl/evp.h" 3 4
+int EVP_PBE_alg_add_type(int pbe_type, int pbe_nid, int cipher_nid,
+                         int md_nid, EVP_PBE_KEYGEN *keygen);
 int EVP_PBE_alg_add(int nid, const EVP_CIPHER *cipher, const EVP_MD *md,
-      EVP_PBE_KEYGEN *keygen);
-int EVP_PBE_find(int type, int pbe_nid,
-   int *pcnid, int *pmnid, EVP_PBE_KEYGEN **pkeygen);
+                    EVP_PBE_KEYGEN *keygen);
+int EVP_PBE_find(int type, int pbe_nid, int *pcnid, int *pmnid,
+                 EVP_PBE_KEYGEN **pkeygen);
 void EVP_PBE_cleanup(void);
-#pragma line 1007 "/usr/include/openssl/evp.h" 3 4
+#pragma line 1064 "/usr/include/openssl/evp.h" 3 4
 int EVP_PKEY_asn1_get_count(void);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_get0(int idx);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find(ENGINE **pe, int type);
 const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find_str(ENGINE **pe,
-     const char *str, int len);
+                                                   const char *str, int len);
 int EVP_PKEY_asn1_add0(const EVP_PKEY_ASN1_METHOD *ameth);
 int EVP_PKEY_asn1_add_alias(int to, int from);
-int EVP_PKEY_asn1_get0_info(int *ppkey_id, int *pkey_base_id, int *ppkey_flags,
-    const char **pinfo, const char **ppem_str,
-     const EVP_PKEY_ASN1_METHOD *ameth);
+int EVP_PKEY_asn1_get0_info(int *ppkey_id, int *pkey_base_id,
+                            int *ppkey_flags, const char **pinfo,
+                            const char **ppem_str,
+                            const EVP_PKEY_ASN1_METHOD *ameth);
 #pragma empty_line
-const EVP_PKEY_ASN1_METHOD* EVP_PKEY_get0_asn1(EVP_PKEY *pkey);
-EVP_PKEY_ASN1_METHOD* EVP_PKEY_asn1_new(int id, int flags,
-     const char *pem_str, const char *info);
+const EVP_PKEY_ASN1_METHOD *EVP_PKEY_get0_asn1(EVP_PKEY *pkey);
+EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_new(int id, int flags,
+                                        const char *pem_str,
+                                        const char *info);
 void EVP_PKEY_asn1_copy(EVP_PKEY_ASN1_METHOD *dst,
-   const EVP_PKEY_ASN1_METHOD *src);
+                        const EVP_PKEY_ASN1_METHOD *src);
 void EVP_PKEY_asn1_free(EVP_PKEY_ASN1_METHOD *ameth);
 void EVP_PKEY_asn1_set_public(EVP_PKEY_ASN1_METHOD *ameth,
-  int (*pub_decode)(EVP_PKEY *pk, X509_PUBKEY *pub),
-  int (*pub_encode)(X509_PUBKEY *pub, const EVP_PKEY *pk),
-  int (*pub_cmp)(const EVP_PKEY *a, const EVP_PKEY *b),
-  int (*pub_print)(BIO *out, const EVP_PKEY *pkey, int indent,
-       ASN1_PCTX *pctx),
-  int (*pkey_size)(const EVP_PKEY *pk),
-  int (*pkey_bits)(const EVP_PKEY *pk));
+                              int (*pub_decode) (EVP_PKEY *pk,
+                                                 X509_PUBKEY *pub),
+                              int (*pub_encode) (X509_PUBKEY *pub,
+                                                 const EVP_PKEY *pk),
+                              int (*pub_cmp) (const EVP_PKEY *a,
+                                              const EVP_PKEY *b),
+                              int (*pub_print) (BIO *out,
+                                                const EVP_PKEY *pkey,
+                                                int indent, ASN1_PCTX *pctx),
+                              int (*pkey_size) (const EVP_PKEY *pk),
+                              int (*pkey_bits) (const EVP_PKEY *pk));
 void EVP_PKEY_asn1_set_private(EVP_PKEY_ASN1_METHOD *ameth,
-  int (*priv_decode)(EVP_PKEY *pk, PKCS8_PRIV_KEY_INFO *p8inf),
-  int (*priv_encode)(PKCS8_PRIV_KEY_INFO *p8, const EVP_PKEY *pk),
-  int (*priv_print)(BIO *out, const EVP_PKEY *pkey, int indent,
-       ASN1_PCTX *pctx));
+                               int (*priv_decode) (EVP_PKEY *pk,
+                                                   PKCS8_PRIV_KEY_INFO
+                                                   *p8inf),
+                               int (*priv_encode) (PKCS8_PRIV_KEY_INFO *p8,
+                                                   const EVP_PKEY *pk),
+                               int (*priv_print) (BIO *out,
+                                                  const EVP_PKEY *pkey,
+                                                  int indent,
+                                                  ASN1_PCTX *pctx));
 void EVP_PKEY_asn1_set_param(EVP_PKEY_ASN1_METHOD *ameth,
-  int (*param_decode)(EVP_PKEY *pkey,
-    const unsigned char **pder, int derlen),
-  int (*param_encode)(const EVP_PKEY *pkey, unsigned char **pder),
-  int (*param_missing)(const EVP_PKEY *pk),
-  int (*param_copy)(EVP_PKEY *to, const EVP_PKEY *from),
-  int (*param_cmp)(const EVP_PKEY *a, const EVP_PKEY *b),
-  int (*param_print)(BIO *out, const EVP_PKEY *pkey, int indent,
-       ASN1_PCTX *pctx));
+                             int (*param_decode) (EVP_PKEY *pkey,
+                                                  const unsigned char **pder,
+                                                  int derlen),
+                             int (*param_encode) (const EVP_PKEY *pkey,
+                                                  unsigned char **pder),
+                             int (*param_missing) (const EVP_PKEY *pk),
+                             int (*param_copy) (EVP_PKEY *to,
+                                                const EVP_PKEY *from),
+                             int (*param_cmp) (const EVP_PKEY *a,
+                                               const EVP_PKEY *b),
+                             int (*param_print) (BIO *out,
+                                                 const EVP_PKEY *pkey,
+                                                 int indent,
+                                                 ASN1_PCTX *pctx));
 #pragma empty_line
 void EVP_PKEY_asn1_set_free(EVP_PKEY_ASN1_METHOD *ameth,
-  void (*pkey_free)(EVP_PKEY *pkey));
+                            void (*pkey_free) (EVP_PKEY *pkey));
 void EVP_PKEY_asn1_set_ctrl(EVP_PKEY_ASN1_METHOD *ameth,
-  int (*pkey_ctrl)(EVP_PKEY *pkey, int op,
-       long arg1, void *arg2));
-#pragma line 1113 "/usr/include/openssl/evp.h" 3 4
+                            int (*pkey_ctrl) (EVP_PKEY *pkey, int op,
+                                              long arg1, void *arg2));
+void EVP_PKEY_asn1_set_item(EVP_PKEY_ASN1_METHOD *ameth,
+                            int (*item_verify) (EVP_MD_CTX *ctx,
+                                                const ASN1_ITEM *it,
+                                                void *asn,
+                                                X509_ALGOR *a,
+                                                ASN1_BIT_STRING *sig,
+                                                EVP_PKEY *pkey),
+                            int (*item_sign) (EVP_MD_CTX *ctx,
+                                              const ASN1_ITEM *it,
+                                              void *asn,
+                                              X509_ALGOR *alg1,
+                                              X509_ALGOR *alg2,
+                                              ASN1_BIT_STRING *sig));
+#pragma line 1204 "/usr/include/openssl/evp.h" 3 4
 const EVP_PKEY_METHOD *EVP_PKEY_meth_find(int type);
-EVP_PKEY_METHOD* EVP_PKEY_meth_new(int id, int flags);
+EVP_PKEY_METHOD *EVP_PKEY_meth_new(int id, int flags);
 void EVP_PKEY_meth_get0_info(int *ppkey_id, int *pflags,
-    const EVP_PKEY_METHOD *meth);
+                             const EVP_PKEY_METHOD *meth);
 void EVP_PKEY_meth_copy(EVP_PKEY_METHOD *dst, const EVP_PKEY_METHOD *src);
 void EVP_PKEY_meth_free(EVP_PKEY_METHOD *pmeth);
 int EVP_PKEY_meth_add0(const EVP_PKEY_METHOD *pmeth);
@@ -4738,15 +4821,15 @@ EVP_PKEY_CTX *EVP_PKEY_CTX_dup(EVP_PKEY_CTX *ctx);
 void EVP_PKEY_CTX_free(EVP_PKEY_CTX *ctx);
 #pragma empty_line
 int EVP_PKEY_CTX_ctrl(EVP_PKEY_CTX *ctx, int keytype, int optype,
-    int cmd, int p1, void *p2);
+                      int cmd, int p1, void *p2);
 int EVP_PKEY_CTX_ctrl_str(EVP_PKEY_CTX *ctx, const char *type,
-      const char *value);
+                          const char *value);
 #pragma empty_line
 int EVP_PKEY_CTX_get_operation(EVP_PKEY_CTX *ctx);
 void EVP_PKEY_CTX_set0_keygen_info(EVP_PKEY_CTX *ctx, int *dat, int datlen);
 #pragma empty_line
 EVP_PKEY *EVP_PKEY_new_mac_key(int type, ENGINE *e,
-    const unsigned char *key, int keylen);
+                               const unsigned char *key, int keylen);
 #pragma empty_line
 void EVP_PKEY_CTX_set_data(EVP_PKEY_CTX *ctx, void *data);
 void *EVP_PKEY_CTX_get_data(EVP_PKEY_CTX *ctx);
@@ -4759,30 +4842,30 @@ void *EVP_PKEY_CTX_get_app_data(EVP_PKEY_CTX *ctx);
 #pragma empty_line
 int EVP_PKEY_sign_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_sign(EVP_PKEY_CTX *ctx,
-   unsigned char *sig, size_t *siglen,
-   const unsigned char *tbs, size_t tbslen);
+                  unsigned char *sig, size_t *siglen,
+                  const unsigned char *tbs, size_t tbslen);
 int EVP_PKEY_verify_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_verify(EVP_PKEY_CTX *ctx,
-   const unsigned char *sig, size_t siglen,
-   const unsigned char *tbs, size_t tbslen);
+                    const unsigned char *sig, size_t siglen,
+                    const unsigned char *tbs, size_t tbslen);
 int EVP_PKEY_verify_recover_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_verify_recover(EVP_PKEY_CTX *ctx,
-   unsigned char *rout, size_t *routlen,
-   const unsigned char *sig, size_t siglen);
+                            unsigned char *rout, size_t *routlen,
+                            const unsigned char *sig, size_t siglen);
 int EVP_PKEY_encrypt_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_encrypt(EVP_PKEY_CTX *ctx,
-   unsigned char *out, size_t *outlen,
-   const unsigned char *in, size_t inlen);
+                     unsigned char *out, size_t *outlen,
+                     const unsigned char *in, size_t inlen);
 int EVP_PKEY_decrypt_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_decrypt(EVP_PKEY_CTX *ctx,
-   unsigned char *out, size_t *outlen,
-   const unsigned char *in, size_t inlen);
+                     unsigned char *out, size_t *outlen,
+                     const unsigned char *in, size_t inlen);
 #pragma empty_line
 int EVP_PKEY_derive_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_derive_set_peer(EVP_PKEY_CTX *ctx, EVP_PKEY *peer);
 int EVP_PKEY_derive(EVP_PKEY_CTX *ctx, unsigned char *key, size_t *keylen);
 #pragma empty_line
-typedef int EVP_PKEY_gen_cb(EVP_PKEY_CTX *ctx);
+typedef int EVP_PKEY_gen_cb (EVP_PKEY_CTX *ctx);
 #pragma empty_line
 int EVP_PKEY_paramgen_init(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_paramgen(EVP_PKEY_CTX *ctx, EVP_PKEY **ppkey);
@@ -4795,66 +4878,96 @@ EVP_PKEY_gen_cb *EVP_PKEY_CTX_get_cb(EVP_PKEY_CTX *ctx);
 int EVP_PKEY_CTX_get_keygen_info(EVP_PKEY_CTX *ctx, int idx);
 #pragma empty_line
 void EVP_PKEY_meth_set_init(EVP_PKEY_METHOD *pmeth,
- int (*init)(EVP_PKEY_CTX *ctx));
+                            int (*init) (EVP_PKEY_CTX *ctx));
 #pragma empty_line
 void EVP_PKEY_meth_set_copy(EVP_PKEY_METHOD *pmeth,
- int (*copy)(EVP_PKEY_CTX *dst, EVP_PKEY_CTX *src));
+                            int (*copy) (EVP_PKEY_CTX *dst,
+                                         EVP_PKEY_CTX *src));
 #pragma empty_line
 void EVP_PKEY_meth_set_cleanup(EVP_PKEY_METHOD *pmeth,
- void (*cleanup)(EVP_PKEY_CTX *ctx));
+                               void (*cleanup) (EVP_PKEY_CTX *ctx));
 #pragma empty_line
 void EVP_PKEY_meth_set_paramgen(EVP_PKEY_METHOD *pmeth,
- int (*paramgen_init)(EVP_PKEY_CTX *ctx),
- int (*paramgen)(EVP_PKEY_CTX *ctx, EVP_PKEY *pkey));
+                                int (*paramgen_init) (EVP_PKEY_CTX *ctx),
+                                int (*paramgen) (EVP_PKEY_CTX *ctx,
+                                                 EVP_PKEY *pkey));
 #pragma empty_line
 void EVP_PKEY_meth_set_keygen(EVP_PKEY_METHOD *pmeth,
- int (*keygen_init)(EVP_PKEY_CTX *ctx),
- int (*keygen)(EVP_PKEY_CTX *ctx, EVP_PKEY *pkey));
+                              int (*keygen_init) (EVP_PKEY_CTX *ctx),
+                              int (*keygen) (EVP_PKEY_CTX *ctx,
+                                             EVP_PKEY *pkey));
 #pragma empty_line
 void EVP_PKEY_meth_set_sign(EVP_PKEY_METHOD *pmeth,
- int (*sign_init)(EVP_PKEY_CTX *ctx),
- int (*sign)(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
-     const unsigned char *tbs, size_t tbslen));
+                            int (*sign_init) (EVP_PKEY_CTX *ctx),
+                            int (*sign) (EVP_PKEY_CTX *ctx,
+                                         unsigned char *sig, size_t *siglen,
+                                         const unsigned char *tbs,
+                                         size_t tbslen));
 #pragma empty_line
 void EVP_PKEY_meth_set_verify(EVP_PKEY_METHOD *pmeth,
- int (*verify_init)(EVP_PKEY_CTX *ctx),
- int (*verify)(EVP_PKEY_CTX *ctx, const unsigned char *sig, size_t siglen,
-     const unsigned char *tbs, size_t tbslen));
+                              int (*verify_init) (EVP_PKEY_CTX *ctx),
+                              int (*verify) (EVP_PKEY_CTX *ctx,
+                                             const unsigned char *sig,
+                                             size_t siglen,
+                                             const unsigned char *tbs,
+                                             size_t tbslen));
 #pragma empty_line
 void EVP_PKEY_meth_set_verify_recover(EVP_PKEY_METHOD *pmeth,
- int (*verify_recover_init)(EVP_PKEY_CTX *ctx),
- int (*verify_recover)(EVP_PKEY_CTX *ctx,
-     unsigned char *sig, size_t *siglen,
-     const unsigned char *tbs, size_t tbslen));
+                                      int (*verify_recover_init) (EVP_PKEY_CTX
+                                                                  *ctx),
+                                      int (*verify_recover) (EVP_PKEY_CTX
+                                                             *ctx,
+                                                             unsigned char
+                                                             *sig,
+                                                             size_t *siglen,
+                                                             const unsigned
+                                                             char *tbs,
+                                                             size_t tbslen));
 #pragma empty_line
 void EVP_PKEY_meth_set_signctx(EVP_PKEY_METHOD *pmeth,
- int (*signctx_init)(EVP_PKEY_CTX *ctx, EVP_MD_CTX *mctx),
- int (*signctx)(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
-     EVP_MD_CTX *mctx));
+                               int (*signctx_init) (EVP_PKEY_CTX *ctx,
+                                                    EVP_MD_CTX *mctx),
+                               int (*signctx) (EVP_PKEY_CTX *ctx,
+                                               unsigned char *sig,
+                                               size_t *siglen,
+                                               EVP_MD_CTX *mctx));
 #pragma empty_line
 void EVP_PKEY_meth_set_verifyctx(EVP_PKEY_METHOD *pmeth,
- int (*verifyctx_init)(EVP_PKEY_CTX *ctx, EVP_MD_CTX *mctx),
- int (*verifyctx)(EVP_PKEY_CTX *ctx, const unsigned char *sig,int siglen,
-     EVP_MD_CTX *mctx));
+                                 int (*verifyctx_init) (EVP_PKEY_CTX *ctx,
+                                                        EVP_MD_CTX *mctx),
+                                 int (*verifyctx) (EVP_PKEY_CTX *ctx,
+                                                   const unsigned char *sig,
+                                                   int siglen,
+                                                   EVP_MD_CTX *mctx));
 #pragma empty_line
 void EVP_PKEY_meth_set_encrypt(EVP_PKEY_METHOD *pmeth,
- int (*encrypt_init)(EVP_PKEY_CTX *ctx),
- int (*encryptfn)(EVP_PKEY_CTX *ctx, unsigned char *out, size_t *outlen,
-     const unsigned char *in, size_t inlen));
+                               int (*encrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (*encryptfn) (EVP_PKEY_CTX *ctx,
+                                                 unsigned char *out,
+                                                 size_t *outlen,
+                                                 const unsigned char *in,
+                                                 size_t inlen));
 #pragma empty_line
 void EVP_PKEY_meth_set_decrypt(EVP_PKEY_METHOD *pmeth,
- int (*decrypt_init)(EVP_PKEY_CTX *ctx),
- int (*decrypt)(EVP_PKEY_CTX *ctx, unsigned char *out, size_t *outlen,
-     const unsigned char *in, size_t inlen));
+                               int (*decrypt_init) (EVP_PKEY_CTX *ctx),
+                               int (*decrypt) (EVP_PKEY_CTX *ctx,
+                                               unsigned char *out,
+                                               size_t *outlen,
+                                               const unsigned char *in,
+                                               size_t inlen));
 #pragma empty_line
 void EVP_PKEY_meth_set_derive(EVP_PKEY_METHOD *pmeth,
- int (*derive_init)(EVP_PKEY_CTX *ctx),
- int (*derive)(EVP_PKEY_CTX *ctx, unsigned char *key, size_t *keylen));
+                              int (*derive_init) (EVP_PKEY_CTX *ctx),
+                              int (*derive) (EVP_PKEY_CTX *ctx,
+                                             unsigned char *key,
+                                             size_t *keylen));
 #pragma empty_line
 void EVP_PKEY_meth_set_ctrl(EVP_PKEY_METHOD *pmeth,
- int (*ctrl)(EVP_PKEY_CTX *ctx, int type, int p1, void *p2),
- int (*ctrl_str)(EVP_PKEY_CTX *ctx,
-     const char *type, const char *value));
+                            int (*ctrl) (EVP_PKEY_CTX *ctx, int type, int p1,
+                                         void *p2),
+                            int (*ctrl_str) (EVP_PKEY_CTX *ctx,
+                                             const char *type,
+                                             const char *value));
 #pragma empty_line
 void EVP_add_alg_module(void);
 #pragma empty_line
@@ -4862,8 +4975,9 @@ void EVP_add_alg_module(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 void ERR_load_EVP_strings(void);
-#pragma line 9 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 9 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma line 1 "/usr/include/openssl/err.h" 1 3 4
 #pragma line 115 "/usr/include/openssl/err.h" 3 4
 #pragma line 1 "/usr/include/openssl/e_os2.h" 1 3 4
@@ -4904,47 +5018,45 @@ extern int *__errno_location (void) __attribute__ ((__nothrow__ , __leaf__)) __a
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-typedef struct err_state_st
- {
- CRYPTO_THREADID tid;
- int err_flags[16];
- unsigned long err_buffer[16];
- char *err_data[16];
- int err_data_flags[16];
- const char *err_file[16];
- int err_line[16];
- int top,bottom;
- } ERR_STATE;
+typedef struct err_state_st {
+    CRYPTO_THREADID tid;
+    int err_flags[16];
+    unsigned long err_buffer[16];
+    char *err_data[16];
+    int err_data_flags[16];
+    const char *err_file[16];
+    int err_line[16];
+    int top, bottom;
+} ERR_STATE;
 #pragma line 313 "/usr/include/openssl/err.h" 3 4
-typedef struct ERR_string_data_st
- {
- unsigned long error;
- const char *string;
- } ERR_STRING_DATA;
+typedef struct ERR_string_data_st {
+    unsigned long error;
+    const char *string;
+} ERR_STRING_DATA;
 #pragma empty_line
-void ERR_put_error(int lib, int func,int reason,const char *file,int line);
-void ERR_set_error_data(char *data,int flags);
+void ERR_put_error(int lib, int func, int reason, const char *file, int line);
+void ERR_set_error_data(char *data, int flags);
 #pragma empty_line
 unsigned long ERR_get_error(void);
-unsigned long ERR_get_error_line(const char **file,int *line);
-unsigned long ERR_get_error_line_data(const char **file,int *line,
-          const char **data, int *flags);
+unsigned long ERR_get_error_line(const char **file, int *line);
+unsigned long ERR_get_error_line_data(const char **file, int *line,
+                                      const char **data, int *flags);
 unsigned long ERR_peek_error(void);
-unsigned long ERR_peek_error_line(const char **file,int *line);
-unsigned long ERR_peek_error_line_data(const char **file,int *line,
-           const char **data,int *flags);
+unsigned long ERR_peek_error_line(const char **file, int *line);
+unsigned long ERR_peek_error_line_data(const char **file, int *line,
+                                       const char **data, int *flags);
 unsigned long ERR_peek_last_error(void);
-unsigned long ERR_peek_last_error_line(const char **file,int *line);
-unsigned long ERR_peek_last_error_line_data(const char **file,int *line,
-           const char **data,int *flags);
-void ERR_clear_error(void );
-char *ERR_error_string(unsigned long e,char *buf);
+unsigned long ERR_peek_last_error_line(const char **file, int *line);
+unsigned long ERR_peek_last_error_line_data(const char **file, int *line,
+                                            const char **data, int *flags);
+void ERR_clear_error(void);
+char *ERR_error_string(unsigned long e, char *buf);
 void ERR_error_string_n(unsigned long e, char *buf, size_t len);
 const char *ERR_lib_error_string(unsigned long e);
 const char *ERR_func_error_string(unsigned long e);
 const char *ERR_reason_error_string(unsigned long e);
-void ERR_print_errors_cb(int (*cb)(const char *str, size_t len, void *u),
-    void *u);
+void ERR_print_errors_cb(int (*cb) (const char *str, size_t len, void *u),
+                         void *u);
 #pragma empty_line
 void ERR_print_errors_fp(FILE *fp);
 #pragma empty_line
@@ -4953,8 +5065,8 @@ void ERR_print_errors(BIO *bp);
 #pragma empty_line
 void ERR_add_error_data(int num, ...);
 void ERR_add_error_vdata(int num, va_list args);
-void ERR_load_strings(int lib,ERR_STRING_DATA str[]);
-void ERR_unload_strings(int lib,ERR_STRING_DATA str[]);
+void ERR_load_strings(int lib, ERR_STRING_DATA str[]);
+void ERR_unload_strings(int lib, ERR_STRING_DATA str[]);
 void ERR_load_ERR_strings(void);
 void ERR_load_crypto_strings(void);
 void ERR_free_strings(void);
@@ -4980,14 +5092,29 @@ int ERR_pop_to_mark(void);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
+#pragma empty_line
 const ERR_FNS *ERR_get_implementation(void);
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
+#pragma empty_line
 int ERR_set_implementation(const ERR_FNS *fns);
-#pragma line 10 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c" 2
+#pragma line 10 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c" 2
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+ char openSSL_result[32] = { 0xA8, 0x87, 0x01, 0xE4, 0x43, 0x4F, 0x59, 0x00, 0x9F, 0xF8, 0x9A, 0x40, 0x29, 0x98, 0x49, 0x57,
+        0x99, 0x29, 0x0C, 0x6C, 0xB1, 0xB1, 0x6D, 0x1A, 0x8B, 0x0A, 0xF7, 0xAF, 0x2D, 0x96, 0x7E, 0xF1};
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+const char teststr[32] = "The Quick Brown Fox Jumped Over ";
 #pragma empty_line
 static void dumpmsg( uint8_t *pbuf ) {
  int index;
@@ -4997,7 +5124,7 @@ static void dumpmsg( uint8_t *pbuf ) {
  }
  printf("\n");
 }
-#pragma line 68 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c"
+#pragma line 79 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c"
 int main( int argc, char *argv[]) {
  uint8_t key[32] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
       0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
@@ -5011,11 +5138,13 @@ int main( int argc, char *argv[]) {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
- strncpy((char *)vRAM,(const char *)"The Quick Brown Fox Jumped Over ",32);
+#pragma empty_line
+#pragma empty_line
+ strncpy((char *)vRAM, teststr, 32);
  printf("TEXT  :\n");
  dumpmsg(vRAM);
  dumpmsg(&(vRAM[16]));
-#pragma line 98 "/home/jd/workspace/aes256cbc/src/aes256cbc_tb.c"
+#pragma line 115 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc_tb.c"
  aes256cbc(key, SET_KEY, 0, 0);
  aes256cbc(iv, SET_IV, 0, 0);
  aes256cbc(vRAM, RESET, 0, 0);
@@ -5025,6 +5154,12 @@ int main( int argc, char *argv[]) {
  printf("DUTENC:\n");
  dumpmsg(&(vRAM[32]));
  dumpmsg(&(vRAM[48]));
+#pragma empty_line
+ if (strncmp(&(vRAM[32]), openSSL_result, 32))
+ {
+  printf("ERROR: ENCRYPTED DATA NOT CORRECT\n");
+  return -1;
+ }
 #pragma empty_line
 #pragma empty_line
  memset(vRAM,0,32);
@@ -5038,5 +5173,10 @@ int main( int argc, char *argv[]) {
  dumpmsg(vRAM);
  dumpmsg(&(vRAM[16]));
 #pragma empty_line
+ if (strncmp(vRAM, teststr, 32))
+ {
+  printf("ERROR: DECRYPTED DATA NOT CORRECT\n");
+  return -1;
+ }
  return 0;
 }

@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'aes256_encrypt_ecb'
 ================================================================
-* Date:           Tue Mar 14 13:06:42 2017
+* Date:           Sat Jun  3 11:51:53 2017
 
-* Version:        2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aes256cbc
 * Solution:       solution1
 * Product family: zynq
@@ -108,11 +108,11 @@
     +-----------------------+----------+-------+---+----+------------+------------+
     |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +-----------------------+----------+-------+---+----+------------+------------+
-    |i_14_fu_467_p2         |     +    |      0|  0|   5|           5|           2|
-    |i_15_fu_803_p2         |     +    |      0|  0|   5|           5|           2|
-    |i_16_fu_518_p2         |     +    |      0|  0|   5|           5|           2|
-    |i_21_fu_572_p2         |     +    |      0|  0|   5|           3|           5|
-    |i_22_fu_797_p2         |     +    |      0|  0|   4|           4|           1|
+    |i_25_fu_467_p2         |     +    |      0|  0|   5|           5|           2|
+    |i_26_fu_803_p2         |     +    |      0|  0|   5|           5|           2|
+    |i_27_fu_518_p2         |     +    |      0|  0|   5|           5|           2|
+    |i_32_fu_572_p2         |     +    |      0|  0|   5|           3|           5|
+    |i_33_fu_797_p2         |     +    |      0|  0|   4|           4|           1|
     |tmp_178_i_fu_489_p2    |     +    |      0|  0|   5|           5|           4|
     |exitcond_fu_512_p2     |   icmp   |      0|  0|   2|           4|           3|
     |tmp_i5_fu_528_p2       |   icmp   |      0|  0|   2|           5|           1|
@@ -202,10 +202,10 @@
     |buf_addr_26_reg_977                          |   3|   0|    4|          1|
     |buf_addr_27_reg_991                          |   3|   0|    4|          1|
     |buf_addr_28_reg_996                          |   2|   0|    4|          2|
-    |i_14_reg_829                                 |   5|   0|    5|          0|
-    |i_15_reg_1026                                |   5|   0|    5|          0|
-    |i_16_reg_944                                 |   5|   0|    5|          0|
-    |i_21_reg_982                                 |   5|   0|    5|          0|
+    |i_25_reg_829                                 |   5|   0|    5|          0|
+    |i_26_reg_1026                                |   5|   0|    5|          0|
+    |i_27_reg_944                                 |   5|   0|    5|          0|
+    |i_32_reg_982                                 |   5|   0|    5|          0|
     |i_i1_reg_357                                 |   5|   0|    5|          0|
     |i_i2_reg_346                                 |   5|   0|    5|          0|
     |i_i4_reg_335                                 |   5|   0|    5|          0|
@@ -228,9 +228,9 @@
     |tmp_48_i_reg_1006                            |   8|   0|    8|          0|
     |tmp_52_i_reg_1011                            |   8|   0|    8|          0|
     |tmp_56_i_reg_1016                            |   8|   0|    8|          0|
-    |tmp_93_reg_987                               |   1|   0|    1|          0|
-    |tmp_94_reg_971                               |   4|   0|    4|          0|
-    |tmp_i_33_reg_837                             |   8|   0|   64|         56|
+    |tmp_98_reg_987                               |   1|   0|    1|          0|
+    |tmp_99_reg_971                               |   4|   0|    4|          0|
+    |tmp_i_22_reg_837                             |   8|   0|   64|         56|
     +---------------------------------------------+----+----+-----+-----------+
     |Total                                        | 259|   0|  378|        119|
     +---------------------------------------------+----+----+-----+-----------+
@@ -350,8 +350,8 @@ IsGatedGlobalClock: 0
 	19  / true
 19 --> 
 	20  / (!tmp)
-	24  / (tmp & !tmp_93)
-	27  / (tmp & tmp_93)
+	24  / (tmp & !tmp_98)
+	27  / (tmp & tmp_98)
 20 --> 
 	21  / true
 21 --> 
@@ -409,13 +409,13 @@ ST_1: StgValue_44 (5)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:222->aes256c
 
  <State 2>: 4.11ns
 ST_2: i_i (7)  [1/1] 0.00ns
-:0  %i_i = phi i5 [ -16, %0 ], [ %i_14, %2 ]
+:0  %i_i = phi i5 [ -16, %0 ], [ %i_25, %2 ]
 
-ST_2: i_14 (8)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:1  %i_14 = add i5 %i_i, -1
+ST_2: i_25 (8)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
+:1  %i_25 = add i5 %i_i, -1
 
-ST_2: i_15_cast (9)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:2  %i_15_cast = sext i5 %i_14 to i8
+ST_2: i_25_cast (9)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
+:2  %i_25_cast = sext i5 %i_25 to i8
 
 ST_2: tmp_i (10)  [1/1] 1.91ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
 :3  %tmp_i = icmp eq i5 %i_i, 0
@@ -426,17 +426,17 @@ ST_2: empty (11)  [1/1] 0.00ns
 ST_2: StgValue_50 (12)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
 :5  br i1 %tmp_i, label %aes_addRoundKey_cpy.exit.preheader, label %2
 
-ST_2: tmp_i_33 (14)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:0  %tmp_i_33 = zext i8 %i_15_cast to i64
+ST_2: tmp_i_22 (14)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
+:0  %tmp_i_22 = zext i8 %i_25_cast to i64
 
 ST_2: ctx_enckey_addr (15)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:1  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_33
+:1  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_22
 
 ST_2: ctx_enckey_load (16)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
 :2  %ctx_enckey_load = load i8* %ctx_enckey_addr, align 1
 
 ST_2: buf_addr_22 (19)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:5  %buf_addr_22 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_33
+:5  %buf_addr_22 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i_22
 
 ST_2: buf_load (20)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
 :6  %buf_load = load i8* %buf_addr_22, align 1
@@ -504,7 +504,7 @@ ST_3: ctx_enckey_load (16)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:222->ae
 :2  %ctx_enckey_load = load i8* %ctx_enckey_addr, align 1
 
 ST_3: ctx_key_addr (17)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
-:3  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_33
+:3  %ctx_key_addr = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_i_22
 
 ST_3: StgValue_77 (18)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:222->aes256cbc/src/aes256ecb.c:362
 :4  store i8 %ctx_enckey_load, i8* %ctx_key_addr, align 1
@@ -533,13 +533,13 @@ ST_3: StgValue_84 (29)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:222->aes256
 
  <State 4>: 1.88ns
 ST_4: i (47)  [1/1] 0.00ns
-aes_addRoundKey_cpy.exit:0  %i = phi i4 [ %i_22, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
+aes_addRoundKey_cpy.exit:0  %i = phi i4 [ %i_33, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
 
 ST_4: exitcond (48)  [1/1] 1.88ns  loc: aes256cbc/src/aes256ecb.c:363
 aes_addRoundKey_cpy.exit:1  %exitcond = icmp eq i4 %i, -2
 
-ST_4: empty_34 (49)  [1/1] 0.00ns
-aes_addRoundKey_cpy.exit:2  %empty_34 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+ST_4: empty_23 (49)  [1/1] 0.00ns
+aes_addRoundKey_cpy.exit:2  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
 
 ST_4: StgValue_88 (50)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:363
 aes_addRoundKey_cpy.exit:3  br i1 %exitcond, label %.preheader.preheader, label %.preheader49.preheader
@@ -553,25 +553,25 @@ ST_4: StgValue_90 (168)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:198->aes25
 
  <State 5>: 4.11ns
 ST_5: i_i4 (54)  [1/1] 0.00ns
-.preheader49:0  %i_i4 = phi i5 [ %i_16, %3 ], [ -16, %.preheader49.preheader ]
+.preheader49:0  %i_i4 = phi i5 [ %i_27, %3 ], [ -16, %.preheader49.preheader ]
 
-ST_5: i_16 (55)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
-.preheader49:1  %i_16 = add i5 %i_i4, -1
+ST_5: i_27 (55)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
+.preheader49:1  %i_27 = add i5 %i_i4, -1
 
-ST_5: i_17_cast (56)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
-.preheader49:2  %i_17_cast = sext i5 %i_16 to i8
+ST_5: i_27_cast (56)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
+.preheader49:2  %i_27_cast = sext i5 %i_27 to i8
 
 ST_5: tmp_i5 (57)  [1/1] 1.91ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
 .preheader49:3  %tmp_i5 = icmp eq i5 %i_i4, 0
 
-ST_5: empty_35 (58)  [1/1] 0.00ns
-.preheader49:4  %empty_35 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+ST_5: empty_24 (58)  [1/1] 0.00ns
+.preheader49:4  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
 ST_5: StgValue_96 (59)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
 .preheader49:5  br i1 %tmp_i5, label %aes_subBytes.exit, label %3
 
 ST_5: tmp_5_i (61)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
-:0  %tmp_5_i = zext i8 %i_17_cast to i64
+:0  %tmp_5_i = zext i8 %i_27_cast to i64
 
 ST_5: buf_addr_24 (62)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
 :1  %buf_addr_24 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_5_i
@@ -579,8 +579,8 @@ ST_5: buf_addr_24 (62)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256
 ST_5: buf_load_31 (63)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:365
 :2  %buf_load_31 = load i8* %buf_addr_24, align 1
 
-ST_5: i_19 (70)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:0  %i_19 = load i8* %buf_addr, align 1
+ST_5: i_30 (70)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
+aes_subBytes.exit:0  %i_30 = load i8* %buf_addr, align 1
 
 ST_5: buf_load_20 (71)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
 aes_subBytes.exit:1  %buf_load_20 = load i8* %buf_addr_11, align 1
@@ -612,8 +612,8 @@ ST_7: StgValue_108 (68)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes25
 
 
  <State 8>: 2.39ns
-ST_8: i_19 (70)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:0  %i_19 = load i8* %buf_addr, align 1
+ST_8: i_30 (70)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
+aes_subBytes.exit:0  %i_30 = load i8* %buf_addr, align 1
 
 ST_8: buf_load_20 (71)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
 aes_subBytes.exit:1  %buf_load_20 = load i8* %buf_addr_11, align 1
@@ -632,16 +632,16 @@ aes_subBytes.exit:3  %buf_load_21 = load i8* %buf_addr_12, align 1
 ST_9: buf_load_22 (75)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
 aes_subBytes.exit:5  %buf_load_22 = load i8* %buf_addr_13, align 1
 
-ST_9: i_20 (78)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:8  %i_20 = load i8* %buf_addr_14, align 1
+ST_9: i_31 (78)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
+aes_subBytes.exit:8  %i_31 = load i8* %buf_addr_14, align 1
 
 ST_9: buf_load_24 (79)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
 aes_subBytes.exit:9  %buf_load_24 = load i8* %buf_addr_15, align 1
 
 
  <State 10>: 2.39ns
-ST_10: i_20 (78)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:8  %i_20 = load i8* %buf_addr_14, align 1
+ST_10: i_31 (78)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
+aes_subBytes.exit:8  %i_31 = load i8* %buf_addr_14, align 1
 
 ST_10: buf_load_24 (79)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
 aes_subBytes.exit:9  %buf_load_24 = load i8* %buf_addr_15, align 1
@@ -700,7 +700,7 @@ ST_14: StgValue_133 (76)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes2
 aes_subBytes.exit:6  store i8 %buf_load_22, i8* %buf_addr_12, align 1
 
 ST_14: StgValue_134 (77)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:7  store i8 %i_19, i8* %buf_addr_13, align 1
+aes_subBytes.exit:7  store i8 %i_30, i8* %buf_addr_13, align 1
 
 
  <State 15>: 2.39ns
@@ -708,7 +708,7 @@ ST_15: StgValue_135 (80)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes2
 aes_subBytes.exit:10  store i8 %buf_load_24, i8* %buf_addr_14, align 1
 
 ST_15: StgValue_136 (81)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:366
-aes_subBytes.exit:11  store i8 %i_20, i8* %buf_addr_15, align 1
+aes_subBytes.exit:11  store i8 %i_31, i8* %buf_addr_15, align 1
 
 
  <State 16>: 2.39ns
@@ -740,13 +740,13 @@ aes_subBytes.exit:24  br label %4
 
  <State 19>: 5.33ns
 ST_19: i_i2 (96)  [1/1] 0.00ns
-:0  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_21, %5 ]
+:0  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_32, %5 ]
 
 ST_19: tmp (97)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:255->aes256cbc/src/aes256ecb.c:367
 :1  %tmp = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %i_i2, i32 4)
 
-ST_19: empty_36 (98)  [1/1] 0.00ns
-:2  %empty_36 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+ST_19: empty_25 (98)  [1/1] 0.00ns
+:2  %empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ST_19: StgValue_147 (99)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:255->aes256cbc/src/aes256ecb.c:367
 :3  br i1 %tmp, label %aes_mixColumns.exit, label %5
@@ -760,11 +760,11 @@ ST_19: buf_addr_25 (102)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:257->aes2
 ST_19: a (103)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:257->aes256cbc/src/aes256ecb.c:367
 :2  %a = load i8* %buf_addr_25, align 1
 
-ST_19: tmp_94 (104)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/aes256ecb.c:367
-:3  %tmp_94 = trunc i5 %i_i2 to i4
+ST_19: tmp_99 (104)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/aes256ecb.c:367
+:3  %tmp_99 = trunc i5 %i_i2 to i4
 
 ST_19: tmp_34_i (105)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/aes256ecb.c:367
-:4  %tmp_34_i = or i4 %tmp_94, 1
+:4  %tmp_34_i = or i4 %tmp_99, 1
 
 ST_19: tmp_35_i (106)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/aes256ecb.c:367
 :5  %tmp_35_i = zext i4 %tmp_34_i to i64
@@ -775,14 +775,14 @@ ST_19: buf_addr_26 (107)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:258->aes2
 ST_19: b (108)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/aes256ecb.c:367
 :7  %b = load i8* %buf_addr_26, align 1
 
-ST_19: i_21 (150)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:255->aes256cbc/src/aes256ecb.c:367
-:49  %i_21 = add i5 4, %i_i2
+ST_19: i_32 (150)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:255->aes256cbc/src/aes256ecb.c:367
+:49  %i_32 = add i5 4, %i_i2
 
-ST_19: tmp_93 (153)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:363
-aes_mixColumns.exit:0  %tmp_93 = trunc i4 %i to i1
+ST_19: tmp_98 (153)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:363
+aes_mixColumns.exit:0  %tmp_98 = trunc i4 %i to i1
 
 ST_19: StgValue_158 (154)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:368
-aes_mixColumns.exit:1  br i1 %tmp_93, label %6, label %7
+aes_mixColumns.exit:1  br i1 %tmp_98, label %6, label %7
 
 ST_19: rcon_load_1 (156)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:369
 :0  %rcon_load_1 = load i8* %rcon
@@ -802,7 +802,7 @@ ST_20: b (108)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:258->aes256cbc/src/
 :7  %b = load i8* %buf_addr_26, align 1
 
 ST_20: tmp_36_i (109)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:259->aes256cbc/src/aes256ecb.c:367
-:8  %tmp_36_i = or i4 %tmp_94, 2
+:8  %tmp_36_i = or i4 %tmp_99, 2
 
 ST_20: tmp_37_i (110)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:259->aes256cbc/src/aes256ecb.c:367
 :9  %tmp_37_i = zext i4 %tmp_36_i to i64
@@ -814,7 +814,7 @@ ST_20: c (112)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:259->aes256cbc/src/
 :11  %c = load i8* %buf_addr_27, align 1
 
 ST_20: tmp_38_i (113)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:260->aes256cbc/src/aes256ecb.c:367
-:12  %tmp_38_i = or i4 %tmp_94, 3
+:12  %tmp_38_i = or i4 %tmp_99, 3
 
 ST_20: tmp_39_i (114)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:260->aes256cbc/src/aes256ecb.c:367
 :13  %tmp_39_i = zext i4 %tmp_38_i to i64
@@ -845,14 +845,14 @@ ST_21: e (119)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:261->aes256cbc/src/
 ST_21: y (120)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:189->aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367
 :19  %y = shl i8 %x_assign, 1
 
-ST_21: tmp_96 (121)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_44_i)
-:20  %tmp_96 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign, i32 7)
+ST_21: tmp_101 (121)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_44_i)
+:20  %tmp_101 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign, i32 7)
 
 ST_21: tmp_1_i_i (122)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_44_i)
 :21  %tmp_1_i_i = xor i8 %y, 27
 
 ST_21: y_21 (123)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_44_i)
-:22  %y_21 = select i1 %tmp_96, i8 %tmp_1_i_i, i8 %y
+:22  %y_21 = select i1 %tmp_101, i8 %tmp_1_i_i, i8 %y
 
 ST_21: tmp1 (124)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:262->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_44_i)
 :23  %tmp1 = xor i8 %y_21, %e
@@ -866,14 +866,14 @@ ST_21: x_assign_9 (127)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:263->aes25
 ST_21: y_22 (128)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:189->aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367
 :27  %y_22 = shl i8 %x_assign_9, 1
 
-ST_21: tmp_98 (129)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_48_i)
-:28  %tmp_98 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_9, i32 7)
+ST_21: tmp_103 (129)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_48_i)
+:28  %tmp_103 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_9, i32 7)
 
 ST_21: tmp_1_i10_i (130)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_48_i)
 :29  %tmp_1_i10_i = xor i8 %y_22, 27
 
 ST_21: y_23 (131)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_48_i)
-:30  %y_23 = select i1 %tmp_98, i8 %tmp_1_i10_i, i8 %y_22
+:30  %y_23 = select i1 %tmp_103, i8 %tmp_1_i10_i, i8 %y_22
 
 ST_21: tmp2 (132)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:263->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_48_i)
 :31  %tmp2 = xor i8 %y_23, %e
@@ -887,14 +887,14 @@ ST_21: x_assign_s (135)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:264->aes25
 ST_21: y_24 (136)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:189->aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367
 :35  %y_24 = shl i8 %x_assign_s, 1
 
-ST_21: tmp_100 (137)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_52_i)
-:36  %tmp_100 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_s, i32 7)
+ST_21: tmp_105 (137)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_52_i)
+:36  %tmp_105 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_s, i32 7)
 
 ST_21: tmp_1_i14_i (138)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_52_i)
 :37  %tmp_1_i14_i = xor i8 %y_24, 27
 
 ST_21: y_25 (139)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_52_i)
-:38  %y_25 = select i1 %tmp_100, i8 %tmp_1_i14_i, i8 %y_24
+:38  %y_25 = select i1 %tmp_105, i8 %tmp_1_i14_i, i8 %y_24
 
 ST_21: tmp3 (140)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:264->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_52_i)
 :39  %tmp3 = xor i8 %y_25, %e
@@ -908,14 +908,14 @@ ST_21: x_assign_1 (143)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:265->aes25
 ST_21: y_26 (144)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:189->aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367
 :43  %y_26 = shl i8 %x_assign_1, 1
 
-ST_21: tmp_102 (145)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_56_i)
-:44  %tmp_102 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_1, i32 7)
+ST_21: tmp_107 (145)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_56_i)
+:44  %tmp_107 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_1, i32 7)
 
 ST_21: tmp_1_i18_i (146)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_56_i)
 :45  %tmp_1_i18_i = xor i8 %y_26, 27
 
 ST_21: y_27 (147)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:190->aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367 (grouped into LUT with out node tmp_56_i)
-:46  %y_27 = select i1 %tmp_102, i8 %tmp_1_i18_i, i8 %y_26
+:46  %y_27 = select i1 %tmp_107, i8 %tmp_1_i18_i, i8 %y_26
 
 ST_21: tmp_56_i (148)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:265->aes256cbc/src/aes256ecb.c:367 (out node of the LUT)
 :47  %tmp_56_i = xor i8 %y_27, %tmp_41_i
@@ -960,8 +960,8 @@ ST_26: StgValue_211 (158)  [1/2] 0.00ns  loc: aes256cbc/src/aes256ecb.c:369
 ST_26: StgValue_212 (160)  [1/1] 0.00ns
 :4  br label %8
 
-ST_26: i_22 (165)  [1/1] 0.80ns  loc: aes256cbc/src/aes256ecb.c:363
-:0  %i_22 = add i4 %i, 1
+ST_26: i_33 (165)  [1/1] 0.80ns  loc: aes256cbc/src/aes256ecb.c:363
+:0  %i_33 = add i4 %i, 1
 
 ST_26: StgValue_214 (166)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:363
 :1  br label %aes_addRoundKey_cpy.exit
@@ -977,25 +977,25 @@ ST_27: StgValue_216 (163)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:368
 
  <State 28>: 4.11ns
 ST_28: i_i1 (170)  [1/1] 0.00ns
-.preheader:0  %i_i1 = phi i5 [ %i_15, %9 ], [ -16, %.preheader.preheader ]
+.preheader:0  %i_i1 = phi i5 [ %i_26, %9 ], [ -16, %.preheader.preheader ]
 
-ST_28: i_15 (171)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
-.preheader:1  %i_15 = add i5 %i_i1, -1
+ST_28: i_26 (171)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
+.preheader:1  %i_26 = add i5 %i_i1, -1
 
-ST_28: i_16_cast (172)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
-.preheader:2  %i_16_cast = sext i5 %i_15 to i8
+ST_28: i_26_cast (172)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
+.preheader:2  %i_26_cast = sext i5 %i_26 to i8
 
 ST_28: tmp_i8 (173)  [1/1] 1.91ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
 .preheader:3  %tmp_i8 = icmp eq i5 %i_i1, 0
 
-ST_28: empty_37 (174)  [1/1] 0.00ns
-.preheader:4  %empty_37 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+ST_28: empty_26 (174)  [1/1] 0.00ns
+.preheader:4  %empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
 ST_28: StgValue_222 (175)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
 .preheader:5  br i1 %tmp_i8, label %aes_subBytes.exit24, label %9
 
 ST_28: tmp_5_i1 (177)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
-:0  %tmp_5_i1 = zext i8 %i_16_cast to i64
+:0  %tmp_5_i1 = zext i8 %i_26_cast to i64
 
 ST_28: buf_addr_23 (178)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
 :1  %buf_addr_23 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_5_i1
@@ -1003,8 +1003,8 @@ ST_28: buf_addr_23 (178)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes2
 ST_28: buf_load_18 (179)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:198->aes256cbc/src/aes256ecb.c:371
 :2  %buf_load_18 = load i8* %buf_addr_23, align 1
 
-ST_28: i_17 (187)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:1  %i_17 = load i8* %buf_addr, align 1
+ST_28: i_28 (187)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
+aes_subBytes.exit24:1  %i_28 = load i8* %buf_addr, align 1
 
 ST_28: buf_load_7 (188)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
 aes_subBytes.exit24:2  %buf_load_7 = load i8* %buf_addr_11, align 1
@@ -1036,8 +1036,8 @@ ST_30: StgValue_234 (184)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:198->aes
 
 
  <State 31>: 2.39ns
-ST_31: i_17 (187)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:1  %i_17 = load i8* %buf_addr, align 1
+ST_31: i_28 (187)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
+aes_subBytes.exit24:1  %i_28 = load i8* %buf_addr, align 1
 
 ST_31: buf_load_7 (188)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
 aes_subBytes.exit24:2  %buf_load_7 = load i8* %buf_addr_11, align 1
@@ -1056,16 +1056,16 @@ aes_subBytes.exit24:4  %buf_load_8 = load i8* %buf_addr_12, align 1
 ST_32: buf_load_9 (192)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
 aes_subBytes.exit24:6  %buf_load_9 = load i8* %buf_addr_13, align 1
 
-ST_32: i_18 (195)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:9  %i_18 = load i8* %buf_addr_14, align 1
+ST_32: i_29 (195)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
+aes_subBytes.exit24:9  %i_29 = load i8* %buf_addr_14, align 1
 
 ST_32: buf_load_11 (196)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
 aes_subBytes.exit24:10  %buf_load_11 = load i8* %buf_addr_15, align 1
 
 
  <State 33>: 2.39ns
-ST_33: i_18 (195)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:9  %i_18 = load i8* %buf_addr_14, align 1
+ST_33: i_29 (195)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
+aes_subBytes.exit24:9  %i_29 = load i8* %buf_addr_14, align 1
 
 ST_33: buf_load_11 (196)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
 aes_subBytes.exit24:10  %buf_load_11 = load i8* %buf_addr_15, align 1
@@ -1124,7 +1124,7 @@ ST_37: StgValue_259 (193)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes
 aes_subBytes.exit24:7  store i8 %buf_load_9, i8* %buf_addr_12, align 1
 
 ST_37: StgValue_260 (194)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:231->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:8  store i8 %i_17, i8* %buf_addr_13, align 1
+aes_subBytes.exit24:8  store i8 %i_28, i8* %buf_addr_13, align 1
 
 
  <State 38>: 2.39ns
@@ -1132,7 +1132,7 @@ ST_38: StgValue_261 (197)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes
 aes_subBytes.exit24:11  store i8 %buf_load_11, i8* %buf_addr_14, align 1
 
 ST_38: StgValue_262 (198)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:232->aes256cbc/src/aes256ecb.c:372
-aes_subBytes.exit24:12  store i8 %i_18, i8* %buf_addr_15, align 1
+aes_subBytes.exit24:12  store i8 %i_29, i8* %buf_addr_15, align 1
 
 
  <State 39>: 2.39ns
@@ -1206,12 +1206,12 @@ Port [ sbox]:  wired=0; compound=1; hidden=1; nouse=0; global=1; static=1; exter
 <method=bitvector/>
 StgValue_44       (br               ) [ 01110000000000000000000000000000000000000000]
 i_i               (phi              ) [ 00100000000000000000000000000000000000000000]
-i_14              (add              ) [ 01110000000000000000000000000000000000000000]
-i_15_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
+i_25              (add              ) [ 01110000000000000000000000000000000000000000]
+i_25_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
 tmp_i             (icmp             ) [ 00110000000000000000000000000000000000000000]
 empty             (speclooptripcount) [ 00000000000000000000000000000000000000000000]
 StgValue_50       (br               ) [ 00000000000000000000000000000000000000000000]
-tmp_i_33          (zext             ) [ 00010000000000000000000000000000000000000000]
+tmp_i_22          (zext             ) [ 00010000000000000000000000000000000000000000]
 ctx_enckey_addr   (getelementptr    ) [ 00010000000000000000000000000000000000000000]
 buf_addr_22       (getelementptr    ) [ 00010000000000000000000000000000000000000000]
 tmp_178_i         (add              ) [ 00000000000000000000000000000000000000000000]
@@ -1244,15 +1244,15 @@ StgValue_83       (store            ) [ 0000000000000000000000000000000000000000
 StgValue_84       (br               ) [ 01110000000000000000000000000000000000000000]
 i                 (phi              ) [ 00001111111111111111111111110000000000000000]
 exitcond          (icmp             ) [ 00001111111111111111111111110000000000000000]
-empty_34          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
+empty_23          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
 StgValue_88       (br               ) [ 00000000000000000000000000000000000000000000]
 StgValue_89       (br               ) [ 00001111111111111111111111110000000000000000]
 StgValue_90       (br               ) [ 00001111111111111111111111111110000000000000]
 i_i4              (phi              ) [ 00000100000000000000000000000000000000000000]
-i_16              (add              ) [ 00001111111111111111111111110000000000000000]
-i_17_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
+i_27              (add              ) [ 00001111111111111111111111110000000000000000]
+i_27_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
 tmp_i5            (icmp             ) [ 00001111111111111111111111110000000000000000]
-empty_35          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
+empty_24          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
 StgValue_96       (br               ) [ 00000000000000000000000000000000000000000000]
 tmp_5_i           (zext             ) [ 00000000000000000000000000000000000000000000]
 buf_addr_24       (getelementptr    ) [ 00000011000000000000000000000000000000000000]
@@ -1262,11 +1262,11 @@ sbox_addr_15      (getelementptr    ) [ 0000000100000000000000000000000000000000
 sbox_load_15      (load             ) [ 00000000000000000000000000000000000000000000]
 StgValue_107      (store            ) [ 00000000000000000000000000000000000000000000]
 StgValue_108      (br               ) [ 00001111111111111111111111110000000000000000]
-i_19              (load             ) [ 00000000011111100000000000000000000000000000]
+i_30              (load             ) [ 00000000011111100000000000000000000000000000]
 buf_load_20       (load             ) [ 00000000011111000000000000000000000000000000]
 buf_load_21       (load             ) [ 00000000001111000000000000000000000000000000]
 buf_load_22       (load             ) [ 00000000001111100000000000000000000000000000]
-i_20              (load             ) [ 00000000000111110000000000000000000000000000]
+i_31              (load             ) [ 00000000000111110000000000000000000000000000]
 buf_load_24       (load             ) [ 00000000000111110000000000000000000000000000]
 j_2               (load             ) [ 00000000000011111100000000000000000000000000]
 buf_load_26       (load             ) [ 00000000000011111000000000000000000000000000]
@@ -1289,16 +1289,16 @@ StgValue_142      (store            ) [ 0000000000000000000000000000000000000000
 StgValue_143      (br               ) [ 00001111111111111111111111110000000000000000]
 i_i2              (phi              ) [ 00000000000000000001000000000000000000000000]
 tmp               (bitselect        ) [ 00001111111111111111111111110000000000000000]
-empty_36          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
+empty_25          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
 StgValue_147      (br               ) [ 00000000000000000000000000000000000000000000]
 tmp_i1            (zext             ) [ 00000000000000000000000000000000000000000000]
 buf_addr_25       (getelementptr    ) [ 00000000000000000000111000000000000000000000]
-tmp_94            (trunc            ) [ 00000000000000000000100000000000000000000000]
+tmp_99            (trunc            ) [ 00000000000000000000100000000000000000000000]
 tmp_34_i          (or               ) [ 00000000000000000000000000000000000000000000]
 tmp_35_i          (zext             ) [ 00000000000000000000000000000000000000000000]
 buf_addr_26       (getelementptr    ) [ 00000000000000000000111000000000000000000000]
-i_21              (add              ) [ 00001111111111111111111111110000000000000000]
-tmp_93            (trunc            ) [ 00001111111111111111111111110000000000000000]
+i_32              (add              ) [ 00001111111111111111111111110000000000000000]
+tmp_98            (trunc            ) [ 00001111111111111111111111110000000000000000]
 StgValue_158      (br               ) [ 00000000000000000000000000000000000000000000]
 rcon_load_1       (load             ) [ 00000000000000000000000010000000000000000000]
 a                 (load             ) [ 00000000000000000000010000000000000000000000]
@@ -1315,28 +1315,28 @@ x_assign          (xor              ) [ 0000000000000000000000000000000000000000
 tmp_41_i          (xor              ) [ 00000000000000000000000000000000000000000000]
 e                 (xor              ) [ 00000000000000000000000000000000000000000000]
 y                 (shl              ) [ 00000000000000000000000000000000000000000000]
-tmp_96            (bitselect        ) [ 00000000000000000000000000000000000000000000]
+tmp_101           (bitselect        ) [ 00000000000000000000000000000000000000000000]
 tmp_1_i_i         (xor              ) [ 00000000000000000000000000000000000000000000]
 y_21              (select           ) [ 00000000000000000000000000000000000000000000]
 tmp1              (xor              ) [ 00000000000000000000000000000000000000000000]
 tmp_44_i          (xor              ) [ 00000000000000000000001000000000000000000000]
 x_assign_9        (xor              ) [ 00000000000000000000000000000000000000000000]
 y_22              (shl              ) [ 00000000000000000000000000000000000000000000]
-tmp_98            (bitselect        ) [ 00000000000000000000000000000000000000000000]
+tmp_103           (bitselect        ) [ 00000000000000000000000000000000000000000000]
 tmp_1_i10_i       (xor              ) [ 00000000000000000000000000000000000000000000]
 y_23              (select           ) [ 00000000000000000000000000000000000000000000]
 tmp2              (xor              ) [ 00000000000000000000000000000000000000000000]
 tmp_48_i          (xor              ) [ 00000000000000000000001000000000000000000000]
 x_assign_s        (xor              ) [ 00000000000000000000000000000000000000000000]
 y_24              (shl              ) [ 00000000000000000000000000000000000000000000]
-tmp_100           (bitselect        ) [ 00000000000000000000000000000000000000000000]
+tmp_105           (bitselect        ) [ 00000000000000000000000000000000000000000000]
 tmp_1_i14_i       (xor              ) [ 00000000000000000000000000000000000000000000]
 y_25              (select           ) [ 00000000000000000000000000000000000000000000]
 tmp3              (xor              ) [ 00000000000000000000000000000000000000000000]
 tmp_52_i          (xor              ) [ 00000000000000000000001100000000000000000000]
 x_assign_1        (xor              ) [ 00000000000000000000000000000000000000000000]
 y_26              (shl              ) [ 00000000000000000000000000000000000000000000]
-tmp_102           (bitselect        ) [ 00000000000000000000000000000000000000000000]
+tmp_107           (bitselect        ) [ 00000000000000000000000000000000000000000000]
 tmp_1_i18_i       (xor              ) [ 00000000000000000000000000000000000000000000]
 y_27              (select           ) [ 00000000000000000000000000000000000000000000]
 tmp_56_i          (xor              ) [ 00000000000000000000001100000000000000000000]
@@ -1349,15 +1349,15 @@ rcon_1            (call             ) [ 0000000000000000000000000000000000000000
 StgValue_209      (store            ) [ 00000000000000000000000000000000000000000000]
 StgValue_211      (call             ) [ 00000000000000000000000000000000000000000000]
 StgValue_212      (br               ) [ 00000000000000000000000000000000000000000000]
-i_22              (add              ) [ 00101111111111111111111111110000000000000000]
+i_33              (add              ) [ 00101111111111111111111111110000000000000000]
 StgValue_214      (br               ) [ 00101111111111111111111111110000000000000000]
 StgValue_215      (call             ) [ 00000000000000000000000000000000000000000000]
 StgValue_216      (br               ) [ 00000000000000000000000000000000000000000000]
 i_i1              (phi              ) [ 00000000000000000000000000001000000000000000]
-i_15              (add              ) [ 00001000000000000000000000001110000000000000]
-i_16_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
+i_26              (add              ) [ 00001000000000000000000000001110000000000000]
+i_26_cast         (sext             ) [ 00000000000000000000000000000000000000000000]
 tmp_i8            (icmp             ) [ 00000000000000000000000000001110000000000000]
-empty_37          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
+empty_26          (speclooptripcount) [ 00000000000000000000000000000000000000000000]
 StgValue_222      (br               ) [ 00000000000000000000000000000000000000000000]
 tmp_5_i1          (zext             ) [ 00000000000000000000000000000000000000000000]
 buf_addr_23       (getelementptr    ) [ 00000000000000000000000000000110000000000000]
@@ -1367,11 +1367,11 @@ sbox_addr         (getelementptr    ) [ 0000000000000000000000000000001000000000
 sbox_load         (load             ) [ 00000000000000000000000000000000000000000000]
 StgValue_233      (store            ) [ 00000000000000000000000000000000000000000000]
 StgValue_234      (br               ) [ 00001000000000000000000000001110000000000000]
-i_17              (load             ) [ 00000000000000000000000000000000111111000000]
+i_28              (load             ) [ 00000000000000000000000000000000111111000000]
 buf_load_7        (load             ) [ 00000000000000000000000000000000111110000000]
 buf_load_8        (load             ) [ 00000000000000000000000000000000011110000000]
 buf_load_9        (load             ) [ 00000000000000000000000000000000011111000000]
-i_18              (load             ) [ 00000000000000000000000000000000001111100000]
+i_29              (load             ) [ 00000000000000000000000000000000001111100000]
 buf_load_11       (load             ) [ 00000000000000000000000000000000001111100000]
 j                 (load             ) [ 00000000000000000000000000000000000111111000]
 buf_load_13       (load             ) [ 00000000000000000000000000000000000111110000]
@@ -1827,7 +1827,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="load(27) store(28) " fcode="store"/>
-<opset="buf_load/2 StgValue_80/3 buf_load_31/5 i_19/5 buf_load_20/5 StgValue_107/7 buf_load_21/8 buf_load_22/8 i_20/9 buf_load_24/9 j_2/10 buf_load_26/10 buf_load_27/11 buf_load_28/11 j_3/12 buf_load_30/12 StgValue_129/13 StgValue_130/13 StgValue_133/14 StgValue_134/14 StgValue_135/15 StgValue_136/15 StgValue_137/16 StgValue_138/16 StgValue_139/17 StgValue_140/17 StgValue_141/18 StgValue_142/18 a/19 b/19 c/20 d/20 StgValue_203/22 StgValue_204/22 StgValue_205/23 StgValue_206/23 buf_load_18/28 i_17/28 buf_load_7/28 StgValue_233/30 buf_load_8/31 buf_load_9/31 i_18/32 buf_load_11/32 j/33 buf_load_13/33 buf_load_14/34 buf_load_15/34 j_1/35 buf_load_17/35 StgValue_255/36 StgValue_256/36 StgValue_259/37 StgValue_260/37 StgValue_261/38 StgValue_262/38 StgValue_263/39 StgValue_264/39 StgValue_266/40 StgValue_267/40 StgValue_269/41 StgValue_270/41 "/>
+<opset="buf_load/2 StgValue_80/3 buf_load_31/5 i_30/5 buf_load_20/5 StgValue_107/7 buf_load_21/8 buf_load_22/8 i_31/9 buf_load_24/9 j_2/10 buf_load_26/10 buf_load_27/11 buf_load_28/11 j_3/12 buf_load_30/12 StgValue_129/13 StgValue_130/13 StgValue_133/14 StgValue_134/14 StgValue_135/15 StgValue_136/15 StgValue_137/16 StgValue_138/16 StgValue_139/17 StgValue_140/17 StgValue_141/18 StgValue_142/18 a/19 b/19 c/20 d/20 StgValue_203/22 StgValue_204/22 StgValue_205/23 StgValue_206/23 buf_load_18/28 i_28/28 buf_load_7/28 StgValue_233/30 buf_load_8/31 buf_load_9/31 i_29/32 buf_load_11/32 j/33 buf_load_13/33 buf_load_14/34 buf_load_15/34 j_1/35 buf_load_17/35 StgValue_255/36 StgValue_256/36 StgValue_259/37 StgValue_260/37 StgValue_261/38 StgValue_262/38 StgValue_263/39 StgValue_264/39 StgValue_266/40 StgValue_267/40 StgValue_269/41 StgValue_270/41 "/>
 </bind>
 </comp>
 
@@ -2322,7 +2322,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 <pin id="394" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="i_19 a i_17 "/>
+<opset="i_30 a i_28 "/>
 </bind>
 </comp>
 
@@ -2362,7 +2362,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 <pin id="422" dir="1" index="1" bw="8" slack="5"/>
 </pin_list>
 <bind>
-<opset="i_20 i_18 "/>
+<opset="i_31 i_29 "/>
 </bind>
 </comp>
 
@@ -2426,7 +2426,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="467" class="1004" name="i_14_fu_467">
+<comp id="467" class="1004" name="i_25_fu_467">
 <pin_list>
 <pin id="468" dir="0" index="0" bw="5" slack="0"/>
 <pin id="469" dir="0" index="1" bw="1" slack="0"/>
@@ -2434,18 +2434,18 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_14/2 "/>
+<opset="i_25/2 "/>
 </bind>
 </comp>
 
-<comp id="473" class="1004" name="i_15_cast_fu_473">
+<comp id="473" class="1004" name="i_25_cast_fu_473">
 <pin_list>
 <pin id="474" dir="0" index="0" bw="5" slack="0"/>
 <pin id="475" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="i_15_cast/2 "/>
+<opset="i_25_cast/2 "/>
 </bind>
 </comp>
 
@@ -2461,14 +2461,14 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="483" class="1004" name="tmp_i_33_fu_483">
+<comp id="483" class="1004" name="tmp_i_22_fu_483">
 <pin_list>
 <pin id="484" dir="0" index="0" bw="5" slack="0"/>
 <pin id="485" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_i_33/2 "/>
+<opset="tmp_i_22/2 "/>
 </bind>
 </comp>
 
@@ -2531,7 +2531,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="518" class="1004" name="i_16_fu_518">
+<comp id="518" class="1004" name="i_27_fu_518">
 <pin_list>
 <pin id="519" dir="0" index="0" bw="5" slack="0"/>
 <pin id="520" dir="0" index="1" bw="1" slack="0"/>
@@ -2539,18 +2539,18 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_16/5 "/>
+<opset="i_27/5 "/>
 </bind>
 </comp>
 
-<comp id="524" class="1004" name="i_17_cast_fu_524">
+<comp id="524" class="1004" name="i_27_cast_fu_524">
 <pin_list>
 <pin id="525" dir="0" index="0" bw="5" slack="0"/>
 <pin id="526" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="i_17_cast/5 "/>
+<opset="i_27_cast/5 "/>
 </bind>
 </comp>
 
@@ -2612,14 +2612,14 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="557" class="1004" name="tmp_94_fu_557">
+<comp id="557" class="1004" name="tmp_99_fu_557">
 <pin_list>
 <pin id="558" dir="0" index="0" bw="5" slack="0"/>
 <pin id="559" dir="1" index="1" bw="4" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="tmp_94/19 "/>
+<opset="tmp_99/19 "/>
 </bind>
 </comp>
 
@@ -2646,7 +2646,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="572" class="1004" name="i_21_fu_572">
+<comp id="572" class="1004" name="i_32_fu_572">
 <pin_list>
 <pin id="573" dir="0" index="0" bw="4" slack="0"/>
 <pin id="574" dir="0" index="1" bw="5" slack="0"/>
@@ -2654,18 +2654,18 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_21/19 "/>
+<opset="i_32/19 "/>
 </bind>
 </comp>
 
-<comp id="578" class="1004" name="tmp_93_fu_578">
+<comp id="578" class="1004" name="tmp_98_fu_578">
 <pin_list>
 <pin id="579" dir="0" index="0" bw="4" slack="13"/>
 <pin id="580" dir="1" index="1" bw="1" slack="3"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="tmp_93/19 "/>
+<opset="tmp_98/19 "/>
 </bind>
 </comp>
 
@@ -2763,7 +2763,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="626" class="1004" name="tmp_96_fu_626">
+<comp id="626" class="1004" name="tmp_101_fu_626">
 <pin_list>
 <pin id="627" dir="0" index="0" bw="1" slack="0"/>
 <pin id="628" dir="0" index="1" bw="8" slack="0"/>
@@ -2772,7 +2772,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="bitselect(1000) " fcode="bitselect"/>
-<opset="tmp_96/21 "/>
+<opset="tmp_101/21 "/>
 </bind>
 </comp>
 
@@ -2849,7 +2849,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="672" class="1004" name="tmp_98_fu_672">
+<comp id="672" class="1004" name="tmp_103_fu_672">
 <pin_list>
 <pin id="673" dir="0" index="0" bw="1" slack="0"/>
 <pin id="674" dir="0" index="1" bw="8" slack="0"/>
@@ -2858,7 +2858,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="bitselect(1000) " fcode="bitselect"/>
-<opset="tmp_98/21 "/>
+<opset="tmp_103/21 "/>
 </bind>
 </comp>
 
@@ -2935,7 +2935,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="718" class="1004" name="tmp_100_fu_718">
+<comp id="718" class="1004" name="tmp_105_fu_718">
 <pin_list>
 <pin id="719" dir="0" index="0" bw="1" slack="0"/>
 <pin id="720" dir="0" index="1" bw="8" slack="0"/>
@@ -2944,7 +2944,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="bitselect(1000) " fcode="bitselect"/>
-<opset="tmp_100/21 "/>
+<opset="tmp_105/21 "/>
 </bind>
 </comp>
 
@@ -3021,7 +3021,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="764" class="1004" name="tmp_102_fu_764">
+<comp id="764" class="1004" name="tmp_107_fu_764">
 <pin_list>
 <pin id="765" dir="0" index="0" bw="1" slack="0"/>
 <pin id="766" dir="0" index="1" bw="8" slack="0"/>
@@ -3030,7 +3030,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="bitselect(1000) " fcode="bitselect"/>
-<opset="tmp_102/21 "/>
+<opset="tmp_107/21 "/>
 </bind>
 </comp>
 
@@ -3083,7 +3083,7 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="797" class="1004" name="i_22_fu_797">
+<comp id="797" class="1004" name="i_33_fu_797">
 <pin_list>
 <pin id="798" dir="0" index="0" bw="4" slack="16"/>
 <pin id="799" dir="0" index="1" bw="1" slack="0"/>
@@ -3091,11 +3091,11 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_22/26 "/>
+<opset="i_33/26 "/>
 </bind>
 </comp>
 
-<comp id="803" class="1004" name="i_15_fu_803">
+<comp id="803" class="1004" name="i_26_fu_803">
 <pin_list>
 <pin id="804" dir="0" index="0" bw="5" slack="0"/>
 <pin id="805" dir="0" index="1" bw="1" slack="0"/>
@@ -3103,18 +3103,18 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_15/28 "/>
+<opset="i_26/28 "/>
 </bind>
 </comp>
 
-<comp id="809" class="1004" name="i_16_cast_fu_809">
+<comp id="809" class="1004" name="i_26_cast_fu_809">
 <pin_list>
 <pin id="810" dir="0" index="0" bw="5" slack="0"/>
 <pin id="811" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="i_16_cast/28 "/>
+<opset="i_26_cast/28 "/>
 </bind>
 </comp>
 
@@ -3152,23 +3152,23 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="829" class="1005" name="i_14_reg_829">
+<comp id="829" class="1005" name="i_25_reg_829">
 <pin_list>
 <pin id="830" dir="0" index="0" bw="5" slack="0"/>
 <pin id="831" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_14 "/>
+<opset="i_25 "/>
 </bind>
 </comp>
 
-<comp id="837" class="1005" name="tmp_i_33_reg_837">
+<comp id="837" class="1005" name="tmp_i_22_reg_837">
 <pin_list>
 <pin id="838" dir="0" index="0" bw="64" slack="1"/>
 <pin id="839" dir="1" index="1" bw="64" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_i_33 "/>
+<opset="tmp_i_22 "/>
 </bind>
 </comp>
 
@@ -3342,13 +3342,13 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="944" class="1005" name="i_16_reg_944">
+<comp id="944" class="1005" name="i_27_reg_944">
 <pin_list>
 <pin id="945" dir="0" index="0" bw="5" slack="0"/>
 <pin id="946" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_16 "/>
+<opset="i_27 "/>
 </bind>
 </comp>
 
@@ -3382,13 +3382,13 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="971" class="1005" name="tmp_94_reg_971">
+<comp id="971" class="1005" name="tmp_99_reg_971">
 <pin_list>
 <pin id="972" dir="0" index="0" bw="4" slack="1"/>
 <pin id="973" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_94 "/>
+<opset="tmp_99 "/>
 </bind>
 </comp>
 
@@ -3402,23 +3402,23 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="982" class="1005" name="i_21_reg_982">
+<comp id="982" class="1005" name="i_32_reg_982">
 <pin_list>
 <pin id="983" dir="0" index="0" bw="5" slack="0"/>
 <pin id="984" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_21 "/>
+<opset="i_32 "/>
 </bind>
 </comp>
 
-<comp id="987" class="1005" name="tmp_93_reg_987">
+<comp id="987" class="1005" name="tmp_98_reg_987">
 <pin_list>
 <pin id="988" dir="0" index="0" bw="1" slack="3"/>
 <pin id="989" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="tmp_93 "/>
+<opset="tmp_98 "/>
 </bind>
 </comp>
 
@@ -3482,23 +3482,23 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 </bind>
 </comp>
 
-<comp id="1021" class="1005" name="i_22_reg_1021">
+<comp id="1021" class="1005" name="i_33_reg_1021">
 <pin_list>
 <pin id="1022" dir="0" index="0" bw="4" slack="1"/>
 <pin id="1023" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="i_22 "/>
+<opset="i_33 "/>
 </bind>
 </comp>
 
-<comp id="1026" class="1005" name="i_15_reg_1026">
+<comp id="1026" class="1005" name="i_26_reg_1026">
 <pin_list>
 <pin id="1027" dir="0" index="0" bw="5" slack="0"/>
 <pin id="1028" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_15 "/>
+<opset="i_26 "/>
 </bind>
 </comp>
 
@@ -4252,11 +4252,11 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
   - Chain level:
 	State 1
 	State 2
-		i_14 : 1
-		i_15_cast : 2
+		i_25 : 1
+		i_25_cast : 2
 		tmp_i : 1
 		StgValue_50 : 2
-		tmp_i_33 : 3
+		tmp_i_22 : 3
 		ctx_enckey_addr : 4
 		ctx_enckey_load : 5
 		buf_addr_22 : 4
@@ -4275,8 +4275,8 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 		exitcond : 1
 		StgValue_88 : 2
 	State 5
-		i_16 : 1
-		i_17_cast : 2
+		i_27 : 1
+		i_27_cast : 2
 		tmp_i5 : 1
 		StgValue_96 : 2
 		tmp_5_i : 3
@@ -4305,12 +4305,12 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 		tmp_i1 : 1
 		buf_addr_25 : 2
 		a : 3
-		tmp_94 : 1
+		tmp_99 : 1
 		tmp_34_i : 2
 		tmp_35_i : 2
 		buf_addr_26 : 3
 		b : 4
-		i_21 : 1
+		i_32 : 1
 		StgValue_158 : 1
 		rcon_1 : 1
 	State 20
@@ -4323,21 +4323,21 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 		tmp_44_i : 1
 		x_assign_9 : 1
 		y_22 : 1
-		tmp_98 : 1
+		tmp_103 : 1
 		tmp_1_i10_i : 1
 		y_23 : 1
 		tmp2 : 2
 		tmp_48_i : 2
 		x_assign_s : 1
 		y_24 : 1
-		tmp_100 : 1
+		tmp_105 : 1
 		tmp_1_i14_i : 1
 		y_25 : 1
 		tmp3 : 2
 		tmp_52_i : 2
 		x_assign_1 : 1
 		y_26 : 1
-		tmp_102 : 1
+		tmp_107 : 1
 		tmp_1_i18_i : 1
 		y_27 : 1
 		tmp_56_i : 2
@@ -4349,8 +4349,8 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 	State 26
 	State 27
 	State 28
-		i_15 : 1
-		i_16_cast : 2
+		i_26 : 1
+		i_26_cast : 2
 		tmp_i8 : 1
 		StgValue_222 : 2
 		tmp_5_i1 : 3
@@ -4413,23 +4413,23 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 |          |         y_25_fu_732         |    0    |    0    |    8    |
 |          |         y_27_fu_778         |    0    |    0    |    8    |
 |----------|-----------------------------|---------|---------|---------|
-|          |         i_14_fu_467         |    0    |    0    |    5    |
+|          |         i_25_fu_467         |    0    |    0    |    5    |
 |          |       tmp_178_i_fu_489      |    0    |    0    |    5    |
-|    add   |         i_16_fu_518         |    0    |    0    |    5    |
-|          |         i_21_fu_572         |    0    |    0    |    5    |
-|          |         i_22_fu_797         |    0    |    0    |    4    |
-|          |         i_15_fu_803         |    0    |    0    |    5    |
+|    add   |         i_27_fu_518         |    0    |    0    |    5    |
+|          |         i_32_fu_572         |    0    |    0    |    5    |
+|          |         i_33_fu_797         |    0    |    0    |    4    |
+|          |         i_26_fu_803         |    0    |    0    |    5    |
 |----------|-----------------------------|---------|---------|---------|
 |          |         tmp_i_fu_477        |    0    |    0    |    2    |
 |   icmp   |       exitcond_fu_512       |    0    |    0    |    2    |
 |          |        tmp_i5_fu_528        |    0    |    0    |    2    |
 |          |        tmp_i8_fu_813        |    0    |    0    |    2    |
 |----------|-----------------------------|---------|---------|---------|
-|          |       i_15_cast_fu_473      |    0    |    0    |    0    |
-|   sext   |       i_17_cast_fu_524      |    0    |    0    |    0    |
-|          |       i_16_cast_fu_809      |    0    |    0    |    0    |
+|          |       i_25_cast_fu_473      |    0    |    0    |    0    |
+|   sext   |       i_27_cast_fu_524      |    0    |    0    |    0    |
+|          |       i_26_cast_fu_809      |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|
-|          |       tmp_i_33_fu_483       |    0    |    0    |    0    |
+|          |       tmp_i_22_fu_483       |    0    |    0    |    0    |
 |          |       tmp_179_i_fu_495      |    0    |    0    |    0    |
 |          |        tmp_5_i_fu_534       |    0    |    0    |    0    |
 |          |        tmp_6_i_fu_539       |    0    |    0    |    0    |
@@ -4441,13 +4441,13 @@ StgValue_274      (ret              ) [ 0000000000000000000000000000000000000000
 |          |       tmp_6_i1_fu_824       |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|
 |          |          tmp_fu_544         |    0    |    0    |    0    |
-|          |        tmp_96_fu_626        |    0    |    0    |    0    |
-| bitselect|        tmp_98_fu_672        |    0    |    0    |    0    |
-|          |        tmp_100_fu_718       |    0    |    0    |    0    |
-|          |        tmp_102_fu_764       |    0    |    0    |    0    |
+|          |        tmp_101_fu_626       |    0    |    0    |    0    |
+| bitselect|        tmp_103_fu_672       |    0    |    0    |    0    |
+|          |        tmp_105_fu_718       |    0    |    0    |    0    |
+|          |        tmp_107_fu_764       |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|
-|   trunc  |        tmp_94_fu_557        |    0    |    0    |    0    |
-|          |        tmp_93_fu_578        |    0    |    0    |    0    |
+|   trunc  |        tmp_99_fu_557        |    0    |    0    |    0    |
+|          |        tmp_98_fu_578        |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|
 |          |       tmp_34_i_fu_561       |    0    |    0    |    0    |
 |    or    |       tmp_36_i_fu_582       |    0    |    0    |    0    |
@@ -4489,11 +4489,11 @@ N/A
 |     buf_addr_reg_869    |    4   |
 |ctx_enckey_addr_1_reg_857|    5   |
 | ctx_enckey_addr_reg_842 |    5   |
-|       i_14_reg_829      |    5   |
-|      i_15_reg_1026      |    5   |
-|       i_16_reg_944      |    5   |
-|       i_21_reg_982      |    5   |
-|      i_22_reg_1021      |    4   |
+|       i_25_reg_829      |    5   |
+|      i_26_reg_1026      |    5   |
+|       i_27_reg_944      |    5   |
+|       i_32_reg_982      |    5   |
+|      i_33_reg_1021      |    4   |
 |       i_i1_reg_357      |    5   |
 |       i_i2_reg_346      |    5   |
 |       i_i4_reg_335      |    5   |
@@ -4518,9 +4518,9 @@ N/A
 |    tmp_48_i_reg_1006    |    8   |
 |    tmp_52_i_reg_1011    |    8   |
 |    tmp_56_i_reg_1016    |    8   |
-|      tmp_93_reg_987     |    1   |
-|      tmp_94_reg_971     |    4   |
-|     tmp_i_33_reg_837    |   64   |
+|      tmp_98_reg_987     |    1   |
+|      tmp_99_reg_971     |    4   |
+|     tmp_i_22_reg_837    |   64   |
 +-------------------------+--------+
 |          Total          |   411  |
 +-------------------------+--------+

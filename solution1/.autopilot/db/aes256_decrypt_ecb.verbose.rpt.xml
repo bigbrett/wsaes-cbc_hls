@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes256_decrypt_ecb'" level="0">
-<item name = "Date">Tue Mar 14 13:06:42 2017
+<item name = "Date">Sat Jun  3 11:51:52 2017
 </item>
-<item name = "Version">2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
 <item name = "Project">aes256cbc</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -88,9 +88,9 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_23_fu_405_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_26_fu_445_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_29_fu_495_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_34_fu_405_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_37_fu_445_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_40_fu_495_p2">+, 0, 0, 5, 5, 2</column>
 <column name="phitmp_fu_516_p2">+, 0, 0, 4, 4, 2</column>
 <column name="tmp_178_i_fu_427_p2">+, 0, 0, 5, 5, 4</column>
 <column name="tmp_fu_476_p2">icmp, 0, 0, 2, 4, 1</column>
@@ -139,9 +139,9 @@
 <column name="buf_addr_40_reg_545">4, 0, 4, 0</column>
 <column name="buf_addr_41_reg_629">4, 0, 4, 0</column>
 <column name="buf_addr_42_reg_667">4, 0, 4, 0</column>
-<column name="i_23_reg_527">5, 0, 5, 0</column>
-<column name="i_26_reg_621">5, 0, 5, 0</column>
-<column name="i_29_reg_659">5, 0, 5, 0</column>
+<column name="i_34_reg_527">5, 0, 5, 0</column>
+<column name="i_37_reg_621">5, 0, 5, 0</column>
+<column name="i_40_reg_659">5, 0, 5, 0</column>
 <column name="i_i3_reg_314">5, 0, 5, 0</column>
 <column name="i_i5_reg_291">5, 0, 5, 0</column>
 <column name="i_i_reg_280">5, 0, 5, 0</column>
@@ -157,9 +157,9 @@
 <column name="reg_390">8, 0, 8, 0</column>
 <column name="reg_395">8, 0, 8, 0</column>
 <column name="reg_400">8, 0, 8, 0</column>
-<column name="tmp_103_reg_650">1, 0, 1, 0</column>
+<column name="tmp_108_reg_650">1, 0, 1, 0</column>
 <column name="tmp_179_i_reg_551">5, 0, 64, 59</column>
-<column name="tmp_i_38_reg_535">8, 0, 64, 56</column>
+<column name="tmp_i_27_reg_535">8, 0, 64, 56</column>
 </table>
 </item>
 </section>

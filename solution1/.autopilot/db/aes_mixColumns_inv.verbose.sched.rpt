@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'aes_mixColumns_inv'
 ================================================================
-* Date:           Tue Mar 14 13:06:40 2017
+* Date:           Sat Jun  3 11:51:50 2017
 
-* Version:        2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aes256cbc
 * Solution:       solution1
 * Product family: zynq

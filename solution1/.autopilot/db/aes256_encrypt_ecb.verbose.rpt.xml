@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes256_encrypt_ecb'" level="0">
-<item name = "Date">Tue Mar 14 13:06:42 2017
+<item name = "Date">Sat Jun  3 11:51:53 2017
 </item>
-<item name = "Version">2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
 <item name = "Project">aes256cbc</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -87,11 +87,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_14_fu_467_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_15_fu_803_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_16_fu_518_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_21_fu_572_p2">+, 0, 0, 5, 3, 5</column>
-<column name="i_22_fu_797_p2">+, 0, 0, 4, 4, 1</column>
+<column name="i_25_fu_467_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_26_fu_803_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_27_fu_518_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_32_fu_572_p2">+, 0, 0, 5, 3, 5</column>
+<column name="i_33_fu_797_p2">+, 0, 0, 4, 4, 1</column>
 <column name="tmp_178_i_fu_489_p2">+, 0, 0, 5, 5, 4</column>
 <column name="exitcond_fu_512_p2">icmp, 0, 0, 2, 4, 3</column>
 <column name="tmp_i5_fu_528_p2">icmp, 0, 0, 2, 5, 1</column>
@@ -173,10 +173,10 @@
 <column name="buf_addr_26_reg_977">3, 0, 4, 1</column>
 <column name="buf_addr_27_reg_991">3, 0, 4, 1</column>
 <column name="buf_addr_28_reg_996">2, 0, 4, 2</column>
-<column name="i_14_reg_829">5, 0, 5, 0</column>
-<column name="i_15_reg_1026">5, 0, 5, 0</column>
-<column name="i_16_reg_944">5, 0, 5, 0</column>
-<column name="i_21_reg_982">5, 0, 5, 0</column>
+<column name="i_25_reg_829">5, 0, 5, 0</column>
+<column name="i_26_reg_1026">5, 0, 5, 0</column>
+<column name="i_27_reg_944">5, 0, 5, 0</column>
+<column name="i_32_reg_982">5, 0, 5, 0</column>
 <column name="i_i1_reg_357">5, 0, 5, 0</column>
 <column name="i_i2_reg_346">5, 0, 5, 0</column>
 <column name="i_i4_reg_335">5, 0, 5, 0</column>
@@ -199,9 +199,9 @@
 <column name="tmp_48_i_reg_1006">8, 0, 8, 0</column>
 <column name="tmp_52_i_reg_1011">8, 0, 8, 0</column>
 <column name="tmp_56_i_reg_1016">8, 0, 8, 0</column>
-<column name="tmp_93_reg_987">1, 0, 1, 0</column>
-<column name="tmp_94_reg_971">4, 0, 4, 0</column>
-<column name="tmp_i_33_reg_837">8, 0, 64, 56</column>
+<column name="tmp_98_reg_987">1, 0, 1, 0</column>
+<column name="tmp_99_reg_971">4, 0, 4, 0</column>
+<column name="tmp_i_22_reg_837">8, 0, 64, 56</column>
 </table>
 </item>
 </section>

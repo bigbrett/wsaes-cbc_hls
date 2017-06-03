@@ -426,6 +426,38 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
+memptr { 
+	dir IO
+	width 8
+	depth 64
+	mode ap_memory
+	offset 64
+	offset_end 127
+}
+mode { 
+	dir I
+	width 3
+	depth 1
+	mode ap_none
+	offset 128
+	offset_end 135
+}
+inbuf_addr { 
+	dir I
+	width 32
+	depth 1
+	mode ap_none
+	offset 136
+	offset_end 143
+}
+outbuf_addr { 
+	dir I
+	width 32
+	depth 1
+	mode ap_none
+	offset 144
+	offset_end 151
+}
 }
 
 
@@ -446,73 +478,6 @@ if {${::AESL::PGuard_simmodel_gen}} {
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler aes256cbc_AXILiteS_s_axi
-}
-
-set port_p0 {
-mode { 
-	dir I
-	width 3
-	depth 1
-	mode ap_none
-	offset 16
-	offset_end 23
-}
-inbuf_addr { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 24
-	offset_end 31
-}
-outbuf_addr { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 32
-	offset_end 39
-}
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 24 \
-			corename aes256cbc_p0_axilite \
-			name aes256cbc_p0_s_axi \
-			ports {$port_p0} \
-			op interface \
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'p0'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler aes256cbc_p0_s_axi
-}
-
-# Native M_AXI:
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
-eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 25 \
-    corename {m_axi} \
-    op interface \
-    max_latency -1 \ 
-    delay_budget 7 \ 
-    name {aes256cbc_memptr_m_axi} \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'memptr'"
-}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler aes256cbc_memptr_m_axi
 }
 
 

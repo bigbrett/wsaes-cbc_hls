@@ -14,7 +14,7 @@ open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 8 -name default
 #source "./aes256cbc/solution1/directives.tcl"
-csim_design -ldflags {-lssl -lcrypto}
+csim_design -ldflags {-lssl -lcrypto} -clean -compiler gcc
 csynth_design
 cosim_design
 export_design -format ip_catalog -description "AES 256 CBC" -vendor "websensing.com" -display_name "aes256cbc"

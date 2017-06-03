@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-#define DATA_IN_SIZE 16
+#define DATA_IN_SIZE 64
 
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 

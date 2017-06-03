@@ -161,7 +161,9 @@ obj/apatb_aes256cbc.o: apatb_aes256cbc.cpp \
  /opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include/sysc/datatypes/fx/sc_fx_ids.h \
  /opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include/sysc/datatypes/int/sc_nbutils.h \
  /opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
  /usr/include/x86_64-linux-gnu/bits/inf.h \
@@ -648,6 +650,10 @@ obj/apatb_aes256cbc.o: apatb_aes256cbc.cpp \
 /opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:
 
 /usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/x86_64-linux-gnu/bits/huge_val.h:
 

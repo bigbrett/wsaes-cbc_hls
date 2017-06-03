@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_expandEncKey'" level="0">
-<item name = "Date">Tue Mar 14 13:06:42 2017
+<item name = "Date">Sat Jun  3 11:51:52 2017
 </item>
-<item name = "Version">2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
 <item name = "Project">aes256cbc</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>

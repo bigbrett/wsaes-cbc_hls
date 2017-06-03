@@ -100,13 +100,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 		{"Name" : "buf_r", "Type" : "Memory", "Direction" : "IO",
 			"SubConnect" : [
-			{"ID" : "4", "SubInstance" : "grp_aes_mixColumns_inv_fu_334", "Port" : "buf_r"},
-			{"ID" : "5", "SubInstance" : "grp_aes_addRoundKey_fu_340", "Port" : "buf_r"}]},
+			{"ID" : "5", "SubInstance" : "grp_aes_addRoundKey_fu_340", "Port" : "buf_r"},
+			{"ID" : "4", "SubInstance" : "grp_aes_mixColumns_inv_fu_334", "Port" : "buf_r"}]},
 		{"Name" : "ctx_deckey", "Type" : "Memory", "Direction" : "I"},
 		{"Name" : "ctx_key", "Type" : "Memory", "Direction" : "IO",
 			"SubConnect" : [
-			{"ID" : "2", "SubInstance" : "grp_aes_expandDecKey_fu_325", "Port" : "ctx_key"},
-			{"ID" : "5", "SubInstance" : "grp_aes_addRoundKey_fu_340", "Port" : "key"}]},
+			{"ID" : "5", "SubInstance" : "grp_aes_addRoundKey_fu_340", "Port" : "key"},
+			{"ID" : "2", "SubInstance" : "grp_aes_expandDecKey_fu_325", "Port" : "ctx_key"}]},
 		{"Name" : "sboxinv", "Type" : "Memory", "Direction" : "I"},
 		{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
 			"SubConnect" : [

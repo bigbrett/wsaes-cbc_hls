@@ -41,9 +41,9 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
-set SourceFiles {sc {} c {../src/aes256ecb.c ../src/aes256cbc.c}}
+set SourceFiles {sc {} c {../src/aes256cbc.c ../src/aes256ecb.c}}
 set SourceFlags {sc {} c {{} {}}}
-set DirectiveFile {/home/jd/workspace/aes256cbc/solution1/solution1.directive}
+set DirectiveFile {/home/brett/Thesis/Vivado_WS/aes256cbc/solution1/solution1.directive}
 set TBFiles {verilog ../src/aes256cbc_tb.c bc ../src/aes256cbc_tb.c vhdl ../src/aes256cbc_tb.c sc ../src/aes256cbc_tb.c cas ../src/aes256cbc_tb.c c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

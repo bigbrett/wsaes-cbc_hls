@@ -1,8 +1,8 @@
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc.c"
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c"
 #pragma line 1 "<built-in>"
 #pragma line 1 "<command-line>"
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc.c"
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256cbc.h" 1
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c"
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.h" 1
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stdint.h" 1 3 4
@@ -13,9 +13,9 @@
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 1 3 4
 #pragma line 339 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
-#pragma line 385 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+#pragma line 410 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-#pragma line 386 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+#pragma line 411 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
 #pragma line 340 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 2 3 4
 #pragma line 362 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed/features.h" 3 4
 #pragma line 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
@@ -87,14 +87,16 @@ typedef unsigned long int uintptr_t;
 typedef long int intmax_t;
 typedef unsigned long int uintmax_t;
 #pragma line 4 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stdint.h" 2 3 4
-#pragma line 4 "/home/jd/workspace/aes256cbc/src/aes256cbc.h" 2
+#pragma line 4 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.h" 2
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 #pragma empty_line
-void wsaes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
-#pragma line 2 "/home/jd/workspace/aes256cbc/src/aes256cbc.c" 2
-#pragma line 1 "/home/jd/workspace/aes256cbc/src/aes256ecb.h" 1
-#pragma line 28 "/home/jd/workspace/aes256cbc/src/aes256ecb.h"
+void wsaes256cbc(uint8_t memptr[64], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
+#pragma line 2 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c" 2
+#pragma line 1 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256ecb.h" 1
+#pragma line 28 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256ecb.h"
     typedef struct {
         unsigned char key[32];
         unsigned char enckey[32];
@@ -106,7 +108,7 @@ void wsaes256cbc(uint8_t *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32
     void aes256_done(aes256_context *);
     void aes256_encrypt_ecb(aes256_context *, unsigned char * );
     void aes256_decrypt_ecb(aes256_context *, unsigned char * );
-#pragma line 3 "/home/jd/workspace/aes256cbc/src/aes256cbc.c" 2
+#pragma line 3 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c" 2
 #pragma empty_line
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4
 #pragma line 32 "/usr/include/stdlib.h" 3 4
@@ -342,15 +344,7 @@ extern int atoi (const char *__nptr)
 extern long int atol (const char *__nptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
 #pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-__extension__ extern long long int atoll (const char *__nptr)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
+#pragma line 162 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern double strtod (const char *__restrict __nptr,
@@ -380,21 +374,6 @@ __extension__
 extern unsigned long long int strtouq (const char *__restrict __nptr,
            char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-__extension__
-extern long long int strtoll (const char *__restrict __nptr,
-         char **__restrict __endptr, int __base)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
-__extension__
-extern unsigned long long int strtoull (const char *__restrict __nptr,
-     char **__restrict __endptr, int __base)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma empty_line
 #pragma line 305 "/usr/include/stdlib.h" 3 4
 extern char *l64a (long int __n) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
@@ -697,7 +676,7 @@ typedef union
     short __spins;
     short __elision;
     __pthread_list_t __list;
-#pragma line 124 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma line 125 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   } __data;
   char __size[40];
   long int __align;
@@ -760,14 +739,21 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+    unsigned char __pad1[7];
+#pragma empty_line
+#pragma empty_line
     unsigned long int __pad2;
 #pragma empty_line
 #pragma empty_line
     unsigned int __flags;
 #pragma empty_line
   } __data;
-#pragma line 211 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+#pragma line 220 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
   char __size[56];
   long int __align;
 } pthread_rwlock_t;
@@ -1068,13 +1054,13 @@ extern int unsetenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)
 extern int clearenv (void) __attribute__ ((__nothrow__ , __leaf__));
 #pragma line 606 "/usr/include/stdlib.h" 3 4
 extern char *mktemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 620 "/usr/include/stdlib.h" 3 4
+#pragma line 619 "/usr/include/stdlib.h" 3 4
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 642 "/usr/include/stdlib.h" 3 4
+#pragma line 641 "/usr/include/stdlib.h" 3 4
 extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 663 "/usr/include/stdlib.h" 3 4
+#pragma line 662 "/usr/include/stdlib.h" 3 4
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 712 "/usr/include/stdlib.h" 3 4
+#pragma line 711 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1082,7 +1068,7 @@ extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__))
 #pragma empty_line
 extern int system (const char *__command) ;
 #pragma empty_line
-#pragma line 734 "/usr/include/stdlib.h" 3 4
+#pragma line 733 "/usr/include/stdlib.h" 3 4
 extern char *realpath (const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
@@ -1092,7 +1078,7 @@ extern char *realpath (const char *__restrict __name,
 #pragma empty_line
 #pragma empty_line
 typedef int (*__compar_fn_t) (const void *, const void *);
-#pragma line 752 "/usr/include/stdlib.h" 3 4
+#pragma line 751 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1108,7 +1094,7 @@ extern void *bsearch (const void *__key, const void *__base,
 #pragma empty_line
 extern void qsort (void *__base, size_t __nmemb, size_t __size,
      __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
-#pragma line 775 "/usr/include/stdlib.h" 3 4
+#pragma line 774 "/usr/include/stdlib.h" 3 4
 extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 #pragma empty_line
@@ -1128,7 +1114,7 @@ extern div_t div (int __numer, int __denom)
 extern ldiv_t ldiv (long int __numer, long int __denom)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 #pragma empty_line
-#pragma line 812 "/usr/include/stdlib.h" 3 4
+#pragma line 811 "/usr/include/stdlib.h" 3 4
 extern char *ecvt (double __value, int __ndigit, int *__restrict __decpt,
      int *__restrict __sign) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) ;
 #pragma empty_line
@@ -1206,21 +1192,21 @@ extern size_t wcstombs (char *__restrict __s,
 #pragma empty_line
 #pragma empty_line
 extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-#pragma line 899 "/usr/include/stdlib.h" 3 4
+#pragma line 898 "/usr/include/stdlib.h" 3 4
 extern int getsubopt (char **__restrict __optionp,
         char *const *__restrict __tokens,
         char **__restrict __valuep)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) ;
-#pragma line 951 "/usr/include/stdlib.h" 3 4
+#pragma line 950 "/usr/include/stdlib.h" 3 4
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
-#pragma line 956 "/usr/include/stdlib.h" 2 3 4
-#pragma line 968 "/usr/include/stdlib.h" 3 4
+#pragma line 955 "/usr/include/stdlib.h" 2 3 4
+#pragma line 967 "/usr/include/stdlib.h" 3 4
 #pragma empty_line
-#pragma line 5 "/home/jd/workspace/aes256cbc/src/aes256cbc.c" 2
+#pragma line 5 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c" 2
 #pragma line 1 "/usr/include/stdio.h" 1 3 4
 #pragma line 29 "/usr/include/stdio.h" 3 4
 #pragma empty_line
@@ -1288,7 +1274,11 @@ typedef __builtin_va_list __gnuc_va_list;
 #pragma line 50 "/usr/include/libio.h" 2 3 4
 #pragma line 144 "/usr/include/libio.h" 3 4
 struct _IO_jump_t; struct _IO_FILE;
-#pragma line 154 "/usr/include/libio.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
 typedef void _IO_lock_t;
 #pragma empty_line
 #pragma empty_line
@@ -1302,7 +1292,7 @@ struct _IO_marker {
 #pragma empty_line
 #pragma empty_line
   int _pos;
-#pragma line 177 "/usr/include/libio.h" 3 4
+#pragma line 173 "/usr/include/libio.h" 3 4
 };
 #pragma empty_line
 #pragma empty_line
@@ -1313,7 +1303,7 @@ enum __codecvt_result
   __codecvt_error,
   __codecvt_noconv
 };
-#pragma line 245 "/usr/include/libio.h" 3 4
+#pragma line 241 "/usr/include/libio.h" 3 4
 struct _IO_FILE {
   int _flags;
 #pragma empty_line
@@ -1354,15 +1344,21 @@ struct _IO_FILE {
 #pragma empty_line
 #pragma empty_line
   _IO_lock_t *_lock;
-#pragma line 293 "/usr/include/libio.h" 3 4
+#pragma line 289 "/usr/include/libio.h" 3 4
   __off64_t _offset;
-#pragma line 302 "/usr/include/libio.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
   void *__pad1;
   void *__pad2;
   void *__pad3;
   void *__pad4;
-  size_t __pad5;
 #pragma empty_line
+  size_t __pad5;
   int _mode;
 #pragma empty_line
   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
@@ -1378,7 +1374,7 @@ struct _IO_FILE_plus;
 extern struct _IO_FILE_plus _IO_2_1_stdin_;
 extern struct _IO_FILE_plus _IO_2_1_stdout_;
 extern struct _IO_FILE_plus _IO_2_1_stderr_;
-#pragma line 338 "/usr/include/libio.h" 3 4
+#pragma line 333 "/usr/include/libio.h" 3 4
 typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
 #pragma empty_line
 #pragma empty_line
@@ -1400,11 +1396,11 @@ typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
 #pragma empty_line
 #pragma empty_line
 typedef int __io_close_fn (void *__cookie);
-#pragma line 390 "/usr/include/libio.h" 3 4
+#pragma line 385 "/usr/include/libio.h" 3 4
 extern int __underflow (_IO_FILE *);
 extern int __uflow (_IO_FILE *);
 extern int __overflow (_IO_FILE *, int);
-#pragma line 434 "/usr/include/libio.h" 3 4
+#pragma line 429 "/usr/include/libio.h" 3 4
 extern int _IO_getc (_IO_FILE *__fp);
 extern int _IO_putc (int __c, _IO_FILE *__fp);
 extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
@@ -1419,7 +1415,7 @@ extern int _IO_peekc_locked (_IO_FILE *__fp);
 extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
 extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
 extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 464 "/usr/include/libio.h" 3 4
+#pragma line 459 "/usr/include/libio.h" 3 4
 extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
    __gnuc_va_list, int *__restrict);
 extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
@@ -1590,18 +1586,6 @@ extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
 #pragma empty_line
 extern int vsprintf (char *__restrict __s, const char *__restrict __format,
        __gnuc_va_list __arg) __attribute__ ((__nothrow__));
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-extern int snprintf (char *__restrict __s, size_t __maxlen,
-       const char *__restrict __format, ...)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
-#pragma empty_line
-extern int vsnprintf (char *__restrict __s, size_t __maxlen,
-        const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
 #pragma empty_line
 #pragma line 412 "/usr/include/stdio.h" 3 4
 extern int vdprintf (int __fd, const char *__restrict __fmt,
@@ -1850,7 +1834,7 @@ extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
 #pragma empty_line
 #pragma empty_line
 extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-#pragma line 873 "/usr/include/stdio.h" 3 4
+#pragma line 872 "/usr/include/stdio.h" 3 4
 extern FILE *popen (const char *__command, const char *__modes) ;
 #pragma empty_line
 #pragma empty_line
@@ -1864,7 +1848,7 @@ extern int pclose (FILE *__stream);
 #pragma empty_line
 #pragma empty_line
 extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 913 "/usr/include/stdio.h" 3 4
+#pragma line 912 "/usr/include/stdio.h" 3 4
 extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
 #pragma empty_line
@@ -1873,9 +1857,9 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 #pragma empty_line
 #pragma empty_line
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-#pragma line 943 "/usr/include/stdio.h" 3 4
+#pragma line 942 "/usr/include/stdio.h" 3 4
 #pragma empty_line
-#pragma line 6 "/home/jd/workspace/aes256cbc/src/aes256cbc.c" 2
+#pragma line 6 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c" 2
 #pragma line 1 "/usr/include/string.h" 1 3 4
 #pragma line 27 "/usr/include/string.h" 3 4
 #pragma empty_line
@@ -1885,7 +1869,13 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 #pragma empty_line
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include/stddef.h" 1 3 4
 #pragma line 33 "/usr/include/string.h" 2 3 4
-#pragma line 44 "/usr/include/string.h" 3 4
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
@@ -1913,12 +1903,12 @@ extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__
 #pragma empty_line
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 96 "/usr/include/string.h" 3 4
+#pragma line 92 "/usr/include/string.h" 3 4
 extern void *memchr (const void *__s, int __c, size_t __n)
       __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
-#pragma line 127 "/usr/include/string.h" 3 4
+#pragma line 123 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
@@ -1973,7 +1963,7 @@ typedef struct __locale_struct
 #pragma empty_line
 #pragma empty_line
 typedef __locale_t locale_t;
-#pragma line 164 "/usr/include/string.h" 2 3 4
+#pragma line 160 "/usr/include/string.h" 2 3 4
 #pragma empty_line
 #pragma empty_line
 extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
@@ -1981,7 +1971,6 @@ extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
 #pragma empty_line
 extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
     __locale_t __l) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -1996,17 +1985,17 @@ extern char *strdup (const char *__s)
 #pragma empty_line
 extern char *strndup (const char *__string, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 211 "/usr/include/string.h" 3 4
+#pragma line 206 "/usr/include/string.h" 3 4
 #pragma empty_line
-#pragma line 236 "/usr/include/string.h" 3 4
+#pragma line 231 "/usr/include/string.h" 3 4
 extern char *strchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 263 "/usr/include/string.h" 3 4
+#pragma line 258 "/usr/include/string.h" 3 4
 extern char *strrchr (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
 #pragma empty_line
-#pragma line 282 "/usr/include/string.h" 3 4
+#pragma line 277 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -2016,10 +2005,10 @@ extern size_t strcspn (const char *__s, const char *__reject)
 #pragma empty_line
 extern size_t strspn (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 315 "/usr/include/string.h" 3 4
+#pragma line 310 "/usr/include/string.h" 3 4
 extern char *strpbrk (const char *__s, const char *__accept)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 342 "/usr/include/string.h" 3 4
+#pragma line 337 "/usr/include/string.h" 3 4
 extern char *strstr (const char *__haystack, const char *__needle)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
@@ -2040,7 +2029,7 @@ extern char *__strtok_r (char *__restrict __s,
 extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
          char **__restrict __save_ptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-#pragma line 397 "/usr/include/string.h" 3 4
+#pragma line 392 "/usr/include/string.h" 3 4
 #pragma empty_line
 #pragma empty_line
 extern size_t strlen (const char *__s)
@@ -2059,11 +2048,11 @@ extern size_t strnlen (const char *__string, size_t __maxlen)
 #pragma empty_line
 extern char *strerror (int __errnum) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
-#pragma line 427 "/usr/include/string.h" 3 4
+#pragma line 422 "/usr/include/string.h" 3 4
 extern int strerror_r (int __errnum, char *__buf, size_t __buflen) __asm__ ("" "__xpg_strerror_r") __attribute__ ((__nothrow__ , __leaf__))
 #pragma empty_line
                         __attribute__ ((__nonnull__ (2)));
-#pragma line 445 "/usr/include/string.h" 3 4
+#pragma line 440 "/usr/include/string.h" 3 4
 extern char *strerror_l (int __errnum, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
 #pragma empty_line
 #pragma empty_line
@@ -2083,10 +2072,10 @@ extern void bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__
 #pragma empty_line
 extern int bcmp (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 489 "/usr/include/string.h" 3 4
+#pragma line 484 "/usr/include/string.h" 3 4
 extern char *index (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
-#pragma line 517 "/usr/include/string.h" 3 4
+#pragma line 512 "/usr/include/string.h" 3 4
 extern char *rindex (const char *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 #pragma empty_line
@@ -2094,14 +2083,14 @@ extern char *rindex (const char *__s, int __c)
 #pragma empty_line
 #pragma empty_line
 extern int ffs (int __i) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-#pragma line 534 "/usr/include/string.h" 3 4
+#pragma line 529 "/usr/include/string.h" 3 4
 extern int strcasecmp (const char *__s1, const char *__s2)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 #pragma empty_line
 #pragma empty_line
 extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 557 "/usr/include/string.h" 3 4
+#pragma line 552 "/usr/include/string.h" 3 4
 extern char *strsep (char **__restrict __stringp,
        const char *__restrict __delim)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
@@ -2125,15 +2114,15 @@ extern char *__stpncpy (char *__restrict __dest,
 extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-#pragma line 644 "/usr/include/string.h" 3 4
+#pragma line 658 "/usr/include/string.h" 3 4
 #pragma empty_line
-#pragma line 7 "/home/jd/workspace/aes256cbc/src/aes256cbc.c" 2
+#pragma line 7 "/home/brett/Thesis/Vivado_WS/aes256cbc/src/aes256cbc.c" 2
 #pragma empty_line
-void aes256cbc(unsigned char *memptr, ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr) {
-#pragma HLS INTERFACE s_axilite port=outbuf_addr bundle=p0
-#pragma HLS INTERFACE s_axilite port=inbuf_addr bundle=p0
-#pragma HLS INTERFACE m_axi depth=64 port=memptr
-#pragma HLS INTERFACE s_axilite port=mode bundle=p0
+void aes256cbc(unsigned char memptr[64], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr) {
+#pragma HLS INTERFACE s_axilite port=outbuf_addr
+#pragma HLS INTERFACE s_axilite port=inbuf_addr
+#pragma HLS INTERFACE s_axilite port=memptr depth=64
+#pragma HLS INTERFACE s_axilite port=mode
 #pragma HLS INTERFACE s_axilite port=return
 #pragma empty_line
  unsigned char buf[16];
@@ -2146,42 +2135,54 @@ void aes256cbc(unsigned char *memptr, ciphermode_t mode, uint32_t inbuf_addr, ui
 #pragma empty_line
     switch( mode ) {
     case RESET:
-     for(i=0;i<16;i++) { xorv[i] = iv[i]; }
+     for(i=0; i<16; i++) {xorv[i] = iv[i];}
      aes256_init(&ctx, key);
      break;
-    case ENCRYPT:
-     memcpy(buf, memptr+inbuf_addr, 16);
 #pragma empty_line
-     for(i=0; i<16; i++) {
-      buf[i] = buf[i]^xorv[i];
-     }
+    case ENCRYPT:
+#pragma empty_line
+     for(i=0; i<16; i++)
+      buf[i] = *(memptr + inbuf_addr + i);
+#pragma empty_line
+     for(i=0; i<16; i++) { buf[i] = buf[i]^xorv[i]; }
 #pragma empty_line
      aes256_encrypt_ecb(&ctx, buf);
 #pragma empty_line
-     for(i=0;i<16;i++) { xorv[i] = buf[i]; }
+     for(i=0; i<16; i++) { xorv[i] = buf[i]; }
 #pragma empty_line
-     memcpy(memptr+outbuf_addr, buf, 16);
+#pragma empty_line
+     for(i=0; i<16; i++)
+      *(memptr + outbuf_addr + i) = buf[i];
      break;
-    case DECRYPT:
-     memcpy(buf, memptr+inbuf_addr, 16);
 #pragma empty_line
-     for(i=0;i<16;i++) { lastbuf[i] = buf[i]; }
+    case DECRYPT:
+#pragma empty_line
+     for(i=0; i<16; i++)
+      buf[i] = *(memptr + inbuf_addr + i);
+#pragma empty_line
+     for(i=0; i<16; i++) { lastbuf[i] = buf[i]; }
 #pragma empty_line
      aes256_decrypt_ecb(&ctx, buf);
 #pragma empty_line
-     for(i=0; i<16; i++) {
-      buf[i] = buf[i]^xorv[i];
-     }
+     for(i=0; i<16; i++) { buf[i] = buf[i]^xorv[i]; }
 #pragma empty_line
-     for(i=0;i<16;i++) { xorv[i] = lastbuf[i]; }
+     for(i=0; i<16; i++) { xorv[i] = lastbuf[i]; }
 #pragma empty_line
-     memcpy((char *)(memptr+outbuf_addr), (const char *)buf, 16);
+#pragma empty_line
+     for(i=0; i<16; i++)
+      *(memptr + outbuf_addr + i) = buf[i];
      break;
+#pragma empty_line
     case SET_IV:
-     memcpy(iv, memptr+inbuf_addr, 16);
+#pragma empty_line
+     for(i=0; i<16; i++)
+      iv[i] = *(memptr + inbuf_addr + i);
      break;
+#pragma empty_line
     case SET_KEY:
-     memcpy(key, memptr+inbuf_addr, 32);
+#pragma empty_line
+     for(i=0; i<32; i++)
+      key[i] = *(memptr + inbuf_addr + i);
      break;
     }
 }
