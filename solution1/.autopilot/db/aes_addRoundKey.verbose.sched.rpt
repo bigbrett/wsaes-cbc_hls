@@ -1,0 +1,199 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_addRoundKey'
+================================================================
+* Date:           Tue Mar 14 13:06:40 2017
+
+* Version:        2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)
+* Project:        aes256cbc
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   8.00|      6.15|        1.00|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   33|   33|   33|   33|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   32|   32|         2|          -|          -|    16|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp)
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: key_offset_read (4)  [1/1] 0.00ns
+:0  %key_offset_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %key_offset)
+
+ST_1: tmp_92 (5)  [1/1] 0.00ns
+:1  %tmp_92 = trunc i6 %key_offset_read to i5
+
+ST_1: StgValue_6 (6)  [1/1] 1.57ns  loc: aes256cbc/src/aes256ecb.c:214
+:2  br label %1
+
+
+ <State 2>: 5.83ns
+ST_2: i (8)  [1/1] 0.00ns
+:0  %i = phi i5 [ -16, %0 ], [ %i_5, %2 ]
+
+ST_2: i_5 (9)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:214
+:1  %i_5 = add i5 %i, -1
+
+ST_2: i_6_cast (10)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:2  %i_6_cast = sext i5 %i_5 to i8
+
+ST_2: tmp (11)  [1/1] 1.91ns  loc: aes256cbc/src/aes256ecb.c:214
+:3  %tmp = icmp eq i5 %i, 0
+
+ST_2: empty (12)  [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+
+ST_2: StgValue_12 (13)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:5  br i1 %tmp, label %3, label %2
+
+ST_2: tmp_s (15)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:0  %tmp_s = zext i8 %i_6_cast to i64
+
+ST_2: sum (16)  [1/1] 1.72ns  loc: aes256cbc/src/aes256ecb.c:214
+:1  %sum = add i5 %i_5, %tmp_92
+
+ST_2: sum_cast (17)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:2  %sum_cast = zext i5 %sum to i64
+
+ST_2: key_addr (18)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:3  %key_addr = getelementptr [32 x i8]* %key, i64 0, i64 %sum_cast
+
+ST_2: key_load (19)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:214
+:4  %key_load = load i8* %key_addr, align 1
+
+ST_2: buf_addr (20)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:5  %buf_addr = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_s
+
+ST_2: buf_load (21)  [2/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:214
+:6  %buf_load = load i8* %buf_addr, align 1
+
+ST_2: StgValue_20 (26)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:215
+:0  ret void
+
+
+ <State 3>: 6.15ns
+ST_3: key_load (19)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:214
+:4  %key_load = load i8* %key_addr, align 1
+
+ST_3: buf_load (21)  [1/2] 2.39ns  loc: aes256cbc/src/aes256ecb.c:214
+:6  %buf_load = load i8* %buf_addr, align 1
+
+ST_3: tmp_120 (22)  [1/1] 1.37ns  loc: aes256cbc/src/aes256ecb.c:214
+:7  %tmp_120 = xor i8 %buf_load, %key_load
+
+ST_3: StgValue_24 (23)  [1/1] 2.39ns  loc: aes256cbc/src/aes256ecb.c:214
+:8  store i8 %tmp_120, i8* %buf_addr, align 1
+
+ST_3: StgValue_25 (24)  [1/1] 0.00ns  loc: aes256cbc/src/aes256ecb.c:214
+:9  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 8ns, clock uncertainty: 1ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256ecb.c:214) [8]  (1.57 ns)
+
+ <State 2>: 5.83ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', aes256cbc/src/aes256ecb.c:214) [8]  (0 ns)
+	'add' operation ('i', aes256cbc/src/aes256ecb.c:214) [9]  (1.72 ns)
+	'add' operation ('sum', aes256cbc/src/aes256ecb.c:214) [16]  (1.72 ns)
+	'getelementptr' operation ('key_addr', aes256cbc/src/aes256ecb.c:214) [18]  (0 ns)
+	'load' operation ('key_load', aes256cbc/src/aes256ecb.c:214) on array 'key' [19]  (2.39 ns)
+
+ <State 3>: 6.15ns
+The critical path consists of the following:
+	'load' operation ('key_load', aes256cbc/src/aes256ecb.c:214) on array 'key' [19]  (2.39 ns)
+	'xor' operation ('tmp_120', aes256cbc/src/aes256ecb.c:214) [22]  (1.37 ns)
+	'store' operation (aes256cbc/src/aes256ecb.c:214) of variable 'tmp_120', aes256cbc/src/aes256ecb.c:214 on array 'buf_r' [23]  (2.39 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

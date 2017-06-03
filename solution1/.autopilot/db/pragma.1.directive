@@ -1,0 +1,38 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="aes256cbc" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="outbuf_addr"/>
+<option name="bundle" value="p0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="aes256cbc" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="inbuf_addr"/>
+<option name="bundle" value="p0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="aes256cbc" label="">
+<pragma name="INTERFACE">
+<option name="m_axi" positionalBoolean="mode" value=""/>
+<option name="depth" value="64"/>
+<option name="port" positionalBoolean="4" value="memptr"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="aes256cbc" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="mode"/>
+<option name="bundle" value="p0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="aes256cbc" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="return"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

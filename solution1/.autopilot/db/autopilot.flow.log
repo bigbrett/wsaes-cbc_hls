@@ -1,0 +1,776 @@
+@I [HLS-0] Workspace /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1 opened at Mon Apr 03 19:08:49 EDT 2017
+@I [HLS-100] Command "config_clock -quiet -name default -period 8 -default=false "
+@I [SYN-201] Setting up clock 'default' with a period of 8ns.
+@I [HLS-100] Command 'config_clock' returned 0; elapsed 0.000297Total elapsed time: 1.201 sec.
+@I [HLS-100] Command "open_platform DefaultPlatform "
+@I [HLS-100] Command 'open_platform' returned 0; elapsed 4.8e-05Total elapsed time: 1.368 sec.
+@I [HLS-100] Command "import_lib /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.lib "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/xilinx_interface.lib "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000656Total elapsed time: 1.562 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000493Total elapsed time: 1.575 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000689Total elapsed time: 1.601 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000552Total elapsed time: 1.621 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000388Total elapsed time: 1.628 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004153Total elapsed time: 1.628 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000354Total elapsed time: 1.637 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000407Total elapsed time: 1.745 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000342Total elapsed time: 1.783 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000397Total elapsed time: 1.799 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009664Total elapsed time: 1.801 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_old.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001113Total elapsed time: 1.807 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_vivado.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001122Total elapsed time: 1.821 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.hlp "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/target_info.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00048Total elapsed time: 1.945 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/xilinx_interface.hlp "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000436Total elapsed time: 2.6 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00033Total elapsed time: 2.28 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001324Total elapsed time: 2.29 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000925Total elapsed time: 2.71 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004613Total elapsed time: 2.71 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/dsp48e1.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00038Total elapsed time: 2.98 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 7e-06Total elapsed time: 2.98 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 1.8e-05Total elapsed time: 2.98 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed medium "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 6e-06Total elapsed time: 2.98 sec.
+@I [HLS-100] Command 'import_lib' returned 0; elapsed 0.024317Total elapsed time: 2.100 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001556Total elapsed time: 2.243 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000831Total elapsed time: 2.265 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002444Total elapsed time: 2.298 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004344Total elapsed time: 2.368 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00843Total elapsed time: 2.438 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.013539Total elapsed time: 2.438 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.010793Total elapsed time: 2.527 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008891Total elapsed time: 2.588 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003783Total elapsed time: 2.635 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00074Total elapsed time: 2.664 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.114879Total elapsed time: 2.864 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001422Total elapsed time: 2.921 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.161555Total elapsed time: 2.921 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000448Total elapsed time: 2.938 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.164799Total elapsed time: 2.939 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.165475Total elapsed time: 2.939 sec.
+@I [HLS-100] Command "open_platform DefaultPlatform "
+@I [HLS-100] Command 'open_platform' returned 0; elapsed 7e-06Total elapsed time: 2.939 sec.
+@I [HLS-100] Command "import_lib /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6 "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv7.lib "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_hp.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000916Total elapsed time: 2.984 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.0043Total elapsed time: 2.987 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv.hlp "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.hlp "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/target_info.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000358Total elapsed time: 3.134 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/xilinx_interface.hlp "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000406Total elapsed time: 3.145 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000333Total elapsed time: 3.147 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001296Total elapsed time: 3.147 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000753Total elapsed time: 3.150 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.0041Total elapsed time: 3.151 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.005158Total elapsed time: 3.151 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_hp.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001186Total elapsed time: 3.182 sec.
+@I [HLS-100] Command 'import_lib' returned 0; elapsed 0.023353Total elapsed time: 3.187 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00192Total elapsed time: 3.250 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002472Total elapsed time: 3.250 sec.
+@I [HLS-100] Command "set_part xc7z020clg484-1 "
+@I [HLS-100] Command "add_library xilinx/zynq/zynq:xc7z020:clg484:-1 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 5e-06Total elapsed time: 3.335 sec.
+@I [HLS-100] Command "license_isbetapart xc7z020 "
+@I [HLS-100] Command 'license_isbetapart' returned 1; elapsed 0.011229Total elapsed time: 3.909 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 8e-06Total elapsed time: 3.918 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 1.5e-05Total elapsed time: 3.918 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed slow "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 6e-06Total elapsed time: 3.918 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.015519Total elapsed time: 3.922 sec.
+@I [HLS-100] Command "add_library xilinx/zynq/zynq_fpv6 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 4e-06Total elapsed time: 3.924 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.002052Total elapsed time: 3.928 sec.
+@I [HLS-10] Setting target device to 'xc7z020clg484-1'
+@I [HLS-100] Command 'set_part' returned 0; elapsed 0.022478Total elapsed time: 3.929 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 5e-06Total elapsed time: 3.929 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 1e-05Total elapsed time: 3.929 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed slow "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 5e-06Total elapsed time: 3.929 sec.
+@I [HLS-100] Command 'open_solution' returned 0; elapsed 0.251797Total elapsed time: 3.932 sec.
+@I [HLS-100] Command "export_design -format ip_catalog -description AES 256 CBC -vendor websensing.com -display_name aes256cbc "
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000623Total elapsed time: 3.958 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000886Total elapsed time: 4.91 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002106Total elapsed time: 4.91 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000692Total elapsed time: 4.148 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001424Total elapsed time: 4.181 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000503Total elapsed time: 4.190 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00044Total elapsed time: 4.192 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001259Total elapsed time: 4.200 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000605Total elapsed time: 4.202 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002255Total elapsed time: 4.210 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003732Total elapsed time: 4.217 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007866Total elapsed time: 4.228 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012191Total elapsed time: 4.228 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009678Total elapsed time: 4.239 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007914Total elapsed time: 4.249 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003638Total elapsed time: 4.268 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000531Total elapsed time: 4.273 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.109917Total elapsed time: 4.384 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000944Total elapsed time: 4.387 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.150845Total elapsed time: 4.387 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000314Total elapsed time: 4.391 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.153566Total elapsed time: 4.391 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.153917Total elapsed time: 4.392 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00183Total elapsed time: 4.397 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002188Total elapsed time: 4.397 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000338Total elapsed time: 4.399 sec.
+@I [IMPL-8] Exporting RTL as an IP in IP-XACT.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000489Total elapsed time: 4.561 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000481Total elapsed time: 4.626 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000697Total elapsed time: 4.631 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001706Total elapsed time: 4.631 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000519Total elapsed time: 4.633 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001026Total elapsed time: 4.636 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000226Total elapsed time: 4.638 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00031Total elapsed time: 4.640 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001129Total elapsed time: 4.648 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00059Total elapsed time: 4.655 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002139Total elapsed time: 4.658 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003954Total elapsed time: 4.666 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007524Total elapsed time: 4.675 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012225Total elapsed time: 4.675 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00976Total elapsed time: 4.687 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007987Total elapsed time: 4.700 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003628Total elapsed time: 4.708 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000332Total elapsed time: 4.710 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.107372Total elapsed time: 4.819 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00096Total elapsed time: 4.822 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.148006Total elapsed time: 4.822 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000306Total elapsed time: 4.828 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.150672Total elapsed time: 4.828 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.151023Total elapsed time: 4.828 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001809Total elapsed time: 4.833 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.0022Total elapsed time: 4.834 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000302Total elapsed time: 4.836 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000307Total elapsed time: 4.851 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_addRoundKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00033Total elapsed time: 4.878 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandDecKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000428Total elapsed time: 4.880 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_mixColumns_inv.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000339Total elapsed time: 4.883 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_decrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00042Total elapsed time: 4.886 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandEncKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000452Total elapsed time: 4.888 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_encrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000328Total elapsed time: 4.890 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000666Total elapsed time: 4.892 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000406Total elapsed time: 6.250 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00031Total elapsed time: 6.259 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_addRoundKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000321Total elapsed time: 6.262 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandDecKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000474Total elapsed time: 6.267 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_mixColumns_inv.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000295Total elapsed time: 6.270 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_decrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000562Total elapsed time: 6.275 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandEncKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000486Total elapsed time: 6.278 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_encrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000396Total elapsed time: 6.282 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.compgen.tcl "
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000785Total elapsed time: 6.310 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000395Total elapsed time: 6.312 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000419Total elapsed time: 6.315 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000929Total elapsed time: 6.343 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000559Total elapsed time: 6.345 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.112789Total elapsed time: 6.464 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000315Total elapsed time: 6.495 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000304Total elapsed time: 6.507 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_addRoundKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000292Total elapsed time: 6.509 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandDecKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000411Total elapsed time: 6.511 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_mixColumns_inv.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000311Total elapsed time: 6.513 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_decrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00041Total elapsed time: 6.517 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandEncKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000458Total elapsed time: 6.519 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_encrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000378Total elapsed time: 6.522 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000768Total elapsed time: 6.528 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000327Total elapsed time: 7.930 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000497Total elapsed time: 7.949 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000412Total elapsed time: 9.380 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000389Total elapsed time: 9.382 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000409Total elapsed time: 9.384 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000542Total elapsed time: 9.386 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000542Total elapsed time: 9.388 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000582Total elapsed time: 9.545 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000397Total elapsed time: 9.555 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000389Total elapsed time: 9.582 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000318Total elapsed time: 9.598 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00044Total elapsed time: 9.604 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000452Total elapsed time: 9.607 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000584Total elapsed time: 9.610 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000577Total elapsed time: 9.612 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000602Total elapsed time: 9.749 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000461Total elapsed time: 9.751 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000631Total elapsed time: 9.753 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00059Total elapsed time: 9.755 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000387Total elapsed time: 9.856 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000417Total elapsed time: 9.861 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.rtl_wrap.cfg.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000402Total elapsed time: 9.864 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000643Total elapsed time: 9.866 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.tbgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000558Total elapsed time: 9.869 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000334Total elapsed time: 9.994 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000303Total elapsed time: 9.996 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000385Total elapsed time: 10.72 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000317Total elapsed time: 10.127 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00051Total elapsed time: 10.174 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000394Total elapsed time: 10.192 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000383Total elapsed time: 10.196 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000773Total elapsed time: 10.582 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001776Total elapsed time: 10.582 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000525Total elapsed time: 10.585 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001158Total elapsed time: 10.590 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00029Total elapsed time: 10.592 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000312Total elapsed time: 10.595 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001321Total elapsed time: 10.610 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.0008Total elapsed time: 10.612 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002505Total elapsed time: 10.617 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003964Total elapsed time: 10.624 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007773Total elapsed time: 10.634 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012399Total elapsed time: 10.634 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009705Total elapsed time: 10.646 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008541Total elapsed time: 10.656 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003864Total elapsed time: 10.663 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000367Total elapsed time: 10.666 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.108344Total elapsed time: 10.776 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001068Total elapsed time: 10.781 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.151335Total elapsed time: 10.781 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000377Total elapsed time: 10.785 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.154203Total elapsed time: 10.785 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.154656Total elapsed time: 10.785 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001811Total elapsed time: 10.799 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002269Total elapsed time: 10.799 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000433Total elapsed time: 33.763 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000807Total elapsed time: 33.786 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001884Total elapsed time: 33.786 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000555Total elapsed time: 33.789 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001178Total elapsed time: 33.792 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000316Total elapsed time: 33.795 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000319Total elapsed time: 33.796 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001439Total elapsed time: 33.810 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000675Total elapsed time: 33.813 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002374Total elapsed time: 33.817 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003915Total elapsed time: 33.830 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00764Total elapsed time: 33.840 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012354Total elapsed time: 33.840 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.010138Total elapsed time: 33.853 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008163Total elapsed time: 33.863 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003785Total elapsed time: 33.869 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000351Total elapsed time: 33.872 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.109372Total elapsed time: 33.983 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001025Total elapsed time: 33.987 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.151896Total elapsed time: 33.987 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000383Total elapsed time: 33.992 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.15482Total elapsed time: 33.992 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.155298Total elapsed time: 33.992 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00187Total elapsed time: 33.998 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002384Total elapsed time: 33.998 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000353Total elapsed time: 34.0 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000386Total elapsed time: 34.20 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000326Total elapsed time: 34.33 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000675Total elapsed time: 34.61 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001566Total elapsed time: 34.62 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000444Total elapsed time: 34.64 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001055Total elapsed time: 34.67 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000237Total elapsed time: 34.69 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000303Total elapsed time: 34.71 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001156Total elapsed time: 34.79 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000597Total elapsed time: 34.82 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002332Total elapsed time: 34.93 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003816Total elapsed time: 34.101 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007379Total elapsed time: 34.110 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.011809Total elapsed time: 34.110 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009668Total elapsed time: 34.121 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008154Total elapsed time: 34.131 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003724Total elapsed time: 34.137 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000283Total elapsed time: 34.139 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.10938Total elapsed time: 34.250 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000996Total elapsed time: 34.254 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.150284Total elapsed time: 34.254 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000282Total elapsed time: 34.258 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.152866Total elapsed time: 34.258 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.15323Total elapsed time: 34.258 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001713Total elapsed time: 34.263 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002128Total elapsed time: 34.264 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000323Total elapsed time: 34.266 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000367Total elapsed time: 34.283 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_addRoundKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000321Total elapsed time: 34.287 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandDecKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000415Total elapsed time: 34.289 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_mixColumns_inv.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000287Total elapsed time: 34.291 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_decrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000425Total elapsed time: 34.294 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandEncKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000426Total elapsed time: 34.296 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_encrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000317Total elapsed time: 34.298 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000666Total elapsed time: 34.300 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000417Total elapsed time: 34.702 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000303Total elapsed time: 34.709 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000703Total elapsed time: 34.883 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001655Total elapsed time: 34.883 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000455Total elapsed time: 34.886 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001055Total elapsed time: 34.888 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00023Total elapsed time: 34.890 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000337Total elapsed time: 34.894 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001213Total elapsed time: 34.904 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000687Total elapsed time: 34.907 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002341Total elapsed time: 34.911 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003905Total elapsed time: 34.918 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007454Total elapsed time: 34.928 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012199Total elapsed time: 34.928 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.010057Total elapsed time: 34.945 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008157Total elapsed time: 34.955 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003769Total elapsed time: 34.961 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000302Total elapsed time: 34.962 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.107755Total elapsed time: 35.72 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001037Total elapsed time: 35.75 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.150076Total elapsed time: 35.75 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000321Total elapsed time: 35.78 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.152827Total elapsed time: 35.78 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.153224Total elapsed time: 35.79 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001706Total elapsed time: 35.84 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002078Total elapsed time: 35.84 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000367Total elapsed time: 35.119 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000384Total elapsed time: 49.659 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000914Total elapsed time: 49.688 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002066Total elapsed time: 49.689 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000607Total elapsed time: 49.691 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001402Total elapsed time: 49.695 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000327Total elapsed time: 49.697 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000336Total elapsed time: 49.699 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001253Total elapsed time: 49.709 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00079Total elapsed time: 49.712 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00237Total elapsed time: 49.716 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003975Total elapsed time: 49.731 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007726Total elapsed time: 49.741 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012547Total elapsed time: 49.741 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.010189Total elapsed time: 49.753 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008413Total elapsed time: 49.764 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003879Total elapsed time: 49.770 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000363Total elapsed time: 49.772 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.111419Total elapsed time: 49.886 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001033Total elapsed time: 49.889 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.154724Total elapsed time: 49.889 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000373Total elapsed time: 49.893 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.157621Total elapsed time: 49.893 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.158087Total elapsed time: 49.894 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001854Total elapsed time: 49.900 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002332Total elapsed time: 49.900 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000352Total elapsed time: 49.902 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000345Total elapsed time: 49.912 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000322Total elapsed time: 49.925 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000679Total elapsed time: 49.945 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001518Total elapsed time: 49.946 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000454Total elapsed time: 49.948 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001048Total elapsed time: 49.951 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000239Total elapsed time: 49.953 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000324Total elapsed time: 49.955 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001144Total elapsed time: 49.963 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000603Total elapsed time: 49.966 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002172Total elapsed time: 49.970 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004016Total elapsed time: 49.981 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007467Total elapsed time: 49.990 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.012143Total elapsed time: 49.990 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009935Total elapsed time: 50.2 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.008128Total elapsed time: 50.12 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003765Total elapsed time: 50.18 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000268Total elapsed time: 50.20 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.11091Total elapsed time: 50.133 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000983Total elapsed time: 50.136 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.152353Total elapsed time: 50.136 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000291Total elapsed time: 50.140 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.15503Total elapsed time: 50.140 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.155415Total elapsed time: 50.140 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001844Total elapsed time: 50.146 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00229Total elapsed time: 50.146 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000331Total elapsed time: 50.149 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000328Total elapsed time: 50.161 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_addRoundKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000301Total elapsed time: 50.165 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandDecKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000398Total elapsed time: 50.167 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_mixColumns_inv.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00029Total elapsed time: 50.169 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_decrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000441Total elapsed time: 50.172 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes_expandEncKey.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000433Total elapsed time: 50.175 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256_encrypt_ecb.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000328Total elapsed time: 50.177 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.compgen.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000759Total elapsed time: 50.180 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000363Total elapsed time: 50.595 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/aes256cbc.constraint.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000224Total elapsed time: 50.603 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/common.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/APCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000707Total elapsed time: 50.705 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001682Total elapsed time: 50.706 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000459Total elapsed time: 50.708 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/op_simcore.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001133Total elapsed time: 50.711 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/generic/autopilot/interface.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000239Total elapsed time: 50.713 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000328Total elapsed time: 50.716 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001128Total elapsed time: 50.725 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000624Total elapsed time: 50.728 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002208Total elapsed time: 50.732 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003681Total elapsed time: 50.740 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007435Total elapsed time: 50.749 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.011661Total elapsed time: 50.750 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.009745Total elapsed time: 50.761 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.007936Total elapsed time: 50.771 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.003713Total elapsed time: 50.777 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00034Total elapsed time: 50.779 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.111052Total elapsed time: 50.891 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001031Total elapsed time: 50.895 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.151959Total elapsed time: 50.895 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000351Total elapsed time: 50.898 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.15476Total elapsed time: 50.899 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.155157Total elapsed time: 50.899 sec.
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /thayerfs/apps/xilinx/Vivado_HLS/current/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001847Total elapsed time: 50.905 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002317Total elapsed time: 50.905 sec.
+@I [HLS-100] Command "source /thayerfs/home/d36937q/MS/Thesis/Vivado_WS/aes256cbc/solution1/.autopilot/db/global.setting.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00046Total elapsed time: 50.924 sec.
+@I [HLS-100] Command 'export_design' returned 0; elapsed 2.82635Total elapsed time: 67.184 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 3.08313Total elapsed time: 67.184 sec.
+@I [HLS-100] Command "cleanup_all "
+@I [HLS-100] Command 'cleanup_all' returned 0; elapsed 0.000341Total elapsed time: 67.185 sec.

@@ -1,0 +1,30 @@
+   Build using "/opt/Xilinx/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/g++"
+   Compiling apatb_aes256cbc.cpp
+   Compiling (apcc) aes256cbc.c_pre.c.tb.c
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2016.4/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'jd' on host 'ubuntu-dev' (Linux_x86_64 version 3.16.0-62-generic) on Tue Mar 14 13:06:59 EDT 2017
+INFO: [HLS 200-10] On os Ubuntu 14.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/jd/workspace/aes256cbc/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_jd/103521489511219229025
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) aes256cbc_tb.c_pre.c.tb.c
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2016.4/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'jd' on host 'ubuntu-dev' (Linux_x86_64 version 3.16.0-62-generic) on Tue Mar 14 13:07:00 EDT 2017
+INFO: [HLS 200-10] On os Ubuntu 14.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/jd/workspace/aes256cbc/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_jd/104051489511220107258
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) aes256ecb.c_pre.c.tb.c
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2016.4/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'jd' on host 'ubuntu-dev' (Linux_x86_64 version 3.16.0-62-generic) on Tue Mar 14 13:07:00 EDT 2017
+INFO: [HLS 200-10] On os Ubuntu 14.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/jd/workspace/aes256cbc/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_jd/104581489511220826643
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe
