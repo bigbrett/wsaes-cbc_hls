@@ -4,3 +4,7 @@
 .project
 .settings
 vivado_hls.app
+*.swp
+*.log
+*.jou
+*.sdb

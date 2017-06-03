@@ -8,8 +8,12 @@
 #include <openssl/evp.h>
 #include <openssl/err.h>
 
-//#define OPENSSL_TRUTH
-#undef  OPENSSL_TRUTH
+#define OPENSSL_TRUTH
+//#undef  OPENSSL_TRUTH
+
+
+const char teststr[32] = "The Quick Brown Fox Jumped Over "; // string to encrypt
+char openSSL_result[32];
 
 static void dumpmsg( uint8_t *pbuf ) {
 	int index;
@@ -76,12 +80,16 @@ int main( int argc, char *argv[]) {
 	//		 	 	   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 	uint8_t vRAM[1024];
 
+	// zero out golden truth array
+	memset(openSSL_result, 0, 32);
+
 	// Text to encrypt/decrypt
 	// strncpy((char *)vRAM,(const char *)"Hello World!!!!!Hello World!!!!!",32);
-	strncpy((char *)vRAM,(const char *)"The Quick Brown Fox Jumped Over ",32);
+	strncpy((char *)vRAM, teststr, 32);
 	printf("TEXT  :\n");
 	dumpmsg(vRAM);
 	dumpmsg(&(vRAM[16]));
+
 
 #ifdef OPENSSL_TRUTH
 	// Create truth
@@ -92,6 +100,8 @@ int main( int argc, char *argv[]) {
 	printf("TRUTH :\n");
 	dumpmsg(&(vRAM[32]));
 	dumpmsg(&(vRAM[48]));
+	// copy results to golden truth array
+	strncpy(openSSL_result, &(vRAM[32]), 32);
 #endif
 
 	// Test our engine
@@ -105,6 +115,12 @@ int main( int argc, char *argv[]) {
 	dumpmsg(&(vRAM[32]));
 	dumpmsg(&(vRAM[48]));
 
+	if (strncmp(&(vRAM[32]), openSSL_result, 32))
+	{
+		printf("ERROR: ENCRYPTED DATA NOT CORRECT\n");
+		return -1;
+	}
+
 	// Erase the original plain text
 	memset(vRAM,0,32);
 
@@ -117,5 +133,10 @@ int main( int argc, char *argv[]) {
 	dumpmsg(vRAM);
 	dumpmsg(&(vRAM[16]));
 
+	if (strncmp(vRAM, teststr, 32))
+	{
+		printf("ERROR: DECRYPTED DATA NOT CORRECT\n");
+		return -1;
+	}
 	return 0;
 }
