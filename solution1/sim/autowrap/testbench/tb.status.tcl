@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName aes256cbc.c_pre.c.tb.c

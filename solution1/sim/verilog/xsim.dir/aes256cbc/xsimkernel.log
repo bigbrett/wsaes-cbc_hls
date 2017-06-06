@@ -1,7 +1,0 @@
-Running: xsim.dir/aes256cbc/xsimk -simmode gui -wdb aes256cbc.wdb -simrunnum 0 -socket 46683
-Design successfully loaded
-Design Loading Memory Usage: 44324 KB (Peak: 45064 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 130352 KB (Peak: 183592 KB)
-Simulation CPU Usage: 460 ms
