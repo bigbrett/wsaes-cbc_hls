@@ -5,7 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 
-void aescbc(uint8_t memptr[DATA_IN_SIZE], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr) {
+void aescbc(uint8_t memptr[DATA_IN_SIZE],
+		    ciphermode_t mode,
+			uint32_t inbuf_addr,
+			uint32_t outbuf_addr) {
 #pragma HLS INTERFACE s_axilite port=outbuf_addr //bundle=p0
 #pragma HLS INTERFACE s_axilite port=inbuf_addr //bundle=p0
 #pragma HLS INTERFACE s_axilite port=memptr depth=64
