@@ -49,6 +49,8 @@ int main( int argc, char *argv[]) {
 	dumpmsg(&(buf0[16]));
 
 	// Test our engine
+	aescbc(buf1,buf0, SET_KEY,key,iv);
+	aescbc(buf1,buf0, SET_IV,key,iv);
 	aescbc(buf0,buf1, RESET,key,iv);
 	aescbc(buf0,buf1, ENCRYPT, key,iv);
 	aescbc(&buf0[16],&buf1[16], ENCRYPT, key,iv);
