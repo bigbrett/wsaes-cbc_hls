@@ -16,8 +16,6 @@ void aescbc(ciphermode_t mode,
 #pragma HLS INTERFACE s_axilite port=mode //bundle=p0
 #pragma HLS INTERFACE s_axilite port=return
 
-	const uint8_t zeros[AESBLKSIZE] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-
 	uint8_t buf[AESBLKSIZE];            // FPGA copy of crypto data from/to interface args
 	static uint8_t lastbuf[AESBLKSIZE]; // Used in decryption only
 	static uint8_t iv[AESBLKSIZE];      // Initialization vector for first XOR operation
