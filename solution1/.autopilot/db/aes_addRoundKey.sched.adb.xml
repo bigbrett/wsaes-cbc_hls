@@ -86,7 +86,7 @@
 
 <Node id="8" bw="5" op_0_bw="5" op_1_bw="0">
 <![CDATA[
-:0  %i = phi i5 [ -16, %0 ], [ %i_46, %2 ]
+:0  %i = phi i5 [ -16, %0 ], [ %i_50, %2 ]
 
 ]]></Node>
 <StgValue><ssdm name="i"/></StgValue>
@@ -101,10 +101,10 @@
 
 <Node id="9" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-:1  %i_46 = add i5 %i, -1
+:1  %i_50 = add i5 %i, -1
 
 ]]></Node>
-<StgValue><ssdm name="i_46"/></StgValue>
+<StgValue><ssdm name="i_50"/></StgValue>
 </operation>
 
 <operation id="9" st_id="2" stage="1" lat="1">
@@ -116,10 +116,10 @@
 
 <Node id="10" bw="8" op_0_bw="5">
 <![CDATA[
-:2  %i_49_cast = sext i5 %i_46 to i8
+:2  %i_53_cast = sext i5 %i_50 to i8
 
 ]]></Node>
-<StgValue><ssdm name="i_49_cast"/></StgValue>
+<StgValue><ssdm name="i_53_cast"/></StgValue>
 </operation>
 
 <operation id="10" st_id="2" stage="1" lat="1">
@@ -177,7 +177,7 @@
 
 <Node id="15" bw="64" op_0_bw="8">
 <![CDATA[
-:0  %tmp_s = zext i8 %i_49_cast to i64
+:0  %tmp_s = zext i8 %i_53_cast to i64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_s"/></StgValue>
@@ -193,7 +193,7 @@
 
 <Node id="16" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-:1  %sum = add i5 %i_46, %tmp_38
+:1  %sum = add i5 %i_50, %tmp_38
 
 ]]></Node>
 <StgValue><ssdm name="sum"/></StgValue>
@@ -337,10 +337,10 @@
 
 <Node id="22" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-:7  %tmp_145 = xor i8 %buf_load, %key_load
+:7  %tmp_149 = xor i8 %buf_load, %key_load
 
 ]]></Node>
-<StgValue><ssdm name="tmp_145"/></StgValue>
+<StgValue><ssdm name="tmp_149"/></StgValue>
 </operation>
 
 <operation id="24" st_id="3" stage="1" lat="1">
@@ -352,7 +352,7 @@
 
 <Node id="23" bw="0" op_0_bw="8" op_1_bw="4">
 <![CDATA[
-:8  store i8 %tmp_145, i8* %buf_addr, align 1
+:8  store i8 %tmp_149, i8* %buf_addr, align 1
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>

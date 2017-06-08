@@ -45,8 +45,8 @@ struct aes_addRoundKey : public sc_module {
     sc_signal< sc_lv<1> > ap_CS_fsm_state1;
     sc_signal< sc_lv<5> > tmp_38_fu_61_p1;
     sc_signal< sc_lv<5> > tmp_38_reg_103;
-    sc_signal< sc_lv<5> > i_46_fu_65_p2;
-    sc_signal< sc_lv<5> > i_46_reg_108;
+    sc_signal< sc_lv<5> > i_50_fu_65_p2;
+    sc_signal< sc_lv<5> > i_50_reg_108;
     sc_signal< sc_lv<1> > ap_CS_fsm_state2;
     sc_signal< sc_lv<1> > tmp_fu_75_p2;
     sc_signal< sc_lv<4> > buf_addr_reg_121;
@@ -54,7 +54,7 @@ struct aes_addRoundKey : public sc_module {
     sc_signal< sc_lv<1> > ap_CS_fsm_state3;
     sc_signal< sc_lv<64> > sum_cast_fu_91_p1;
     sc_signal< sc_lv<64> > tmp_s_fu_81_p1;
-    sc_signal< sc_lv<8> > i_49_cast_fu_71_p1;
+    sc_signal< sc_lv<8> > i_53_cast_fu_71_p1;
     sc_signal< sc_lv<5> > sum_fu_86_p2;
     sc_signal< sc_lv<3> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
@@ -82,8 +82,8 @@ struct aes_addRoundKey : public sc_module {
     void thread_buf_r_ce0();
     void thread_buf_r_d0();
     void thread_buf_r_we0();
-    void thread_i_46_fu_65_p2();
-    void thread_i_49_cast_fu_71_p1();
+    void thread_i_50_fu_65_p2();
+    void thread_i_53_cast_fu_71_p1();
     void thread_key_address0();
     void thread_key_ce0();
     void thread_sum_cast_fu_91_p1();

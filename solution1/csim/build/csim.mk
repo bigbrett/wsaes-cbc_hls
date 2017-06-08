@@ -59,7 +59,6 @@ IFLAG += -D__SIM_DDS__
 
 LFLAG += -lssl -lcrypto
 IFLAG += -g
-DFLAG += -DAUTOCC
 DFLAG += -D__xilinx_ip_top= -DAESL_TB
 CCFLAG += 
 
@@ -71,22 +70,20 @@ all: $(TARGET)
 
 
 
-AUTOCC := apcc  
-
 $(ObjDir)/aescbc_tb.o: ../../../src/aescbc_tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../src/aescbc_tb.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Echo) "   Compiling ../../../src/aescbc_tb.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/aescbc_tb.d
 
 $(ObjDir)/aesecb.o: ../../../src/aesecb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../src/aesecb.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Echo) "   Compiling ../../../src/aesecb.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/aesecb.d
 
 $(ObjDir)/aescbc.o: ../../../src/aescbc.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../src/aescbc.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Echo) "   Compiling ../../../src/aescbc.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/aescbc.d

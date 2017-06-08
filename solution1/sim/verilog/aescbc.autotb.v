@@ -17,31 +17,23 @@
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
 `define AUTOTB_CLOCK_PERIOD_DIV2 4.00
 
+`define AESL_DEPTH_mode 1
 `define AESL_DEPTH_data_in 1
 `define AESL_DEPTH_data_out 1
-`define AESL_DEPTH_mode 1
-`define AESL_DEPTH_key_in 1
-`define AESL_DEPTH_iv_in 1
-`define AUTOTB_TVIN_data_in  "../tv/cdatafile/c.aescbc.autotvin_data_in.dat"
 `define AUTOTB_TVIN_mode  "../tv/cdatafile/c.aescbc.autotvin_mode.dat"
-`define AUTOTB_TVIN_key_in  "../tv/cdatafile/c.aescbc.autotvin_key_in.dat"
-`define AUTOTB_TVIN_iv_in  "../tv/cdatafile/c.aescbc.autotvin_iv_in.dat"
-`define AUTOTB_TVIN_data_in_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvin_data_in.dat"
+`define AUTOTB_TVIN_data_in  "../tv/cdatafile/c.aescbc.autotvin_data_in.dat"
 `define AUTOTB_TVIN_mode_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvin_mode.dat"
-`define AUTOTB_TVIN_key_in_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvin_key_in.dat"
-`define AUTOTB_TVIN_iv_in_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvin_iv_in.dat"
+`define AUTOTB_TVIN_data_in_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvin_data_in.dat"
 `define AUTOTB_TVOUT_data_out  "../tv/cdatafile/c.aescbc.autotvout_data_out.dat"
 `define AUTOTB_TVOUT_data_out_out_wrapc  "../tv/rtldatafile/rtl.aescbc.autotvout_data_out.dat"
 module `AUTOTB_TOP;
 
-parameter AUTOTB_TRANSACTION_NUM = 6;
+parameter AUTOTB_TRANSACTION_NUM = 8;
 parameter PROGRESS_TIMEOUT = 10000000;
 parameter LATENCY_ESTIMATION = 2543;
-parameter LENGTH_data_in = 16;
-parameter LENGTH_data_out = 16;
 parameter LENGTH_mode = 1;
-parameter LENGTH_key_in = 32;
-parameter LENGTH_iv_in = 16;
+parameter LENGTH_data_in = 32;
+parameter LENGTH_data_out = 16;
 
 task read_token;
     input integer fp;
@@ -201,8 +193,6 @@ end
 
 
 
-
-
 AESL_axi_slave_AXILiteS AESL_AXI_SLAVE_AXILiteS(
     .clk   (AESL_clock),
     .reset (AESL_reset),
@@ -298,18 +288,12 @@ initial begin
 end
 
 
-reg end_data_in;
-reg [31:0] size_data_in;
-reg [31:0] size_data_in_backup;
 reg end_mode;
 reg [31:0] size_mode;
 reg [31:0] size_mode_backup;
-reg end_key_in;
-reg [31:0] size_key_in;
-reg [31:0] size_key_in_backup;
-reg end_iv_in;
-reg [31:0] size_iv_in;
-reg [31:0] size_iv_in_backup;
+reg end_data_in;
+reg [31:0] size_data_in;
+reg [31:0] size_data_in_backup;
 reg end_data_out;
 reg [31:0] size_data_out;
 reg [31:0] size_data_out_backup;

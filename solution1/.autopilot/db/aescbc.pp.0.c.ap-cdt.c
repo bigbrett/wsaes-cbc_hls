@@ -1028,15 +1028,12 @@ typedef unsigned long int uintmax_t;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma empty_line
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 #pragma empty_line
 //void aescbc(uint8_t memptr[DATA_IN_SIZE], ciphermode_t mode, uint32_t inbuf_addr, uint32_t outbuf_addr);
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16]);
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16] );
 #pragma line 3 "aescbc/src/aescbc.c" 2
 #pragma empty_line
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4
@@ -4410,18 +4407,21 @@ extern char *stpncpy (char *__restrict __dest,
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1, 2)));
 #pragma line 7 "aescbc/src/aescbc.c" 2
 #pragma empty_line
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16])
-{_ssdm_SpecArrayDimSize(iv_in,16);_ssdm_SpecArrayDimSize(key_in,32);_ssdm_SpecArrayDimSize(data_out,16);_ssdm_SpecArrayDimSize(data_in,16);
-#pragma HLS INTERFACE s_axilite port=key_in depth=32 /*bundle=p0*/
-#pragma HLS INTERFACE s_axilite port=iv_in depth=16/*bundle=p0*/
-#pragma HLS INTERFACE s_axilite port=data_in depth=16
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16])
+{_ssdm_SpecArrayDimSize(data_out,16);_ssdm_SpecArrayDimSize(data_in,32);
+//#pragma HLS INTERFACE s_axilite port=key_in depth=32 //bundle=p0
+//#pragma HLS INTERFACE s_axilite port=iv_in depth=16//bundle=p0
+#pragma HLS INTERFACE s_axilite port=data_in depth=32
 #pragma HLS INTERFACE s_axilite port=data_out depth=16
 #pragma HLS INTERFACE s_axilite port=mode /*bundle=p0*/
 #pragma HLS INTERFACE s_axilite port=return
+#pragma empty_line
+ const uint8_t zeros[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+_ssdm_SpecConstant(zeros);
+#pragma line 19 "aescbc/src/aescbc.c"
+
 #pragma empty_line
  uint8_t buf[16]; // FPGA copy of crypto data from/to interface args
  static uint8_t lastbuf[16]; // Used in decryption only
@@ -4434,59 +4434,71 @@ void aescbc(uint8_t data_in[16],
     switch( mode ) {
     case RESET:
      // zero output
-     aescbc_label12:for(i=0; i<16; i++)
+     loop_dataoutclr0:
+  for(i=0; i<16; i++)
       data_out[i] = 0;
-  aescbc_label4:for(i=0; i<32; i++)
-   key[i] = key_in[i];
-     aescbc_label10:for(i=0; i<16; i++)
-      iv[i] = iv_in[i];
-     aescbc_label11:for(i=0; i<16; i++)
+#pragma empty_line
+     loop_xorvreset:
+  for(i=0; i<16; i++)
       xorv[i] = iv[i];
-     aes_init(&ctx, key);
+#pragma empty_line
+  aes_init(&ctx, key);
      break;
 #pragma empty_line
     case ENCRYPT:
      // copy data into buffer
-     aescbc_label1: for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = data_in[i];
      // scramble the input based on the iv/last cipher output block
-     aescbc_label7:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = buf[i]^xorv[i];
      // apply the ECB encryption algorithm
      aes_encrypt_ecb(&ctx, buf);
      // copy the output to xorv for the next operation
-     aescbc_label9:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       xorv[i] = buf[i];
      // copy the output to the destination region in memory
-     aescbc_label0:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       data_out[i] = buf[i];
      break;
 #pragma empty_line
     case DECRYPT:
-     aescbc_label2:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = data_in[i];
      // retain cipher block for next cycle's xorv[]
-     aescbc_label3:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       lastbuf[i] = buf[i];
      // apply the ECB decryption algorithm
      aes_decrypt_ecb(&ctx, buf);
      // unscramble the results based on the iv/last cipher block output
-     aescbc_label5:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = buf[i]^xorv[i];
      // set up xorv for the next cycle
-     aescbc_label8:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       xorv[i] = lastbuf[i];
      // copy the output to the destination region in memory
-     aescbc_label6:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       data_out[i] = buf[i];
      break;
 #pragma empty_line
     case SET_IV:
+     loop_setiv:
+  for(i=0; i<16; i++)
+      iv[i] = data_in[i];
 #pragma empty_line
+  loop_dataoutclr1:
+  for(i=0; i<16; i++)
+   data_out[i] = 0;
      break;
 #pragma empty_line
     case SET_KEY:
+  loop_setkey:
+  for(i=0; i<32; i++)
+   key[i] = data_in[i];
 #pragma empty_line
+     loop_dataoutclr2:
+  for(i=0; i<16; i++)
+   data_out[i] = 0;
      break;
     }
 }

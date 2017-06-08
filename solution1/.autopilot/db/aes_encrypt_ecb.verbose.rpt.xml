@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_encrypt_ecb'" level="0">
-<item name = "Date">Thu Jun  8 07:23:51 2017
+<item name = "Date">Thu Jun  8 09:29:44 2017
 </item>
 <item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
 <item name = "Project">aescbc</item>
@@ -87,19 +87,19 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_30_fu_467_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_31_fu_803_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_32_fu_518_p2">+, 0, 0, 5, 5, 2</column>
-<column name="i_37_fu_572_p2">+, 0, 0, 5, 3, 5</column>
-<column name="i_38_fu_797_p2">+, 0, 0, 4, 4, 1</column>
-<column name="tmp_209_i_fu_489_p2">+, 0, 0, 5, 5, 4</column>
+<column name="i_34_fu_467_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_35_fu_803_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_36_fu_518_p2">+, 0, 0, 5, 5, 2</column>
+<column name="i_41_fu_572_p2">+, 0, 0, 5, 3, 5</column>
+<column name="i_42_fu_797_p2">+, 0, 0, 4, 4, 1</column>
+<column name="tmp_213_i_fu_489_p2">+, 0, 0, 5, 5, 4</column>
 <column name="exitcond_fu_512_p2">icmp, 0, 0, 2, 4, 3</column>
 <column name="tmp_i5_fu_528_p2">icmp, 0, 0, 2, 5, 1</column>
 <column name="tmp_i8_fu_813_p2">icmp, 0, 0, 2, 5, 1</column>
 <column name="tmp_i_fu_477_p2">icmp, 0, 0, 2, 5, 1</column>
-<column name="tmp_63_i_fu_561_p2">or, 0, 0, 7, 4, 1</column>
-<column name="tmp_65_i_fu_582_p2">or, 0, 0, 7, 4, 2</column>
-<column name="tmp_67_i_fu_592_p2">or, 0, 0, 7, 4, 2</column>
+<column name="tmp_67_i_fu_561_p2">or, 0, 0, 7, 4, 1</column>
+<column name="tmp_69_i_fu_582_p2">or, 0, 0, 7, 4, 2</column>
+<column name="tmp_71_i_fu_592_p2">or, 0, 0, 7, 4, 2</column>
 <column name="y_21_fu_640_p3">select, 0, 0, 8, 1, 8</column>
 <column name="y_23_fu_686_p3">select, 0, 0, 8, 1, 8</column>
 <column name="y_25_fu_732_p3">select, 0, 0, 8, 1, 8</column>
@@ -112,12 +112,12 @@
 <column name="tmp_1_i14_i_fu_726_p2">xor, 0, 0, 8, 8, 5</column>
 <column name="tmp_1_i18_i_fu_772_p2">xor, 0, 0, 8, 8, 5</column>
 <column name="tmp_1_i_i_fu_634_p2">xor, 0, 0, 8, 8, 5</column>
-<column name="tmp_207_i_fu_505_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_70_i_fu_608_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_73_i_fu_654_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_77_i_fu_700_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_81_i_fu_746_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_85_i_fu_786_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_211_i_fu_505_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_74_i_fu_608_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_77_i_fu_654_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_81_i_fu_700_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_85_i_fu_746_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_89_i_fu_786_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_1_fu_752_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_9_fu_660_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_fu_602_p2">xor, 0, 0, 8, 8, 8</column>
@@ -173,10 +173,10 @@
 <column name="buf_addr_26_reg_977">3, 0, 4, 1</column>
 <column name="buf_addr_27_reg_991">3, 0, 4, 1</column>
 <column name="buf_addr_28_reg_996">2, 0, 4, 2</column>
-<column name="i_30_reg_829">5, 0, 5, 0</column>
-<column name="i_31_reg_1026">5, 0, 5, 0</column>
-<column name="i_32_reg_944">5, 0, 5, 0</column>
-<column name="i_37_reg_982">5, 0, 5, 0</column>
+<column name="i_34_reg_829">5, 0, 5, 0</column>
+<column name="i_35_reg_1026">5, 0, 5, 0</column>
+<column name="i_36_reg_944">5, 0, 5, 0</column>
+<column name="i_41_reg_982">5, 0, 5, 0</column>
 <column name="i_i1_reg_357">5, 0, 5, 0</column>
 <column name="i_i2_reg_346">5, 0, 5, 0</column>
 <column name="i_i4_reg_335">5, 0, 5, 0</column>
@@ -194,13 +194,13 @@
 <column name="reg_448">8, 0, 8, 0</column>
 <column name="reg_455">8, 0, 8, 0</column>
 <column name="reg_462">8, 0, 8, 0</column>
-<column name="tmp_210_i_reg_852">5, 0, 64, 59</column>
+<column name="tmp_214_i_reg_852">5, 0, 64, 59</column>
 <column name="tmp_27_reg_987">1, 0, 1, 0</column>
 <column name="tmp_28_reg_971">4, 0, 4, 0</column>
-<column name="tmp_73_i_reg_1001">8, 0, 8, 0</column>
-<column name="tmp_77_i_reg_1006">8, 0, 8, 0</column>
-<column name="tmp_81_i_reg_1011">8, 0, 8, 0</column>
-<column name="tmp_85_i_reg_1016">8, 0, 8, 0</column>
+<column name="tmp_77_i_reg_1001">8, 0, 8, 0</column>
+<column name="tmp_81_i_reg_1006">8, 0, 8, 0</column>
+<column name="tmp_85_i_reg_1011">8, 0, 8, 0</column>
+<column name="tmp_89_i_reg_1016">8, 0, 8, 0</column>
 <column name="tmp_i_26_reg_837">8, 0, 64, 56</column>
 </table>
 </item>

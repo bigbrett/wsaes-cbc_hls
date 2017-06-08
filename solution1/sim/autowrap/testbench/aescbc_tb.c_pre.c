@@ -92,15 +92,12 @@ typedef unsigned long int uintmax_t;
 
 
 
-
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 
 
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16]);
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16] );
 # 2 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c" 2
 # 1 "/usr/include/stdio.h" 1 3 4
 # 29 "/usr/include/stdio.h" 3 4
@@ -5150,9 +5147,11 @@ int main( int argc, char *argv[]) {
  dumpmsg(&(buf0[16]));
 
 
- aescbc(buf0,buf1, RESET,key,iv);
- aescbc(buf0,buf1, ENCRYPT, key,iv);
- aescbc(&buf0[16],&buf1[16], ENCRYPT, key,iv);
+ aescbc(SET_KEY, key, buf1);
+ aescbc(SET_IV, iv, buf1);
+ aescbc(RESET, buf0,buf1);
+ aescbc(ENCRYPT, buf0, buf1);
+ aescbc(ENCRYPT, &buf0[16],&buf1[16]);
 
  printf("DUTENC:\n");
  dumpmsg(buf1);
@@ -5169,11 +5168,9 @@ int main( int argc, char *argv[]) {
  memset(buf0,0,32);
 
 
-
- aescbc(buf1,buf0, RESET,key,iv);
- aescbc(buf1,buf0, DECRYPT, key,iv);
- aescbc(&buf1[16],&buf0[16], DECRYPT, key,iv);
-
+ aescbc(RESET, buf1, buf0);
+ aescbc(DECRYPT, buf1, buf0);
+ aescbc(DECRYPT, &buf1[16],&buf0[16]);
 
  printf("DUTDEC:\n");
  dumpmsg(buf0);

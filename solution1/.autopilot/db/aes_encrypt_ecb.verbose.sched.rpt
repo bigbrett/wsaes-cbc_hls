@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_encrypt_ecb'
 ================================================================
-* Date:           Thu Jun  8 07:23:49 2017
+* Date:           Thu Jun  8 09:29:42 2017
 
 * Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aescbc
@@ -179,13 +179,13 @@ ST_1: StgValue_44 (5)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:222->aescbc/src/ae
 
  <State 2>: 4.11ns
 ST_2: i_i (7)  [1/1] 0.00ns
-:0  %i_i = phi i5 [ -16, %0 ], [ %i_30, %2 ]
+:0  %i_i = phi i5 [ -16, %0 ], [ %i_34, %2 ]
 
-ST_2: i_30 (8)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:1  %i_30 = add i5 %i_i, -1
+ST_2: i_34 (8)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
+:1  %i_34 = add i5 %i_i, -1
 
-ST_2: i_32_cast (9)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:2  %i_32_cast = sext i5 %i_30 to i8
+ST_2: i_36_cast (9)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
+:2  %i_36_cast = sext i5 %i_34 to i8
 
 ST_2: tmp_i (10)  [1/1] 1.91ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :3  %tmp_i = icmp eq i5 %i_i, 0
@@ -197,7 +197,7 @@ ST_2: StgValue_50 (12)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/a
 :5  br i1 %tmp_i, label %aes_addRoundKey_cpy.exit.preheader, label %2
 
 ST_2: tmp_i_26 (14)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:0  %tmp_i_26 = zext i8 %i_32_cast to i64
+:0  %tmp_i_26 = zext i8 %i_36_cast to i64
 
 ST_2: ctx_enckey_addr (15)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :1  %ctx_enckey_addr = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_i_26
@@ -211,14 +211,14 @@ ST_2: buf_addr_22 (19)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/a
 ST_2: buf_load (20)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :6  %buf_load = load i8* %buf_addr_22, align 1
 
-ST_2: tmp_209_i (23)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:9  %tmp_209_i = add i5 %i_i, 15
+ST_2: tmp_213_i (23)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
+:9  %tmp_213_i = add i5 %i_i, 15
 
-ST_2: tmp_210_i (24)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:10  %tmp_210_i = zext i5 %tmp_209_i to i64
+ST_2: tmp_214_i (24)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
+:10  %tmp_214_i = zext i5 %tmp_213_i to i64
 
 ST_2: ctx_enckey_addr_1 (25)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:11  %ctx_enckey_addr_1 = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_210_i
+:11  %ctx_enckey_addr_1 = getelementptr [32 x i8]* @ctx_enckey, i64 0, i64 %tmp_214_i
 
 ST_2: ctx_enckey_load_1 (26)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :12  %ctx_enckey_load_1 = load i8* %ctx_enckey_addr_1, align 1
@@ -282,17 +282,17 @@ ST_3: StgValue_77 (18)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/a
 ST_3: buf_load (20)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :6  %buf_load = load i8* %buf_addr_22, align 1
 
-ST_3: tmp_207_i (21)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:7  %tmp_207_i = xor i8 %buf_load, %ctx_enckey_load
+ST_3: tmp_211_i (21)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
+:7  %tmp_211_i = xor i8 %buf_load, %ctx_enckey_load
 
 ST_3: StgValue_80 (22)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:8  store i8 %tmp_207_i, i8* %buf_addr_22, align 1
+:8  store i8 %tmp_211_i, i8* %buf_addr_22, align 1
 
 ST_3: ctx_enckey_load_1 (26)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :12  %ctx_enckey_load_1 = load i8* %ctx_enckey_addr_1, align 1
 
 ST_3: ctx_key_addr_16 (27)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
-:13  %ctx_key_addr_16 = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_210_i
+:13  %ctx_key_addr_16 = getelementptr [32 x i8]* @ctx_key, i64 0, i64 %tmp_214_i
 
 ST_3: StgValue_83 (28)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362
 :14  store i8 %ctx_enckey_load_1, i8* %ctx_key_addr_16, align 1
@@ -303,7 +303,7 @@ ST_3: StgValue_84 (29)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:222->aescbc/src/a
 
  <State 4>: 1.88ns
 ST_4: i (47)  [1/1] 0.00ns
-aes_addRoundKey_cpy.exit:0  %i = phi i4 [ %i_38, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
+aes_addRoundKey_cpy.exit:0  %i = phi i4 [ %i_42, %8 ], [ 1, %aes_addRoundKey_cpy.exit.preheader ]
 
 ST_4: exitcond (48)  [1/1] 1.88ns  loc: aescbc/src/aesecb.c:363
 aes_addRoundKey_cpy.exit:1  %exitcond = icmp eq i4 %i, -2
@@ -323,13 +323,13 @@ ST_4: StgValue_90 (168)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:198->aescbc/src/
 
  <State 5>: 4.11ns
 ST_5: i_i4 (54)  [1/1] 0.00ns
-.preheader50:0  %i_i4 = phi i5 [ %i_32, %3 ], [ -16, %.preheader50.preheader ]
+.preheader50:0  %i_i4 = phi i5 [ %i_36, %3 ], [ -16, %.preheader50.preheader ]
 
-ST_5: i_32 (55)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
-.preheader50:1  %i_32 = add i5 %i_i4, -1
+ST_5: i_36 (55)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
+.preheader50:1  %i_36 = add i5 %i_i4, -1
 
-ST_5: i_34_cast (56)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
-.preheader50:2  %i_34_cast = sext i5 %i_32 to i8
+ST_5: i_38_cast (56)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
+.preheader50:2  %i_38_cast = sext i5 %i_36 to i8
 
 ST_5: tmp_i5 (57)  [1/1] 1.91ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
 .preheader50:3  %tmp_i5 = icmp eq i5 %i_i4, 0
@@ -341,7 +341,7 @@ ST_5: StgValue_96 (59)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/a
 .preheader50:5  br i1 %tmp_i5, label %aes_subBytes.exit, label %3
 
 ST_5: tmp_i6 (61)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
-:0  %tmp_i6 = zext i8 %i_34_cast to i64
+:0  %tmp_i6 = zext i8 %i_38_cast to i64
 
 ST_5: buf_addr_24 (62)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
 :1  %buf_addr_24 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i6
@@ -349,8 +349,8 @@ ST_5: buf_addr_24 (62)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/a
 ST_5: buf_load_31 (63)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
 :2  %buf_load_31 = load i8* %buf_addr_24, align 1
 
-ST_5: i_35 (70)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
-aes_subBytes.exit:0  %i_35 = load i8* %buf_addr, align 1
+ST_5: i_39 (70)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
+aes_subBytes.exit:0  %i_39 = load i8* %buf_addr, align 1
 
 ST_5: buf_load_20 (71)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
 aes_subBytes.exit:1  %buf_load_20 = load i8* %buf_addr_11, align 1
@@ -360,11 +360,11 @@ aes_subBytes.exit:1  %buf_load_20 = load i8* %buf_addr_11, align 1
 ST_6: buf_load_31 (63)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
 :2  %buf_load_31 = load i8* %buf_addr_24, align 1
 
-ST_6: tmp_29_i (64)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
-:3  %tmp_29_i = zext i8 %buf_load_31 to i64
+ST_6: tmp_33_i (64)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
+:3  %tmp_33_i = zext i8 %buf_load_31 to i64
 
 ST_6: sbox_addr_15 (65)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
-:4  %sbox_addr_15 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_29_i
+:4  %sbox_addr_15 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_33_i
 
 ST_6: sbox_load_15 (66)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:365
 :5  %sbox_load_15 = load i8* %sbox_addr_15, align 1
@@ -382,8 +382,8 @@ ST_7: StgValue_108 (68)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/
 
 
  <State 8>: 2.39ns
-ST_8: i_35 (70)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
-aes_subBytes.exit:0  %i_35 = load i8* %buf_addr, align 1
+ST_8: i_39 (70)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
+aes_subBytes.exit:0  %i_39 = load i8* %buf_addr, align 1
 
 ST_8: buf_load_20 (71)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
 aes_subBytes.exit:1  %buf_load_20 = load i8* %buf_addr_11, align 1
@@ -402,16 +402,16 @@ aes_subBytes.exit:3  %buf_load_21 = load i8* %buf_addr_12, align 1
 ST_9: buf_load_22 (75)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
 aes_subBytes.exit:5  %buf_load_22 = load i8* %buf_addr_13, align 1
 
-ST_9: i_36 (78)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
-aes_subBytes.exit:8  %i_36 = load i8* %buf_addr_14, align 1
+ST_9: i_40 (78)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
+aes_subBytes.exit:8  %i_40 = load i8* %buf_addr_14, align 1
 
 ST_9: buf_load_24 (79)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
 aes_subBytes.exit:9  %buf_load_24 = load i8* %buf_addr_15, align 1
 
 
  <State 10>: 2.39ns
-ST_10: i_36 (78)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
-aes_subBytes.exit:8  %i_36 = load i8* %buf_addr_14, align 1
+ST_10: i_40 (78)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
+aes_subBytes.exit:8  %i_40 = load i8* %buf_addr_14, align 1
 
 ST_10: buf_load_24 (79)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
 aes_subBytes.exit:9  %buf_load_24 = load i8* %buf_addr_15, align 1
@@ -470,7 +470,7 @@ ST_14: StgValue_133 (76)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src
 aes_subBytes.exit:6  store i8 %buf_load_22, i8* %buf_addr_12, align 1
 
 ST_14: StgValue_134 (77)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:366
-aes_subBytes.exit:7  store i8 %i_35, i8* %buf_addr_13, align 1
+aes_subBytes.exit:7  store i8 %i_39, i8* %buf_addr_13, align 1
 
 
  <State 15>: 2.39ns
@@ -478,7 +478,7 @@ ST_15: StgValue_135 (80)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src
 aes_subBytes.exit:10  store i8 %buf_load_24, i8* %buf_addr_14, align 1
 
 ST_15: StgValue_136 (81)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:366
-aes_subBytes.exit:11  store i8 %i_36, i8* %buf_addr_15, align 1
+aes_subBytes.exit:11  store i8 %i_40, i8* %buf_addr_15, align 1
 
 
  <State 16>: 2.39ns
@@ -510,7 +510,7 @@ aes_subBytes.exit:24  br label %4
 
  <State 19>: 5.33ns
 ST_19: i_i2 (96)  [1/1] 0.00ns
-:0  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_37, %5 ]
+:0  %i_i2 = phi i5 [ 0, %aes_subBytes.exit ], [ %i_41, %5 ]
 
 ST_19: tmp (97)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:255->aescbc/src/aesecb.c:367
 :1  %tmp = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %i_i2, i32 4)
@@ -533,20 +533,20 @@ ST_19: a (103)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:257->aescbc/src/aesecb.c:
 ST_19: tmp_28 (104)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
 :3  %tmp_28 = trunc i5 %i_i2 to i4
 
-ST_19: tmp_63_i (105)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
-:4  %tmp_63_i = or i4 %tmp_28, 1
+ST_19: tmp_67_i (105)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
+:4  %tmp_67_i = or i4 %tmp_28, 1
 
-ST_19: tmp_64_i (106)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
-:5  %tmp_64_i = zext i4 %tmp_63_i to i64
+ST_19: tmp_68_i (106)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
+:5  %tmp_68_i = zext i4 %tmp_67_i to i64
 
 ST_19: buf_addr_26 (107)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
-:6  %buf_addr_26 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_64_i
+:6  %buf_addr_26 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_68_i
 
 ST_19: b (108)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
 :7  %b = load i8* %buf_addr_26, align 1
 
-ST_19: i_37 (150)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:255->aescbc/src/aesecb.c:367
-:49  %i_37 = add i5 4, %i_i2
+ST_19: i_41 (150)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:255->aescbc/src/aesecb.c:367
+:49  %i_41 = add i5 4, %i_i2
 
 ST_19: tmp_27 (153)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:363
 aes_mixColumns.exit:0  %tmp_27 = trunc i4 %i to i1
@@ -571,26 +571,26 @@ ST_20: a (103)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:257->aescbc/src/aesecb.c:
 ST_20: b (108)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:258->aescbc/src/aesecb.c:367
 :7  %b = load i8* %buf_addr_26, align 1
 
-ST_20: tmp_65_i (109)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
-:8  %tmp_65_i = or i4 %tmp_28, 2
+ST_20: tmp_69_i (109)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
+:8  %tmp_69_i = or i4 %tmp_28, 2
 
-ST_20: tmp_66_i (110)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
-:9  %tmp_66_i = zext i4 %tmp_65_i to i64
+ST_20: tmp_70_i (110)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
+:9  %tmp_70_i = zext i4 %tmp_69_i to i64
 
 ST_20: buf_addr_27 (111)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
-:10  %buf_addr_27 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_66_i
+:10  %buf_addr_27 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_70_i
 
 ST_20: c (112)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367
 :11  %c = load i8* %buf_addr_27, align 1
 
-ST_20: tmp_67_i (113)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
-:12  %tmp_67_i = or i4 %tmp_28, 3
+ST_20: tmp_71_i (113)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
+:12  %tmp_71_i = or i4 %tmp_28, 3
 
-ST_20: tmp_68_i (114)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
-:13  %tmp_68_i = zext i4 %tmp_67_i to i64
+ST_20: tmp_72_i (114)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
+:13  %tmp_72_i = zext i4 %tmp_71_i to i64
 
 ST_20: buf_addr_28 (115)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
-:14  %buf_addr_28 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_68_i
+:14  %buf_addr_28 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_72_i
 
 ST_20: d (116)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:367
 :15  %d = load i8* %buf_addr_28, align 1
@@ -606,29 +606,29 @@ ST_21: d (116)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:260->aescbc/src/aesecb.c:
 ST_21: x_assign (117)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367
 :16  %x_assign = xor i8 %b, %a
 
-ST_21: tmp_70_i (118)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367
-:17  %tmp_70_i = xor i8 %c, %x_assign
+ST_21: tmp_74_i (118)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367
+:17  %tmp_74_i = xor i8 %c, %x_assign
 
 ST_21: e (119)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367
-:18  %e = xor i8 %d, %tmp_70_i
+:18  %e = xor i8 %d, %tmp_74_i
 
 ST_21: y (120)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:189->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367
 :19  %y = shl i8 %x_assign, 1
 
-ST_21: tmp_30 (121)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_73_i)
+ST_21: tmp_30 (121)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
 :20  %tmp_30 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign, i32 7)
 
-ST_21: tmp_1_i_i (122)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_73_i)
+ST_21: tmp_1_i_i (122)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
 :21  %tmp_1_i_i = xor i8 %y, 27
 
-ST_21: y_21 (123)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_73_i)
+ST_21: y_21 (123)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
 :22  %y_21 = select i1 %tmp_30, i8 %tmp_1_i_i, i8 %y
 
-ST_21: tmp1 (124)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_73_i)
+ST_21: tmp1 (124)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
 :23  %tmp1 = xor i8 %y_21, %e
 
-ST_21: tmp_73_i (125)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (out node of the LUT)
-:24  %tmp_73_i = xor i8 %tmp1, %a
+ST_21: tmp_77_i (125)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 (out node of the LUT)
+:24  %tmp_77_i = xor i8 %tmp1, %a
 
 ST_21: x_assign_9 (127)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367
 :26  %x_assign_9 = xor i8 %c, %b
@@ -636,20 +636,20 @@ ST_21: x_assign_9 (127)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:263->aescbc/src/
 ST_21: y_22 (128)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:189->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367
 :27  %y_22 = shl i8 %x_assign_9, 1
 
-ST_21: tmp_32 (129)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
+ST_21: tmp_32 (129)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
 :28  %tmp_32 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_9, i32 7)
 
-ST_21: tmp_1_i10_i (130)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
+ST_21: tmp_1_i10_i (130)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
 :29  %tmp_1_i10_i = xor i8 %y_22, 27
 
-ST_21: y_23 (131)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
+ST_21: y_23 (131)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
 :30  %y_23 = select i1 %tmp_32, i8 %tmp_1_i10_i, i8 %y_22
 
-ST_21: tmp2 (132)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_77_i)
+ST_21: tmp2 (132)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
 :31  %tmp2 = xor i8 %y_23, %e
 
-ST_21: tmp_77_i (133)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (out node of the LUT)
-:32  %tmp_77_i = xor i8 %tmp2, %b
+ST_21: tmp_81_i (133)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367 (out node of the LUT)
+:32  %tmp_81_i = xor i8 %tmp2, %b
 
 ST_21: x_assign_s (135)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367
 :34  %x_assign_s = xor i8 %d, %c
@@ -657,20 +657,20 @@ ST_21: x_assign_s (135)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:264->aescbc/src/
 ST_21: y_24 (136)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:189->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367
 :35  %y_24 = shl i8 %x_assign_s, 1
 
-ST_21: tmp_34 (137)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
+ST_21: tmp_34 (137)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
 :36  %tmp_34 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_s, i32 7)
 
-ST_21: tmp_1_i14_i (138)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
+ST_21: tmp_1_i14_i (138)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
 :37  %tmp_1_i14_i = xor i8 %y_24, 27
 
-ST_21: y_25 (139)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
+ST_21: y_25 (139)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
 :38  %y_25 = select i1 %tmp_34, i8 %tmp_1_i14_i, i8 %y_24
 
-ST_21: tmp3 (140)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_81_i)
+ST_21: tmp3 (140)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
 :39  %tmp3 = xor i8 %y_25, %e
 
-ST_21: tmp_81_i (141)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (out node of the LUT)
-:40  %tmp_81_i = xor i8 %tmp3, %c
+ST_21: tmp_85_i (141)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 (out node of the LUT)
+:40  %tmp_85_i = xor i8 %tmp3, %c
 
 ST_21: x_assign_1 (143)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367
 :42  %x_assign_1 = xor i8 %d, %a
@@ -678,33 +678,33 @@ ST_21: x_assign_1 (143)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:265->aescbc/src/
 ST_21: y_26 (144)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:189->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367
 :43  %y_26 = shl i8 %x_assign_1, 1
 
-ST_21: tmp_36 (145)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
+ST_21: tmp_36 (145)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_89_i)
 :44  %tmp_36 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %x_assign_1, i32 7)
 
-ST_21: tmp_1_i18_i (146)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
+ST_21: tmp_1_i18_i (146)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_89_i)
 :45  %tmp_1_i18_i = xor i8 %y_26, 27
 
-ST_21: y_27 (147)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_85_i)
+ST_21: y_27 (147)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (grouped into LUT with out node tmp_89_i)
 :46  %y_27 = select i1 %tmp_36, i8 %tmp_1_i18_i, i8 %y_26
 
-ST_21: tmp_85_i (148)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (out node of the LUT)
-:47  %tmp_85_i = xor i8 %y_27, %tmp_70_i
+ST_21: tmp_89_i (148)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367 (out node of the LUT)
+:47  %tmp_89_i = xor i8 %y_27, %tmp_74_i
 
 
  <State 22>: 2.39ns
 ST_22: StgValue_203 (126)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367
-:25  store i8 %tmp_73_i, i8* %buf_addr_25, align 1
+:25  store i8 %tmp_77_i, i8* %buf_addr_25, align 1
 
 ST_22: StgValue_204 (134)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:263->aescbc/src/aesecb.c:367
-:33  store i8 %tmp_77_i, i8* %buf_addr_26, align 1
+:33  store i8 %tmp_81_i, i8* %buf_addr_26, align 1
 
 
  <State 23>: 2.39ns
 ST_23: StgValue_205 (142)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367
-:41  store i8 %tmp_81_i, i8* %buf_addr_27, align 1
+:41  store i8 %tmp_85_i, i8* %buf_addr_27, align 1
 
 ST_23: StgValue_206 (149)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:265->aescbc/src/aesecb.c:367
-:48  store i8 %tmp_85_i, i8* %buf_addr_28, align 1
+:48  store i8 %tmp_89_i, i8* %buf_addr_28, align 1
 
 ST_23: StgValue_207 (151)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:255->aescbc/src/aesecb.c:367
 :50  br label %4
@@ -730,8 +730,8 @@ ST_26: StgValue_211 (158)  [1/2] 0.00ns  loc: aescbc/src/aesecb.c:369
 ST_26: StgValue_212 (160)  [1/1] 0.00ns
 :4  br label %8
 
-ST_26: i_38 (165)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:363
-:0  %i_38 = add i4 %i, 1
+ST_26: i_42 (165)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:363
+:0  %i_42 = add i4 %i, 1
 
 ST_26: StgValue_214 (166)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:363
 :1  br label %aes_addRoundKey_cpy.exit
@@ -747,13 +747,13 @@ ST_27: StgValue_216 (163)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:368
 
  <State 28>: 4.11ns
 ST_28: i_i1 (170)  [1/1] 0.00ns
-.preheader:0  %i_i1 = phi i5 [ %i_31, %9 ], [ -16, %.preheader.preheader ]
+.preheader:0  %i_i1 = phi i5 [ %i_35, %9 ], [ -16, %.preheader.preheader ]
 
-ST_28: i_31 (171)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
-.preheader:1  %i_31 = add i5 %i_i1, -1
+ST_28: i_35 (171)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
+.preheader:1  %i_35 = add i5 %i_i1, -1
 
-ST_28: i_33_cast (172)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
-.preheader:2  %i_33_cast = sext i5 %i_31 to i8
+ST_28: i_37_cast (172)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
+.preheader:2  %i_37_cast = sext i5 %i_35 to i8
 
 ST_28: tmp_i8 (173)  [1/1] 1.91ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
 .preheader:3  %tmp_i8 = icmp eq i5 %i_i1, 0
@@ -765,7 +765,7 @@ ST_28: StgValue_222 (175)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/sr
 .preheader:5  br i1 %tmp_i8, label %aes_subBytes.exit25, label %9
 
 ST_28: tmp_i1 (177)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
-:0  %tmp_i1 = zext i8 %i_33_cast to i64
+:0  %tmp_i1 = zext i8 %i_37_cast to i64
 
 ST_28: buf_addr_23 (178)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
 :1  %buf_addr_23 = getelementptr [16 x i8]* %buf_r, i64 0, i64 %tmp_i1
@@ -773,8 +773,8 @@ ST_28: buf_addr_23 (178)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src
 ST_28: buf_load_18 (179)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
 :2  %buf_load_18 = load i8* %buf_addr_23, align 1
 
-ST_28: i_33 (187)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:1  %i_33 = load i8* %buf_addr, align 1
+ST_28: i_37 (187)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
+aes_subBytes.exit25:1  %i_37 = load i8* %buf_addr, align 1
 
 ST_28: buf_load_7 (188)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
 aes_subBytes.exit25:2  %buf_load_7 = load i8* %buf_addr_11, align 1
@@ -784,11 +784,11 @@ aes_subBytes.exit25:2  %buf_load_7 = load i8* %buf_addr_11, align 1
 ST_29: buf_load_18 (179)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
 :2  %buf_load_18 = load i8* %buf_addr_23, align 1
 
-ST_29: tmp_29_i1 (180)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
-:3  %tmp_29_i1 = zext i8 %buf_load_18 to i64
+ST_29: tmp_33_i1 (180)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
+:3  %tmp_33_i1 = zext i8 %buf_load_18 to i64
 
 ST_29: sbox_addr (181)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
-:4  %sbox_addr = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_29_i1
+:4  %sbox_addr = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_33_i1
 
 ST_29: sbox_load (182)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:198->aescbc/src/aesecb.c:371
 :5  %sbox_load = load i8* %sbox_addr, align 1
@@ -806,8 +806,8 @@ ST_30: StgValue_234 (184)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:198->aescbc/sr
 
 
  <State 31>: 2.39ns
-ST_31: i_33 (187)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:1  %i_33 = load i8* %buf_addr, align 1
+ST_31: i_37 (187)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
+aes_subBytes.exit25:1  %i_37 = load i8* %buf_addr, align 1
 
 ST_31: buf_load_7 (188)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
 aes_subBytes.exit25:2  %buf_load_7 = load i8* %buf_addr_11, align 1
@@ -826,16 +826,16 @@ aes_subBytes.exit25:4  %buf_load_8 = load i8* %buf_addr_12, align 1
 ST_32: buf_load_9 (192)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
 aes_subBytes.exit25:6  %buf_load_9 = load i8* %buf_addr_13, align 1
 
-ST_32: i_34 (195)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:9  %i_34 = load i8* %buf_addr_14, align 1
+ST_32: i_38 (195)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
+aes_subBytes.exit25:9  %i_38 = load i8* %buf_addr_14, align 1
 
 ST_32: buf_load_11 (196)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
 aes_subBytes.exit25:10  %buf_load_11 = load i8* %buf_addr_15, align 1
 
 
  <State 33>: 2.39ns
-ST_33: i_34 (195)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:9  %i_34 = load i8* %buf_addr_14, align 1
+ST_33: i_38 (195)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
+aes_subBytes.exit25:9  %i_38 = load i8* %buf_addr_14, align 1
 
 ST_33: buf_load_11 (196)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
 aes_subBytes.exit25:10  %buf_load_11 = load i8* %buf_addr_15, align 1
@@ -894,7 +894,7 @@ ST_37: StgValue_259 (193)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/sr
 aes_subBytes.exit25:7  store i8 %buf_load_9, i8* %buf_addr_12, align 1
 
 ST_37: StgValue_260 (194)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:231->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:8  store i8 %i_33, i8* %buf_addr_13, align 1
+aes_subBytes.exit25:8  store i8 %i_37, i8* %buf_addr_13, align 1
 
 
  <State 38>: 2.39ns
@@ -902,7 +902,7 @@ ST_38: StgValue_261 (197)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/sr
 aes_subBytes.exit25:11  store i8 %buf_load_11, i8* %buf_addr_14, align 1
 
 ST_38: StgValue_262 (198)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:232->aescbc/src/aesecb.c:372
-aes_subBytes.exit25:12  store i8 %i_34, i8* %buf_addr_15, align 1
+aes_subBytes.exit25:12  store i8 %i_38, i8* %buf_addr_15, align 1
 
 
  <State 39>: 2.39ns
@@ -964,15 +964,15 @@ The critical path consists of the following:
  <State 2>: 4.11ns
 The critical path consists of the following:
 	'phi' operation ('i') with incoming values : ('i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [7]  (0 ns)
-	'add' operation ('tmp_209_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [23]  (1.72 ns)
+	'add' operation ('tmp_213_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [23]  (1.72 ns)
 	'getelementptr' operation ('ctx_enckey_addr_1', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [25]  (0 ns)
 	'load' operation ('ctx_enckey_load_1', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) on array 'ctx_enckey' [26]  (2.39 ns)
 
  <State 3>: 6.15ns
 The critical path consists of the following:
 	'load' operation ('ctx_enckey_load', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) on array 'ctx_enckey' [16]  (2.39 ns)
-	'xor' operation ('tmp_207_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [21]  (1.37 ns)
-	'store' operation (aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) of variable 'tmp_207_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362 on array 'buf_r' [22]  (2.39 ns)
+	'xor' operation ('tmp_211_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) [21]  (1.37 ns)
+	'store' operation (aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362) of variable 'tmp_211_i', aescbc/src/aesecb.c:222->aescbc/src/aesecb.c:362 on array 'buf_r' [22]  (2.39 ns)
 
  <State 4>: 1.88ns
 The critical path consists of the following:
@@ -1053,18 +1053,18 @@ The critical path consists of the following:
  <State 21>: 6.5ns
 The critical path consists of the following:
 	'load' operation ('c', aescbc/src/aesecb.c:259->aescbc/src/aesecb.c:367) on array 'buf_r' [112]  (2.39 ns)
-	'xor' operation ('tmp_70_i', aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367) [118]  (1.37 ns)
+	'xor' operation ('tmp_74_i', aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367) [118]  (1.37 ns)
 	'xor' operation ('e', aescbc/src/aesecb.c:261->aescbc/src/aesecb.c:367) [119]  (1.37 ns)
 	'xor' operation ('tmp1', aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367) [124]  (0 ns)
-	'xor' operation ('tmp_73_i', aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367) [125]  (1.37 ns)
+	'xor' operation ('tmp_77_i', aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367) [125]  (1.37 ns)
 
  <State 22>: 2.39ns
 The critical path consists of the following:
-	'store' operation (aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367) of variable 'tmp_73_i', aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 on array 'buf_r' [126]  (2.39 ns)
+	'store' operation (aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367) of variable 'tmp_77_i', aescbc/src/aesecb.c:262->aescbc/src/aesecb.c:367 on array 'buf_r' [126]  (2.39 ns)
 
  <State 23>: 2.39ns
 The critical path consists of the following:
-	'store' operation (aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367) of variable 'tmp_81_i', aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 on array 'buf_r' [142]  (2.39 ns)
+	'store' operation (aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367) of variable 'tmp_85_i', aescbc/src/aesecb.c:264->aescbc/src/aesecb.c:367 on array 'buf_r' [142]  (2.39 ns)
 
  <State 24>: 1.57ns
 The critical path consists of the following:

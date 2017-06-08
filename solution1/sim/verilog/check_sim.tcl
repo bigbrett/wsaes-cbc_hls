@@ -83,10 +83,8 @@ proc check_tvin_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
-         "c.aescbc.autotvin_data_in.dat"
          "c.aescbc.autotvin_mode.dat"
-         "c.aescbc.autotvin_key_in.dat"
-         "c.aescbc.autotvin_iv_in.dat"
+         "c.aescbc.autotvin_data_in.dat"
          "c.aescbc.autotvout_data_out.dat"
     }
     foreach rtlfile $rtlfilelist {

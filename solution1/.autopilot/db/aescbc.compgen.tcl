@@ -2,12 +2,12 @@
 
 # Memory (RAM/ROM)  definition:
 set ID 18
-set MemName aescbc_key
+set MemName aescbc_iv
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 8
-set AddrRange 32
-set AddrWd 5
+set AddrRange 16
+set AddrWd 4
 set impl_style block
 set TrueReset 0
 set IsROM 0
@@ -85,12 +85,12 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 # Memory (RAM/ROM)  definition:
 set ID 19
-set MemName aescbc_iv
+set MemName aescbc_key
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 8
-set AddrRange 16
-set AddrWd 4
+set AddrRange 32
+set AddrWd 5
 set impl_style block
 set TrueReset 0
 set IsROM 0
@@ -426,45 +426,29 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
+mode { 
+	dir I
+	width 3
+	depth 1
+	mode ap_none
+	offset 16
+	offset_end 23
+}
 data_in { 
 	dir I
 	width 8
-	depth 16
+	depth 32
 	mode ap_memory
-	offset 16
-	offset_end 31
+	offset 32
+	offset_end 63
 }
 data_out { 
 	dir O
 	width 8
 	depth 16
 	mode ap_memory
-	offset 32
-	offset_end 47
-}
-mode { 
-	dir I
-	width 3
-	depth 1
-	mode ap_none
-	offset 48
-	offset_end 55
-}
-key_in { 
-	dir I
-	width 8
-	depth 32
-	mode ap_memory
 	offset 64
-	offset_end 95
-}
-iv_in { 
-	dir I
-	width 8
-	depth 16
-	mode ap_memory
-	offset 96
-	offset_end 111
+	offset_end 79
 }
 }
 

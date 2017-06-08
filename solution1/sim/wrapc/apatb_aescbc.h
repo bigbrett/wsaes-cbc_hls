@@ -5,8 +5,6 @@
 // ==============================================================
 
 extern void AESL_WRAP_aescbc (
-unsigned char data_in[16],
-unsigned char data_out[16],
 ciphermode_t mode,
-unsigned char key_in[32],
-unsigned char iv_in[16]);
+unsigned char data_in[32],
+unsigned char data_out[16]);

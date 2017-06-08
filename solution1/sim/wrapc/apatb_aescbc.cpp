@@ -32,16 +32,12 @@ using namespace sc_dt;
 typedef enum {AESL_AUTO_0} ciphermode_t;
 
 
+// wrapc file define: "mode"
+#define AUTOTB_TVIN_mode  "../tv/cdatafile/c.aescbc.autotvin_mode.dat"
 // wrapc file define: "data_in"
 #define AUTOTB_TVIN_data_in  "../tv/cdatafile/c.aescbc.autotvin_data_in.dat"
 // wrapc file define: "data_out"
 #define AUTOTB_TVOUT_data_out  "../tv/cdatafile/c.aescbc.autotvout_data_out.dat"
-// wrapc file define: "mode"
-#define AUTOTB_TVIN_mode  "../tv/cdatafile/c.aescbc.autotvin_mode.dat"
-// wrapc file define: "key_in"
-#define AUTOTB_TVIN_key_in  "../tv/cdatafile/c.aescbc.autotvin_key_in.dat"
-// wrapc file define: "iv_in"
-#define AUTOTB_TVIN_iv_in  "../tv/cdatafile/c.aescbc.autotvin_iv_in.dat"
 
 #define INTER_TCL  "../tv/cdatafile/ref.tcl"
 
@@ -52,11 +48,9 @@ class INTER_TCL_FILE {
 	public:
 		INTER_TCL_FILE(const char* name) {
 			mName = name;
+			mode_depth = 0;
 			data_in_depth = 0;
 			data_out_depth = 0;
-			mode_depth = 0;
-			key_in_depth = 0;
-			iv_in_depth = 0;
 			trans_num =0;
 		}
 
@@ -76,11 +70,9 @@ class INTER_TCL_FILE {
 
 		string get_depth_list () {
 			stringstream total_list;
+			total_list << "{mode " << mode_depth << "}\n";
 			total_list << "{data_in " << data_in_depth << "}\n";
 			total_list << "{data_out " << data_out_depth << "}\n";
-			total_list << "{mode " << mode_depth << "}\n";
-			total_list << "{key_in " << key_in_depth << "}\n";
-			total_list << "{iv_in " << iv_in_depth << "}\n";
 			return total_list.str();
 		}
 
@@ -88,11 +80,9 @@ class INTER_TCL_FILE {
 			(*class_num) = (*class_num) > num ? (*class_num) : num;
 		}
 	public:
+		int mode_depth;
 		int data_in_depth;
 		int data_out_depth;
-		int mode_depth;
-		int key_in_depth;
-		int iv_in_depth;
 		int trans_num;
 
 	private:
@@ -101,8 +91,6 @@ class INTER_TCL_FILE {
 };
 
 extern "C" void aescbc (
-char data_in[16],
-char data_out[16],
 
 #ifdef AUTOCC
 char
@@ -110,12 +98,10 @@ char
 ciphermode_t
 #endif
  mode,
-char key_in[32],
-char iv_in[16]);
+char data_in[32],
+char data_out[16]);
 
 extern "C" void AESL_WRAP_aescbc (
-char data_in[16],
-char data_out[16],
 
 #ifdef AUTOCC
 char
@@ -123,8 +109,8 @@ char
 ciphermode_t
 #endif
  mode,
-char key_in[32],
-char iv_in[16])
+char data_in[32],
+char data_out[16])
 {
 	refine_signal_handler();
 	fstream wrapc_switch_file_token;
@@ -281,6 +267,10 @@ char iv_in[16])
 
 		static AESL_FILE_HANDLER aesl_fh;
 
+		// "mode"
+		char* tvin_mode = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_mode);
+
 		// "data_in"
 		char* tvin_data_in = new char[50];
 		aesl_fh.touch(AUTOTB_TVIN_data_in);
@@ -289,68 +279,9 @@ char iv_in[16])
 		char* tvout_data_out = new char[50];
 		aesl_fh.touch(AUTOTB_TVOUT_data_out);
 
-		// "mode"
-		char* tvin_mode = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_mode);
-
-		// "key_in"
-		char* tvin_key_in = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_key_in);
-
-		// "iv_in"
-		char* tvin_iv_in = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_iv_in);
-
 		CodeState = DUMP_INPUTS;
 		static INTER_TCL_FILE tcl_file(INTER_TCL);
 		int leading_zero;
-
-		// [[transaction]]
-		sprintf(tvin_data_in, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
-
-		sc_bv<8>* data_in_tvin_wrapc_buffer = new sc_bv<8>[16];
-
-		// RTL Name: data_in
-		{
-			// bitslice(7, 0)
-			{
-				int hls_map_index = 0;
-				// celement: data_in(7, 0)
-				{
-					// carray: (0) => (15) @ (1)
-					for (int i_0 = 0; i_0 <= 15; i_0 += 1)
-					{
-						// sub                   : i_0
-						// ori_name              : data_in[i_0]
-						// sub_1st_elem          : 0
-						// ori_name_1st_elem     : data_in[0]
-						// regulate_c_name       : data_in
-						// input_type_conversion : data_in[i_0]
-						if (&(data_in[0]) != NULL) // check the null address if the c port is array or others
-						{
-							sc_lv<8> data_in_tmp_mem;
-							data_in_tmp_mem = data_in[i_0];
-							data_in_tvin_wrapc_buffer[hls_map_index++].range(7, 0) = data_in_tmp_mem.range(7, 0);
-						}
-					}
-				}
-			}
-		}
-
-		// dump tv to file
-		for (int i = 0; i < 16; i++)
-		{
-			sprintf(tvin_data_in, "%s\n", (data_in_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
-		}
-
-		tcl_file.set_num(16, &tcl_file.data_in_depth);
-		sprintf(tvin_data_in, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
-
-		// release memory allocation
-		delete [] data_in_tvin_wrapc_buffer;
 
 		// [[transaction]]
 		sprintf(tvin_mode, "[[transaction]] %d\n", AESL_transaction);
@@ -395,32 +326,32 @@ char iv_in[16])
 		aesl_fh.write(AUTOTB_TVIN_mode, tvin_mode);
 
 		// [[transaction]]
-		sprintf(tvin_key_in, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_key_in, tvin_key_in);
+		sprintf(tvin_data_in, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
 
-		sc_bv<8>* key_in_tvin_wrapc_buffer = new sc_bv<8>[32];
+		sc_bv<8>* data_in_tvin_wrapc_buffer = new sc_bv<8>[32];
 
-		// RTL Name: key_in
+		// RTL Name: data_in
 		{
 			// bitslice(7, 0)
 			{
 				int hls_map_index = 0;
-				// celement: key_in(7, 0)
+				// celement: data_in(7, 0)
 				{
 					// carray: (0) => (31) @ (1)
 					for (int i_0 = 0; i_0 <= 31; i_0 += 1)
 					{
 						// sub                   : i_0
-						// ori_name              : key_in[i_0]
+						// ori_name              : data_in[i_0]
 						// sub_1st_elem          : 0
-						// ori_name_1st_elem     : key_in[0]
-						// regulate_c_name       : key_in
-						// input_type_conversion : key_in[i_0]
-						if (&(key_in[0]) != NULL) // check the null address if the c port is array or others
+						// ori_name_1st_elem     : data_in[0]
+						// regulate_c_name       : data_in
+						// input_type_conversion : data_in[i_0]
+						if (&(data_in[0]) != NULL) // check the null address if the c port is array or others
 						{
-							sc_lv<8> key_in_tmp_mem;
-							key_in_tmp_mem = key_in[i_0];
-							key_in_tvin_wrapc_buffer[hls_map_index++].range(7, 0) = key_in_tmp_mem.range(7, 0);
+							sc_lv<8> data_in_tmp_mem;
+							data_in_tmp_mem = data_in[i_0];
+							data_in_tvin_wrapc_buffer[hls_map_index++].range(7, 0) = data_in_tmp_mem.range(7, 0);
 						}
 					}
 				}
@@ -430,68 +361,21 @@ char iv_in[16])
 		// dump tv to file
 		for (int i = 0; i < 32; i++)
 		{
-			sprintf(tvin_key_in, "%s\n", (key_in_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_key_in, tvin_key_in);
+			sprintf(tvin_data_in, "%s\n", (data_in_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
 		}
 
-		tcl_file.set_num(32, &tcl_file.key_in_depth);
-		sprintf(tvin_key_in, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_key_in, tvin_key_in);
+		tcl_file.set_num(32, &tcl_file.data_in_depth);
+		sprintf(tvin_data_in, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_data_in, tvin_data_in);
 
 		// release memory allocation
-		delete [] key_in_tvin_wrapc_buffer;
-
-		// [[transaction]]
-		sprintf(tvin_iv_in, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_iv_in, tvin_iv_in);
-
-		sc_bv<8>* iv_in_tvin_wrapc_buffer = new sc_bv<8>[16];
-
-		// RTL Name: iv_in
-		{
-			// bitslice(7, 0)
-			{
-				int hls_map_index = 0;
-				// celement: iv_in(7, 0)
-				{
-					// carray: (0) => (15) @ (1)
-					for (int i_0 = 0; i_0 <= 15; i_0 += 1)
-					{
-						// sub                   : i_0
-						// ori_name              : iv_in[i_0]
-						// sub_1st_elem          : 0
-						// ori_name_1st_elem     : iv_in[0]
-						// regulate_c_name       : iv_in
-						// input_type_conversion : iv_in[i_0]
-						if (&(iv_in[0]) != NULL) // check the null address if the c port is array or others
-						{
-							sc_lv<8> iv_in_tmp_mem;
-							iv_in_tmp_mem = iv_in[i_0];
-							iv_in_tvin_wrapc_buffer[hls_map_index++].range(7, 0) = iv_in_tmp_mem.range(7, 0);
-						}
-					}
-				}
-			}
-		}
-
-		// dump tv to file
-		for (int i = 0; i < 16; i++)
-		{
-			sprintf(tvin_iv_in, "%s\n", (iv_in_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_iv_in, tvin_iv_in);
-		}
-
-		tcl_file.set_num(16, &tcl_file.iv_in_depth);
-		sprintf(tvin_iv_in, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_iv_in, tvin_iv_in);
-
-		// release memory allocation
-		delete [] iv_in_tvin_wrapc_buffer;
+		delete [] data_in_tvin_wrapc_buffer;
 
 // [call_c_dut] ---------->
 
 		CodeState = CALL_C_DUT;
-		aescbc(data_in, data_out, mode, key_in, iv_in);
+		aescbc(mode, data_in, data_out);
 
 		CodeState = DUMP_OUTPUTS;
 
@@ -543,16 +427,12 @@ char iv_in[16])
 		delete [] data_out_tvout_wrapc_buffer;
 
 		CodeState = DELETE_CHAR_BUFFERS;
+		// release memory allocation: "mode"
+		delete [] tvin_mode;
 		// release memory allocation: "data_in"
 		delete [] tvin_data_in;
 		// release memory allocation: "data_out"
 		delete [] tvout_data_out;
-		// release memory allocation: "mode"
-		delete [] tvin_mode;
-		// release memory allocation: "key_in"
-		delete [] tvin_key_in;
-		// release memory allocation: "iv_in"
-		delete [] tvin_iv_in;
 
 		AESL_transaction++;
 

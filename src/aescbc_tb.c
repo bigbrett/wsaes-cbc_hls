@@ -49,9 +49,11 @@ int main( int argc, char *argv[]) {
 	dumpmsg(&(buf0[16]));
 
 	// Test our engine
-	aescbc(buf0,buf1, RESET,key,iv);
-	aescbc(buf0,buf1, ENCRYPT, key,iv);
-	aescbc(&buf0[16],&buf1[16], ENCRYPT, key,iv);
+	aescbc(SET_KEY, key, buf1);
+	aescbc(SET_IV,  iv,  buf1);
+	aescbc(RESET,   buf0,buf1);
+	aescbc(ENCRYPT, buf0, buf1);
+	aescbc(ENCRYPT, &buf0[16],&buf1[16]);
 
 	printf("DUTENC:\n");
 	dumpmsg(buf1);
@@ -66,13 +68,11 @@ int main( int argc, char *argv[]) {
 
 	// Erase the original plain text
 	memset(buf0,0,32);
-//	memset(buf1,0,32);
 
 	// Decrypt
-	aescbc(buf1,buf0, RESET,key,iv);
-	aescbc(buf1,buf0, DECRYPT, key,iv);
-	aescbc(&buf1[16],&buf0[16], DECRYPT, key,iv);
-
+	aescbc(RESET,   buf1, buf0);
+	aescbc(DECRYPT, buf1, buf0);
+	aescbc(DECRYPT, &buf1[16],&buf0[16]);
 
 	printf("DUTDEC:\n");
 	dumpmsg(buf0);

@@ -38,20 +38,14 @@ module aescbc_AXILiteS_s_axi
     input  wire                          ap_done,
     input  wire                          ap_ready,
     input  wire                          ap_idle,
-    input  wire [3:0]                    data_in_address0,
+    output wire [2:0]                    mode,
+    input  wire [4:0]                    data_in_address0,
     input  wire                          data_in_ce0,
     output wire [7:0]                    data_in_q0,
     input  wire [3:0]                    data_out_address0,
     input  wire                          data_out_ce0,
     input  wire                          data_out_we0,
-    input  wire [7:0]                    data_out_d0,
-    output wire [2:0]                    mode,
-    input  wire [4:0]                    key_in_address0,
-    input  wire                          key_in_ce0,
-    output wire [7:0]                    key_in_q0,
-    input  wire [3:0]                    iv_in_address0,
-    input  wire                          iv_in_ce0,
-    output wire [7:0]                    iv_in_q0
+    input  wire [7:0]                    data_out_d0
 );
 //------------------------Address Info-------------------
 // 0x00 : Control signals
@@ -72,34 +66,22 @@ module aescbc_AXILiteS_s_axi
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x30 : Data signal of mode
+// 0x10 : Data signal of mode
 //        bit 2~0 - mode[2:0] (Read/Write)
 //        others  - reserved
-// 0x34 : reserved
-// 0x10 ~
-// 0x1f : Memory 'data_in' (16 * 8b)
+// 0x14 : reserved
+// 0x20 ~
+// 0x3f : Memory 'data_in' (32 * 8b)
 //        Word n : bit [ 7: 0] - data_in[4n]
 //                 bit [15: 8] - data_in[4n+1]
 //                 bit [23:16] - data_in[4n+2]
 //                 bit [31:24] - data_in[4n+3]
-// 0x20 ~
-// 0x2f : Memory 'data_out' (16 * 8b)
+// 0x40 ~
+// 0x4f : Memory 'data_out' (16 * 8b)
 //        Word n : bit [ 7: 0] - data_out[4n]
 //                 bit [15: 8] - data_out[4n+1]
 //                 bit [23:16] - data_out[4n+2]
 //                 bit [31:24] - data_out[4n+3]
-// 0x40 ~
-// 0x5f : Memory 'key_in' (32 * 8b)
-//        Word n : bit [ 7: 0] - key_in[4n]
-//                 bit [15: 8] - key_in[4n+1]
-//                 bit [23:16] - key_in[4n+2]
-//                 bit [31:24] - key_in[4n+3]
-// 0x60 ~
-// 0x6f : Memory 'iv_in' (16 * 8b)
-//        Word n : bit [ 7: 0] - iv_in[4n]
-//                 bit [15: 8] - iv_in[4n+1]
-//                 bit [23:16] - iv_in[4n+2]
-//                 bit [31:24] - iv_in[4n+3]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -108,16 +90,12 @@ localparam
     ADDR_GIE           = 7'h04,
     ADDR_IER           = 7'h08,
     ADDR_ISR           = 7'h0c,
-    ADDR_MODE_DATA_0   = 7'h30,
-    ADDR_MODE_CTRL     = 7'h34,
-    ADDR_DATA_IN_BASE  = 7'h10,
-    ADDR_DATA_IN_HIGH  = 7'h1f,
-    ADDR_DATA_OUT_BASE = 7'h20,
-    ADDR_DATA_OUT_HIGH = 7'h2f,
-    ADDR_KEY_IN_BASE   = 7'h40,
-    ADDR_KEY_IN_HIGH   = 7'h5f,
-    ADDR_IV_IN_BASE    = 7'h60,
-    ADDR_IV_IN_HIGH    = 7'h6f,
+    ADDR_MODE_DATA_0   = 7'h10,
+    ADDR_MODE_CTRL     = 7'h14,
+    ADDR_DATA_IN_BASE  = 7'h20,
+    ADDR_DATA_IN_HIGH  = 7'h3f,
+    ADDR_DATA_OUT_BASE = 7'h40,
+    ADDR_DATA_OUT_HIGH = 7'h4f,
     WRIDLE             = 2'd0,
     WRDATA             = 2'd1,
     WRRESP             = 2'd2,
@@ -148,13 +126,13 @@ localparam
     reg  [1:0]                    int_isr;
     reg  [2:0]                    int_mode;
     // memory signals
-    wire [1:0]                    int_data_in_address0;
+    wire [2:0]                    int_data_in_address0;
     wire                          int_data_in_ce0;
     wire                          int_data_in_we0;
     wire [3:0]                    int_data_in_be0;
     wire [31:0]                   int_data_in_d0;
     wire [31:0]                   int_data_in_q0;
-    wire [1:0]                    int_data_in_address1;
+    wire [2:0]                    int_data_in_address1;
     wire                          int_data_in_ce1;
     wire                          int_data_in_we1;
     wire [3:0]                    int_data_in_be1;
@@ -178,42 +156,12 @@ localparam
     reg                           int_data_out_read;
     reg                           int_data_out_write;
     reg  [1:0]                    int_data_out_shift;
-    wire [2:0]                    int_key_in_address0;
-    wire                          int_key_in_ce0;
-    wire                          int_key_in_we0;
-    wire [3:0]                    int_key_in_be0;
-    wire [31:0]                   int_key_in_d0;
-    wire [31:0]                   int_key_in_q0;
-    wire [2:0]                    int_key_in_address1;
-    wire                          int_key_in_ce1;
-    wire                          int_key_in_we1;
-    wire [3:0]                    int_key_in_be1;
-    wire [31:0]                   int_key_in_d1;
-    wire [31:0]                   int_key_in_q1;
-    reg                           int_key_in_read;
-    reg                           int_key_in_write;
-    reg  [1:0]                    int_key_in_shift;
-    wire [1:0]                    int_iv_in_address0;
-    wire                          int_iv_in_ce0;
-    wire                          int_iv_in_we0;
-    wire [3:0]                    int_iv_in_be0;
-    wire [31:0]                   int_iv_in_d0;
-    wire [31:0]                   int_iv_in_q0;
-    wire [1:0]                    int_iv_in_address1;
-    wire                          int_iv_in_ce1;
-    wire                          int_iv_in_we1;
-    wire [3:0]                    int_iv_in_be1;
-    wire [31:0]                   int_iv_in_d1;
-    wire [31:0]                   int_iv_in_q1;
-    reg                           int_iv_in_read;
-    reg                           int_iv_in_write;
-    reg  [1:0]                    int_iv_in_shift;
 
 //------------------------Instantiation------------------
 // int_data_in
 aescbc_AXILiteS_s_axi_ram #(
     .BYTES    ( 4 ),
-    .DEPTH    ( 4 )
+    .DEPTH    ( 8 )
 ) int_data_in (
     .clk0     ( ACLK ),
     .address0 ( int_data_in_address0 ),
@@ -249,46 +197,6 @@ aescbc_AXILiteS_s_axi_ram #(
     .be1      ( int_data_out_be1 ),
     .d1       ( int_data_out_d1 ),
     .q1       ( int_data_out_q1 )
-);
-// int_key_in
-aescbc_AXILiteS_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 8 )
-) int_key_in (
-    .clk0     ( ACLK ),
-    .address0 ( int_key_in_address0 ),
-    .ce0      ( int_key_in_ce0 ),
-    .we0      ( int_key_in_we0 ),
-    .be0      ( int_key_in_be0 ),
-    .d0       ( int_key_in_d0 ),
-    .q0       ( int_key_in_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_key_in_address1 ),
-    .ce1      ( int_key_in_ce1 ),
-    .we1      ( int_key_in_we1 ),
-    .be1      ( int_key_in_be1 ),
-    .d1       ( int_key_in_d1 ),
-    .q1       ( int_key_in_q1 )
-);
-// int_iv_in
-aescbc_AXILiteS_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 4 )
-) int_iv_in (
-    .clk0     ( ACLK ),
-    .address0 ( int_iv_in_address0 ),
-    .ce0      ( int_iv_in_ce0 ),
-    .we0      ( int_iv_in_we0 ),
-    .be0      ( int_iv_in_be0 ),
-    .d0       ( int_iv_in_d0 ),
-    .q0       ( int_iv_in_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_iv_in_address1 ),
-    .ce1      ( int_iv_in_ce1 ),
-    .we1      ( int_iv_in_we1 ),
-    .be1      ( int_iv_in_be1 ),
-    .d1       ( int_iv_in_d1 ),
-    .q1       ( int_iv_in_q1 )
 );
 
 //------------------------AXI write fsm------------------
@@ -343,7 +251,7 @@ end
 assign ARREADY = (~ARESET) && (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_data_in_read & !int_data_out_read & !int_key_in_read & !int_iv_in_read;
+assign RVALID  = (rstate == RDDATA) & !int_data_in_read & !int_data_out_read;
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -405,12 +313,6 @@ always @(posedge ACLK) begin
         end
         else if (int_data_out_read) begin
             rdata <= int_data_out_q1;
-        end
-        else if (int_key_in_read) begin
-            rdata <= int_key_in_q1;
-        end
-        else if (int_iv_in_read) begin
-            rdata <= int_iv_in_q1;
         end
     end
 end
@@ -519,7 +421,7 @@ assign int_data_in_we0       = 1'b0;
 assign int_data_in_be0       = 1'b0;
 assign int_data_in_d0        = 1'b0;
 assign data_in_q0            = int_data_in_q0 >> (int_data_in_shift * 8);
-assign int_data_in_address1  = ar_hs? raddr[3:2] : waddr[3:2];
+assign int_data_in_address1  = ar_hs? raddr[4:2] : waddr[4:2];
 assign int_data_in_ce1       = ar_hs | (int_data_in_write & WVALID);
 assign int_data_in_we1       = int_data_in_write & WVALID;
 assign int_data_in_be1       = WSTRB;
@@ -535,30 +437,6 @@ assign int_data_out_ce1      = ar_hs | (int_data_out_write & WVALID);
 assign int_data_out_we1      = int_data_out_write & WVALID;
 assign int_data_out_be1      = WSTRB;
 assign int_data_out_d1       = WDATA;
-// key_in
-assign int_key_in_address0   = key_in_address0 >> 2;
-assign int_key_in_ce0        = key_in_ce0;
-assign int_key_in_we0        = 1'b0;
-assign int_key_in_be0        = 1'b0;
-assign int_key_in_d0         = 1'b0;
-assign key_in_q0             = int_key_in_q0 >> (int_key_in_shift * 8);
-assign int_key_in_address1   = ar_hs? raddr[4:2] : waddr[4:2];
-assign int_key_in_ce1        = ar_hs | (int_key_in_write & WVALID);
-assign int_key_in_we1        = int_key_in_write & WVALID;
-assign int_key_in_be1        = WSTRB;
-assign int_key_in_d1         = WDATA;
-// iv_in
-assign int_iv_in_address0    = iv_in_address0 >> 2;
-assign int_iv_in_ce0         = iv_in_ce0;
-assign int_iv_in_we0         = 1'b0;
-assign int_iv_in_be0         = 1'b0;
-assign int_iv_in_d0          = 1'b0;
-assign iv_in_q0              = int_iv_in_q0 >> (int_iv_in_shift * 8);
-assign int_iv_in_address1    = ar_hs? raddr[3:2] : waddr[3:2];
-assign int_iv_in_ce1         = ar_hs | (int_iv_in_write & WVALID);
-assign int_iv_in_we1         = int_iv_in_write & WVALID;
-assign int_iv_in_be1         = WSTRB;
-assign int_iv_in_d1          = WDATA;
 // int_data_in_read
 always @(posedge ACLK) begin
     if (ARESET)
@@ -620,70 +498,6 @@ always @(posedge ACLK) begin
     if (ACLK_EN) begin
         if (data_out_ce0)
             int_data_out_shift <= data_out_address0[1:0];
-    end
-end
-
-// int_key_in_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_key_in_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_KEY_IN_BASE && raddr <= ADDR_KEY_IN_HIGH)
-            int_key_in_read <= 1'b1;
-        else
-            int_key_in_read <= 1'b0;
-    end
-end
-
-// int_key_in_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_key_in_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_KEY_IN_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_KEY_IN_HIGH)
-            int_key_in_write <= 1'b1;
-        else if (WVALID)
-            int_key_in_write <= 1'b0;
-    end
-end
-
-// int_key_in_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (key_in_ce0)
-            int_key_in_shift <= key_in_address0[1:0];
-    end
-end
-
-// int_iv_in_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_iv_in_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_IV_IN_BASE && raddr <= ADDR_IV_IN_HIGH)
-            int_iv_in_read <= 1'b1;
-        else
-            int_iv_in_read <= 1'b0;
-    end
-end
-
-// int_iv_in_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_iv_in_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_IV_IN_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_IV_IN_HIGH)
-            int_iv_in_write <= 1'b1;
-        else if (WVALID)
-            int_iv_in_write <= 1'b0;
-    end
-end
-
-// int_iv_in_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (iv_in_ce0)
-            int_iv_in_shift <= iv_in_address0[1:0];
     end
 end
 

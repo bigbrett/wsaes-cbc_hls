@@ -99,15 +99,12 @@ typedef unsigned long int uintmax_t;
 
 
 
-
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 
 
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16]);
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16] );
 #2 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c" 2
 #1 "/usr/include/stdio.h" 1 3 4
 #29 "/usr/include/stdio.h" 3 4
@@ -5184,7 +5181,7 @@ aescbc
 
 #undef aescbc
 #52 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(buf0,buf1, RESET,key,iv);
+(SET_KEY, key, buf1);
  
 #ifndef HLS_FASTSIM
 #define aescbc AESL_WRAP_aescbc
@@ -5203,7 +5200,7 @@ aescbc
 
 #undef aescbc
 #53 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(buf0,buf1, ENCRYPT, key,iv);
+(SET_IV, iv, buf1);
  
 #ifndef HLS_FASTSIM
 #define aescbc AESL_WRAP_aescbc
@@ -5222,7 +5219,45 @@ aescbc
 
 #undef aescbc
 #54 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(&buf0[16],&buf1[16], ENCRYPT, key,iv);
+(RESET, buf0,buf1);
+ 
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
+
+#55 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
+
+#55 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+aescbc
+#undef aescbc
+#55 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#undef aescbc
+#55 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+(ENCRYPT, buf0, buf1);
+ 
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
+
+#56 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
+
+#56 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+aescbc
+#undef aescbc
+#56 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#undef aescbc
+#56 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+(ENCRYPT, &buf0[16],&buf1[16]);
 
  printf("DUTENC:\n");
  dumpmsg(buf1);
@@ -5239,26 +5274,6 @@ aescbc
  memset(buf0,0,32);
 
 
-
- 
-#ifndef HLS_FASTSIM
-#define aescbc AESL_WRAP_aescbc
-#endif
-
-#72 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-
-#ifndef HLS_FASTSIM
-#define aescbc AESL_WRAP_aescbc
-#endif
-
-#72 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-aescbc
-#undef aescbc
-#72 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-
-#undef aescbc
-#72 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(buf1,buf0, RESET,key,iv);
  
 #ifndef HLS_FASTSIM
 #define aescbc AESL_WRAP_aescbc
@@ -5277,7 +5292,7 @@ aescbc
 
 #undef aescbc
 #73 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(buf1,buf0, DECRYPT, key,iv);
+(RESET, buf1, buf0);
  
 #ifndef HLS_FASTSIM
 #define aescbc AESL_WRAP_aescbc
@@ -5296,8 +5311,26 @@ aescbc
 
 #undef aescbc
 #74 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
-(&buf1[16],&buf0[16], DECRYPT, key,iv);
+(DECRYPT, buf1, buf0);
+ 
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
 
+#75 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#ifndef HLS_FASTSIM
+#define aescbc AESL_WRAP_aescbc
+#endif
+
+#75 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+aescbc
+#undef aescbc
+#75 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+
+#undef aescbc
+#75 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc_tb.c"
+(DECRYPT, &buf1[16],&buf0[16]);
 
  printf("DUTDEC:\n");
  dumpmsg(buf0);

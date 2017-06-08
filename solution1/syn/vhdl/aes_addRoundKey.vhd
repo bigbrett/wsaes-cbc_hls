@@ -51,8 +51,8 @@ architecture behav of aes_addRoundKey is
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal tmp_38_fu_61_p1 : STD_LOGIC_VECTOR (4 downto 0);
     signal tmp_38_reg_103 : STD_LOGIC_VECTOR (4 downto 0);
-    signal i_46_fu_65_p2 : STD_LOGIC_VECTOR (4 downto 0);
-    signal i_46_reg_108 : STD_LOGIC_VECTOR (4 downto 0);
+    signal i_50_fu_65_p2 : STD_LOGIC_VECTOR (4 downto 0);
+    signal i_50_reg_108 : STD_LOGIC_VECTOR (4 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC_VECTOR (0 downto 0);
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal tmp_fu_75_p2 : STD_LOGIC_VECTOR (0 downto 0);
@@ -62,7 +62,7 @@ architecture behav of aes_addRoundKey is
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal sum_cast_fu_91_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal tmp_s_fu_81_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal i_49_cast_fu_71_p1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal i_53_cast_fu_71_p1 : STD_LOGIC_VECTOR (7 downto 0);
     signal sum_fu_86_p2 : STD_LOGIC_VECTOR (4 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (2 downto 0);
 
@@ -88,7 +88,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_lv1_1 = ap_CS_fsm_state3))) then 
-                i_reg_50 <= i_46_reg_108;
+                i_reg_50 <= i_50_reg_108;
             elsif (((ap_CS_fsm_state1 = ap_const_lv1_1) and not((ap_start = ap_const_logic_0)))) then 
                 i_reg_50 <= ap_const_lv5_10;
             end if; 
@@ -106,7 +106,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_lv1_1 = ap_CS_fsm_state2))) then
-                i_46_reg_108 <= i_46_fu_65_p2;
+                i_50_reg_108 <= i_50_fu_65_p2;
             end if;
         end if;
     end process;
@@ -206,8 +206,8 @@ begin
         end if; 
     end process;
 
-    i_46_fu_65_p2 <= std_logic_vector(unsigned(i_reg_50) + unsigned(ap_const_lv5_1F));
-        i_49_cast_fu_71_p1 <= std_logic_vector(resize(signed(i_46_fu_65_p2),8));
+    i_50_fu_65_p2 <= std_logic_vector(unsigned(i_reg_50) + unsigned(ap_const_lv5_1F));
+        i_53_cast_fu_71_p1 <= std_logic_vector(resize(signed(i_50_fu_65_p2),8));
 
     key_address0 <= sum_cast_fu_91_p1(5 - 1 downto 0);
 
@@ -221,8 +221,8 @@ begin
     end process;
 
     sum_cast_fu_91_p1 <= std_logic_vector(resize(unsigned(sum_fu_86_p2),64));
-    sum_fu_86_p2 <= std_logic_vector(unsigned(i_46_fu_65_p2) + unsigned(tmp_38_reg_103));
+    sum_fu_86_p2 <= std_logic_vector(unsigned(i_50_fu_65_p2) + unsigned(tmp_38_reg_103));
     tmp_38_fu_61_p1 <= key_offset(5 - 1 downto 0);
     tmp_fu_75_p2 <= "1" when (i_reg_50 = ap_const_lv5_0) else "0";
-    tmp_s_fu_81_p1 <= std_logic_vector(resize(unsigned(i_49_cast_fu_71_p1),64));
+    tmp_s_fu_81_p1 <= std_logic_vector(resize(unsigned(i_53_cast_fu_71_p1),64));
 end behav;

@@ -63,8 +63,8 @@ reg key_ce0;
 wire   [0:0] ap_CS_fsm_state1;
 wire   [4:0] tmp_38_fu_61_p1;
 reg   [4:0] tmp_38_reg_103;
-wire   [4:0] i_46_fu_65_p2;
-reg   [4:0] i_46_reg_108;
+wire   [4:0] i_50_fu_65_p2;
+reg   [4:0] i_50_reg_108;
 wire   [0:0] ap_CS_fsm_state2;
 wire   [0:0] tmp_fu_75_p2;
 reg   [3:0] buf_addr_reg_121;
@@ -72,7 +72,7 @@ reg   [4:0] i_reg_50;
 wire   [0:0] ap_CS_fsm_state3;
 wire   [63:0] sum_cast_fu_91_p1;
 wire   [63:0] tmp_s_fu_81_p1;
-wire  signed [7:0] i_49_cast_fu_71_p1;
+wire  signed [7:0] i_53_cast_fu_71_p1;
 wire   [4:0] sum_fu_86_p2;
 reg   [2:0] ap_NS_fsm;
 
@@ -91,7 +91,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        i_reg_50 <= i_46_reg_108;
+        i_reg_50 <= i_50_reg_108;
     end else if (((ap_CS_fsm_state1 == 1'b1) & ~(ap_start == 1'b0))) begin
         i_reg_50 <= ap_const_lv5_10;
     end
@@ -105,7 +105,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        i_46_reg_108 <= i_46_fu_65_p2;
+        i_50_reg_108 <= i_50_fu_65_p2;
     end
 end
 
@@ -206,20 +206,20 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[ap_const_lv32_2];
 
 assign buf_r_d0 = (buf_r_q0 ^ key_q0);
 
-assign i_46_fu_65_p2 = ($signed(i_reg_50) + $signed(ap_const_lv5_1F));
+assign i_50_fu_65_p2 = ($signed(i_reg_50) + $signed(ap_const_lv5_1F));
 
-assign i_49_cast_fu_71_p1 = $signed(i_46_fu_65_p2);
+assign i_53_cast_fu_71_p1 = $signed(i_50_fu_65_p2);
 
 assign key_address0 = sum_cast_fu_91_p1;
 
 assign sum_cast_fu_91_p1 = sum_fu_86_p2;
 
-assign sum_fu_86_p2 = (i_46_fu_65_p2 + tmp_38_reg_103);
+assign sum_fu_86_p2 = (i_50_fu_65_p2 + tmp_38_reg_103);
 
 assign tmp_38_fu_61_p1 = key_offset[4:0];
 
 assign tmp_fu_75_p2 = ((i_reg_50 == ap_const_lv5_0) ? 1'b1 : 1'b0);
 
-assign tmp_s_fu_81_p1 = $unsigned(i_49_cast_fu_71_p1);
+assign tmp_s_fu_81_p1 = $unsigned(i_53_cast_fu_71_p1);
 
 endmodule //aes_addRoundKey

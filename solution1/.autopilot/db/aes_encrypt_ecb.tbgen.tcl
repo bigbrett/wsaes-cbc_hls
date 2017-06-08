@@ -104,8 +104,8 @@ set RtlHierarchyInfo {[
 		{"Name" : "ctx_enckey", "Type" : "Memory", "Direction" : "I"},
 		{"Name" : "ctx_key", "Type" : "Memory", "Direction" : "IO",
 			"SubConnect" : [
-			{"ID" : "4", "SubInstance" : "grp_aes_addRoundKey_fu_377", "Port" : "key"},
-			{"ID" : "2", "SubInstance" : "grp_aes_expandEncKey_fu_368", "Port" : "k"}]},
+			{"ID" : "2", "SubInstance" : "grp_aes_expandEncKey_fu_368", "Port" : "k"},
+			{"ID" : "4", "SubInstance" : "grp_aes_addRoundKey_fu_377", "Port" : "key"}]},
 		{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
 			"SubConnect" : [
 			{"ID" : "2", "SubInstance" : "grp_aes_expandEncKey_fu_368", "Port" : "sbox"}]}],

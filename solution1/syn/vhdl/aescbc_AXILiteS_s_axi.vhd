@@ -41,20 +41,14 @@ port (
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
     ap_idle               :in   STD_LOGIC;
-    data_in_address0      :in   STD_LOGIC_VECTOR(3 downto 0);
+    mode                  :out  STD_LOGIC_VECTOR(2 downto 0);
+    data_in_address0      :in   STD_LOGIC_VECTOR(4 downto 0);
     data_in_ce0           :in   STD_LOGIC;
     data_in_q0            :out  STD_LOGIC_VECTOR(7 downto 0);
     data_out_address0     :in   STD_LOGIC_VECTOR(3 downto 0);
     data_out_ce0          :in   STD_LOGIC;
     data_out_we0          :in   STD_LOGIC;
-    data_out_d0           :in   STD_LOGIC_VECTOR(7 downto 0);
-    mode                  :out  STD_LOGIC_VECTOR(2 downto 0);
-    key_in_address0       :in   STD_LOGIC_VECTOR(4 downto 0);
-    key_in_ce0            :in   STD_LOGIC;
-    key_in_q0             :out  STD_LOGIC_VECTOR(7 downto 0);
-    iv_in_address0        :in   STD_LOGIC_VECTOR(3 downto 0);
-    iv_in_ce0             :in   STD_LOGIC;
-    iv_in_q0              :out  STD_LOGIC_VECTOR(7 downto 0)
+    data_out_d0           :in   STD_LOGIC_VECTOR(7 downto 0)
 );
 end entity aescbc_AXILiteS_s_axi;
 
@@ -77,34 +71,22 @@ end entity aescbc_AXILiteS_s_axi;
 --        bit 0  - Channel 0 (ap_done)
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
--- 0x30 : Data signal of mode
+-- 0x10 : Data signal of mode
 --        bit 2~0 - mode[2:0] (Read/Write)
 --        others  - reserved
--- 0x34 : reserved
--- 0x10 ~
--- 0x1f : Memory 'data_in' (16 * 8b)
+-- 0x14 : reserved
+-- 0x20 ~
+-- 0x3f : Memory 'data_in' (32 * 8b)
 --        Word n : bit [ 7: 0] - data_in[4n]
 --                 bit [15: 8] - data_in[4n+1]
 --                 bit [23:16] - data_in[4n+2]
 --                 bit [31:24] - data_in[4n+3]
--- 0x20 ~
--- 0x2f : Memory 'data_out' (16 * 8b)
+-- 0x40 ~
+-- 0x4f : Memory 'data_out' (16 * 8b)
 --        Word n : bit [ 7: 0] - data_out[4n]
 --                 bit [15: 8] - data_out[4n+1]
 --                 bit [23:16] - data_out[4n+2]
 --                 bit [31:24] - data_out[4n+3]
--- 0x40 ~
--- 0x5f : Memory 'key_in' (32 * 8b)
---        Word n : bit [ 7: 0] - key_in[4n]
---                 bit [15: 8] - key_in[4n+1]
---                 bit [23:16] - key_in[4n+2]
---                 bit [31:24] - key_in[4n+3]
--- 0x60 ~
--- 0x6f : Memory 'iv_in' (16 * 8b)
---        Word n : bit [ 7: 0] - iv_in[4n]
---                 bit [15: 8] - iv_in[4n+1]
---                 bit [23:16] - iv_in[4n+2]
---                 bit [31:24] - iv_in[4n+3]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of aescbc_AXILiteS_s_axi is
@@ -114,16 +96,12 @@ architecture behave of aescbc_AXILiteS_s_axi is
     constant ADDR_GIE           : INTEGER := 16#04#;
     constant ADDR_IER           : INTEGER := 16#08#;
     constant ADDR_ISR           : INTEGER := 16#0c#;
-    constant ADDR_MODE_DATA_0   : INTEGER := 16#30#;
-    constant ADDR_MODE_CTRL     : INTEGER := 16#34#;
-    constant ADDR_DATA_IN_BASE  : INTEGER := 16#10#;
-    constant ADDR_DATA_IN_HIGH  : INTEGER := 16#1f#;
-    constant ADDR_DATA_OUT_BASE : INTEGER := 16#20#;
-    constant ADDR_DATA_OUT_HIGH : INTEGER := 16#2f#;
-    constant ADDR_KEY_IN_BASE   : INTEGER := 16#40#;
-    constant ADDR_KEY_IN_HIGH   : INTEGER := 16#5f#;
-    constant ADDR_IV_IN_BASE    : INTEGER := 16#60#;
-    constant ADDR_IV_IN_HIGH    : INTEGER := 16#6f#;
+    constant ADDR_MODE_DATA_0   : INTEGER := 16#10#;
+    constant ADDR_MODE_CTRL     : INTEGER := 16#14#;
+    constant ADDR_DATA_IN_BASE  : INTEGER := 16#20#;
+    constant ADDR_DATA_IN_HIGH  : INTEGER := 16#3f#;
+    constant ADDR_DATA_OUT_BASE : INTEGER := 16#40#;
+    constant ADDR_DATA_OUT_HIGH : INTEGER := 16#4f#;
     constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -148,13 +126,13 @@ architecture behave of aescbc_AXILiteS_s_axi is
     signal int_isr             : UNSIGNED(1 downto 0);
     signal int_mode            : UNSIGNED(2 downto 0);
     -- memory signals
-    signal int_data_in_address0 : UNSIGNED(1 downto 0);
+    signal int_data_in_address0 : UNSIGNED(2 downto 0);
     signal int_data_in_ce0     : STD_LOGIC;
     signal int_data_in_we0     : STD_LOGIC;
     signal int_data_in_be0     : UNSIGNED(3 downto 0);
     signal int_data_in_d0      : UNSIGNED(31 downto 0);
     signal int_data_in_q0      : UNSIGNED(31 downto 0);
-    signal int_data_in_address1 : UNSIGNED(1 downto 0);
+    signal int_data_in_address1 : UNSIGNED(2 downto 0);
     signal int_data_in_ce1     : STD_LOGIC;
     signal int_data_in_we1     : STD_LOGIC;
     signal int_data_in_be1     : UNSIGNED(3 downto 0);
@@ -178,36 +156,6 @@ architecture behave of aescbc_AXILiteS_s_axi is
     signal int_data_out_read   : STD_LOGIC;
     signal int_data_out_write  : STD_LOGIC;
     signal int_data_out_shift  : UNSIGNED(1 downto 0);
-    signal int_key_in_address0 : UNSIGNED(2 downto 0);
-    signal int_key_in_ce0      : STD_LOGIC;
-    signal int_key_in_we0      : STD_LOGIC;
-    signal int_key_in_be0      : UNSIGNED(3 downto 0);
-    signal int_key_in_d0       : UNSIGNED(31 downto 0);
-    signal int_key_in_q0       : UNSIGNED(31 downto 0);
-    signal int_key_in_address1 : UNSIGNED(2 downto 0);
-    signal int_key_in_ce1      : STD_LOGIC;
-    signal int_key_in_we1      : STD_LOGIC;
-    signal int_key_in_be1      : UNSIGNED(3 downto 0);
-    signal int_key_in_d1       : UNSIGNED(31 downto 0);
-    signal int_key_in_q1       : UNSIGNED(31 downto 0);
-    signal int_key_in_read     : STD_LOGIC;
-    signal int_key_in_write    : STD_LOGIC;
-    signal int_key_in_shift    : UNSIGNED(1 downto 0);
-    signal int_iv_in_address0  : UNSIGNED(1 downto 0);
-    signal int_iv_in_ce0       : STD_LOGIC;
-    signal int_iv_in_we0       : STD_LOGIC;
-    signal int_iv_in_be0       : UNSIGNED(3 downto 0);
-    signal int_iv_in_d0        : UNSIGNED(31 downto 0);
-    signal int_iv_in_q0        : UNSIGNED(31 downto 0);
-    signal int_iv_in_address1  : UNSIGNED(1 downto 0);
-    signal int_iv_in_ce1       : STD_LOGIC;
-    signal int_iv_in_we1       : STD_LOGIC;
-    signal int_iv_in_be1       : UNSIGNED(3 downto 0);
-    signal int_iv_in_d1        : UNSIGNED(31 downto 0);
-    signal int_iv_in_q1        : UNSIGNED(31 downto 0);
-    signal int_iv_in_read      : STD_LOGIC;
-    signal int_iv_in_write     : STD_LOGIC;
-    signal int_iv_in_shift     : UNSIGNED(1 downto 0);
 
     component aescbc_AXILiteS_s_axi_ram is
         generic (
@@ -249,8 +197,8 @@ begin
 int_data_in : aescbc_AXILiteS_s_axi_ram
 generic map (
      BYTES    => 4,
-     DEPTH    => 4,
-     AWIDTH   => log2(4))
+     DEPTH    => 8,
+     AWIDTH   => log2(8))
 port map (
      clk0     => ACLK,
      address0 => int_data_in_address0,
@@ -287,48 +235,6 @@ port map (
      be1      => int_data_out_be1,
      d1       => int_data_out_d1,
      q1       => int_data_out_q1);
--- int_key_in
-int_key_in : aescbc_AXILiteS_s_axi_ram
-generic map (
-     BYTES    => 4,
-     DEPTH    => 8,
-     AWIDTH   => log2(8))
-port map (
-     clk0     => ACLK,
-     address0 => int_key_in_address0,
-     ce0      => int_key_in_ce0,
-     we0      => int_key_in_we0,
-     be0      => int_key_in_be0,
-     d0       => int_key_in_d0,
-     q0       => int_key_in_q0,
-     clk1     => ACLK,
-     address1 => int_key_in_address1,
-     ce1      => int_key_in_ce1,
-     we1      => int_key_in_we1,
-     be1      => int_key_in_be1,
-     d1       => int_key_in_d1,
-     q1       => int_key_in_q1);
--- int_iv_in
-int_iv_in : aescbc_AXILiteS_s_axi_ram
-generic map (
-     BYTES    => 4,
-     DEPTH    => 4,
-     AWIDTH   => log2(4))
-port map (
-     clk0     => ACLK,
-     address0 => int_iv_in_address0,
-     ce0      => int_iv_in_ce0,
-     we0      => int_iv_in_we0,
-     be0      => int_iv_in_be0,
-     d0       => int_iv_in_d0,
-     q0       => int_iv_in_q0,
-     clk1     => ACLK,
-     address1 => int_iv_in_address1,
-     ce1      => int_iv_in_ce1,
-     we1      => int_iv_in_we1,
-     be1      => int_iv_in_be1,
-     d1       => int_iv_in_d1,
-     q1       => int_iv_in_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -395,7 +301,7 @@ port map (
     ARREADY <= not ARESET and ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) and (int_data_in_read = '0') and (int_data_out_read = '0') and (int_key_in_read = '0') and (int_iv_in_read = '0') else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_data_in_read = '0') and (int_data_out_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -455,10 +361,6 @@ port map (
                     rdata_data <= int_data_in_q1;
                 elsif (int_data_out_read = '1') then
                     rdata_data <= int_data_out_q1;
-                elsif (int_key_in_read = '1') then
-                    rdata_data <= int_key_in_q1;
-                elsif (int_iv_in_read = '1') then
-                    rdata_data <= int_iv_in_q1;
                 end if;
             end if;
         end if;
@@ -584,13 +486,13 @@ port map (
 
 -- ----------------------- Memory logic ------------------
     -- data_in
-    int_data_in_address0 <= SHIFT_RIGHT(UNSIGNED(data_in_address0), 2)(1 downto 0);
+    int_data_in_address0 <= SHIFT_RIGHT(UNSIGNED(data_in_address0), 2)(2 downto 0);
     int_data_in_ce0      <= data_in_ce0;
     int_data_in_we0      <= '0';
     int_data_in_be0      <= (others => '0');
     int_data_in_d0       <= (others => '0');
     data_in_q0           <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_data_in_q0, TO_INTEGER(int_data_in_shift) * 8)(7 downto 0));
-    int_data_in_address1 <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_data_in_address1 <= raddr(4 downto 2) when ar_hs = '1' else waddr(4 downto 2);
     int_data_in_ce1      <= '1' when ar_hs = '1' or (int_data_in_write = '1' and WVALID  = '1') else '0';
     int_data_in_we1      <= '1' when int_data_in_write = '1' and WVALID = '1' else '0';
     int_data_in_be1      <= UNSIGNED(WSTRB);
@@ -606,30 +508,6 @@ port map (
     int_data_out_we1     <= '1' when int_data_out_write = '1' and WVALID = '1' else '0';
     int_data_out_be1     <= UNSIGNED(WSTRB);
     int_data_out_d1      <= UNSIGNED(WDATA);
-    -- key_in
-    int_key_in_address0  <= SHIFT_RIGHT(UNSIGNED(key_in_address0), 2)(2 downto 0);
-    int_key_in_ce0       <= key_in_ce0;
-    int_key_in_we0       <= '0';
-    int_key_in_be0       <= (others => '0');
-    int_key_in_d0        <= (others => '0');
-    key_in_q0            <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_key_in_q0, TO_INTEGER(int_key_in_shift) * 8)(7 downto 0));
-    int_key_in_address1  <= raddr(4 downto 2) when ar_hs = '1' else waddr(4 downto 2);
-    int_key_in_ce1       <= '1' when ar_hs = '1' or (int_key_in_write = '1' and WVALID  = '1') else '0';
-    int_key_in_we1       <= '1' when int_key_in_write = '1' and WVALID = '1' else '0';
-    int_key_in_be1       <= UNSIGNED(WSTRB);
-    int_key_in_d1        <= UNSIGNED(WDATA);
-    -- iv_in
-    int_iv_in_address0   <= SHIFT_RIGHT(UNSIGNED(iv_in_address0), 2)(1 downto 0);
-    int_iv_in_ce0        <= iv_in_ce0;
-    int_iv_in_we0        <= '0';
-    int_iv_in_be0        <= (others => '0');
-    int_iv_in_d0         <= (others => '0');
-    iv_in_q0             <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_iv_in_q0, TO_INTEGER(int_iv_in_shift) * 8)(7 downto 0));
-    int_iv_in_address1   <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
-    int_iv_in_ce1        <= '1' when ar_hs = '1' or (int_iv_in_write = '1' and WVALID  = '1') else '0';
-    int_iv_in_we1        <= '1' when int_iv_in_write = '1' and WVALID = '1' else '0';
-    int_iv_in_be1        <= UNSIGNED(WSTRB);
-    int_iv_in_d1         <= UNSIGNED(WDATA);
 
     process (ACLK)
     begin
@@ -708,88 +586,6 @@ port map (
             if (ACLK_EN = '1') then
                 if (data_out_ce0 = '1') then
                     int_data_out_shift <= UNSIGNED(data_out_address0(1 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_key_in_read <= '0';
-            elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_KEY_IN_BASE and raddr <= ADDR_KEY_IN_HIGH) then
-                    int_key_in_read <= '1';
-                else
-                    int_key_in_read <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_key_in_write <= '0';
-            elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_KEY_IN_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_KEY_IN_HIGH) then
-                    int_key_in_write <= '1';
-                elsif (WVALID = '1') then
-                    int_key_in_write <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (key_in_ce0 = '1') then
-                    int_key_in_shift <= UNSIGNED(key_in_address0(1 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_iv_in_read <= '0';
-            elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_IV_IN_BASE and raddr <= ADDR_IV_IN_HIGH) then
-                    int_iv_in_read <= '1';
-                else
-                    int_iv_in_read <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_iv_in_write <= '0';
-            elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_IV_IN_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_IV_IN_HIGH) then
-                    int_iv_in_write <= '1';
-                elsif (WVALID = '1') then
-                    int_iv_in_write <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (iv_in_ce0 = '1') then
-                    int_iv_in_shift <= UNSIGNED(iv_in_address0(1 downto 0));
                 end if;
             end if;
         end if;

@@ -73,11 +73,11 @@ aes_addRoundKey::aes_addRoundKey(sc_module_name name) : sc_module(name), mVcdFil
     SC_METHOD(thread_buf_r_we0);
     sensitive << ( ap_CS_fsm_state3 );
 
-    SC_METHOD(thread_i_46_fu_65_p2);
+    SC_METHOD(thread_i_50_fu_65_p2);
     sensitive << ( i_reg_50 );
 
-    SC_METHOD(thread_i_49_cast_fu_71_p1);
-    sensitive << ( i_46_fu_65_p2 );
+    SC_METHOD(thread_i_53_cast_fu_71_p1);
+    sensitive << ( i_50_fu_65_p2 );
 
     SC_METHOD(thread_key_address0);
     sensitive << ( ap_CS_fsm_state2 );
@@ -91,7 +91,7 @@ aes_addRoundKey::aes_addRoundKey(sc_module_name name) : sc_module(name), mVcdFil
 
     SC_METHOD(thread_sum_fu_86_p2);
     sensitive << ( tmp_38_reg_103 );
-    sensitive << ( i_46_fu_65_p2 );
+    sensitive << ( i_50_fu_65_p2 );
 
     SC_METHOD(thread_tmp_38_fu_61_p1);
     sensitive << ( key_offset );
@@ -101,7 +101,7 @@ aes_addRoundKey::aes_addRoundKey(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( i_reg_50 );
 
     SC_METHOD(thread_tmp_s_fu_81_p1);
-    sensitive << ( i_49_cast_fu_71_p1 );
+    sensitive << ( i_53_cast_fu_71_p1 );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
@@ -138,8 +138,8 @@ aes_addRoundKey::aes_addRoundKey(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
     sc_trace(mVcdFile, tmp_38_fu_61_p1, "tmp_38_fu_61_p1");
     sc_trace(mVcdFile, tmp_38_reg_103, "tmp_38_reg_103");
-    sc_trace(mVcdFile, i_46_fu_65_p2, "i_46_fu_65_p2");
-    sc_trace(mVcdFile, i_46_reg_108, "i_46_reg_108");
+    sc_trace(mVcdFile, i_50_fu_65_p2, "i_50_fu_65_p2");
+    sc_trace(mVcdFile, i_50_reg_108, "i_50_reg_108");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
     sc_trace(mVcdFile, tmp_fu_75_p2, "tmp_fu_75_p2");
     sc_trace(mVcdFile, buf_addr_reg_121, "buf_addr_reg_121");
@@ -147,7 +147,7 @@ aes_addRoundKey::aes_addRoundKey(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
     sc_trace(mVcdFile, sum_cast_fu_91_p1, "sum_cast_fu_91_p1");
     sc_trace(mVcdFile, tmp_s_fu_81_p1, "tmp_s_fu_81_p1");
-    sc_trace(mVcdFile, i_49_cast_fu_71_p1, "i_49_cast_fu_71_p1");
+    sc_trace(mVcdFile, i_53_cast_fu_71_p1, "i_53_cast_fu_71_p1");
     sc_trace(mVcdFile, sum_fu_86_p2, "sum_fu_86_p2");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
@@ -168,7 +168,7 @@ void aes_addRoundKey::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm_state3.read()))) {
-        i_reg_50 = i_46_reg_108.read();
+        i_reg_50 = i_50_reg_108.read();
     } else if ((esl_seteq<1,1,1>(ap_CS_fsm_state1.read(), ap_const_lv1_1) && 
                 !esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0))) {
         i_reg_50 = ap_const_lv5_10;
@@ -177,7 +177,7 @@ void aes_addRoundKey::thread_ap_clk_no_reset_() {
         buf_addr_reg_121 =  (sc_lv<4>) (tmp_s_fu_81_p1.read());
     }
     if ((esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm_state2.read()))) {
-        i_46_reg_108 = i_46_fu_65_p2.read();
+        i_50_reg_108 = i_50_fu_65_p2.read();
     }
     if ((esl_seteq<1,1,1>(ap_CS_fsm_state1.read(), ap_const_lv1_1) && !esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0))) {
         tmp_38_reg_103 = tmp_38_fu_61_p1.read();
@@ -256,12 +256,12 @@ void aes_addRoundKey::thread_buf_r_we0() {
     }
 }
 
-void aes_addRoundKey::thread_i_46_fu_65_p2() {
-    i_46_fu_65_p2 = (!i_reg_50.read().is_01() || !ap_const_lv5_1F.is_01())? sc_lv<5>(): (sc_biguint<5>(i_reg_50.read()) + sc_bigint<5>(ap_const_lv5_1F));
+void aes_addRoundKey::thread_i_50_fu_65_p2() {
+    i_50_fu_65_p2 = (!i_reg_50.read().is_01() || !ap_const_lv5_1F.is_01())? sc_lv<5>(): (sc_biguint<5>(i_reg_50.read()) + sc_bigint<5>(ap_const_lv5_1F));
 }
 
-void aes_addRoundKey::thread_i_49_cast_fu_71_p1() {
-    i_49_cast_fu_71_p1 = esl_sext<8,5>(i_46_fu_65_p2.read());
+void aes_addRoundKey::thread_i_53_cast_fu_71_p1() {
+    i_53_cast_fu_71_p1 = esl_sext<8,5>(i_50_fu_65_p2.read());
 }
 
 void aes_addRoundKey::thread_key_address0() {
@@ -281,7 +281,7 @@ void aes_addRoundKey::thread_sum_cast_fu_91_p1() {
 }
 
 void aes_addRoundKey::thread_sum_fu_86_p2() {
-    sum_fu_86_p2 = (!i_46_fu_65_p2.read().is_01() || !tmp_38_reg_103.read().is_01())? sc_lv<5>(): (sc_biguint<5>(i_46_fu_65_p2.read()) + sc_biguint<5>(tmp_38_reg_103.read()));
+    sum_fu_86_p2 = (!i_50_fu_65_p2.read().is_01() || !tmp_38_reg_103.read().is_01())? sc_lv<5>(): (sc_biguint<5>(i_50_fu_65_p2.read()) + sc_biguint<5>(tmp_38_reg_103.read()));
 }
 
 void aes_addRoundKey::thread_tmp_38_fu_61_p1() {
@@ -293,7 +293,7 @@ void aes_addRoundKey::thread_tmp_fu_75_p2() {
 }
 
 void aes_addRoundKey::thread_tmp_s_fu_81_p1() {
-    tmp_s_fu_81_p1 = esl_zext<64,8>(i_49_cast_fu_71_p1.read());
+    tmp_s_fu_81_p1 = esl_zext<64,8>(i_53_cast_fu_71_p1.read());
 }
 
 void aes_addRoundKey::thread_ap_NS_fsm() {

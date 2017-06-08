@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_addRoundKey'
 ================================================================
-* Date:           Thu Jun  8 07:23:50 2017
+* Date:           Thu Jun  8 09:29:43 2017
 
 * Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aescbc
@@ -85,7 +85,7 @@
     +---------------+----------+-------+---+----+------------+------------+
     | Variable Name | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------+----------+-------+---+----+------------+------------+
-    |i_46_fu_65_p2  |     +    |      0|  0|   5|           5|           2|
+    |i_50_fu_65_p2  |     +    |      0|  0|   5|           5|           2|
     |sum_fu_86_p2   |     +    |      0|  0|   5|           5|           5|
     |tmp_fu_75_p2   |   icmp   |      0|  0|   2|           5|           1|
     |buf_r_d0       |    xor   |      0|  0|   8|           8|           8|
@@ -110,7 +110,7 @@
     +------------------+---+----+-----+-----------+
     |ap_CS_fsm         |  3|   0|    3|          0|
     |buf_addr_reg_121  |  4|   0|    4|          0|
-    |i_46_reg_108      |  5|   0|    5|          0|
+    |i_50_reg_108      |  5|   0|    5|          0|
     |i_reg_50          |  5|   0|    5|          0|
     |tmp_38_reg_103    |  5|   0|    5|          0|
     +------------------+---+----+-----+-----------+
@@ -195,13 +195,13 @@ ST_1: StgValue_6 (6)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:214
 
  <State 2>: 5.83ns
 ST_2: i (8)  [1/1] 0.00ns
-:0  %i = phi i5 [ -16, %0 ], [ %i_46, %2 ]
+:0  %i = phi i5 [ -16, %0 ], [ %i_50, %2 ]
 
-ST_2: i_46 (9)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:214
-:1  %i_46 = add i5 %i, -1
+ST_2: i_50 (9)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:214
+:1  %i_50 = add i5 %i, -1
 
-ST_2: i_49_cast (10)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
-:2  %i_49_cast = sext i5 %i_46 to i8
+ST_2: i_53_cast (10)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
+:2  %i_53_cast = sext i5 %i_50 to i8
 
 ST_2: tmp (11)  [1/1] 1.91ns  loc: aescbc/src/aesecb.c:214
 :3  %tmp = icmp eq i5 %i, 0
@@ -213,10 +213,10 @@ ST_2: StgValue_12 (13)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
 :5  br i1 %tmp, label %3, label %2
 
 ST_2: tmp_s (15)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
-:0  %tmp_s = zext i8 %i_49_cast to i64
+:0  %tmp_s = zext i8 %i_53_cast to i64
 
 ST_2: sum (16)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:214
-:1  %sum = add i5 %i_46, %tmp_38
+:1  %sum = add i5 %i_50, %tmp_38
 
 ST_2: sum_cast (17)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
 :2  %sum_cast = zext i5 %sum to i64
@@ -244,11 +244,11 @@ ST_3: key_load (19)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:214
 ST_3: buf_load (21)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:214
 :6  %buf_load = load i8* %buf_addr, align 1
 
-ST_3: tmp_145 (22)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:214
-:7  %tmp_145 = xor i8 %buf_load, %key_load
+ST_3: tmp_149 (22)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:214
+:7  %tmp_149 = xor i8 %buf_load, %key_load
 
 ST_3: StgValue_24 (23)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:214
-:8  store i8 %tmp_145, i8* %buf_addr, align 1
+:8  store i8 %tmp_149, i8* %buf_addr, align 1
 
 ST_3: StgValue_25 (24)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:214
 :9  br label %1
@@ -280,8 +280,8 @@ key_offset_read (read             ) [ 0000]
 tmp_38          (trunc            ) [ 0011]
 StgValue_6      (br               ) [ 0111]
 i               (phi              ) [ 0010]
-i_46            (add              ) [ 0111]
-i_49_cast       (sext             ) [ 0000]
+i_50            (add              ) [ 0111]
+i_53_cast       (sext             ) [ 0000]
 tmp             (icmp             ) [ 0011]
 empty           (speclooptripcount) [ 0000]
 StgValue_12     (br               ) [ 0000]
@@ -293,7 +293,7 @@ buf_addr        (getelementptr    ) [ 0001]
 StgValue_20     (ret              ) [ 0000]
 key_load        (load             ) [ 0000]
 buf_load        (load             ) [ 0000]
-tmp_145         (xor              ) [ 0000]
+tmp_149         (xor              ) [ 0000]
 StgValue_24     (store            ) [ 0000]
 StgValue_25     (br               ) [ 0111]
 </LifeTime>
@@ -490,7 +490,7 @@ StgValue_25     (br               ) [ 0111]
 </bind>
 </comp>
 
-<comp id="65" class="1004" name="i_46_fu_65">
+<comp id="65" class="1004" name="i_50_fu_65">
 <pin_list>
 <pin id="66" dir="0" index="0" bw="5" slack="0"/>
 <pin id="67" dir="0" index="1" bw="1" slack="0"/>
@@ -498,18 +498,18 @@ StgValue_25     (br               ) [ 0111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_46/2 "/>
+<opset="i_50/2 "/>
 </bind>
 </comp>
 
-<comp id="71" class="1004" name="i_49_cast_fu_71">
+<comp id="71" class="1004" name="i_53_cast_fu_71">
 <pin_list>
 <pin id="72" dir="0" index="0" bw="5" slack="0"/>
 <pin id="73" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="i_49_cast/2 "/>
+<opset="i_53_cast/2 "/>
 </bind>
 </comp>
 
@@ -559,7 +559,7 @@ StgValue_25     (br               ) [ 0111]
 </bind>
 </comp>
 
-<comp id="96" class="1004" name="tmp_145_fu_96">
+<comp id="96" class="1004" name="tmp_149_fu_96">
 <pin_list>
 <pin id="97" dir="0" index="0" bw="8" slack="0"/>
 <pin id="98" dir="0" index="1" bw="8" slack="0"/>
@@ -567,7 +567,7 @@ StgValue_25     (br               ) [ 0111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_145/3 "/>
+<opset="tmp_149/3 "/>
 </bind>
 </comp>
 
@@ -581,13 +581,13 @@ StgValue_25     (br               ) [ 0111]
 </bind>
 </comp>
 
-<comp id="108" class="1005" name="i_46_reg_108">
+<comp id="108" class="1005" name="i_50_reg_108">
 <pin_list>
 <pin id="109" dir="0" index="0" bw="5" slack="0"/>
 <pin id="110" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_46 "/>
+<opset="i_50 "/>
 </bind>
 </comp>
 
@@ -694,8 +694,8 @@ StgValue_25     (br               ) [ 0111]
   - Chain level:
 	State 1
 	State 2
-		i_46 : 1
-		i_49_cast : 2
+		i_50 : 1
+		i_53_cast : 2
 		tmp : 1
 		StgValue_12 : 2
 		tmp_s : 3
@@ -706,7 +706,7 @@ StgValue_25     (br               ) [ 0111]
 		buf_addr : 4
 		buf_load : 5
 	State 3
-		tmp_145 : 1
+		tmp_149 : 1
 		StgValue_24 : 1
 
 
@@ -718,10 +718,10 @@ StgValue_25     (br               ) [ 0111]
 |----------|----------------------------|---------|---------|
 | Operation|       Functional Unit      |    FF   |   LUT   |
 |----------|----------------------------|---------|---------|
-|    add   |         i_46_fu_65         |    0    |    5    |
+|    add   |         i_50_fu_65         |    0    |    5    |
 |          |          sum_fu_86         |    0    |    5    |
 |----------|----------------------------|---------|---------|
-|    xor   |        tmp_145_fu_96       |    0    |    8    |
+|    xor   |        tmp_149_fu_96       |    0    |    8    |
 |----------|----------------------------|---------|---------|
 |   icmp   |          tmp_fu_75         |    0    |    2    |
 |----------|----------------------------|---------|---------|
@@ -729,7 +729,7 @@ StgValue_25     (br               ) [ 0111]
 |----------|----------------------------|---------|---------|
 |   trunc  |        tmp_38_fu_61        |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|   sext   |       i_49_cast_fu_71      |    0    |    0    |
+|   sext   |       i_53_cast_fu_71      |    0    |    0    |
 |----------|----------------------------|---------|---------|
 |   zext   |         tmp_s_fu_81        |    0    |    0    |
 |          |       sum_cast_fu_91       |    0    |    0    |
@@ -745,7 +745,7 @@ N/A
 |                |   FF   |
 +----------------+--------+
 |buf_addr_reg_121|    4   |
-|  i_46_reg_108  |    5   |
+|  i_50_reg_108  |    5   |
 |    i_reg_50    |    5   |
 |key_addr_reg_116|    5   |
 | tmp_38_reg_103 |    5   |

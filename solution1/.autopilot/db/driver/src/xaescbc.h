@@ -107,24 +107,6 @@ u32 XAescbc_Write_data_out_Words(XAescbc *InstancePtr, int offset, int *data, in
 u32 XAescbc_Read_data_out_Words(XAescbc *InstancePtr, int offset, int *data, int length);
 u32 XAescbc_Write_data_out_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
 u32 XAescbc_Read_data_out_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
-u32 XAescbc_Get_key_in_BaseAddress(XAescbc *InstancePtr);
-u32 XAescbc_Get_key_in_HighAddress(XAescbc *InstancePtr);
-u32 XAescbc_Get_key_in_TotalBytes(XAescbc *InstancePtr);
-u32 XAescbc_Get_key_in_BitWidth(XAescbc *InstancePtr);
-u32 XAescbc_Get_key_in_Depth(XAescbc *InstancePtr);
-u32 XAescbc_Write_key_in_Words(XAescbc *InstancePtr, int offset, int *data, int length);
-u32 XAescbc_Read_key_in_Words(XAescbc *InstancePtr, int offset, int *data, int length);
-u32 XAescbc_Write_key_in_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
-u32 XAescbc_Read_key_in_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
-u32 XAescbc_Get_iv_in_BaseAddress(XAescbc *InstancePtr);
-u32 XAescbc_Get_iv_in_HighAddress(XAescbc *InstancePtr);
-u32 XAescbc_Get_iv_in_TotalBytes(XAescbc *InstancePtr);
-u32 XAescbc_Get_iv_in_BitWidth(XAescbc *InstancePtr);
-u32 XAescbc_Get_iv_in_Depth(XAescbc *InstancePtr);
-u32 XAescbc_Write_iv_in_Words(XAescbc *InstancePtr, int offset, int *data, int length);
-u32 XAescbc_Read_iv_in_Words(XAescbc *InstancePtr, int offset, int *data, int length);
-u32 XAescbc_Write_iv_in_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
-u32 XAescbc_Read_iv_in_Bytes(XAescbc *InstancePtr, int offset, char *data, int length);
 
 void XAescbc_InterruptGlobalEnable(XAescbc *InstancePtr);
 void XAescbc_InterruptGlobalDisable(XAescbc *InstancePtr);

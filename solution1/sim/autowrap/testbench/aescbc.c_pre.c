@@ -112,15 +112,12 @@ typedef unsigned long int uintmax_t;
 
 
 
-
 typedef enum { RESET = 0, ENCRYPT, DECRYPT, SET_IV, SET_KEY } ciphermode_t;
 
 
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16]);
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16] );
 # 3 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc.c" 2
 
 # 1 "/usr/include/stdlib.h" 1 3 4
@@ -2131,18 +2128,18 @@ extern char *stpncpy (char *__restrict __dest,
 
 # 7 "/home/brett/Thesis/Vivado_WS/aescbc/src/aescbc.c" 2
 
-void aescbc(uint8_t data_in[16],
-   uint8_t data_out[16],
-      ciphermode_t mode,
-   uint8_t key_in[32],
-   uint8_t iv_in[16])
+void aescbc(ciphermode_t mode,
+   uint8_t data_in[32],
+   uint8_t data_out[16])
 {
-#pragma HLS INTERFACE s_axilite port=key_in depth=32
-#pragma HLS INTERFACE s_axilite port=iv_in depth=16
-#pragma HLS INTERFACE s_axilite port=data_in depth=16
+
+
+#pragma HLS INTERFACE s_axilite port=data_in depth=32
 #pragma HLS INTERFACE s_axilite port=data_out depth=16
 #pragma HLS INTERFACE s_axilite port=mode
 #pragma HLS INTERFACE s_axilite port=return
+
+ const uint8_t zeros[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
  uint8_t buf[16];
  static uint8_t lastbuf[16];
@@ -2155,59 +2152,71 @@ void aescbc(uint8_t data_in[16],
     switch( mode ) {
     case RESET:
 
-     aescbc_label12:for(i=0; i<16; i++)
+     loop_dataoutclr0:
+  for(i=0; i<16; i++)
       data_out[i] = 0;
-  aescbc_label4:for(i=0; i<32; i++)
-   key[i] = key_in[i];
-     aescbc_label10:for(i=0; i<16; i++)
-      iv[i] = iv_in[i];
-     aescbc_label11:for(i=0; i<16; i++)
+
+     loop_xorvreset:
+  for(i=0; i<16; i++)
       xorv[i] = iv[i];
-     aes_init(&ctx, key);
+
+  aes_init(&ctx, key);
      break;
 
     case ENCRYPT:
 
-     aescbc_label1: for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = data_in[i];
 
-     aescbc_label7:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = buf[i]^xorv[i];
 
      aes_encrypt_ecb(&ctx, buf);
 
-     aescbc_label9:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       xorv[i] = buf[i];
 
-     aescbc_label0:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       data_out[i] = buf[i];
      break;
 
     case DECRYPT:
-     aescbc_label2:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = data_in[i];
 
-     aescbc_label3:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       lastbuf[i] = buf[i];
 
      aes_decrypt_ecb(&ctx, buf);
 
-     aescbc_label5:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       buf[i] = buf[i]^xorv[i];
 
-     aescbc_label8:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       xorv[i] = lastbuf[i];
 
-     aescbc_label6:for(i=0; i<16; i++)
+     for(i=0; i<16; i++)
       data_out[i] = buf[i];
      break;
 
     case SET_IV:
+     loop_setiv:
+  for(i=0; i<16; i++)
+      iv[i] = data_in[i];
 
+  loop_dataoutclr1:
+  for(i=0; i<16; i++)
+   data_out[i] = 0;
      break;
 
     case SET_KEY:
+  loop_setkey:
+  for(i=0; i<32; i++)
+   key[i] = data_in[i];
 
+     loop_dataoutclr2:
+  for(i=0; i<16; i++)
+   data_out[i] = 0;
      break;
     }
 }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_mixColumns_inv'" level="0">
-<item name = "Date">Thu Jun  8 07:23:51 2017
+<item name = "Date">Thu Jun  8 09:29:43 2017
 </item>
 <item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
 <item name = "Project">aescbc</item>
@@ -78,10 +78,10 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_27_fu_108_p2">+, 0, 0, 5, 3, 5</column>
-<column name="tmp_28_fu_97_p2">or, 0, 0, 7, 4, 1</column>
-<column name="tmp_30_fu_114_p2">or, 0, 0, 7, 4, 2</column>
-<column name="tmp_32_fu_124_p2">or, 0, 0, 7, 4, 2</column>
+<column name="i_31_fu_108_p2">+, 0, 0, 5, 3, 5</column>
+<column name="tmp_32_fu_97_p2">or, 0, 0, 7, 4, 1</column>
+<column name="tmp_34_fu_114_p2">or, 0, 0, 7, 4, 2</column>
+<column name="tmp_36_fu_124_p2">or, 0, 0, 7, 4, 2</column>
 <column name="y_10_fu_305_p3">select, 0, 0, 8, 1, 8</column>
 <column name="y_12_fu_336_p3">select, 0, 0, 8, 1, 8</column>
 <column name="y_14_fu_379_p3">select, 0, 0, 8, 1, 8</column>
@@ -108,10 +108,10 @@
 <column name="tmp_1_i7_fu_416_p2">xor, 0, 0, 8, 8, 5</column>
 <column name="tmp_1_i8_fu_459_p2">xor, 0, 0, 8, 8, 5</column>
 <column name="tmp_1_i_fu_164_p2">xor, 0, 0, 8, 8, 5</column>
-<column name="tmp_34_fu_350_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_35_fu_393_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_36_fu_436_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="tmp_37_fu_479_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_38_fu_350_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_39_fu_393_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_40_fu_436_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="tmp_41_fu_479_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_1_fu_182_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_3_fu_252_p2">xor, 0, 0, 8, 8, 8</column>
 <column name="x_assign_5_fu_134_p2">xor, 0, 0, 8, 8, 8</column>
@@ -144,13 +144,13 @@
 <column name="c_reg_534">8, 0, 8, 0</column>
 <column name="d_reg_542">8, 0, 8, 0</column>
 <column name="e_reg_556">8, 0, 8, 0</column>
-<column name="i_27_reg_503">5, 0, 5, 0</column>
+<column name="i_31_reg_503">5, 0, 5, 0</column>
 <column name="i_reg_69">5, 0, 5, 0</column>
 <column name="tmp_1_reg_492">4, 0, 4, 0</column>
-<column name="tmp_34_reg_568">8, 0, 8, 0</column>
-<column name="tmp_35_reg_573">8, 0, 8, 0</column>
-<column name="tmp_36_reg_578">8, 0, 8, 0</column>
-<column name="tmp_37_reg_583">8, 0, 8, 0</column>
+<column name="tmp_38_reg_568">8, 0, 8, 0</column>
+<column name="tmp_39_reg_573">8, 0, 8, 0</column>
+<column name="tmp_40_reg_578">8, 0, 8, 0</column>
+<column name="tmp_41_reg_583">8, 0, 8, 0</column>
 <column name="x_assign_5_reg_550">8, 0, 8, 0</column>
 <column name="y_19_reg_562">8, 0, 8, 0</column>
 </table>

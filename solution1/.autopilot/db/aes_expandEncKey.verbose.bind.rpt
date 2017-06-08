@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_expandEncKey'
 ================================================================
-* Date:           Thu Jun  8 07:23:49 2017
+* Date:           Thu Jun  8 09:29:42 2017
 
 * Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
 * Project:        aescbc
@@ -166,11 +166,11 @@ ST_3: k_addr (5)  [1/1] 0.00ns
 ST_3: k_load_1 (11)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:296
 :7  %k_load_1 = load i8* %k_addr, align 1
 
-ST_3: tmp_38 (17)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:297
-:13  %tmp_38 = zext i8 %k_load_2 to i64
+ST_3: tmp_42 (17)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:297
+:13  %tmp_42 = zext i8 %k_load_2 to i64
 
 ST_3: sbox_addr_1 (18)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:297
-:14  %sbox_addr_1 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_38
+:14  %sbox_addr_1 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_42
 
 ST_3: sbox_load_1 (19)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:297
 :15  %sbox_load_1 = load i8* %sbox_addr_1, align 1
@@ -207,14 +207,14 @@ ST_4: sbox_load_1 (19)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:297
 ST_4: k_load_3 (21)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:297
 :17  %k_load_3 = load i8* %k_addr_3, align 1
 
-ST_4: tmp_39 (22)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:297
-:18  %tmp_39 = xor i8 %k_load_3, %sbox_load_1
+ST_4: tmp_43 (22)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:297
+:18  %tmp_43 = xor i8 %k_load_3, %sbox_load_1
 
-ST_4: tmp_40 (26)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:298
-:22  %tmp_40 = zext i8 %k_load_4 to i64
+ST_4: tmp_44 (26)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:298
+:22  %tmp_44 = zext i8 %k_load_4 to i64
 
 ST_4: sbox_addr_2 (27)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:298
-:23  %sbox_addr_2 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_40
+:23  %sbox_addr_2 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_44
 
 ST_4: sbox_load_2 (28)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:298
 :24  %sbox_load_2 = load i8* %sbox_addr_2, align 1
@@ -225,11 +225,11 @@ ST_4: k_addr_5 (29)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:298
 ST_4: k_load_5 (30)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:298
 :26  %k_load_5 = load i8* %k_addr_5, align 1
 
-ST_4: tmp_42 (35)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:299
-:31  %tmp_42 = zext i8 %k_load_6 to i64
+ST_4: tmp_46 (35)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:299
+:31  %tmp_46 = zext i8 %k_load_6 to i64
 
 ST_4: sbox_addr_3 (36)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:299
-:32  %sbox_addr_3 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_42
+:32  %sbox_addr_3 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_46
 
 ST_4: sbox_load_3 (37)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:299
 :33  %sbox_load_3 = load i8* %sbox_addr_3, align 1
@@ -258,7 +258,7 @@ ST_5: StgValue_64 (14)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:296
 :10  store i8 %tmp_s, i8* %k_addr, align 1
 
 ST_5: StgValue_65 (23)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:297
-:19  store i8 %tmp_39, i8* %k_addr_3, align 1
+:19  store i8 %tmp_43, i8* %k_addr_3, align 1
 
 ST_5: sbox_load_2 (28)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:298
 :24  %sbox_load_2 = load i8* %sbox_addr_2, align 1
@@ -266,8 +266,8 @@ ST_5: sbox_load_2 (28)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:298
 ST_5: k_load_5 (30)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:298
 :26  %k_load_5 = load i8* %k_addr_5, align 1
 
-ST_5: tmp_41 (31)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:298
-:27  %tmp_41 = xor i8 %k_load_5, %sbox_load_2
+ST_5: tmp_45 (31)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:298
+:27  %tmp_45 = xor i8 %k_load_5, %sbox_load_2
 
 ST_5: sbox_load_3 (37)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:299
 :33  %sbox_load_3 = load i8* %sbox_addr_3, align 1
@@ -275,8 +275,8 @@ ST_5: sbox_load_3 (37)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:299
 ST_5: k_load_7 (39)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:299
 :35  %k_load_7 = load i8* %k_addr_7, align 1
 
-ST_5: tmp_43 (40)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:299
-:36  %tmp_43 = xor i8 %k_load_7, %sbox_load_3
+ST_5: tmp_47 (40)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:299
+:36  %tmp_47 = xor i8 %k_load_7, %sbox_load_3
 
 ST_5: y (42)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:189->aescbc/src/aesecb.c:300
 :38  %y = shl i8 %rc_read_1, 1
@@ -293,10 +293,10 @@ ST_5: y_20 (45)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:190->aescbc/src/aesecb.c
 
  <State 6>: 2.39ns
 ST_6: StgValue_76 (32)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:298
-:28  store i8 %tmp_41, i8* %k_addr_5, align 1
+:28  store i8 %tmp_45, i8* %k_addr_5, align 1
 
 ST_6: StgValue_77 (41)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:299
-:37  store i8 %tmp_43, i8* %k_addr_7, align 1
+:37  store i8 %tmp_47, i8* %k_addr_7, align 1
 
 ST_6: StgValue_78 (46)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:302
 :42  br label %1
@@ -304,7 +304,7 @@ ST_6: StgValue_78 (46)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:302
 
  <State 7>: 3.19ns
 ST_7: i (48)  [1/1] 0.00ns
-:0  %i = phi i5 [ 4, %0 ], [ %i_28, %2 ]
+:0  %i = phi i5 [ 4, %0 ], [ %i_32, %2 ]
 
 ST_7: tmp_22 (49)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
 :1  %tmp_22 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %i, i32 4)
@@ -318,29 +318,29 @@ ST_7: StgValue_82 (51)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
 ST_7: tmp_23 (53)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
 :0  %tmp_23 = trunc i5 %i to i4
 
-ST_7: tmp_45 (54)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
-:1  %tmp_45 = add i4 -4, %tmp_23
+ST_7: tmp_49 (54)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
+:1  %tmp_49 = add i4 -4, %tmp_23
 
-ST_7: tmp_46 (55)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:2  %tmp_46 = zext i4 %tmp_45 to i64
+ST_7: tmp_50 (55)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:2  %tmp_50 = zext i4 %tmp_49 to i64
 
 ST_7: k_addr_8 (56)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:3  %k_addr_8 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_46
+:3  %k_addr_8 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_50
 
 ST_7: k_load_8 (57)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :4  %k_load_8 = load i8* %k_addr_8, align 1
 
-ST_7: tmp_47 (58)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:5  %tmp_47 = zext i5 %i to i64
+ST_7: tmp_51 (58)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:5  %tmp_51 = zext i5 %i to i64
 
 ST_7: k_addr_9 (59)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:6  %k_addr_9 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_47
+:6  %k_addr_9 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_51
 
 ST_7: k_load_9 (60)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :7  %k_load_9 = load i8* %k_addr_9, align 1
 
-ST_7: i_28 (93)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:302
-:40  %i_28 = add i5 4, %i
+ST_7: i_32 (93)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:302
+:40  %i_32 = add i5 4, %i
 
 ST_7: k_addr_16 (96)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:304
 :0  %k_addr_16 = getelementptr [32 x i8]* %k, i64 0, i64 12
@@ -362,29 +362,29 @@ ST_8: k_load_8 (57)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 ST_8: k_load_9 (60)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :7  %k_load_9 = load i8* %k_addr_9, align 1
 
-ST_8: tmp_48 (61)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
-:8  %tmp_48 = xor i8 %k_load_9, %k_load_8
+ST_8: tmp_52 (61)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
+:8  %tmp_52 = xor i8 %k_load_9, %k_load_8
 
-ST_8: tmp_49 (63)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
-:10  %tmp_49 = add i4 -3, %tmp_23
+ST_8: tmp_53 (63)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
+:10  %tmp_53 = add i4 -3, %tmp_23
 
-ST_8: tmp_50 (64)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:11  %tmp_50 = zext i4 %tmp_49 to i64
+ST_8: tmp_54 (64)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:11  %tmp_54 = zext i4 %tmp_53 to i64
 
 ST_8: k_addr_10 (65)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:12  %k_addr_10 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_50
+:12  %k_addr_10 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_54
 
 ST_8: k_load_10 (66)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :13  %k_load_10 = load i8* %k_addr_10, align 1
 
-ST_8: tmp_51 (67)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:14  %tmp_51 = or i4 %tmp_23, 1
+ST_8: tmp_55 (67)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:14  %tmp_55 = or i4 %tmp_23, 1
 
-ST_8: tmp_52 (68)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:15  %tmp_52 = zext i4 %tmp_51 to i64
+ST_8: tmp_56 (68)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:15  %tmp_56 = zext i4 %tmp_55 to i64
 
 ST_8: k_addr_11 (69)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:16  %k_addr_11 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_52
+:16  %k_addr_11 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_56
 
 ST_8: k_load_11 (70)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :17  %k_load_11 = load i8* %k_addr_11, align 1
@@ -397,29 +397,29 @@ ST_9: k_load_10 (66)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 ST_9: k_load_11 (70)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :17  %k_load_11 = load i8* %k_addr_11, align 1
 
-ST_9: tmp_53 (71)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
-:18  %tmp_53 = xor i8 %k_load_11, %k_load_10
+ST_9: tmp_57 (71)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
+:18  %tmp_57 = xor i8 %k_load_11, %k_load_10
 
-ST_9: tmp_54 (73)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
-:20  %tmp_54 = add i4 -2, %tmp_23
+ST_9: tmp_58 (73)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
+:20  %tmp_58 = add i4 -2, %tmp_23
 
-ST_9: tmp_55 (74)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:21  %tmp_55 = zext i4 %tmp_54 to i64
+ST_9: tmp_59 (74)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:21  %tmp_59 = zext i4 %tmp_58 to i64
 
 ST_9: k_addr_12 (75)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:22  %k_addr_12 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_55
+:22  %k_addr_12 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_59
 
 ST_9: k_load_12 (76)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :23  %k_load_12 = load i8* %k_addr_12, align 1
 
-ST_9: tmp_56 (77)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:24  %tmp_56 = or i4 %tmp_23, 2
+ST_9: tmp_60 (77)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:24  %tmp_60 = or i4 %tmp_23, 2
 
-ST_9: tmp_57 (78)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:25  %tmp_57 = zext i4 %tmp_56 to i64
+ST_9: tmp_61 (78)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:25  %tmp_61 = zext i4 %tmp_60 to i64
 
 ST_9: k_addr_13 (79)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:26  %k_addr_13 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_57
+:26  %k_addr_13 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_61
 
 ST_9: k_load_13 (80)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :27  %k_load_13 = load i8* %k_addr_13, align 1
@@ -432,29 +432,29 @@ ST_10: k_load_12 (76)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 ST_10: k_load_13 (80)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :27  %k_load_13 = load i8* %k_addr_13, align 1
 
-ST_10: tmp_58 (81)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
-:28  %tmp_58 = xor i8 %k_load_13, %k_load_12
+ST_10: tmp_62 (81)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
+:28  %tmp_62 = xor i8 %k_load_13, %k_load_12
 
-ST_10: tmp_59 (83)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
-:30  %tmp_59 = add i4 -1, %tmp_23
+ST_10: tmp_63 (83)  [1/1] 0.80ns  loc: aescbc/src/aesecb.c:302
+:30  %tmp_63 = add i4 -1, %tmp_23
 
-ST_10: tmp_60 (84)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:31  %tmp_60 = zext i4 %tmp_59 to i64
+ST_10: tmp_64 (84)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:31  %tmp_64 = zext i4 %tmp_63 to i64
 
 ST_10: k_addr_14 (85)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:32  %k_addr_14 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_60
+:32  %k_addr_14 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_64
 
 ST_10: k_load_14 (86)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :33  %k_load_14 = load i8* %k_addr_14, align 1
 
-ST_10: tmp_61 (87)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:34  %tmp_61 = or i4 %tmp_23, 3
+ST_10: tmp_65 (87)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:34  %tmp_65 = or i4 %tmp_23, 3
 
-ST_10: tmp_62 (88)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:35  %tmp_62 = zext i4 %tmp_61 to i64
+ST_10: tmp_66 (88)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
+:35  %tmp_66 = zext i4 %tmp_65 to i64
 
 ST_10: k_addr_15 (89)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
-:36  %k_addr_15 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_62
+:36  %k_addr_15 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_66
 
 ST_10: k_load_15 (90)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :37  %k_load_15 = load i8* %k_addr_15, align 1
@@ -462,10 +462,10 @@ ST_10: k_load_15 (90)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 
  <State 11>: 3.76ns
 ST_11: StgValue_129 (62)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:302
-:9  store i8 %tmp_48, i8* %k_addr_9, align 1
+:9  store i8 %tmp_52, i8* %k_addr_9, align 1
 
 ST_11: StgValue_130 (72)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:302
-:19  store i8 %tmp_53, i8* %k_addr_11, align 1
+:19  store i8 %tmp_57, i8* %k_addr_11, align 1
 
 ST_11: k_load_14 (86)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :33  %k_load_14 = load i8* %k_addr_14, align 1
@@ -473,16 +473,16 @@ ST_11: k_load_14 (86)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 ST_11: k_load_15 (90)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:302
 :37  %k_load_15 = load i8* %k_addr_15, align 1
 
-ST_11: tmp_63 (91)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
-:38  %tmp_63 = xor i8 %k_load_15, %k_load_14
+ST_11: tmp_67 (91)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:302
+:38  %tmp_67 = xor i8 %k_load_15, %k_load_14
 
 
  <State 12>: 2.39ns
 ST_12: StgValue_134 (82)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:302
-:29  store i8 %tmp_58, i8* %k_addr_13, align 1
+:29  store i8 %tmp_62, i8* %k_addr_13, align 1
 
 ST_12: StgValue_135 (92)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:302
-:39  store i8 %tmp_63, i8* %k_addr_15, align 1
+:39  store i8 %tmp_67, i8* %k_addr_15, align 1
 
 ST_12: StgValue_136 (94)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:302
 :41  br label %1
@@ -509,11 +509,11 @@ ST_13: k_load_22 (124)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 
 
  <State 14>: 2.39ns
-ST_14: tmp_44 (98)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:304
-:2  %tmp_44 = zext i8 %k_load_16 to i64
+ST_14: tmp_48 (98)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:304
+:2  %tmp_48 = zext i8 %k_load_16 to i64
 
 ST_14: sbox_addr_4 (99)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:304
-:3  %sbox_addr_4 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_44
+:3  %sbox_addr_4 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_48
 
 ST_14: sbox_load_4 (100)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:304
 :4  %sbox_load_4 = load i8* %sbox_addr_4, align 1
@@ -524,11 +524,11 @@ ST_14: k_addr_17 (101)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:304
 ST_14: k_load_17 (102)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:304
 :6  %k_load_17 = load i8* %k_addr_17, align 1
 
-ST_14: tmp_65 (107)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:305
-:11  %tmp_65 = zext i8 %k_load_18 to i64
+ST_14: tmp_69 (107)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:305
+:11  %tmp_69 = zext i8 %k_load_18 to i64
 
 ST_14: sbox_addr_5 (108)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:305
-:12  %sbox_addr_5 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_65
+:12  %sbox_addr_5 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_69
 
 ST_14: sbox_load_5 (109)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:305
 :13  %sbox_load_5 = load i8* %sbox_addr_5, align 1
@@ -553,8 +553,8 @@ ST_15: sbox_load_4 (100)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:304
 ST_15: k_load_17 (102)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:304
 :6  %k_load_17 = load i8* %k_addr_17, align 1
 
-ST_15: tmp_64 (103)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:304
-:7  %tmp_64 = xor i8 %k_load_17, %sbox_load_4
+ST_15: tmp_68 (103)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:304
+:7  %tmp_68 = xor i8 %k_load_17, %sbox_load_4
 
 ST_15: sbox_load_5 (109)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:305
 :13  %sbox_load_5 = load i8* %sbox_addr_5, align 1
@@ -562,14 +562,14 @@ ST_15: sbox_load_5 (109)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:305
 ST_15: k_load_19 (111)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:305
 :15  %k_load_19 = load i8* %k_addr_19, align 1
 
-ST_15: tmp_66 (112)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:305
-:16  %tmp_66 = xor i8 %k_load_19, %sbox_load_5
+ST_15: tmp_70 (112)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:305
+:16  %tmp_70 = xor i8 %k_load_19, %sbox_load_5
 
-ST_15: tmp_67 (116)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:306
-:20  %tmp_67 = zext i8 %k_load_20 to i64
+ST_15: tmp_71 (116)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:306
+:20  %tmp_71 = zext i8 %k_load_20 to i64
 
 ST_15: sbox_addr_6 (117)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:306
-:21  %sbox_addr_6 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_67
+:21  %sbox_addr_6 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_71
 
 ST_15: sbox_load_6 (118)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:306
 :22  %sbox_load_6 = load i8* %sbox_addr_6, align 1
@@ -580,11 +580,11 @@ ST_15: k_addr_21 (119)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:306
 ST_15: k_load_21 (120)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:306
 :24  %k_load_21 = load i8* %k_addr_21, align 1
 
-ST_15: tmp_69 (125)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:307
-:29  %tmp_69 = zext i8 %k_load_22 to i64
+ST_15: tmp_73 (125)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:307
+:29  %tmp_73 = zext i8 %k_load_22 to i64
 
 ST_15: sbox_addr_7 (126)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:307
-:30  %sbox_addr_7 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_69
+:30  %sbox_addr_7 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %tmp_73
 
 ST_15: sbox_load_7 (127)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 :31  %sbox_load_7 = load i8* %sbox_addr_7, align 1
@@ -598,10 +598,10 @@ ST_15: k_load_23 (129)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 
  <State 16>: 3.76ns
 ST_16: StgValue_171 (104)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:304
-:8  store i8 %tmp_64, i8* %k_addr_17, align 1
+:8  store i8 %tmp_68, i8* %k_addr_17, align 1
 
 ST_16: StgValue_172 (113)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:305
-:17  store i8 %tmp_66, i8* %k_addr_19, align 1
+:17  store i8 %tmp_70, i8* %k_addr_19, align 1
 
 ST_16: sbox_load_6 (118)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:306
 :22  %sbox_load_6 = load i8* %sbox_addr_6, align 1
@@ -609,8 +609,8 @@ ST_16: sbox_load_6 (118)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:306
 ST_16: k_load_21 (120)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:306
 :24  %k_load_21 = load i8* %k_addr_21, align 1
 
-ST_16: tmp_68 (121)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:306
-:25  %tmp_68 = xor i8 %k_load_21, %sbox_load_6
+ST_16: tmp_72 (121)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:306
+:25  %tmp_72 = xor i8 %k_load_21, %sbox_load_6
 
 ST_16: sbox_load_7 (127)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 :31  %sbox_load_7 = load i8* %sbox_addr_7, align 1
@@ -618,16 +618,16 @@ ST_16: sbox_load_7 (127)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 ST_16: k_load_23 (129)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:307
 :33  %k_load_23 = load i8* %k_addr_23, align 1
 
-ST_16: tmp_70 (130)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:307
-:34  %tmp_70 = xor i8 %k_load_23, %sbox_load_7
+ST_16: tmp_74 (130)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:307
+:34  %tmp_74 = xor i8 %k_load_23, %sbox_load_7
 
 
  <State 17>: 2.39ns
 ST_17: StgValue_179 (122)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:306
-:26  store i8 %tmp_68, i8* %k_addr_21, align 1
+:26  store i8 %tmp_72, i8* %k_addr_21, align 1
 
 ST_17: StgValue_180 (131)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:307
-:35  store i8 %tmp_70, i8* %k_addr_23, align 1
+:35  store i8 %tmp_74, i8* %k_addr_23, align 1
 
 ST_17: StgValue_181 (132)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:309
 :36  br label %4
@@ -635,7 +635,7 @@ ST_17: StgValue_181 (132)  [1/1] 1.57ns  loc: aescbc/src/aesecb.c:309
 
  <State 18>: 4.11ns
 ST_18: i_1 (134)  [1/1] 0.00ns
-:0  %i_1 = phi i6 [ 20, %3 ], [ %i_29, %5 ]
+:0  %i_1 = phi i6 [ 20, %3 ], [ %i_33, %5 ]
 
 ST_18: tmp_24 (135)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
 :1  %tmp_24 = call i1 @_ssdm_op_BitSelect.i1.i6.i32(i6 %i_1, i32 5)
@@ -649,29 +649,29 @@ ST_18: StgValue_185 (137)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
 ST_18: tmp_25 (139)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
 :0  %tmp_25 = trunc i6 %i_1 to i5
 
-ST_18: tmp_71 (140)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
-:1  %tmp_71 = add i5 -4, %tmp_25
+ST_18: tmp_75 (140)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
+:1  %tmp_75 = add i5 -4, %tmp_25
 
-ST_18: tmp_72 (141)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:2  %tmp_72 = zext i5 %tmp_71 to i64
+ST_18: tmp_76 (141)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:2  %tmp_76 = zext i5 %tmp_75 to i64
 
 ST_18: k_addr_24 (142)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:3  %k_addr_24 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_72
+:3  %k_addr_24 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_76
 
 ST_18: k_load_24 (143)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :4  %k_load_24 = load i8* %k_addr_24, align 1
 
-ST_18: tmp_73 (144)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:5  %tmp_73 = zext i6 %i_1 to i64
+ST_18: tmp_77 (144)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:5  %tmp_77 = zext i6 %i_1 to i64
 
 ST_18: k_addr_25 (145)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:6  %k_addr_25 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_73
+:6  %k_addr_25 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_77
 
 ST_18: k_load_25 (146)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :7  %k_load_25 = load i8* %k_addr_25, align 1
 
-ST_18: i_29 (179)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
-:40  %i_29 = add i6 4, %i_1
+ST_18: i_33 (179)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
+:40  %i_33 = add i6 4, %i_1
 
 ST_18: StgValue_195 (182)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:312
 :0  ret i8 %y_20
@@ -684,29 +684,29 @@ ST_19: k_load_24 (143)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 ST_19: k_load_25 (146)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :7  %k_load_25 = load i8* %k_addr_25, align 1
 
-ST_19: tmp_74 (147)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
-:8  %tmp_74 = xor i8 %k_load_25, %k_load_24
+ST_19: tmp_78 (147)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
+:8  %tmp_78 = xor i8 %k_load_25, %k_load_24
 
-ST_19: tmp_75 (149)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
-:10  %tmp_75 = add i5 -3, %tmp_25
+ST_19: tmp_79 (149)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
+:10  %tmp_79 = add i5 -3, %tmp_25
 
-ST_19: tmp_76 (150)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:11  %tmp_76 = zext i5 %tmp_75 to i64
+ST_19: tmp_80 (150)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:11  %tmp_80 = zext i5 %tmp_79 to i64
 
 ST_19: k_addr_26 (151)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:12  %k_addr_26 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_76
+:12  %k_addr_26 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_80
 
 ST_19: k_load_26 (152)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :13  %k_load_26 = load i8* %k_addr_26, align 1
 
-ST_19: tmp_77 (153)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:14  %tmp_77 = or i5 %tmp_25, 1
+ST_19: tmp_81 (153)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:14  %tmp_81 = or i5 %tmp_25, 1
 
-ST_19: tmp_78 (154)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:15  %tmp_78 = zext i5 %tmp_77 to i64
+ST_19: tmp_82 (154)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:15  %tmp_82 = zext i5 %tmp_81 to i64
 
 ST_19: k_addr_27 (155)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:16  %k_addr_27 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_78
+:16  %k_addr_27 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_82
 
 ST_19: k_load_27 (156)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :17  %k_load_27 = load i8* %k_addr_27, align 1
@@ -719,29 +719,29 @@ ST_20: k_load_26 (152)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 ST_20: k_load_27 (156)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :17  %k_load_27 = load i8* %k_addr_27, align 1
 
-ST_20: tmp_79 (157)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
-:18  %tmp_79 = xor i8 %k_load_27, %k_load_26
+ST_20: tmp_83 (157)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
+:18  %tmp_83 = xor i8 %k_load_27, %k_load_26
 
-ST_20: tmp_80 (159)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
-:20  %tmp_80 = add i5 -2, %tmp_25
+ST_20: tmp_84 (159)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
+:20  %tmp_84 = add i5 -2, %tmp_25
 
-ST_20: tmp_81 (160)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:21  %tmp_81 = zext i5 %tmp_80 to i64
+ST_20: tmp_85 (160)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:21  %tmp_85 = zext i5 %tmp_84 to i64
 
 ST_20: k_addr_28 (161)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:22  %k_addr_28 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_81
+:22  %k_addr_28 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_85
 
 ST_20: k_load_28 (162)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :23  %k_load_28 = load i8* %k_addr_28, align 1
 
-ST_20: tmp_82 (163)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:24  %tmp_82 = or i5 %tmp_25, 2
+ST_20: tmp_86 (163)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:24  %tmp_86 = or i5 %tmp_25, 2
 
-ST_20: tmp_83 (164)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:25  %tmp_83 = zext i5 %tmp_82 to i64
+ST_20: tmp_87 (164)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:25  %tmp_87 = zext i5 %tmp_86 to i64
 
 ST_20: k_addr_29 (165)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:26  %k_addr_29 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_83
+:26  %k_addr_29 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_87
 
 ST_20: k_load_29 (166)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :27  %k_load_29 = load i8* %k_addr_29, align 1
@@ -754,29 +754,29 @@ ST_21: k_load_28 (162)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 ST_21: k_load_29 (166)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :27  %k_load_29 = load i8* %k_addr_29, align 1
 
-ST_21: tmp_84 (167)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
-:28  %tmp_84 = xor i8 %k_load_29, %k_load_28
+ST_21: tmp_88 (167)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
+:28  %tmp_88 = xor i8 %k_load_29, %k_load_28
 
-ST_21: tmp_85 (169)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
-:30  %tmp_85 = add i5 -1, %tmp_25
+ST_21: tmp_89 (169)  [1/1] 1.72ns  loc: aescbc/src/aesecb.c:309
+:30  %tmp_89 = add i5 -1, %tmp_25
 
-ST_21: tmp_86 (170)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:31  %tmp_86 = zext i5 %tmp_85 to i64
+ST_21: tmp_90 (170)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:31  %tmp_90 = zext i5 %tmp_89 to i64
 
 ST_21: k_addr_30 (171)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:32  %k_addr_30 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_86
+:32  %k_addr_30 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_90
 
 ST_21: k_load_30 (172)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :33  %k_load_30 = load i8* %k_addr_30, align 1
 
-ST_21: tmp_87 (173)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:34  %tmp_87 = or i5 %tmp_25, 3
+ST_21: tmp_91 (173)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:34  %tmp_91 = or i5 %tmp_25, 3
 
-ST_21: tmp_88 (174)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:35  %tmp_88 = zext i5 %tmp_87 to i64
+ST_21: tmp_92 (174)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
+:35  %tmp_92 = zext i5 %tmp_91 to i64
 
 ST_21: k_addr_31 (175)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
-:36  %k_addr_31 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_88
+:36  %k_addr_31 = getelementptr [32 x i8]* %k, i64 0, i64 %tmp_92
 
 ST_21: k_load_31 (176)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :37  %k_load_31 = load i8* %k_addr_31, align 1
@@ -784,10 +784,10 @@ ST_21: k_load_31 (176)  [2/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 
  <State 22>: 3.76ns
 ST_22: StgValue_229 (148)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:309
-:9  store i8 %tmp_74, i8* %k_addr_25, align 1
+:9  store i8 %tmp_78, i8* %k_addr_25, align 1
 
 ST_22: StgValue_230 (158)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:309
-:19  store i8 %tmp_79, i8* %k_addr_27, align 1
+:19  store i8 %tmp_83, i8* %k_addr_27, align 1
 
 ST_22: k_load_30 (172)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :33  %k_load_30 = load i8* %k_addr_30, align 1
@@ -795,16 +795,16 @@ ST_22: k_load_30 (172)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 ST_22: k_load_31 (176)  [1/2] 2.39ns  loc: aescbc/src/aesecb.c:309
 :37  %k_load_31 = load i8* %k_addr_31, align 1
 
-ST_22: tmp_89 (177)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
-:38  %tmp_89 = xor i8 %k_load_31, %k_load_30
+ST_22: tmp_93 (177)  [1/1] 1.37ns  loc: aescbc/src/aesecb.c:309
+:38  %tmp_93 = xor i8 %k_load_31, %k_load_30
 
 
  <State 23>: 2.39ns
 ST_23: StgValue_234 (168)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:309
-:29  store i8 %tmp_84, i8* %k_addr_29, align 1
+:29  store i8 %tmp_88, i8* %k_addr_29, align 1
 
 ST_23: StgValue_235 (178)  [1/1] 2.39ns  loc: aescbc/src/aesecb.c:309
-:39  store i8 %tmp_89, i8* %k_addr_31, align 1
+:39  store i8 %tmp_93, i8* %k_addr_31, align 1
 
 ST_23: StgValue_236 (180)  [1/1] 0.00ns  loc: aescbc/src/aesecb.c:309
 :41  br label %4
@@ -839,7 +839,7 @@ k_load_2     (load             ) [ 000100000000000000000000]
 k_addr_4     (getelementptr    ) [ 000100000000000000000000]
 k_addr_6     (getelementptr    ) [ 000100000000000000000000]
 k_addr       (getelementptr    ) [ 000011000000000000000000]
-tmp_38       (zext             ) [ 000000000000000000000000]
+tmp_42       (zext             ) [ 000000000000000000000000]
 sbox_addr_1  (getelementptr    ) [ 000010000000000000000000]
 k_addr_3     (getelementptr    ) [ 000011000000000000000000]
 k_load_4     (load             ) [ 000010000000000000000000]
@@ -849,11 +849,11 @@ sbox_addr    (getelementptr    ) [ 000001000000000000000000]
 k_load_1     (load             ) [ 000001000000000000000000]
 sbox_load_1  (load             ) [ 000000000000000000000000]
 k_load_3     (load             ) [ 000000000000000000000000]
-tmp_39       (xor              ) [ 000001000000000000000000]
-tmp_40       (zext             ) [ 000000000000000000000000]
+tmp_43       (xor              ) [ 000001000000000000000000]
+tmp_44       (zext             ) [ 000000000000000000000000]
 sbox_addr_2  (getelementptr    ) [ 000001000000000000000000]
 k_addr_5     (getelementptr    ) [ 000001100000000000000000]
-tmp_42       (zext             ) [ 000000000000000000000000]
+tmp_46       (zext             ) [ 000000000000000000000000]
 sbox_addr_3  (getelementptr    ) [ 000001000000000000000000]
 k_addr_7     (getelementptr    ) [ 000001100000000000000000]
 rc_read_1    (read             ) [ 000000000000000000000000]
@@ -864,10 +864,10 @@ StgValue_64  (store            ) [ 000000000000000000000000]
 StgValue_65  (store            ) [ 000000000000000000000000]
 sbox_load_2  (load             ) [ 000000000000000000000000]
 k_load_5     (load             ) [ 000000000000000000000000]
-tmp_41       (xor              ) [ 000000100000000000000000]
+tmp_45       (xor              ) [ 000000100000000000000000]
 sbox_load_3  (load             ) [ 000000000000000000000000]
 k_load_7     (load             ) [ 000000000000000000000000]
-tmp_43       (xor              ) [ 000000100000000000000000]
+tmp_47       (xor              ) [ 000000100000000000000000]
 y            (shl              ) [ 000000000000000000000000]
 tmp_21       (bitselect        ) [ 000000000000000000000000]
 tmp_1_i      (xor              ) [ 000000000000000000000000]
@@ -880,46 +880,46 @@ tmp_22       (bitselect        ) [ 000000011111100000000000]
 empty        (speclooptripcount) [ 000000000000000000000000]
 StgValue_82  (br               ) [ 000000000000000000000000]
 tmp_23       (trunc            ) [ 000000001110000000000000]
-tmp_45       (add              ) [ 000000000000000000000000]
-tmp_46       (zext             ) [ 000000000000000000000000]
+tmp_49       (add              ) [ 000000000000000000000000]
+tmp_50       (zext             ) [ 000000000000000000000000]
 k_addr_8     (getelementptr    ) [ 000000001000000000000000]
-tmp_47       (zext             ) [ 000000000000000000000000]
+tmp_51       (zext             ) [ 000000000000000000000000]
 k_addr_9     (getelementptr    ) [ 000000001111000000000000]
-i_28         (add              ) [ 000000111111100000000000]
+i_32         (add              ) [ 000000111111100000000000]
 k_addr_16    (getelementptr    ) [ 000000000000010000000000]
 k_addr_18    (getelementptr    ) [ 000000000000010000000000]
 k_load_8     (load             ) [ 000000000000000000000000]
 k_load_9     (load             ) [ 000000000000000000000000]
-tmp_48       (xor              ) [ 000000000111000000000000]
-tmp_49       (add              ) [ 000000000000000000000000]
-tmp_50       (zext             ) [ 000000000000000000000000]
+tmp_52       (xor              ) [ 000000000111000000000000]
+tmp_53       (add              ) [ 000000000000000000000000]
+tmp_54       (zext             ) [ 000000000000000000000000]
 k_addr_10    (getelementptr    ) [ 000000000100000000000000]
-tmp_51       (or               ) [ 000000000000000000000000]
-tmp_52       (zext             ) [ 000000000000000000000000]
+tmp_55       (or               ) [ 000000000000000000000000]
+tmp_56       (zext             ) [ 000000000000000000000000]
 k_addr_11    (getelementptr    ) [ 000000000111000000000000]
 k_load_10    (load             ) [ 000000000000000000000000]
 k_load_11    (load             ) [ 000000000000000000000000]
-tmp_53       (xor              ) [ 000000000011000000000000]
-tmp_54       (add              ) [ 000000000000000000000000]
-tmp_55       (zext             ) [ 000000000000000000000000]
+tmp_57       (xor              ) [ 000000000011000000000000]
+tmp_58       (add              ) [ 000000000000000000000000]
+tmp_59       (zext             ) [ 000000000000000000000000]
 k_addr_12    (getelementptr    ) [ 000000000010000000000000]
-tmp_56       (or               ) [ 000000000000000000000000]
-tmp_57       (zext             ) [ 000000000000000000000000]
+tmp_60       (or               ) [ 000000000000000000000000]
+tmp_61       (zext             ) [ 000000000000000000000000]
 k_addr_13    (getelementptr    ) [ 000000000011100000000000]
 k_load_12    (load             ) [ 000000000000000000000000]
 k_load_13    (load             ) [ 000000000000000000000000]
-tmp_58       (xor              ) [ 000000000001100000000000]
-tmp_59       (add              ) [ 000000000000000000000000]
-tmp_60       (zext             ) [ 000000000000000000000000]
+tmp_62       (xor              ) [ 000000000001100000000000]
+tmp_63       (add              ) [ 000000000000000000000000]
+tmp_64       (zext             ) [ 000000000000000000000000]
 k_addr_14    (getelementptr    ) [ 000000000001000000000000]
-tmp_61       (or               ) [ 000000000000000000000000]
-tmp_62       (zext             ) [ 000000000000000000000000]
+tmp_65       (or               ) [ 000000000000000000000000]
+tmp_66       (zext             ) [ 000000000000000000000000]
 k_addr_15    (getelementptr    ) [ 000000000001100000000000]
 StgValue_129 (store            ) [ 000000000000000000000000]
 StgValue_130 (store            ) [ 000000000000000000000000]
 k_load_14    (load             ) [ 000000000000000000000000]
 k_load_15    (load             ) [ 000000000000000000000000]
-tmp_63       (xor              ) [ 000000000000100000000000]
+tmp_67       (xor              ) [ 000000000000100000000000]
 StgValue_134 (store            ) [ 000000000000000000000000]
 StgValue_135 (store            ) [ 000000000000000000000000]
 StgValue_136 (br               ) [ 000000111111100000000000]
@@ -927,34 +927,34 @@ k_load_16    (load             ) [ 000000000000001000000000]
 k_load_18    (load             ) [ 000000000000001000000000]
 k_addr_20    (getelementptr    ) [ 000000000000001000000000]
 k_addr_22    (getelementptr    ) [ 000000000000001000000000]
-tmp_44       (zext             ) [ 000000000000000000000000]
+tmp_48       (zext             ) [ 000000000000000000000000]
 sbox_addr_4  (getelementptr    ) [ 000000000000000100000000]
 k_addr_17    (getelementptr    ) [ 000000000000000110000000]
-tmp_65       (zext             ) [ 000000000000000000000000]
+tmp_69       (zext             ) [ 000000000000000000000000]
 sbox_addr_5  (getelementptr    ) [ 000000000000000100000000]
 k_addr_19    (getelementptr    ) [ 000000000000000110000000]
 k_load_20    (load             ) [ 000000000000000100000000]
 k_load_22    (load             ) [ 000000000000000100000000]
 sbox_load_4  (load             ) [ 000000000000000000000000]
 k_load_17    (load             ) [ 000000000000000000000000]
-tmp_64       (xor              ) [ 000000000000000010000000]
+tmp_68       (xor              ) [ 000000000000000010000000]
 sbox_load_5  (load             ) [ 000000000000000000000000]
 k_load_19    (load             ) [ 000000000000000000000000]
-tmp_66       (xor              ) [ 000000000000000010000000]
-tmp_67       (zext             ) [ 000000000000000000000000]
+tmp_70       (xor              ) [ 000000000000000010000000]
+tmp_71       (zext             ) [ 000000000000000000000000]
 sbox_addr_6  (getelementptr    ) [ 000000000000000010000000]
 k_addr_21    (getelementptr    ) [ 000000000000000011000000]
-tmp_69       (zext             ) [ 000000000000000000000000]
+tmp_73       (zext             ) [ 000000000000000000000000]
 sbox_addr_7  (getelementptr    ) [ 000000000000000010000000]
 k_addr_23    (getelementptr    ) [ 000000000000000011000000]
 StgValue_171 (store            ) [ 000000000000000000000000]
 StgValue_172 (store            ) [ 000000000000000000000000]
 sbox_load_6  (load             ) [ 000000000000000000000000]
 k_load_21    (load             ) [ 000000000000000000000000]
-tmp_68       (xor              ) [ 000000000000000001000000]
+tmp_72       (xor              ) [ 000000000000000001000000]
 sbox_load_7  (load             ) [ 000000000000000000000000]
 k_load_23    (load             ) [ 000000000000000000000000]
-tmp_70       (xor              ) [ 000000000000000001000000]
+tmp_74       (xor              ) [ 000000000000000001000000]
 StgValue_179 (store            ) [ 000000000000000000000000]
 StgValue_180 (store            ) [ 000000000000000000000000]
 StgValue_181 (br               ) [ 000000000000000001111111]
@@ -963,45 +963,45 @@ tmp_24       (bitselect        ) [ 000000000000000000111111]
 empty_24     (speclooptripcount) [ 000000000000000000000000]
 StgValue_185 (br               ) [ 000000000000000000000000]
 tmp_25       (trunc            ) [ 000000000000000000011100]
-tmp_71       (add              ) [ 000000000000000000000000]
-tmp_72       (zext             ) [ 000000000000000000000000]
+tmp_75       (add              ) [ 000000000000000000000000]
+tmp_76       (zext             ) [ 000000000000000000000000]
 k_addr_24    (getelementptr    ) [ 000000000000000000010000]
-tmp_73       (zext             ) [ 000000000000000000000000]
+tmp_77       (zext             ) [ 000000000000000000000000]
 k_addr_25    (getelementptr    ) [ 000000000000000000011110]
-i_29         (add              ) [ 000000000000000001111111]
+i_33         (add              ) [ 000000000000000001111111]
 StgValue_195 (ret              ) [ 000000000000000000000000]
 k_load_24    (load             ) [ 000000000000000000000000]
 k_load_25    (load             ) [ 000000000000000000000000]
-tmp_74       (xor              ) [ 000000000000000000001110]
-tmp_75       (add              ) [ 000000000000000000000000]
-tmp_76       (zext             ) [ 000000000000000000000000]
+tmp_78       (xor              ) [ 000000000000000000001110]
+tmp_79       (add              ) [ 000000000000000000000000]
+tmp_80       (zext             ) [ 000000000000000000000000]
 k_addr_26    (getelementptr    ) [ 000000000000000000001000]
-tmp_77       (or               ) [ 000000000000000000000000]
-tmp_78       (zext             ) [ 000000000000000000000000]
+tmp_81       (or               ) [ 000000000000000000000000]
+tmp_82       (zext             ) [ 000000000000000000000000]
 k_addr_27    (getelementptr    ) [ 000000000000000000001110]
 k_load_26    (load             ) [ 000000000000000000000000]
 k_load_27    (load             ) [ 000000000000000000000000]
-tmp_79       (xor              ) [ 000000000000000000000110]
-tmp_80       (add              ) [ 000000000000000000000000]
-tmp_81       (zext             ) [ 000000000000000000000000]
+tmp_83       (xor              ) [ 000000000000000000000110]
+tmp_84       (add              ) [ 000000000000000000000000]
+tmp_85       (zext             ) [ 000000000000000000000000]
 k_addr_28    (getelementptr    ) [ 000000000000000000000100]
-tmp_82       (or               ) [ 000000000000000000000000]
-tmp_83       (zext             ) [ 000000000000000000000000]
+tmp_86       (or               ) [ 000000000000000000000000]
+tmp_87       (zext             ) [ 000000000000000000000000]
 k_addr_29    (getelementptr    ) [ 000000000000000000000111]
 k_load_28    (load             ) [ 000000000000000000000000]
 k_load_29    (load             ) [ 000000000000000000000000]
-tmp_84       (xor              ) [ 000000000000000000000011]
-tmp_85       (add              ) [ 000000000000000000000000]
-tmp_86       (zext             ) [ 000000000000000000000000]
+tmp_88       (xor              ) [ 000000000000000000000011]
+tmp_89       (add              ) [ 000000000000000000000000]
+tmp_90       (zext             ) [ 000000000000000000000000]
 k_addr_30    (getelementptr    ) [ 000000000000000000000010]
-tmp_87       (or               ) [ 000000000000000000000000]
-tmp_88       (zext             ) [ 000000000000000000000000]
+tmp_91       (or               ) [ 000000000000000000000000]
+tmp_92       (zext             ) [ 000000000000000000000000]
 k_addr_31    (getelementptr    ) [ 000000000000000000000011]
 StgValue_229 (store            ) [ 000000000000000000000000]
 StgValue_230 (store            ) [ 000000000000000000000000]
 k_load_30    (load             ) [ 000000000000000000000000]
 k_load_31    (load             ) [ 000000000000000000000000]
-tmp_89       (xor              ) [ 000000000000000000000001]
+tmp_93       (xor              ) [ 000000000000000000000001]
 StgValue_234 (store            ) [ 000000000000000000000000]
 StgValue_235 (store            ) [ 000000000000000000000000]
 StgValue_236 (br               ) [ 000000000000000001111111]
@@ -2047,7 +2047,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_48/8 tmp_53/9 tmp_58/10 tmp_63/11 tmp_74/19 tmp_79/20 tmp_84/21 tmp_89/22 "/>
+<opset="tmp_52/8 tmp_57/9 tmp_62/10 tmp_67/11 tmp_78/19 tmp_83/20 tmp_88/21 tmp_93/22 "/>
 </bind>
 </comp>
 
@@ -2059,7 +2059,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_64/15 tmp_68/16 "/>
+<opset="tmp_68/15 tmp_72/16 "/>
 </bind>
 </comp>
 
@@ -2071,7 +2071,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_66/15 tmp_70/16 "/>
+<opset="tmp_70/15 tmp_74/16 "/>
 </bind>
 </comp>
 
@@ -2101,7 +2101,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 <pin id="502" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_48 tmp_63 tmp_74 tmp_89 "/>
+<opset="tmp_52 tmp_67 tmp_78 tmp_93 "/>
 </bind>
 </comp>
 
@@ -2111,7 +2111,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 <pin id="508" dir="1" index="1" bw="8" slack="2"/>
 </pin_list>
 <bind>
-<opset="tmp_53 tmp_79 "/>
+<opset="tmp_57 tmp_83 "/>
 </bind>
 </comp>
 
@@ -2121,7 +2121,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 <pin id="513" dir="1" index="1" bw="8" slack="2"/>
 </pin_list>
 <bind>
-<opset="tmp_58 tmp_84 "/>
+<opset="tmp_62 tmp_88 "/>
 </bind>
 </comp>
 
@@ -2131,7 +2131,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 <pin id="518" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_64 tmp_68 "/>
+<opset="tmp_68 tmp_72 "/>
 </bind>
 </comp>
 
@@ -2141,18 +2141,18 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 <pin id="523" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_66 tmp_70 "/>
+<opset="tmp_70 tmp_74 "/>
 </bind>
 </comp>
 
-<comp id="526" class="1004" name="tmp_38_fu_526">
+<comp id="526" class="1004" name="tmp_42_fu_526">
 <pin_list>
 <pin id="527" dir="0" index="0" bw="8" slack="1"/>
 <pin id="528" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_38/3 "/>
+<opset="tmp_42/3 "/>
 </bind>
 </comp>
 
@@ -2167,7 +2167,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="536" class="1004" name="tmp_39_fu_536">
+<comp id="536" class="1004" name="tmp_43_fu_536">
 <pin_list>
 <pin id="537" dir="0" index="0" bw="8" slack="0"/>
 <pin id="538" dir="0" index="1" bw="8" slack="0"/>
@@ -2175,29 +2175,29 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_39/4 "/>
+<opset="tmp_43/4 "/>
 </bind>
 </comp>
 
-<comp id="542" class="1004" name="tmp_40_fu_542">
+<comp id="542" class="1004" name="tmp_44_fu_542">
 <pin_list>
 <pin id="543" dir="0" index="0" bw="8" slack="1"/>
 <pin id="544" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_40/4 "/>
+<opset="tmp_44/4 "/>
 </bind>
 </comp>
 
-<comp id="547" class="1004" name="tmp_42_fu_547">
+<comp id="547" class="1004" name="tmp_46_fu_547">
 <pin_list>
 <pin id="548" dir="0" index="0" bw="8" slack="1"/>
 <pin id="549" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_42/4 "/>
+<opset="tmp_46/4 "/>
 </bind>
 </comp>
 
@@ -2225,7 +2225,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="564" class="1004" name="tmp_41_fu_564">
+<comp id="564" class="1004" name="tmp_45_fu_564">
 <pin_list>
 <pin id="565" dir="0" index="0" bw="8" slack="0"/>
 <pin id="566" dir="0" index="1" bw="8" slack="0"/>
@@ -2233,11 +2233,11 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_41/5 "/>
+<opset="tmp_45/5 "/>
 </bind>
 </comp>
 
-<comp id="570" class="1004" name="tmp_43_fu_570">
+<comp id="570" class="1004" name="tmp_47_fu_570">
 <pin_list>
 <pin id="571" dir="0" index="0" bw="8" slack="0"/>
 <pin id="572" dir="0" index="1" bw="8" slack="0"/>
@@ -2245,7 +2245,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="tmp_43/5 "/>
+<opset="tmp_47/5 "/>
 </bind>
 </comp>
 
@@ -2323,7 +2323,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="616" class="1004" name="tmp_45_fu_616">
+<comp id="616" class="1004" name="tmp_49_fu_616">
 <pin_list>
 <pin id="617" dir="0" index="0" bw="3" slack="0"/>
 <pin id="618" dir="0" index="1" bw="4" slack="0"/>
@@ -2331,33 +2331,33 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_45/7 "/>
+<opset="tmp_49/7 "/>
 </bind>
 </comp>
 
-<comp id="622" class="1004" name="tmp_46_fu_622">
+<comp id="622" class="1004" name="tmp_50_fu_622">
 <pin_list>
 <pin id="623" dir="0" index="0" bw="4" slack="0"/>
 <pin id="624" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_46/7 "/>
+<opset="tmp_50/7 "/>
 </bind>
 </comp>
 
-<comp id="627" class="1004" name="tmp_47_fu_627">
+<comp id="627" class="1004" name="tmp_51_fu_627">
 <pin_list>
 <pin id="628" dir="0" index="0" bw="5" slack="0"/>
 <pin id="629" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_47/7 "/>
+<opset="tmp_51/7 "/>
 </bind>
 </comp>
 
-<comp id="632" class="1004" name="i_28_fu_632">
+<comp id="632" class="1004" name="i_32_fu_632">
 <pin_list>
 <pin id="633" dir="0" index="0" bw="4" slack="0"/>
 <pin id="634" dir="0" index="1" bw="5" slack="0"/>
@@ -2365,11 +2365,11 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_28/7 "/>
+<opset="i_32/7 "/>
 </bind>
 </comp>
 
-<comp id="638" class="1004" name="tmp_49_fu_638">
+<comp id="638" class="1004" name="tmp_53_fu_638">
 <pin_list>
 <pin id="639" dir="0" index="0" bw="3" slack="0"/>
 <pin id="640" dir="0" index="1" bw="4" slack="1"/>
@@ -2377,22 +2377,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_49/8 "/>
+<opset="tmp_53/8 "/>
 </bind>
 </comp>
 
-<comp id="643" class="1004" name="tmp_50_fu_643">
+<comp id="643" class="1004" name="tmp_54_fu_643">
 <pin_list>
 <pin id="644" dir="0" index="0" bw="4" slack="0"/>
 <pin id="645" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_50/8 "/>
+<opset="tmp_54/8 "/>
 </bind>
 </comp>
 
-<comp id="648" class="1004" name="tmp_51_fu_648">
+<comp id="648" class="1004" name="tmp_55_fu_648">
 <pin_list>
 <pin id="649" dir="0" index="0" bw="4" slack="1"/>
 <pin id="650" dir="0" index="1" bw="1" slack="0"/>
@@ -2400,22 +2400,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_51/8 "/>
+<opset="tmp_55/8 "/>
 </bind>
 </comp>
 
-<comp id="653" class="1004" name="tmp_52_fu_653">
+<comp id="653" class="1004" name="tmp_56_fu_653">
 <pin_list>
 <pin id="654" dir="0" index="0" bw="4" slack="0"/>
 <pin id="655" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_52/8 "/>
+<opset="tmp_56/8 "/>
 </bind>
 </comp>
 
-<comp id="658" class="1004" name="tmp_54_fu_658">
+<comp id="658" class="1004" name="tmp_58_fu_658">
 <pin_list>
 <pin id="659" dir="0" index="0" bw="2" slack="0"/>
 <pin id="660" dir="0" index="1" bw="4" slack="2"/>
@@ -2423,22 +2423,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_54/9 "/>
+<opset="tmp_58/9 "/>
 </bind>
 </comp>
 
-<comp id="663" class="1004" name="tmp_55_fu_663">
+<comp id="663" class="1004" name="tmp_59_fu_663">
 <pin_list>
 <pin id="664" dir="0" index="0" bw="4" slack="0"/>
 <pin id="665" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_55/9 "/>
+<opset="tmp_59/9 "/>
 </bind>
 </comp>
 
-<comp id="668" class="1004" name="tmp_56_fu_668">
+<comp id="668" class="1004" name="tmp_60_fu_668">
 <pin_list>
 <pin id="669" dir="0" index="0" bw="4" slack="2"/>
 <pin id="670" dir="0" index="1" bw="3" slack="0"/>
@@ -2446,22 +2446,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_56/9 "/>
+<opset="tmp_60/9 "/>
 </bind>
 </comp>
 
-<comp id="673" class="1004" name="tmp_57_fu_673">
+<comp id="673" class="1004" name="tmp_61_fu_673">
 <pin_list>
 <pin id="674" dir="0" index="0" bw="4" slack="0"/>
 <pin id="675" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_57/9 "/>
+<opset="tmp_61/9 "/>
 </bind>
 </comp>
 
-<comp id="678" class="1004" name="tmp_59_fu_678">
+<comp id="678" class="1004" name="tmp_63_fu_678">
 <pin_list>
 <pin id="679" dir="0" index="0" bw="1" slack="0"/>
 <pin id="680" dir="0" index="1" bw="4" slack="3"/>
@@ -2469,22 +2469,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_59/10 "/>
+<opset="tmp_63/10 "/>
 </bind>
 </comp>
 
-<comp id="683" class="1004" name="tmp_60_fu_683">
+<comp id="683" class="1004" name="tmp_64_fu_683">
 <pin_list>
 <pin id="684" dir="0" index="0" bw="4" slack="0"/>
 <pin id="685" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_60/10 "/>
+<opset="tmp_64/10 "/>
 </bind>
 </comp>
 
-<comp id="688" class="1004" name="tmp_61_fu_688">
+<comp id="688" class="1004" name="tmp_65_fu_688">
 <pin_list>
 <pin id="689" dir="0" index="0" bw="4" slack="3"/>
 <pin id="690" dir="0" index="1" bw="3" slack="0"/>
@@ -2492,62 +2492,62 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_61/10 "/>
+<opset="tmp_65/10 "/>
 </bind>
 </comp>
 
-<comp id="693" class="1004" name="tmp_62_fu_693">
+<comp id="693" class="1004" name="tmp_66_fu_693">
 <pin_list>
 <pin id="694" dir="0" index="0" bw="4" slack="0"/>
 <pin id="695" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_62/10 "/>
+<opset="tmp_66/10 "/>
 </bind>
 </comp>
 
-<comp id="698" class="1004" name="tmp_44_fu_698">
+<comp id="698" class="1004" name="tmp_48_fu_698">
 <pin_list>
 <pin id="699" dir="0" index="0" bw="8" slack="1"/>
 <pin id="700" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_44/14 "/>
+<opset="tmp_48/14 "/>
 </bind>
 </comp>
 
-<comp id="703" class="1004" name="tmp_65_fu_703">
+<comp id="703" class="1004" name="tmp_69_fu_703">
 <pin_list>
 <pin id="704" dir="0" index="0" bw="8" slack="1"/>
 <pin id="705" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_65/14 "/>
+<opset="tmp_69/14 "/>
 </bind>
 </comp>
 
-<comp id="708" class="1004" name="tmp_67_fu_708">
+<comp id="708" class="1004" name="tmp_71_fu_708">
 <pin_list>
 <pin id="709" dir="0" index="0" bw="8" slack="1"/>
 <pin id="710" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_67/15 "/>
+<opset="tmp_71/15 "/>
 </bind>
 </comp>
 
-<comp id="713" class="1004" name="tmp_69_fu_713">
+<comp id="713" class="1004" name="tmp_73_fu_713">
 <pin_list>
 <pin id="714" dir="0" index="0" bw="8" slack="1"/>
 <pin id="715" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_69/15 "/>
+<opset="tmp_73/15 "/>
 </bind>
 </comp>
 
@@ -2575,7 +2575,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="730" class="1004" name="tmp_71_fu_730">
+<comp id="730" class="1004" name="tmp_75_fu_730">
 <pin_list>
 <pin id="731" dir="0" index="0" bw="3" slack="0"/>
 <pin id="732" dir="0" index="1" bw="5" slack="0"/>
@@ -2583,33 +2583,33 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_71/18 "/>
+<opset="tmp_75/18 "/>
 </bind>
 </comp>
 
-<comp id="736" class="1004" name="tmp_72_fu_736">
+<comp id="736" class="1004" name="tmp_76_fu_736">
 <pin_list>
 <pin id="737" dir="0" index="0" bw="5" slack="0"/>
 <pin id="738" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_72/18 "/>
+<opset="tmp_76/18 "/>
 </bind>
 </comp>
 
-<comp id="741" class="1004" name="tmp_73_fu_741">
+<comp id="741" class="1004" name="tmp_77_fu_741">
 <pin_list>
 <pin id="742" dir="0" index="0" bw="6" slack="0"/>
 <pin id="743" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_73/18 "/>
+<opset="tmp_77/18 "/>
 </bind>
 </comp>
 
-<comp id="746" class="1004" name="i_29_fu_746">
+<comp id="746" class="1004" name="i_33_fu_746">
 <pin_list>
 <pin id="747" dir="0" index="0" bw="4" slack="0"/>
 <pin id="748" dir="0" index="1" bw="6" slack="0"/>
@@ -2617,11 +2617,11 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_29/18 "/>
+<opset="i_33/18 "/>
 </bind>
 </comp>
 
-<comp id="752" class="1004" name="tmp_75_fu_752">
+<comp id="752" class="1004" name="tmp_79_fu_752">
 <pin_list>
 <pin id="753" dir="0" index="0" bw="3" slack="0"/>
 <pin id="754" dir="0" index="1" bw="5" slack="1"/>
@@ -2629,22 +2629,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_75/19 "/>
+<opset="tmp_79/19 "/>
 </bind>
 </comp>
 
-<comp id="757" class="1004" name="tmp_76_fu_757">
+<comp id="757" class="1004" name="tmp_80_fu_757">
 <pin_list>
 <pin id="758" dir="0" index="0" bw="5" slack="0"/>
 <pin id="759" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_76/19 "/>
+<opset="tmp_80/19 "/>
 </bind>
 </comp>
 
-<comp id="762" class="1004" name="tmp_77_fu_762">
+<comp id="762" class="1004" name="tmp_81_fu_762">
 <pin_list>
 <pin id="763" dir="0" index="0" bw="5" slack="1"/>
 <pin id="764" dir="0" index="1" bw="1" slack="0"/>
@@ -2652,22 +2652,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_77/19 "/>
+<opset="tmp_81/19 "/>
 </bind>
 </comp>
 
-<comp id="767" class="1004" name="tmp_78_fu_767">
+<comp id="767" class="1004" name="tmp_82_fu_767">
 <pin_list>
 <pin id="768" dir="0" index="0" bw="5" slack="0"/>
 <pin id="769" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_78/19 "/>
+<opset="tmp_82/19 "/>
 </bind>
 </comp>
 
-<comp id="772" class="1004" name="tmp_80_fu_772">
+<comp id="772" class="1004" name="tmp_84_fu_772">
 <pin_list>
 <pin id="773" dir="0" index="0" bw="2" slack="0"/>
 <pin id="774" dir="0" index="1" bw="5" slack="2"/>
@@ -2675,22 +2675,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_80/20 "/>
+<opset="tmp_84/20 "/>
 </bind>
 </comp>
 
-<comp id="777" class="1004" name="tmp_81_fu_777">
+<comp id="777" class="1004" name="tmp_85_fu_777">
 <pin_list>
 <pin id="778" dir="0" index="0" bw="5" slack="0"/>
 <pin id="779" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_81/20 "/>
+<opset="tmp_85/20 "/>
 </bind>
 </comp>
 
-<comp id="782" class="1004" name="tmp_82_fu_782">
+<comp id="782" class="1004" name="tmp_86_fu_782">
 <pin_list>
 <pin id="783" dir="0" index="0" bw="5" slack="2"/>
 <pin id="784" dir="0" index="1" bw="3" slack="0"/>
@@ -2698,22 +2698,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_82/20 "/>
+<opset="tmp_86/20 "/>
 </bind>
 </comp>
 
-<comp id="787" class="1004" name="tmp_83_fu_787">
+<comp id="787" class="1004" name="tmp_87_fu_787">
 <pin_list>
 <pin id="788" dir="0" index="0" bw="5" slack="0"/>
 <pin id="789" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_83/20 "/>
+<opset="tmp_87/20 "/>
 </bind>
 </comp>
 
-<comp id="792" class="1004" name="tmp_85_fu_792">
+<comp id="792" class="1004" name="tmp_89_fu_792">
 <pin_list>
 <pin id="793" dir="0" index="0" bw="1" slack="0"/>
 <pin id="794" dir="0" index="1" bw="5" slack="3"/>
@@ -2721,22 +2721,22 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_85/21 "/>
+<opset="tmp_89/21 "/>
 </bind>
 </comp>
 
-<comp id="797" class="1004" name="tmp_86_fu_797">
+<comp id="797" class="1004" name="tmp_90_fu_797">
 <pin_list>
 <pin id="798" dir="0" index="0" bw="5" slack="0"/>
 <pin id="799" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_86/21 "/>
+<opset="tmp_90/21 "/>
 </bind>
 </comp>
 
-<comp id="802" class="1004" name="tmp_87_fu_802">
+<comp id="802" class="1004" name="tmp_91_fu_802">
 <pin_list>
 <pin id="803" dir="0" index="0" bw="5" slack="3"/>
 <pin id="804" dir="0" index="1" bw="3" slack="0"/>
@@ -2744,18 +2744,18 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="tmp_87/21 "/>
+<opset="tmp_91/21 "/>
 </bind>
 </comp>
 
-<comp id="807" class="1004" name="tmp_88_fu_807">
+<comp id="807" class="1004" name="tmp_92_fu_807">
 <pin_list>
 <pin id="808" dir="0" index="0" bw="5" slack="0"/>
 <pin id="809" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="tmp_88/21 "/>
+<opset="tmp_92/21 "/>
 </bind>
 </comp>
 
@@ -2849,13 +2849,13 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="857" class="1005" name="tmp_39_reg_857">
+<comp id="857" class="1005" name="tmp_43_reg_857">
 <pin_list>
 <pin id="858" dir="0" index="0" bw="8" slack="1"/>
 <pin id="859" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_39 "/>
+<opset="tmp_43 "/>
 </bind>
 </comp>
 
@@ -2899,23 +2899,23 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="882" class="1005" name="tmp_41_reg_882">
+<comp id="882" class="1005" name="tmp_45_reg_882">
 <pin_list>
 <pin id="883" dir="0" index="0" bw="8" slack="1"/>
 <pin id="884" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_41 "/>
+<opset="tmp_45 "/>
 </bind>
 </comp>
 
-<comp id="887" class="1005" name="tmp_43_reg_887">
+<comp id="887" class="1005" name="tmp_47_reg_887">
 <pin_list>
 <pin id="888" dir="0" index="0" bw="8" slack="1"/>
 <pin id="889" dir="1" index="1" bw="8" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_43 "/>
+<opset="tmp_47 "/>
 </bind>
 </comp>
 
@@ -2959,13 +2959,13 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="920" class="1005" name="i_28_reg_920">
+<comp id="920" class="1005" name="i_32_reg_920">
 <pin_list>
 <pin id="921" dir="0" index="0" bw="5" slack="0"/>
 <pin id="922" dir="1" index="1" bw="5" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_28 "/>
+<opset="i_32 "/>
 </bind>
 </comp>
 
@@ -3179,13 +3179,13 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 </bind>
 </comp>
 
-<comp id="1040" class="1005" name="i_29_reg_1040">
+<comp id="1040" class="1005" name="i_33_reg_1040">
 <pin_list>
 <pin id="1041" dir="0" index="0" bw="6" slack="0"/>
 <pin id="1042" dir="1" index="1" bw="6" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_29 "/>
+<opset="i_33 "/>
 </bind>
 </comp>
 
@@ -4017,7 +4017,7 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 	State 4
 		sbox_addr : 1
 		sbox_load : 2
-		tmp_39 : 1
+		tmp_43 : 1
 		sbox_addr_2 : 1
 		sbox_load_2 : 2
 		k_load_5 : 1
@@ -4025,46 +4025,46 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 		sbox_load_3 : 2
 		k_load_7 : 1
 	State 5
-		tmp_41 : 1
-		tmp_43 : 1
+		tmp_45 : 1
+		tmp_47 : 1
 	State 6
 	State 7
 		tmp_22 : 1
 		StgValue_82 : 2
 		tmp_23 : 1
-		tmp_45 : 2
-		tmp_46 : 3
+		tmp_49 : 2
+		tmp_50 : 3
 		k_addr_8 : 4
 		k_load_8 : 5
-		tmp_47 : 1
+		tmp_51 : 1
 		k_addr_9 : 2
 		k_load_9 : 3
-		i_28 : 1
+		i_32 : 1
 		k_load_16 : 1
 		k_load_18 : 1
 	State 8
-		tmp_48 : 1
-		tmp_50 : 1
+		tmp_52 : 1
+		tmp_54 : 1
 		k_addr_10 : 2
 		k_load_10 : 3
 		k_addr_11 : 1
 		k_load_11 : 2
 	State 9
-		tmp_53 : 1
-		tmp_55 : 1
+		tmp_57 : 1
+		tmp_59 : 1
 		k_addr_12 : 2
 		k_load_12 : 3
 		k_addr_13 : 1
 		k_load_13 : 2
 	State 10
-		tmp_58 : 1
-		tmp_60 : 1
+		tmp_62 : 1
+		tmp_64 : 1
 		k_addr_14 : 2
 		k_load_14 : 3
 		k_addr_15 : 1
 		k_load_15 : 2
 	State 11
-		tmp_63 : 1
+		tmp_67 : 1
 	State 12
 	State 13
 		k_load_20 : 1
@@ -4077,8 +4077,8 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 		sbox_load_5 : 2
 		k_load_19 : 1
 	State 15
-		tmp_64 : 1
-		tmp_66 : 1
+		tmp_68 : 1
+		tmp_70 : 1
 		sbox_addr_6 : 1
 		sbox_load_6 : 2
 		k_load_21 : 1
@@ -4086,44 +4086,44 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 		sbox_load_7 : 2
 		k_load_23 : 1
 	State 16
-		tmp_68 : 1
-		tmp_70 : 1
+		tmp_72 : 1
+		tmp_74 : 1
 	State 17
 	State 18
 		tmp_24 : 1
 		StgValue_185 : 2
 		tmp_25 : 1
-		tmp_71 : 2
-		tmp_72 : 3
+		tmp_75 : 2
+		tmp_76 : 3
 		k_addr_24 : 4
 		k_load_24 : 5
-		tmp_73 : 1
+		tmp_77 : 1
 		k_addr_25 : 2
 		k_load_25 : 3
-		i_29 : 1
+		i_33 : 1
 	State 19
-		tmp_74 : 1
-		tmp_76 : 1
+		tmp_78 : 1
+		tmp_80 : 1
 		k_addr_26 : 2
 		k_load_26 : 3
 		k_addr_27 : 1
 		k_load_27 : 2
 	State 20
-		tmp_79 : 1
-		tmp_81 : 1
+		tmp_83 : 1
+		tmp_85 : 1
 		k_addr_28 : 2
 		k_load_28 : 3
 		k_addr_29 : 1
 		k_load_29 : 2
 	State 21
-		tmp_84 : 1
-		tmp_86 : 1
+		tmp_88 : 1
+		tmp_90 : 1
 		k_addr_30 : 2
 		k_load_30 : 3
 		k_addr_31 : 1
 		k_load_31 : 2
 	State 22
-		tmp_89 : 1
+		tmp_93 : 1
 	State 23
 
 
@@ -4138,52 +4138,52 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 |          |      grp_fu_473      |    0    |    8    |
 |          |      grp_fu_479      |    0    |    8    |
 |          |      grp_fu_485      |    0    |    8    |
-|          |     tmp_39_fu_536    |    0    |    8    |
+|          |     tmp_43_fu_536    |    0    |    8    |
 |    xor   |      tmp1_fu_551     |    0    |    8    |
 |          |     tmp_s_fu_557     |    0    |    8    |
-|          |     tmp_41_fu_564    |    0    |    8    |
-|          |     tmp_43_fu_570    |    0    |    8    |
+|          |     tmp_45_fu_564    |    0    |    8    |
+|          |     tmp_47_fu_570    |    0    |    8    |
 |          |    tmp_1_i_fu_590    |    0    |    8    |
 |----------|----------------------|---------|---------|
-|          |     tmp_45_fu_616    |    0    |    4    |
-|          |      i_28_fu_632     |    0    |    5    |
-|          |     tmp_49_fu_638    |    0    |    4    |
-|          |     tmp_54_fu_658    |    0    |    4    |
-|    add   |     tmp_59_fu_678    |    0    |    4    |
-|          |     tmp_71_fu_730    |    0    |    5    |
-|          |      i_29_fu_746     |    0    |    6    |
-|          |     tmp_75_fu_752    |    0    |    5    |
-|          |     tmp_80_fu_772    |    0    |    5    |
-|          |     tmp_85_fu_792    |    0    |    5    |
+|          |     tmp_49_fu_616    |    0    |    4    |
+|          |      i_32_fu_632     |    0    |    5    |
+|          |     tmp_53_fu_638    |    0    |    4    |
+|          |     tmp_58_fu_658    |    0    |    4    |
+|    add   |     tmp_63_fu_678    |    0    |    4    |
+|          |     tmp_75_fu_730    |    0    |    5    |
+|          |      i_33_fu_746     |    0    |    6    |
+|          |     tmp_79_fu_752    |    0    |    5    |
+|          |     tmp_84_fu_772    |    0    |    5    |
+|          |     tmp_89_fu_792    |    0    |    5    |
 |----------|----------------------|---------|---------|
 |  select  |      y_20_fu_596     |    0    |    8    |
 |----------|----------------------|---------|---------|
 |   read   | rc_read_1_read_fu_92 |    0    |    0    |
 |----------|----------------------|---------|---------|
-|          |     tmp_38_fu_526    |    0    |    0    |
+|          |     tmp_42_fu_526    |    0    |    0    |
 |          |      tmp_fu_531      |    0    |    0    |
-|          |     tmp_40_fu_542    |    0    |    0    |
-|          |     tmp_42_fu_547    |    0    |    0    |
-|          |     tmp_46_fu_622    |    0    |    0    |
-|          |     tmp_47_fu_627    |    0    |    0    |
-|          |     tmp_50_fu_643    |    0    |    0    |
-|          |     tmp_52_fu_653    |    0    |    0    |
-|          |     tmp_55_fu_663    |    0    |    0    |
-|          |     tmp_57_fu_673    |    0    |    0    |
-|          |     tmp_60_fu_683    |    0    |    0    |
-|   zext   |     tmp_62_fu_693    |    0    |    0    |
-|          |     tmp_44_fu_698    |    0    |    0    |
-|          |     tmp_65_fu_703    |    0    |    0    |
-|          |     tmp_67_fu_708    |    0    |    0    |
-|          |     tmp_69_fu_713    |    0    |    0    |
-|          |     tmp_72_fu_736    |    0    |    0    |
-|          |     tmp_73_fu_741    |    0    |    0    |
-|          |     tmp_76_fu_757    |    0    |    0    |
-|          |     tmp_78_fu_767    |    0    |    0    |
-|          |     tmp_81_fu_777    |    0    |    0    |
-|          |     tmp_83_fu_787    |    0    |    0    |
-|          |     tmp_86_fu_797    |    0    |    0    |
-|          |     tmp_88_fu_807    |    0    |    0    |
+|          |     tmp_44_fu_542    |    0    |    0    |
+|          |     tmp_46_fu_547    |    0    |    0    |
+|          |     tmp_50_fu_622    |    0    |    0    |
+|          |     tmp_51_fu_627    |    0    |    0    |
+|          |     tmp_54_fu_643    |    0    |    0    |
+|          |     tmp_56_fu_653    |    0    |    0    |
+|          |     tmp_59_fu_663    |    0    |    0    |
+|          |     tmp_61_fu_673    |    0    |    0    |
+|          |     tmp_64_fu_683    |    0    |    0    |
+|   zext   |     tmp_66_fu_693    |    0    |    0    |
+|          |     tmp_48_fu_698    |    0    |    0    |
+|          |     tmp_69_fu_703    |    0    |    0    |
+|          |     tmp_71_fu_708    |    0    |    0    |
+|          |     tmp_73_fu_713    |    0    |    0    |
+|          |     tmp_76_fu_736    |    0    |    0    |
+|          |     tmp_77_fu_741    |    0    |    0    |
+|          |     tmp_80_fu_757    |    0    |    0    |
+|          |     tmp_82_fu_767    |    0    |    0    |
+|          |     tmp_85_fu_777    |    0    |    0    |
+|          |     tmp_87_fu_787    |    0    |    0    |
+|          |     tmp_90_fu_797    |    0    |    0    |
+|          |     tmp_92_fu_807    |    0    |    0    |
 |----------|----------------------|---------|---------|
 |    shl   |       y_fu_576       |    0    |    0    |
 |----------|----------------------|---------|---------|
@@ -4194,12 +4194,12 @@ StgValue_236 (br               ) [ 000000000000000001111111]
 |   trunc  |     tmp_23_fu_612    |    0    |    0    |
 |          |     tmp_25_fu_726    |    0    |    0    |
 |----------|----------------------|---------|---------|
-|          |     tmp_51_fu_648    |    0    |    0    |
-|          |     tmp_56_fu_668    |    0    |    0    |
-|    or    |     tmp_61_fu_688    |    0    |    0    |
-|          |     tmp_77_fu_762    |    0    |    0    |
-|          |     tmp_82_fu_782    |    0    |    0    |
-|          |     tmp_87_fu_802    |    0    |    0    |
+|          |     tmp_55_fu_648    |    0    |    0    |
+|          |     tmp_60_fu_668    |    0    |    0    |
+|    or    |     tmp_65_fu_688    |    0    |    0    |
+|          |     tmp_81_fu_762    |    0    |    0    |
+|          |     tmp_86_fu_782    |    0    |    0    |
+|          |     tmp_91_fu_802    |    0    |    0    |
 |----------|----------------------|---------|---------|
 |   Total  |                      |    0    |   127   |
 |----------|----------------------|---------|---------|
@@ -4212,8 +4212,8 @@ N/A
 |                    |   FF   |
 +--------------------+--------+
 |     i_1_reg_462    |    6   |
-|    i_28_reg_920    |    5   |
-|    i_29_reg_1040   |    6   |
+|    i_32_reg_920    |    5   |
+|    i_33_reg_1040   |    6   |
 |      i_reg_451     |    5   |
 |  k_addr_10_reg_935 |    5   |
 |  k_addr_11_reg_940 |    5   |
@@ -4265,9 +4265,9 @@ N/A
 |  sbox_addr_reg_852 |    8   |
 |   tmp_23_reg_899   |    4   |
 |   tmp_25_reg_1019  |    5   |
-|   tmp_39_reg_857   |    8   |
-|   tmp_41_reg_882   |    8   |
-|   tmp_43_reg_887   |    8   |
+|   tmp_43_reg_857   |    8   |
+|   tmp_45_reg_882   |    8   |
+|   tmp_47_reg_887   |    8   |
 |    y_20_reg_892    |    8   |
 +--------------------+--------+
 |        Total       |   351  |

@@ -24,56 +24,36 @@
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x30 : Data signal of mode
+// 0x10 : Data signal of mode
 //        bit 2~0 - mode[2:0] (Read/Write)
 //        others  - reserved
-// 0x34 : reserved
-// 0x10 ~
-// 0x1f : Memory 'data_in' (16 * 8b)
+// 0x14 : reserved
+// 0x20 ~
+// 0x3f : Memory 'data_in' (32 * 8b)
 //        Word n : bit [ 7: 0] - data_in[4n]
 //                 bit [15: 8] - data_in[4n+1]
 //                 bit [23:16] - data_in[4n+2]
 //                 bit [31:24] - data_in[4n+3]
-// 0x20 ~
-// 0x2f : Memory 'data_out' (16 * 8b)
+// 0x40 ~
+// 0x4f : Memory 'data_out' (16 * 8b)
 //        Word n : bit [ 7: 0] - data_out[4n]
 //                 bit [15: 8] - data_out[4n+1]
 //                 bit [23:16] - data_out[4n+2]
 //                 bit [31:24] - data_out[4n+3]
-// 0x40 ~
-// 0x5f : Memory 'key_in' (32 * 8b)
-//        Word n : bit [ 7: 0] - key_in[4n]
-//                 bit [15: 8] - key_in[4n+1]
-//                 bit [23:16] - key_in[4n+2]
-//                 bit [31:24] - key_in[4n+3]
-// 0x60 ~
-// 0x6f : Memory 'iv_in' (16 * 8b)
-//        Word n : bit [ 7: 0] - iv_in[4n]
-//                 bit [15: 8] - iv_in[4n+1]
-//                 bit [23:16] - iv_in[4n+2]
-//                 bit [31:24] - iv_in[4n+3]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XAESCBC_AXILITES_ADDR_AP_CTRL       0x00
 #define XAESCBC_AXILITES_ADDR_GIE           0x04
 #define XAESCBC_AXILITES_ADDR_IER           0x08
 #define XAESCBC_AXILITES_ADDR_ISR           0x0c
-#define XAESCBC_AXILITES_ADDR_MODE_DATA     0x30
+#define XAESCBC_AXILITES_ADDR_MODE_DATA     0x10
 #define XAESCBC_AXILITES_BITS_MODE_DATA     3
-#define XAESCBC_AXILITES_ADDR_DATA_IN_BASE  0x10
-#define XAESCBC_AXILITES_ADDR_DATA_IN_HIGH  0x1f
+#define XAESCBC_AXILITES_ADDR_DATA_IN_BASE  0x20
+#define XAESCBC_AXILITES_ADDR_DATA_IN_HIGH  0x3f
 #define XAESCBC_AXILITES_WIDTH_DATA_IN      8
-#define XAESCBC_AXILITES_DEPTH_DATA_IN      16
-#define XAESCBC_AXILITES_ADDR_DATA_OUT_BASE 0x20
-#define XAESCBC_AXILITES_ADDR_DATA_OUT_HIGH 0x2f
+#define XAESCBC_AXILITES_DEPTH_DATA_IN      32
+#define XAESCBC_AXILITES_ADDR_DATA_OUT_BASE 0x40
+#define XAESCBC_AXILITES_ADDR_DATA_OUT_HIGH 0x4f
 #define XAESCBC_AXILITES_WIDTH_DATA_OUT     8
 #define XAESCBC_AXILITES_DEPTH_DATA_OUT     16
-#define XAESCBC_AXILITES_ADDR_KEY_IN_BASE   0x40
-#define XAESCBC_AXILITES_ADDR_KEY_IN_HIGH   0x5f
-#define XAESCBC_AXILITES_WIDTH_KEY_IN       8
-#define XAESCBC_AXILITES_DEPTH_KEY_IN       32
-#define XAESCBC_AXILITES_ADDR_IV_IN_BASE    0x60
-#define XAESCBC_AXILITES_ADDR_IV_IN_HIGH    0x6f
-#define XAESCBC_AXILITES_WIDTH_IV_IN        8
-#define XAESCBC_AXILITES_DEPTH_IV_IN        16
 
