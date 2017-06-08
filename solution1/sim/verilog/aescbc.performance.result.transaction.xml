@@ -1,0 +1,7 @@
+                             latency        interval
+transaction       0:             806             744
+transaction       1:            2431            2369
+transaction       2:            2431            2369
+transaction       3:             869             807
+transaction       4:            2563            2501
+transaction       5:            2563               x

@@ -1,0 +1,22 @@
+0.6
+2016.4
+Jan 23 2017
+19:19:20
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/AESL_axi_slave_AXILiteS.v,1496921061,systemVerilog,,,,AESL_axi_slave_AXILiteS,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_addRoundKey.v,1496921030,systemVerilog,,,,aes_addRoundKey,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_decrypt_ecb.v,1496921031,systemVerilog,,,,aes_decrypt_ecb,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_decrypt_ecb_scud.v,1496921032,systemVerilog,,,,aes_decrypt_ecb_scud;aes_decrypt_ecb_scud_rom,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_encrypt_ecb.v,1496921031,systemVerilog,,,,aes_encrypt_ecb,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_expandDecKey.v,1496921030,systemVerilog,,,,aes_expandDecKey,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_expandDecKey_bkb.v,1496921032,systemVerilog,,,,aes_expandDecKey_bkb;aes_expandDecKey_bkb_rom,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_expandEncKey.v,1496921031,systemVerilog,,,,aes_expandEncKey,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_expandEncKey_dEe.v,1496921032,systemVerilog,,,,aes_expandEncKey_dEe;aes_expandEncKey_dEe_rom,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aes_mixColumns_inv.v,1496921030,systemVerilog,,,,aes_mixColumns_inv,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc.autotb.v,1496921061,systemVerilog,,,,apatb_aescbc_top,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc.v,1496921032,systemVerilog,,,,aescbc,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_AXILiteS_s_axi.v,1496921032,systemVerilog,,,,aescbc_AXILiteS_s_axi;aescbc_AXILiteS_s_axi_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_buf.v,1496921032,systemVerilog,,,,aescbc_buf;aescbc_buf_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_ctx_deckey.v,1496921032,systemVerilog,,,,aescbc_ctx_deckey;aescbc_ctx_deckey_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_ctx_enckey.v,1496921032,systemVerilog,,,,aescbc_ctx_enckey;aescbc_ctx_enckey_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_iv.v,1496921032,systemVerilog,,,,aescbc_iv;aescbc_iv_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/home/brett/Thesis/Vivado_WS/aescbc/solution1/sim/verilog/aescbc_key.v,1496921032,systemVerilog,,,,aescbc_key;aescbc_key_ram,/opt/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
