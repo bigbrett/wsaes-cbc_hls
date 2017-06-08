@@ -28,8 +28,13 @@ void aescbc(uint8_t data_in[DATA_SIZE],
 
     switch( mode ) {
     case RESET:
+    	// zero output
     	aescbc_label12:for(i=0; i<16; i++)
     		data_out[i] = 0;
+		aescbc_label4:for(i=0; i<32; i++)
+			key[i] = key_in[i];
+    	aescbc_label10:for(i=0; i<16; i++)
+    		iv[i] = iv_in[i];
     	aescbc_label11:for(i=0; i<16; i++)
     		xorv[i] = iv[i];
     	aes_init(&ctx, key);
@@ -72,13 +77,11 @@ void aescbc(uint8_t data_in[DATA_SIZE],
     	break;
 
     case SET_IV:
-    	aescbc_label10:for(i=0; i<16; i++)
-    		iv[i] = iv_in[i];
+
     	break;
 
     case SET_KEY:
-    	aescbc_label4:for(i=0; i<32; i++)
-    		key[i] = key_in[i];
+
     	break;
     }
 } 
