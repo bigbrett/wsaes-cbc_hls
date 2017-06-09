@@ -1,11 +1,9 @@
-.apc
-.vivado*
-.cproject
-.project
-.settings
-vivado_hls.app
-*.swp
-*.log
-*.jou
-*.sdb
-Debug
+# ignore everything
+*
+
+# except these files 
+!.gitignore
+solution1
+!solution1/impl/ip/drivers/aescbc_v1_0/src/xaes*
+
+!*/
